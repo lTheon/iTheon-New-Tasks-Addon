@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1251"?>
+
+<string_table>
+	<string id="esc_m_trader_task_new_tasks_addon_dead_night_name">
+		<text>Dead Night</text>
+	</string>
+	<string id="esc_m_trader_task_new_tasks_addon_dead_night_text">
+		<text>Loners are disappearing without a trace during the night in the Darkscape. Sidorovich asked me to find out what's going on.</text>
+	</string>
+	<string id="esc_m_trader_task_new_tasks_addon_dead_night_about">
+		<text>Our lads have reported that some Loners have disappeared recently on their way from the Darkscape sawmill to our village. The path was always relatively safe, so folks often traveled at night to avoid bandits and soliders. Their screams in the dark were heard by the guys staying at the sawmill, but noone was brave enough to risk their life trying to help them. The bodies of the missing stalkers have not been found after the dawn. Stalkers around here have gathered a small sum for someone willing to investigate what happened.</text>
+	</string>
+	<string id="esc_m_trader_task_new_tasks_addon_dead_night_finish">
+		<text>What a horrible fate... thank you for putting the dead to their final rest and making sure no more lads will join their forces. Here - you've earned it.</text>
+	</string>
+    <string id="dead_night_details">
+        <text>Investigate the place during the night</text>
+    </string>
+</string_table>

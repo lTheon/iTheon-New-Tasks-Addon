@@ -1,0 +1,20 @@
+;------------------------------------------------
+; Sidor - Dead Night
+[esc_m_trader_task_new_tasks_addon_dead_night]
+icon = ui_icons_face_controller4
+repeat_timeout = 172800
+
+title = esc_m_trader_task_new_tasks_addon_dead_night_name
+descr = esc_m_trader_task_new_tasks_addon_dead_night_text
+job_descr = esc_m_trader_task_new_tasks_addon_dead_night_about
+task_complete_descr = esc_m_trader_task_new_tasks_addon_dead_night_finish
+precondition = {-dead_night_started} true, false
+
+status_functor = dead_night_task_status_functor
+target_functor = dead_night_task_target_functor
+stage_complete = 2
+
+on_job_descr = %=dispatch_dead_night_details(esc_m_trader_task_new_tasks_addon_dead_night)%
+on_init = %+dead_night_started%
+on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(100:stalker) =dead_night_cleanup() -dead_night_started%
+on_fail = %=fail_task_dec_goodwill(50:stalker) =dead_night_cleanup()%

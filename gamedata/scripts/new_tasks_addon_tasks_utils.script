@@ -1,0 +1,25 @@
+-- Adapted the debugger code
+function spawn_at_position(position_vector, section, is_squad)
+    local gvid = db.actor:game_vertex_id()
+    local lvid = level.vertex_id(position_vector)
+
+    local se_obj = section and alife_create(section, position_vector, lvid, gvid)
+
+    if is_squad then
+        se_obj:create_npc(nil, position_vector, lvid, gvid)
+        local sim = alife()
+        for k in se_obj:squad_members() do
+            local se_npc = k.object or k.id and sim:object(k.id)
+            if (se_npc) then
+                SIMBOARD:setup_squad_and_group(se_npc)
+                SendScriptCallback("squad_on_npc_creation",se_obj,se_npc)
+            end
+        end
+    end
+
+    return se_obj.id
+end
+
+function is_dark_night ()
+	return level.get_time_hours() <= 3 or level.get_time_hours() >= 22
+end
