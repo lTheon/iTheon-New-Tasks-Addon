@@ -1,8 +1,5 @@
 -- Adapted the debugger code
-function spawn_at_position(position_vector, section, is_squad)
-    local gvid = db.actor:game_vertex_id()
-    local lvid = level.vertex_id(position_vector)
-
+function spawn_at_position(section, position_vector, lvid, gvid, is_squad)
     local se_obj = section and alife_create(section, position_vector, lvid, gvid)
 
     if is_squad then
@@ -23,3 +20,42 @@ end
 function is_dark_night ()
 	return level.get_time_hours() <= 3 or level.get_time_hours() >= 22
 end
+
+function spawn_helicopter(is_strong, pos, lvid, gvid)
+	local heli = "new_tasks_addon_heli_" .. (is_strong and "strong" or "weak")
+	local se_obj = alife_create(heli, pos, lvid, gvid)
+
+	local visual = utils_data.cfg_get_string(ini_sys, heli,"visual", se_obj, false)
+	local data = utils_stpk.get_heli_data(se_obj)
+	if (data) then
+		data.visual_name = visual and visual ~= "" and visual or [[dynamics\vehicles\mi2\veh_mi2_01]]
+		data.motion_name = [[helicopter\aaa.anm]]
+		data.startup_animation = "idle"
+		data.skeleton_name = "idle"
+		data.engine_sound = [[vehicles\helicopter\helicopter]]
+		utils_stpk.set_heli_data(data, se_obj)
+	else
+		safe_release_manager.release(se_obj)
+	end
+
+	return se_obj.id
+end
+
+function immediate_explosion(actor,obj)
+    if (obj) then
+        obj:explode(0)
+    end
+end
+
+function noop() end
+
+add_console_command("chopper", function() 
+    se_id = spawn_helicopter(true, vector():set(-178.07975769043,5.3180623054504,-181.78283691406))
+end)
+
+local landing_pad_vector = vector():set(-177.2140,7.0825,-179.6182)
+local landing_pad_lvid = 45538
+local landing_pad_gvid = 1037
+add_console_command("imm_expl", function() 
+    spawn_at_position("immediate_explosion_heli", landing_pad_vector, landing_pad_lvid, landing_pad_gvid, false)
+end)

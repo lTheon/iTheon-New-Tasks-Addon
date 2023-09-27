@@ -16,4 +16,36 @@
     <string id="dead_night_details">
         <text>Investigate the place during the night</text>
     </string>
+
+
+	<string id="mil_smart_terrain_7_7_freedom_leader_stalker_task_skyfall_name">
+		<text>Skyfall</text>
+	</string>
+	<string id="mil_smart_terrain_7_7_freedom_leader_stalker_task_skyfall_text">
+		<text>The military has received reinforcements in form of new Mi-24 helicopter that might be used for assaulting the old military warehouses where Freedom resides. Lukash has tasked me with taking down this flying beast. I should get to Agroprom as soon as possible.</text>
+	</string>
+	<string id="mil_smart_terrain_7_7_freedom_leader_stalker_task_skyfall_about">
+		<text>You know - the Duty is not our only problem around here. The army would also like to take back our base to set control over the center of the Zone. What's holding them back is resources stretched thin... or at least that was the case till recently. One of our squads was blasted to pieces by a Mi-24 helicopter. Only one man has lived to tell the story. We need to act before they gather more forces. \n \nNow - I won't say it's an easy mission... there's a big chance you'll not come out of it in one piece, but if you succeed, a good money will be waiting for you.</text>
+	</string>
+	<string id="mil_smart_terrain_7_7_freedom_leader_stalker_task_skyfall_finish">
+		<text>Now that's my man! I don't think we'll need to worry about those fuckers after they saw your fireworks.</text>
+	</string>
+    <string id="skyfall_details">
+        <text>Destroy the helicopter</text>
+    </string>
+	<string id="skyfall_stealth_message">
+        <text>You sneaky bastard! So you've decided to take care of it silently. I couldn't have planned it better myself! Now don't screw it and try to plant some explosives somewhere where noone will see them.</text>
+    </string>
+	<string id="skyfall_run_fail_message">
+        <text>So you've ran away... I had a feeling I've chosen the wrong person for this job...</text>
+    </string>
+	<string id="skyfall_confrontation_message">
+        <text>You think we can't see you, stalker? Coming here was your last mistake.</text>
+    </string>
+	<string id="skyfall_cover_blow_message">
+        <text>We've got a sneaky rat here!</text>
+    </string>
+	<string id="skyfall_blow_cover_run_message">
+        <text>I see you! You're not gonna get away, stalker!</text>
+    </string>
 </string_table>

@@ -5,55 +5,69 @@ function rand_section()
     return zombie_sections[math.random(1, #zombie_sections)]
 end
 
-local behind_big_rock = vector():set(-253.7397,2.6523,-331.2038)
-local behind_small_close_rock = vector():set(-240.9185,2.4278,-284.2235) -- between controller rock and GG
-local behind_far_rock = vector():set(-240.8737,0.8690,-265.4418) -- aka controller rock
-local behind_tree = vector():set(-202.7345,5.1276,-298.7419)
-local behind_close_bush = vector():set(-220.7921,3.9444,-341.8802)
-local behind_far_bush = vector():set(-188.9612,4.8440,-348.4596)
+local behind_big_rock = vector():set(-253.8789,2.6530,-330.5444)
+local behind_small_close_rock = vector():set(-238.5527,2.5418,-283.8648) -- between controller rock and GG
+local behind_far_rock = vector():set(-240.4750,0.8257,-264.7484) -- aka controller rock
+local behind_far_tree = vector():set(-211.2332,5.0780,-300.9323)
+local behind_close_tree = vector():set(-219.5053,4.0447,-340.5575)
+local behind_bush = vector():set(-206.0665,5.1084,-332.1737)
 
 
 
-local vector_configs = {
+local spawn_configs = {
     {
         vector = behind_big_rock,
+        lvid = 119466,
+        gvid = 1139,
         count_min = 7,
         count_max = 13,
         section_func = rand_section
     },
     {
         vector = behind_small_close_rock,
+        lvid = 129790,
+        gvid = 1140,
         count_min = 7,
         count_max = 13,
         section_func = rand_section
     },
     {
-        vector = behind_tree,
+        vector = behind_far_tree,
+        lvid = 152106,
+        gvid = 1159,
         count_min = 7,
         count_max = 13,
         section_func = rand_section
     },
     {
-        vector = behind_close_bush,
+        vector = behind_close_tree,
+        lvid = 144647,
+        gvid = 1137,
         count_min = 7,
         count_max = 13,
         section_func = rand_section
     },
 
     {
-        vector = behind_far_bush,
+        vector = behind_bush,
+        lvid = 157274,
+        gvid = 1160,
         count_min = 1,
         count_max = 1,
         section_func = function() return "zombie_blind" end
     },
     {
         vector = behind_far_rock,
+        lvid = 128321,
+        gvid = 1140,
         count_min = 1,
         count_max = 1,
         section_func = function() return "zombie_blind" end
     },
     {
         vector = behind_far_rock,
+        lvid = 128321,
+        gvid = 1140,
         count_min = 1,
         count_max = 1,
         section_func = function() return "m_controller_normal" end
@@ -100,6 +114,7 @@ task_status_functor.dead_night_task_status_functor = function(tsk,task_id)
             and new_tasks_addon_tasks_utils.is_dark_night()
         then
             tsk.stage = 1
+            level.add_pp_effector ("fade_in.ppe", 200, false)
             spawn()
         end
     end
@@ -114,12 +129,13 @@ task_status_functor.dead_night_task_status_functor = function(tsk,task_id)
 end
 
 function spawn()
-    for _, vector_config in pairs(vector_configs) do
-        for i=1,math.random(vector_config.count_min, vector_config.count_max) do
-            printf(vector_config.vector.x)
+    for _, spawn_config in pairs(spawn_configs) do
+        for i=1,math.random(spawn_config.count_min, spawn_config.count_max) do
             table.insert(state, new_tasks_addon_tasks_utils.spawn_at_position(
-                vector_config.vector,
-                vector_config.section_func(),
+                spawn_config.section_func(),
+                spawn_config.vector,
+                spawn_config.lvid,
+                spawn_config.gvid,
                 false
             ))
         end

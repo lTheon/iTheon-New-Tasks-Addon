@@ -1,0 +1,33 @@
+[new_tasks_addon_heli_strong]:simulation_helicopter_strong
+safe_altitude				= 1
+min_rocket_attack_dist		= 40
+velocity					= 45
+time_between_rocket_attack	= 30000 ;milliseconds
+combat_use_rocket			= true
+actor_always_enemy          = true
+
+[new_tasks_addon_heli_strong_static]:physic_destroyable_object
+visual                        = dynamics\vehicles\mi24\veh_mi24_u_02.ogf
+startup_animation             = idle
+fixed_bones                   = root
+script_binding                = tasks_skyfall.static_heli_binder
+
+[fake_explosive_barrel]:physic_object
+visual                        = dynamics\balon\bochka_fuel.ogf
+fixed_bones					  = barrel
+
+[immediate_explosion_heli]:explosive_grenade
+script_binding        = bind_physic_object.init
+custom_data           = scripts\immediate_explosion.ltx
+smoke_particles		  = damage_fx\heli_burn
+explode_particles	  = explosions\expl_mushroom_01
+snd_explode           = weapons\heli_explosion
+
+blast				= 8.0
+blast_r				= 13.5
+blast_impulse_factor = 1
+
+frags				= 66
+frags_r				= 30
+frag_hit			= 0.11
+frag_hit_impulse	= 51
