@@ -17,7 +17,6 @@
         <text>Investigate the place during the night</text>
     </string>
 
-
 	<string id="mil_smart_terrain_7_7_freedom_leader_stalker_task_skyfall_name">
 		<text>Skyfall</text>
 	</string>
@@ -47,5 +46,30 @@
     </string>
 	<string id="skyfall_blow_cover_run_message">
         <text>I see you! You're not gonna get away, stalker!</text>
+    </string>
+
+	<string id="bar_dolg_general_petrenko_stalker_task_hold_the_ground_name">
+		<text>Hold the Ground</text>
+	</string>
+	<string id="bar_dolg_general_petrenko_stalker_task_hold_the_ground_text">
+		<text>Bandits are preparing to storm the Garbage with big numbers and establish a full control over it. Petrenko asked me to bunker down at the Flea Market and push them back.</text>
+	</string>
+	<string id="bar_dolg_general_petrenko_stalker_task_hold_the_ground_about">
+		<text>Our scouts have reported a huge congregation of bandits close to the passage between the Dark Valley and Garbage. Letting them establish control over the Garbage is unacceptable. We do have problems with manpower though because of the damn hippies in the north... and that's why I'm going to send you on this mission alone. I know - it sounds like a madness, but you should receive some help from the loners that often visit that place, provided that they weren't already ambushed by some smaller detachment of bandits.</text>
+	</string>
+	<string id="bar_dolg_general_petrenko_stalker_task_hold_the_ground_finish">
+		<text>Great job, comrade! Here - this is for you.</text>
+	</string>
+	<string id="hold_the_ground_on_position_message">
+        <text>The enemy has started the advance! Prepare for battle, staker!</text>
+    </string>
+	<string id="hold_the_ground_defended_position_message">
+        <text>That should be the last of them. Report to me immediately stalker!</text>
+    </string>
+	<string id="hold_the_ground_run_fail_message">
+        <text>Pathetic... shouldn't have trusted you on this job</text>
+    </string>
+	<string id="hold_the_ground_details">
+        <text>Defend position</text>
     </string>
 </string_table>

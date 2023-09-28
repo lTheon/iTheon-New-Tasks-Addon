@@ -49,6 +49,19 @@ end
 
 function noop() end
 
+-- No invalid range check - expect to receive the right input
+function rand_with_exclusion(min, max, exclude)
+    local t = {}
+    for i = min, max do
+        if i ~= exclude then
+            table.insert(t, i)
+        end
+    end
+
+    local rand_i = math.random(#t)
+    return t[rand_i]
+end
+
 add_console_command("chopper", function() 
     se_id = spawn_helicopter(true, vector():set(-178.07975769043,5.3180623054504,-181.78283691406))
 end)

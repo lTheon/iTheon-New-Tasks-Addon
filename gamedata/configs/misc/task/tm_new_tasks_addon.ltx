@@ -37,3 +37,22 @@ on_job_descr = %=dispatch_skyfall_details(mil_smart_terrain_7_7_freedom_leader_s
 on_init = %+skyfall_started%
 on_complete = %=reward_random_money(15000:20000) =reward_stash(true) =complete_task_inc_goodwill(150:freedom) =skyfall_cleanup() -skyfall_started%
 on_fail = %=fail_task_dec_goodwill(75:freedom) =skyfall_cleanup() =skyfall_fail_message() -skyfall_started%
+
+[bar_dolg_general_petrenko_stalker_task_hold_the_ground]
+icon = ui_new_tasks_addon_bandit
+repeat_timeout = 172800
+
+title = bar_dolg_general_petrenko_stalker_task_hold_the_ground_name
+descr = bar_dolg_general_petrenko_stalker_task_hold_the_ground_text
+job_descr = bar_dolg_general_petrenko_stalker_task_hold_the_ground_about
+task_complete_descr = bar_dolg_general_petrenko_stalker_task_hold_the_ground_finish
+precondition = {-hold_the_ground_started} true, false
+
+status_functor = hold_the_ground_task_status_functor
+target_functor = hold_the_ground_task_target_functor
+stage_complete = 2
+
+on_job_descr = %=dispatch_hold_the_ground_details(bar_dolg_general_petrenko_stalker_task_hold_the_ground)%
+on_init = %+hold_the_ground_started%
+on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(75:dolg) =hold_the_ground_cleanup() -hold_the_ground_started%
+on_fail = %=fail_task_dec_goodwill(50:dolg) =hold_the_ground_cleanup() =hold_the_ground_fail_message() -hold_the_ground_started%

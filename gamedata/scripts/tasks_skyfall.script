@@ -117,7 +117,7 @@ end
 
 task_functor.skyfall_task_target_functor = function(task_id,field,p,tsk)
     if tsk.stage == 0 then
-        return db.zone_by_name["agr_smart_terrain_1_6_surge_hide_a4"]:id()
+        return SIMBOARD:get_smart_by_name("agr_smart_terrain_1_6").id
     end
 
     if tsk.stage == 1 then
@@ -199,7 +199,6 @@ end
 -- Take goodwill into account as well
 function is_enemies_with_military()
     local actor_comm = db.actor:character_community()
-    printf(relation_registry.community_relation(actor_comm, "army"))
     return (relation_registry.community_relation(actor_comm, "army") + relation_registry.community_goodwill("army", AC_ID)) <= game_relations.ENEMIES
 end
 
