@@ -72,4 +72,29 @@
 	<string id="hold_the_ground_details">
         <text>Defend position</text>
     </string>
+
+	<string id="cit_killers_merc_trader_stalker_task_no_step_back_name">
+		<text>No step back</text>
+	</string>
+	<string id="cit_killers_merc_trader_stalker_task_no_step_back_text">
+		<text>Mercenaries have been steadily loosing control over Limansk and Dushman is worried that the Dead City will soon be under attack by Monolith. I've got to take back the territory up to the bridge and destroy any possible reinforcements they might receive.</text>
+	</string>
+	<string id="cit_killers_merc_trader_stalker_task_no_step_back_about">
+		<text>Listen up mate - I've got a personal contract for you. The status quo in Limansk has been steadily shifting in favor of Monolith recently. We might have shinier gear, but they have weapon that we've been underestimating so far - zealotry.\n\nOur lucrative business around here might end soon - some of my contractors have already left this place, because they're afraid fanatics might come here any time. Here's the deal - go to Limansk and bring back the status quo - push Monolith back behind the bridge and destory any detachments that might try to cross it again.</text>
+	</string>
+	<string id="cit_killers_merc_trader_stalker_task_no_step_back_finish">
+		<text>Well done. Now we can go back to the business as usuall. Here - take it. I'll make it back in no time when the new contractors find out that it's safe here again.</text>
+	</string>
+	<string id="no_step_back_on_position_message">
+        <text>Our radars are showing an enormous group of Monolithians coming to reinforce the lost position. Brace yourself!</text>
+    </string>
+	<string id="no_step_back_defended_position_message">
+        <text>Great job, partner. Radars show no further hostile activity in the region. Now come - we have to talk.</text>
+    </string>
+	<string id="no_step_back_run_fail_message">
+        <text>You've just lost your contract mate. Should have hired real fighters...</text>
+    </string>
+	<string id="no_step_back_details">
+        <text>Defend position</text>
+    </string>
 </string_table>
