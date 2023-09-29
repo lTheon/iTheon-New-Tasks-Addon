@@ -31,6 +31,7 @@ end
 
 local state = {
     killed_squads = 0,
+    task_failed = false,
 }
 function save_state(mdata)
 	mdata.no_step_back_task_data = state
@@ -94,10 +95,12 @@ end
 xr_effects.no_step_back_cleanup = function()
     state = {
         killed_squads = 0,
+        task_failed = false,
     }
 end
 
 xr_effects.no_step_back_fail_message = function ()
+    state.task_failed = true
     dynamic_news_helper.send_tip(game.translate_string('no_step_back_run_fail_message'), game.translate_string("cit_killers_merc_trader_stalker_name"), nil,nil, 'ui_inGame2_merc_trade', nil, 'npc')
 end
 
@@ -117,7 +120,7 @@ end
 local last_spawn_point = nil
 xr_effects.on_no_step_back_squad_death = function()
     state.killed_squads = state.killed_squads + 1
-    if state.killed_squads <= 8 then
+    if state.killed_squads <= 8 and not state.task_failed then
         local next_spawn_index = last_spawn_point == 1 and 2 or 1
         spawn(next_spawn_index, spawn_points[next_spawn_index])
     end

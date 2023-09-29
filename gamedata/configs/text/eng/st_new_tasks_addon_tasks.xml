@@ -97,4 +97,20 @@
 	<string id="no_step_back_details">
         <text>Defend position</text>
     </string>
+
+	<string id="simulation_task_gambling_with_life_name">
+		<text>Gambling with life</text>
+	</string>
+	<string id="simulation_task_gambling_with_life_text">
+		<text>I've accepted a bet with a Freedomer that I'll kill a healthy bloodsucker using only a knife. Hippies on high have weird ideas, but money is money, so...</text>
+	</string>
+	<string id="simulation_task_gambling_with_life_about">
+		<text>Yesterday I've had a trip of my life with one of my dudes. I'm not sure where he took that shit from, but man... it was kicking as hell...\n\nAnyway - back on track. You see - we both like gambling and he came up with a fucked up dare. He said he'd bet a nice sum on anyone killing a bloodsucker using only a knife. One of our fellas - still high as fuck - overheard his talking and went out of the base that night. He never came back, but the bet still stands. Poor guy... wondering what happened to him...\n\nNow where was I? Ah, right - the bet! You seem like a tough guy. Wouldn't you like to try your luck? I'll mount a small camera on your suit so that I can later show that video to my pal. What - you didn't think that I'd tell you his name here, right? Want something for myself out of this as well.\n\nRemember - there's one catch - the mutant has to be healthy. My pal will be able to see any prior wounds on the video and there won't be a payout.</text>
+	</string>
+	<string id="simulation_task_gambling_with_life_finish">
+		<text>You've really impressed me, man! Now let me take this recording to my friend. Here's your share.</text>
+	</string>
+	<string id="gambling_with_life_details">
+        <text>Fulfill the bet</text>
+    </string>
 </string_table>

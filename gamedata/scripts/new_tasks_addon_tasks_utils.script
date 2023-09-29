@@ -49,6 +49,16 @@ end
 
 function noop() end
 
+function has_value(tab, val)
+    for index, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
+end
+
 -- No invalid range check - expect to receive the right input
 function rand_with_exclusion(min, max, exclude)
     local t = {}
