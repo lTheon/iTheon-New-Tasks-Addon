@@ -29,11 +29,8 @@ end
 task_status_functor.gambling_with_life_status_functor = function(tsk,task_id)
 	if not (db.actor and tsk) then return end
 	local stage = tsk.stage
-    printf("checking functor")
-    printf(stage)
 
 	if (stage == 0) then
-        printf("checking checking right stage")
         if state.succeeded then
             tsk.stage = 1
         end
@@ -69,10 +66,14 @@ function is_bloodsucker(monster)
     return string.find(monster:section(), "bloodsucker")
 end
 
+function is_axe()
+    local item = db.actor:active_item()
+    return item and string.find(item:section(), "axe")
+end
+
 function monster_on_before_hit(monster,shit)
     if is_bloodsucker(monster) then
-        if shit.draftsman:id() ~= AC_ID or not is_strike(shit) then
-            printf("setting to true")
+        if shit.draftsman:id() ~= AC_ID or not is_strike(shit) or is_axe() then
             state.monster_registry[monster:id()] = true
         end
     end
