@@ -100,3 +100,25 @@ on_job_descr = %=dispatch_gambling_with_life_details(simulation_task_gambling_wi
 on_init = %+simulation_task_gambling_with_life_started =gambling_with_life_cleanup()%
 on_complete = %=inc_goodwill_by_tasker_comm(simulation_task_gambling_with_life:50) =reward_random_money(8000:11000) -simulation_task_gambling_with_life_started%
 on_fail = %=dec_goodwill_by_tasker_id(simulation_task_gambling_with_life:25) -simulation_task_gambling_with_life_started%
+
+[simulation_task_vengence_amplified]
+icon = ui_inGame2_Ohota_na_Himeru
+storyline = false
+sim_communities = bandit
+repeat_timeout = 31600
+
+title = simulation_task_vengence_amplified_name
+descr = simulation_task_vengence_amplified_text
+job_descr = simulation_task_vengence_amplified_about
+task_complete_descr = simulation_task_vengence_amplified_finish
+precondition = {-simulation_task_vengence_amplified_started} true, false
+condlist_0 = {!task_giver_alive(simulation_task_vengence_amplified)} fail
+
+stage_complete = 1
+target_functor = vengence_amplified_target_functor
+status_functor = vengence_amplified_status_functor
+
+on_job_descr = %=dispatch_vengence_amplified_details(simulation_task_vengence_amplified)%
+on_init = %+simulation_task_vengence_amplified_started =vengence_amplified_cleanup()%
+on_complete = %=inc_goodwill_by_tasker_comm(simulation_task_vengence_amplified:50) =reward_random_money(8000:11000) -simulation_task_vengence_amplified_started%
+on_fail = %=dec_goodwill_by_tasker_id(simulation_task_vengence_amplified:25) -simulation_task_vengence_amplified_started%

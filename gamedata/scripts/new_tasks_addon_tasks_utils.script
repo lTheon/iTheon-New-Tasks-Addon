@@ -72,6 +72,16 @@ function rand_with_exclusion(min, max, exclude)
     return t[rand_i]
 end
 
+function is_strike(shit)
+    -- IDK why but for some reason hit.strike comes back as 7 sometimes. Something's really fucked up
+    return shit.type == 5
+end
+
+function is_axe()
+    local item = db.actor:active_item()
+    return item and string.find(item:section(), "axe")
+end
+
 add_console_command("chopper", function() 
     se_id = spawn_helicopter(true, vector():set(-178.07975769043,5.3180623054504,-181.78283691406))
 end)

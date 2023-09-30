@@ -113,4 +113,20 @@
 	<string id="gambling_with_life_details">
         <text>Fulfill the bet</text>
     </string>
+
+	<string id="simulation_task_vengence_amplified_name">
+		<text>Vengence amplified</text>
+	</string>
+	<string id="simulation_task_vengence_amplified_text">
+		<text>A bandit wants me to chop the chimera to pieces with an axe to avenge his friend. Taking on this task was probably a mistake...</text>
+	</string>
+	<string id="simulation_task_vengence_amplified_about">
+		<text>You've heard about chimeras, right? Fucking huge and ugly bastards... to hell with them all! They've sent a brother of mine to the other side. We were patroling the perimieter at night and we were ambushed by one of these abominations. It jumped straight at my brother and tore his leg off. His screams alarmed the rest of the camp and we've managed to fend off the beast. It took too long though and my brother died of the blood loss...\n\nHere's the deal - strap this camera to your suit and chop off the leg of one of these bastards! Or you know what? Chop it to pieces! I want to see it suffer the unbearable pain!\n\nThey're really tough, so it will be fine if just the finishing blow will be made with an axe.</text>
+	</string>
+	<string id="simulation_task_vengence_amplified_finish">
+		<text>You've been cruel in your methods, my friend. I appreciate it. Seeing the ferocity change into fear and the pain in the eyes of this beast made me feel... satisfied...</text>
+	</string>
+	<string id="vengence_amplified_details">
+        <text>Chop the beast to pieces</text>
+    </string>
 </string_table>
