@@ -129,4 +129,26 @@
 	<string id="vengence_amplified_details">
         <text>Chop the beast to pieces</text>
     </string>
+
+	<string id="yan_stalker_sakharov_task_brain_game_name">
+		<text>Brain game</text>
+	</string>
+	<string id="yan_stalker_sakharov_task_brain_game_text">
+		<text>Sakharov needs a controller with undamaged brain to perform further research on its psi abilities.</text>
+	</string>
+	<string id="yan_stalker_sakharov_task_brain_game_about">
+		<text>I'm always glad seeing young people so eager to contribute to scientific projects! You see - we've been researching the mysteries of the Zone for a very long time now and yet there's still so much to learn. One of the most fascinating and at the same time most dangerous marvels of the Zone are controllers. Stalkers usually tend to avoid confrontation with them and when it's inevitable, they - understandably so - want to eliminate it as soon as possible by shooting it to the head. That's why most of the brain samples we get are of very little use to us. It would be most appreciated if you'd kill one of these without damaging its brain and informed us of this event as soon as possible, so we can send a group that'd secure it and make sure it gets to us before its tissues start decomposing.</text>
+	</string>
+	<string id="yan_stalker_sakharov_task_brain_game_finish">
+		<text>Thank you for your contribution to our scientific community, young lad.</text>
+	</string>
+	<string id="brain_game_details">
+        <text>Hunt down the specimen</text>
+    </string>
+	<string id="brain_game_success_report">
+        <text>Professor - I've managed to get you the specimen that you requested. I'm sending over the coordinates.</text>
+    </string>
+	<string id="brain_game_success_response">
+        <text>Excellent job! I'll send one of our teams right away. Please do visit me at our bunker - your reward awaits.</text>
+    </string>
 </string_table>

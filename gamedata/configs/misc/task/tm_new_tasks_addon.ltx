@@ -77,6 +77,27 @@ on_init = %+no_step_back_started =no_step_back_init() =no_step_back_cleanup()%
 on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(75:killer) -no_step_back_started%
 on_fail = %=fail_task_dec_goodwill(50:killer) =no_step_back_fail_message() -no_step_back_started%
 
+[yan_stalker_sakharov_task_brain_game]
+icon = ui_icons_controller_face9
+storyline = false
+repeat_timeout = 31600
+
+title = yan_stalker_sakharov_task_brain_game_name
+descr = yan_stalker_sakharov_task_brain_game_text
+job_descr = yan_stalker_sakharov_task_brain_game_about
+task_complete_descr = yan_stalker_sakharov_task_brain_game_finish
+precondition = {-yan_stalker_sakharov_task_brain_game_started} true, false
+condlist_0 = {!task_giver_alive(yan_stalker_sakharov_task_brain_game)} fail
+
+stage_complete = 1
+target_functor = brain_game_target_functor
+status_functor = brain_game_status_functor
+
+on_job_descr = %=dispatch_brain_game_details(yan_stalker_sakharov_task_brain_game)%
+on_init = %+yan_stalker_sakharov_task_brain_game_started =brain_game_cleanup()%
+on_complete = %=complete_task_inc_goodwill(75:ecolog) =reward_random_money(8000:11000) -yan_stalker_sakharov_task_brain_game_started%
+on_fail = %=fail_task_dec_goodwill(50:ecolog) -yan_stalker_sakharov_task_brain_game_started%
+
 
 ;----------- General tasks ------------------
 [simulation_task_gambling_with_life]
