@@ -1,3 +1,4 @@
+;---------- Hold the ground ----------
 [bandit_defence_squad_novice]:bandit_sim_squad_novice
 npc_in_squad = 2, 3
 common		 = false
@@ -22,7 +23,7 @@ common		 = false
 target_smart = gar_smart_terrain_6_3
 on_death = %=on_flea_market_defense_squad_death()%
 
-
+;---------- No step back ----------
 [monolith_defence_squad_novice]:monolith_sim_squad_novice
 common		 = false
 target_smart = lim_smart_terrain_4
@@ -50,3 +51,8 @@ target_smart = lim_smart_terrain_5
 [monolith_defence_squad_advanced_init_spawn_bunkers]:monolith_sim_squad_advanced
 common		 = false
 target_smart = lim_smart_terrain_4
+
+;---------- Urgent orders ----------
+[urgent_orders_ecolog_sim_squad_novice]:ecolog_sim_squad_novice
+npc_in_squad = 2, 2
+common		 = false

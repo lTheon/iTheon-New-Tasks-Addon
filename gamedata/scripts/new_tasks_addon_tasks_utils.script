@@ -1,6 +1,6 @@
 -- Adapted the debugger code
 function spawn_at_position(section, position_vector, lvid, gvid, is_squad)
-    local se_obj = section and alife_create(section, position_vector, lvid, gvid)
+    local se_obj = alife_create(section, position_vector, lvid, gvid)
 
     if is_squad then
         se_obj:create_npc(nil, position_vector, lvid, gvid)
@@ -80,6 +80,40 @@ end
 function is_axe()
     local item = db.actor:active_item()
     return item and string.find(item:section(), "axe")
+end
+
+function spawn_companion_squad(sq_section, vector, lvid, gvid)
+    local id = spawn_at_position(sq_section, vector, lvid, gvid, true)
+    local squad = alife_object(id)
+
+    axr_companions.companion_squads[squad.id] = squad
+	for k in squad:squad_members() do
+		local se_obj = k.object or k.id and sim:object(k.id)
+		if (se_obj) then
+			se_save_var(se_obj.id,se_obj:name(),"companion",true)
+			se_save_var(se_obj.id,se_obj:name(),"companion_cannot_dismiss",true)
+			SIMBOARD:setup_squad_and_group(se_obj)
+		end
+	end
+
+    -- Add to ignore offline combat simulation list
+	sim_offline_combat.task_squads[squad.id] = true
+
+    return id
+end
+
+function squad_alive(id)
+    local sim = alife()
+    local squad = sim:object(id)
+
+    local alive = false
+    for k in squad:squad_members() do
+        local se_npc = k.object or k.id and sim:object(k.id)
+        if (se_npc:alive()) then
+            alive = true
+        end
+    end
+    return alive
 end
 
 add_console_command("chopper", function() 

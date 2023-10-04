@@ -151,4 +151,23 @@
 	<string id="brain_game_success_response">
         <text>Excellent job! I'll send one of our teams right away. Please do visit me at our bunker - your reward awaits.</text>
     </string>
+
+	<string id="bar_dolg_leader_task_urgent_orders_name">
+		<text>Urgent orders</text>
+	</string>
+	<string id="bar_dolg_leader_task_urgent_orders_text">
+		<text>A fellow Duty soldier has been critically wounded by a new type of bloodsucker and requires medical treatment from sciencists. I need to hurry up!</text>
+	</string>
+	<string id="bar_dolg_leader_task_urgent_orders_finish">
+		<text>Great job, solider! You've saved your brother in arms. Keep up the good work.</text>
+	</string>
+	<string id="bar_dolg_leader_task_urgent_orders_report">
+        <text>Soldier! This is General Voronin! I've got an urgent order for you. One of our brothers was wounded and poisoned by some new kind of bloodsucker. Our medic is not able to help him. I've contacted Professor Sakharov asking for help and there is a chance that his experimental medicine might help our brother.\n\nYou need to depart towards Yantar at once and escort a group sciencists to our base. Do not fail me, soldier!</text>
+    </string>
+	<string id="bar_dolg_leader_task_urgent_orders_sciencists_response">
+        <text>Greetings, lad! I've received information about your arrival from your general. My assistants have everything they need to cure your friend and will join you shortly.</text>
+    </string>
+	<string id="bar_dolg_leader_task_urgent_orders_fail">
+        <text>Our brother just gave his last breath. You've failed me, soldier... you've failed all of us.</text>
+    </string>
 </string_table>

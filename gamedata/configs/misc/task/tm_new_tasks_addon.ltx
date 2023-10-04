@@ -1,3 +1,23 @@
+;------------------ Special tasks (not received through a dialog) ------------------
+[bar_dolg_leader_task_urgent_orders]
+icon = ui_icons_scientists12
+condlist_0 = {!is_alive(bar_dolg_leader)} fail
+condlist_1 = {!is_alive(yan_stalker_sakharov)} fail
+precondition = false
+
+title = bar_dolg_leader_task_urgent_orders_name
+descr = bar_dolg_leader_task_urgent_orders_text
+job_descr = bar_dolg_leader_task_urgent_orders_about
+task_complete_descr = bar_dolg_leader_task_urgent_orders_finish
+
+status_functor = bar_dolg_leader_task_urgent_orders_status_functor
+target_functor = bar_dolg_leader_task_urgent_orders_target_functor
+stage_complete = 1
+
+on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(100:dolg) =bar_dolg_leader_task_urgent_orders_clear_eco_squad()%
+on_fail = %=fail_task_dec_goodwill(75:dolg) =bar_dolg_leader_task_urgent_orders_clear_eco_squad()%
+
+;------------------ Unique npc tasks ------------------
 [esc_m_trader_task_new_tasks_addon_dead_night]
 icon = ui_icons_face_controller4
 repeat_timeout = 172800
@@ -99,7 +119,7 @@ on_complete = %=complete_task_inc_goodwill(75:ecolog) =reward_random_money(8000:
 on_fail = %=fail_task_dec_goodwill(50:ecolog) -yan_stalker_sakharov_task_brain_game_started%
 
 
-;----------- General tasks ------------------
+;------------------ General tasks ------------------
 [simulation_task_gambling_with_life]
 icon = ui_inGame2_Ohota_na_Krovososov
 storyline = false
