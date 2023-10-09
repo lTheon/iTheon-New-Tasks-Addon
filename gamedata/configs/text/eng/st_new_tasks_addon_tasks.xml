@@ -80,7 +80,7 @@
 		<text>Mercenaries have been steadily loosing control over Limansk and Dushman is worried that the Dead City will soon be under attack by Monolith. I've got to take back the territory up to the bridge and destroy any possible reinforcements they might receive.</text>
 	</string>
 	<string id="cit_killers_merc_trader_stalker_task_no_step_back_about">
-		<text>Listen up mate - I've got a personal contract for you. The status quo in Limansk has been steadily shifting in favor of Monolith recently. We might have shinier gear, but they have weapon that we've been underestimating so far - zealotry.\n\nOur lucrative business around here might end soon - some of my contractors have already left this place, because they're afraid fanatics might come here any time. Here's the deal - go to Limansk and bring back the status quo - push Monolith back behind the bridge and destory any detachments that might try to cross it again.</text>
+		<text>Listen up mate - I've got a personal contract for you. The status quo in Limansk has been steadily shifting in favor of Monolith recently. We might have shinier gear, but they have weapon that we've been underestimating so far - zealotry.\n \nOur lucrative business around here might end soon - some of my contractors have already left this place, because they're afraid fanatics might come here any time. Here's the deal - go to Limansk and bring back the status quo - push Monolith back behind the bridge and destory any detachments that might try to cross it again.</text>
 	</string>
 	<string id="cit_killers_merc_trader_stalker_task_no_step_back_finish">
 		<text>Well done. Now we can go back to the business as usuall. Here - take it. I'll make it back in no time when the new contractors find out that it's safe here again.</text>
@@ -105,7 +105,7 @@
 		<text>I've accepted a bet with a Freedomer that I'll kill a healthy bloodsucker using only a knife. Hippies on high have weird ideas, but money is money, so...</text>
 	</string>
 	<string id="simulation_task_gambling_with_life_about">
-		<text>Yesterday I've had a trip of my life with one of my dudes. I'm not sure where he took that shit from, but man... it was kicking as hell...\n\nAnyway - back on track. You see - we both like gambling and he came up with a fucked up dare. He said he'd bet a nice sum on anyone killing a bloodsucker using only a knife. One of our fellas - still high as fuck - overheard his talking and went out of the base that night. He never came back, but the bet still stands. Poor guy... wondering what happened to him...\n\nNow where was I? Ah, right - the bet! You seem like a tough guy. Wouldn't you like to try your luck? I'll mount a small camera on your suit so that I can later show that video to my pal. What - you didn't think that I'd tell you his name here, right? Want something for myself out of this as well.\n\nRemember - there's one catch - the mutant has to be healthy. My pal will be able to see any prior wounds on the video and there won't be a payout.</text>
+		<text>Yesterday I've had a trip of my life with one of my dudes. I'm not sure where he took that shit from, but man... it was kicking as hell...\n \nAnyway - back on track. You see - we both like gambling and he came up with a fucked up dare. He said he'd bet a nice sum on anyone killing a bloodsucker using only a knife. One of our fellas - still high as fuck - overheard his talking and went out of the base that night. He never came back, but the bet still stands. Poor guy... wondering what happened to him...\n \nNow where was I? Ah, right - the bet! You seem like a tough guy. Wouldn't you like to try your luck? I'll mount a small camera on your suit so that I can later show that video to my pal. What - you didn't think that I'd tell you his name here, right? Want something for myself out of this as well.\n \nRemember - there's one catch - the mutant has to be healthy. My pal will be able to see any prior wounds on the video and there won't be a payout.</text>
 	</string>
 	<string id="simulation_task_gambling_with_life_finish">
 		<text>You've really impressed me, man! Now let me take this recording to my friend. Here's your share.</text>
@@ -121,7 +121,7 @@
 		<text>A bandit wants me to chop the chimera to pieces with an axe to avenge his friend. Taking on this task was probably a mistake...</text>
 	</string>
 	<string id="simulation_task_vengence_amplified_about">
-		<text>You've heard about chimeras, right? Fucking huge and ugly bastards... to hell with them all! They've sent a brother of mine to the other side. We were patroling the perimieter at night and we were ambushed by one of these abominations. It jumped straight at my brother and tore his leg off. His screams alarmed the rest of the camp and we've managed to fend off the beast. It took too long though and my brother died of the blood loss...\n\nHere's the deal - strap this camera to your suit and chop off the leg of one of these bastards! Or you know what? Chop it to pieces! I want to see it suffer the unbearable pain!\n\nThey're really tough, so it will be fine if just the finishing blow will be made with an axe.</text>
+		<text>You've heard about chimeras, right? Fucking huge and ugly bastards... to hell with them all! They've sent a brother of mine to the other side. We were patroling the perimieter at night and we were ambushed by one of these abominations. It jumped straight at my brother and tore his leg off. His screams alarmed the rest of the camp and we've managed to fend off the beast. It took too long though and my brother died of the blood loss...\n \nHere's the deal - strap this camera to your suit and chop off the leg of one of these bastards! Or you know what? Chop it to pieces! I want to see it suffer the unbearable pain!\n \nThey're really tough, so it will be fine if just the finishing blow will be made with an axe.</text>
 	</string>
 	<string id="simulation_task_vengence_amplified_finish">
 		<text>You've been cruel in your methods, my friend. I appreciate it. Seeing the ferocity change into fear and the pain in the eyes of this beast made me feel... satisfied...</text>
@@ -162,7 +162,7 @@
 		<text>Great job, solider! You've saved your brother in arms. Keep up the good work.</text>
 	</string>
 	<string id="bar_dolg_leader_task_urgent_orders_report">
-        <text>Soldier! This is General Voronin! I've got an urgent order for you. One of our brothers was wounded and poisoned by some new kind of bloodsucker. Our medic is not able to help him. I've contacted Professor Sakharov asking for help and there is a chance that his experimental medicine might help our brother.\n\nYou need to depart towards Yantar at once and escort a group sciencists to our base. Do not fail me, soldier!</text>
+        <text>Soldier! This is General Voronin! I've got an urgent order for you. One of our brothers was wounded and poisoned by some new kind of bloodsucker. Our medic is not able to help him. I've contacted Professor Sakharov asking for help and there is a chance that his experimental medicine might help our brother.\n \nYou need to depart towards Yantar at once and escort a group sciencists to our base. Do not fail me, soldier!</text>
     </string>
 	<string id="bar_dolg_leader_task_urgent_orders_sciencists_response">
         <text>Greetings, lad! I've received information about your arrival from your general. My assistants have everything they need to cure your friend and will join you shortly.</text>
@@ -178,12 +178,28 @@
 		<text>Great job, solider! You've saved your brother in arms. Dismissed.</text>
 	</string>
 	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_report">
-        <text>Soldier! This is Colonel Kuznetsov! I've got an urgent order for you. One of our brothers was wounded and poisoned by some new kind of bloodsucker. Our medic is not able to help him. I've contacted Professor Sakharov asking for help and there is a chance that his experimental medicine might help our brother.\n\nYou need to depart towards Yantar at once and escort a group sciencists to our base. Do not fail me, soldier!</text>
+        <text>Soldier! This is Colonel Kuznetsov! I've got an urgent order for you. One of our brothers was wounded and poisoned by some new kind of bloodsucker. Our medic is not able to help him. I've contacted Professor Sakharov asking for help and there is a chance that his experimental medicine might help our brother.\n \nYou need to depart towards Yantar at once and escort a group sciencists to our base. Do not fail me, soldier!</text>
     </string>
 	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_sciencists_response">
         <text>Greetings, lad! I've received information about your arrival from Colonel Kuznetsov. My assistants have everything they need to cure your friend and will join you shortly.</text>
     </string>
 	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_fail">
         <text>You're late, soldier... our medic just confirmed the demise. Pray for higher-in-command to not call for the court-martial.</text>
+    </string>
+
+	<string id="bar_visitors_barman_stalker_trader_task_baba_yaga_name">
+		<text>Baba Yaga</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_task_baba_yaga_text">
+		<text>Some stalkers have been observed to disappear in thin air at night around the Witches' Jelly anomaly trying to grab a seemingly free artifact. I need to investigate what's going on.</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_task_baba_yaga_about">
+		<text>When you're spending all your days in a place like this you hear a lot of interesting stories. Most of them are plain bullshit, but there's one that came from the Butcher himself. Man's quite a legend around here... tough guy made Garbage a habitable place... to an extent of course.\n \nNow to the story - right before calling it a day, the Butcher went outside of the hangar for a smoke. He saw a group of newbies from afar that stopped by the Witches' Jelly anomaly to pick up an artifact. After one of them reached out for it, they've disappeared in a brief flash. Their screams were heard from the woods for a few seconds. Butcher knew it's already too late to save them, so he stood there and waited. For a brief moment, he saw a thin silhouette of an elderly woman. He didn't feel like chasing a ghost at night, so he went there next day just to find bare bones of the stalkers. He tried to hunt down the monster during the day, but it never showed up. He warned all stalkers that passed by about it and that's how the story of Baba Yaga was born among the stalkers - you know... that scary old lady from children's tales living at the swamp or in the forest that abducts children venturing too far away from home.\n \nButcher has also paid me a visit recently. He was trying to find out what's haunting that place, but it seems like the monster is smart enough to avoid that killing machine. Since a lot more experienced stalkers visit Rostok, he asked me to find someone willing to deal with that hag. What do you say?</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_task_baba_yaga_finish">
+		<text>So the hag is real after all! The Zone will never stop to surprise me. You're saying you did not find the body? Too bad - let's hope she won't come back ever again.\n \n*muttering* Baba Yaga... holy fuck... *muttering*</text>
+	</string>
+	<string id="baba_yaga_details">
+        <text>Investigate the place during the night</text>
     </string>
 </string_table>

@@ -56,3 +56,25 @@ target_smart = lim_smart_terrain_4
 [urgent_orders_ecolog_sim_squad_novice]:ecolog_sim_squad_novice
 npc_in_squad = 2, 2
 common		 = false
+
+[baba_yaga_immunities]
+burn_immunity           = 0.0
+strike_immunity 		= 0.05
+shock_immunity          = 0.01
+wound_immunity 			= 0.05
+radiation_immunity 		= 0.0
+telepatic_immunity 		= 0.0
+chemical_burn_immunity  = 0.0
+explosion_immunity 		= 0.12
+fire_wound_immunity  	= 0.46
+
+;---------- Creatures define (hack, but works) ----------
+[baba_yaga]:zombie_wich
+Health              = 1000
+species             = arena_monstr
+immunities_sect		= baba_yaga_immunities
+
+Velocity_RunFwdNormal   = 3.3,    1.5,          1.2,         0.6,     2
+Velocity_RunFwdDamaged  = 3.3,    2.3,          2.3,         0.5,     1
+Velocity_WalkFwdNormal  = 2.0,    2.3,          2.3,         0.2,     2.0
+Velocity_WalkFwdDamaged = 2.0,    2.3,          2.3,         0.2,     2.0

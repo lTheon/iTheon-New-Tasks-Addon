@@ -134,6 +134,27 @@ on_init = %+yan_stalker_sakharov_task_brain_game_started =brain_game_cleanup()%
 on_complete = %=complete_task_inc_goodwill(75:ecolog) =reward_random_money(8000:11000) -yan_stalker_sakharov_task_brain_game_started%
 on_fail = %=fail_task_dec_goodwill(50:ecolog) -yan_stalker_sakharov_task_brain_game_started%
 
+[bar_visitors_barman_stalker_trader_task_baba_yaga]
+icon = ui_new_tasks_addon_swamp
+storyline = false
+repeat_timeout = 31600
+
+title = bar_visitors_barman_stalker_trader_task_baba_yaga_name
+descr = bar_visitors_barman_stalker_trader_task_baba_yaga_text
+job_descr = bar_visitors_barman_stalker_trader_task_baba_yaga_about
+task_complete_descr = bar_visitors_barman_stalker_trader_task_baba_yaga_finish
+precondition = {-bar_visitors_barman_stalker_trader_task_baba_yaga_started} true, false
+condlist_0 = {!task_giver_alive(bar_visitors_barman_stalker_trader_task_baba_yaga)} fail
+
+stage_complete = 3
+target_functor = baba_yaga_task_target_functor
+status_functor = baba_yaga_task_status_functor
+
+on_job_descr = %=dispatch_baba_yaga_details(bar_visitors_barman_stalker_trader_task_baba_yaga)%
+on_init = %+bar_visitors_barman_stalker_trader_task_baba_yaga_started =baba_yaga_cleanup()%
+on_complete = %=complete_task_inc_goodwill(75:stalker) =reward_random_money(8000:11000) -bar_visitors_barman_stalker_trader_task_baba_yaga_started%
+on_fail = %=fail_task_dec_goodwill(50:stalker) -bar_visitors_barman_stalker_trader_task_baba_yaga_started%
+
 
 ;------------------ General tasks ------------------
 [simulation_task_gambling_with_life]
