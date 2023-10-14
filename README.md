@@ -39,5 +39,5 @@ Freedom:
 Bandits:
 - Vengence amplified - finish-off chimera using an axe (can be damaged by anyone and with any weapon before)
 
-Contributors:
+Contributors:<br>
 JohnMcClane161 - rus translation
