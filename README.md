@@ -40,4 +40,5 @@ Bandits:
 - Vengence amplified - finish-off chimera using an axe (can be damaged by anyone and with any weapon before)
 
 Contributors:<br>
-[JohnMcClane161](https://github.com/JohnMcClane161) - rus translation and typos fix
+[JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
+El_Rosarino - Spanish translation
