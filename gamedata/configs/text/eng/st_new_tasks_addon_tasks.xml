@@ -8,7 +8,7 @@
 		<text>Loners are disappearing without a trace during the night in the Darkscape. Sidorovich asked me to find out what's going on.</text>
 	</string>
 	<string id="esc_m_trader_task_new_tasks_addon_dead_night_about">
-		<text>Our lads have reported that some Loners have disappeared recently on their way from the Darkscape sawmill to our village. The path was always relatively safe, so folks often traveled at night to avoid bandits and soliders. Their screams in the dark were heard by the guys staying at the sawmill, but noone was brave enough to risk their life trying to help them. The bodies of the missing stalkers have not been found after the dawn. Stalkers around here have gathered a small sum for someone willing to investigate what happened.</text>
+		<text>Our lads have reported that some Loners have disappeared recently on their way from the Darkscape sawmill to our village. The path was always relatively safe, so folks often traveled at night to avoid bandits and soldiers. Their screams in the dark were heard by the guys staying at the sawmill, but noone was brave enough to risk their life trying to help them. The bodies of the missing stalkers have not been found after the dawn. Stalkers around here have gathered a small sum for someone willing to investigate what happened.</text>
 	</string>
 	<string id="esc_m_trader_task_new_tasks_addon_dead_night_finish">
 		<text>What a horrible fate... thank you for putting the dead to their final rest and making sure no more lads will join their forces. Here - you've earned it.</text>
@@ -61,7 +61,7 @@
 		<text>Great job, comrade! Here - this is for you.</text>
 	</string>
 	<string id="hold_the_ground_on_position_message">
-        <text>The enemy has started the advance! Prepare for battle, staker!</text>
+        <text>The enemy has started the advance! Prepare for battle, stalker!</text>
     </string>
 	<string id="hold_the_ground_defended_position_message">
         <text>That should be the last of them. Report to me immediately stalker!</text>
@@ -156,13 +156,13 @@
 		<text>Urgent orders</text>
 	</string>
 	<string id="bar_dolg_leader_task_urgent_orders_text">
-		<text>A fellow Duty soldier has been critically wounded by a new type of bloodsucker and requires medical treatment from sciencists. I need to hurry up!</text>
+		<text>A fellow Duty soldier has been critically wounded by a new type of bloodsucker and requires medical treatment from scientists. I need to hurry up!</text>
 	</string>
 	<string id="bar_dolg_leader_task_urgent_orders_finish">
 		<text>Great job, solider! You've saved your brother in arms. Keep up the good work.</text>
 	</string>
 	<string id="bar_dolg_leader_task_urgent_orders_report">
-        <text>Soldier! This is General Voronin! I've got an urgent order for you. One of our brothers was wounded and poisoned by some new kind of bloodsucker. Our medic is not able to help him. I've contacted Professor Sakharov asking for help and there is a chance that his experimental medicine might help our brother.\n \nYou need to depart towards Yantar at once and escort a group sciencists to our base. Do not fail me, soldier!</text>
+        <text>Soldier! This is General Voronin! I've got an urgent order for you. One of our brothers was wounded and poisoned by some new kind of bloodsucker. Our medic is not able to help him. I've contacted Professor Sakharov asking for help and there is a chance that his experimental medicine might help our brother.\n \nYou need to depart towards Yantar at once and escort a group scientists to our base. Do not fail me, soldier!</text>
     </string>
 	<string id="bar_dolg_leader_task_urgent_orders_sciencists_response">
         <text>Greetings, lad! I've received information about your arrival from your general. My assistants have everything they need to cure your friend and will join you shortly.</text>
@@ -172,13 +172,13 @@
     </string>
 
 	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_text">
-		<text>A fellow soldier has been critically wounded by a new type of bloodsucker and requires medical treatment from sciencists. I need to hurry up!</text>
+		<text>A fellow soldier has been critically wounded by a new type of bloodsucker and requires medical treatment from scientists. I need to hurry up!</text>
 	</string>
 	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_finish">
 		<text>Great job, solider! You've saved your brother in arms. Dismissed.</text>
 	</string>
 	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_report">
-        <text>Soldier! This is Colonel Kuznetsov! I've got an urgent order for you. One of our brothers was wounded and poisoned by some new kind of bloodsucker. Our medic is not able to help him. I've contacted Professor Sakharov asking for help and there is a chance that his experimental medicine might help our brother.\n \nYou need to depart towards Yantar at once and escort a group sciencists to our base. Do not fail me, soldier!</text>
+        <text>Soldier! This is Colonel Kuznetsov! I've got an urgent order for you. One of our brothers was wounded and poisoned by some new kind of bloodsucker. Our medic is not able to help him. I've contacted Professor Sakharov asking for help and there is a chance that his experimental medicine might help our brother.\n \nYou need to depart towards Yantar at once and escort a group scientists to our base. Do not fail me, soldier!</text>
     </string>
 	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_sciencists_response">
         <text>Greetings, lad! I've received information about your arrival from Colonel Kuznetsov. My assistants have everything they need to cure your friend and will join you shortly.</text>
