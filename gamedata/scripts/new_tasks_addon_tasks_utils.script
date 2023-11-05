@@ -1,5 +1,5 @@
 -- Adapted the debugger code
-function spawn_at_position(section, position_vector, lvid, gvid, is_squad)
+function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle)
     local se_obj = alife_create(section, position_vector, lvid, gvid)
 
     if is_squad then
@@ -12,6 +12,10 @@ function spawn_at_position(section, position_vector, lvid, gvid, is_squad)
                 SendScriptCallback("squad_on_npc_creation",se_obj,se_npc)
             end
         end
+    end
+
+    if angle then
+        se_obj.angle = angle
     end
 
     return se_obj.id
@@ -126,3 +130,6 @@ local landing_pad_gvid = 1037
 add_console_command("imm_expl", function() 
     spawn_at_position("immediate_explosion_heli", landing_pad_vector, landing_pad_lvid, landing_pad_gvid, false)
 end)
+
+-- alife_object(level.get_target_obj():id()).angle = vector():set(0,0.27839148044586,0)
+-- printf(alife_object(level.get_target_obj():id()).angle.x .. ', ' .. alife_object(level.get_target_obj():id()).angle.y .. ', ' .. alife_object(level.get_target_obj():id()).angle.z)
