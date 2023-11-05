@@ -155,6 +155,27 @@ on_init = %+bar_visitors_barman_stalker_trader_task_baba_yaga_started =baba_yaga
 on_complete = %=complete_task_inc_goodwill(75:stalker) =reward_random_money(8000:11000) -bar_visitors_barman_stalker_trader_task_baba_yaga_started%
 on_fail = %=fail_task_dec_goodwill(50:stalker) -bar_visitors_barman_stalker_trader_task_baba_yaga_started%
 
+[mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors]
+icon = ui_new_tasks_addon_zombie
+storyline = false
+repeat_timeout = 31600
+
+title = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_name
+descr = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_text
+job_descr = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_about
+task_complete_descr = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_finish
+precondition = {-mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started} true, false
+condlist_0 = {!task_giver_alive(mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors)} fail
+
+stage_complete = 3
+target_functor = house_of_horrors_task_target_functor
+status_functor = house_of_horrors_task_status_functor
+
+on_job_descr = %=dispatch_house_of_horrors_details(mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors)%
+on_init = %+mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started =house_of_horrors_cleanup()%
+on_complete = %=complete_task_inc_goodwill(75:csky) =reward_random_money(8000:11000) -mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started%
+on_fail = %=fail_task_dec_goodwill(50:csky) -mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started%
+
 
 ;------------------ General tasks ------------------
 [simulation_task_gambling_with_life]

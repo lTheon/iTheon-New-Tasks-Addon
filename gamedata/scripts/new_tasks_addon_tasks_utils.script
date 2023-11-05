@@ -1,5 +1,5 @@
 -- Adapted the debugger code
-function spawn_at_position(section, position_vector, lvid, gvid, is_squad)
+function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle)
     local se_obj = alife_create(section, position_vector, lvid, gvid)
 
     if is_squad then
@@ -12,6 +12,10 @@ function spawn_at_position(section, position_vector, lvid, gvid, is_squad)
                 SendScriptCallback("squad_on_npc_creation",se_obj,se_npc)
             end
         end
+    end
+
+    if angle then
+        se_obj.angle = angle
     end
 
     return se_obj.id
@@ -125,22 +129,6 @@ local landing_pad_lvid = 45538
 local landing_pad_gvid = 1037
 add_console_command("imm_expl", function() 
     spawn_at_position("immediate_explosion_heli", landing_pad_vector, landing_pad_lvid, landing_pad_gvid, false)
-end)
-
-add_console_command("spawn_board", function() 
-    local c = {vector = vector():set(43.6599,2.9510,-233.3910), lvid = 165154, gvid = 13}
-    local id = spawn_at_position("wooden_board", c.vector, c.lvid, c.gvid, false)
-    local se_obj = alife_object(id)
-    local ang = vector():set(0, 0.79662138223648, 0)
-    se_obj.angle = ang
-end)
-
-add_console_command("spawn_hang", function() 
-    local c = {vector = vector():set(39.4740,4.6137,-246.1686), lvid = 163012, gvid = 13}
-    local id = spawn_at_position("hanged_man", c.vector, c.lvid, c.gvid, false)
-    local se_obj = alife_object(id)
-    local ang = vector():set(1.4887789487839, 3, -0.0059659997932613)
-    se_obj.angle = ang
 end)
 
 -- alife_object(level.get_target_obj():id()).angle = vector():set(0,0.27839148044586,0)

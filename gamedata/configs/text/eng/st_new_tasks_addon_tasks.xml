@@ -203,19 +203,19 @@
         <text>Investigate the place during the night</text>
     </string>
 
-	<string id="bar_visitors_barman_stalker_trader_task_baba_yaga_name">
+	<string id="mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_name">
 		<text>House of Horrors</text>
 	</string>
-	<string id="bar_visitors_barman_stalker_trader_task_baba_yaga_text">
+	<string id="mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_text">
 		<text>An eviscerated body of Clear Sky member has been found at the north-eastern checkpoint. Cold has asked me to find out what's prowling out there at night.</text>
 	</string>
-	<string id="bar_visitors_barman_stalker_trader_task_baba_yaga_about">
-		<text>You know - the swamp has always been a pretty dangerous place. We've fought hard to establish our base and safeguard the surroundings. Nowadays mutants rarely come close to us. Renegades are still assaulting our outer outpost from time to time, but they always regret their decisions.\n \nSomething weird has been happening around there lately. Our lads have been reporting mysterious barking and whispers coming out of nowhere. Since there were not mutants to be found around, we've been ignoring... till one of our sentries' massacred body has been found behind the building after going to take a piss at night and not coming back for a long time.\n \nI've remembered one thing then... Back in the time when Lebedev was our leader, one old-timer loner dropped by our bar and told a story about a peaceful family with a dog that used to live in that place before the Chernobyl accident. The man has also started hearing voices which have driven him to madness. He lost his mind and killed his whole family in the sleep, including the dog. Next day, after realising what he's done, he hanged himself... I have a bad feeling that these incidents might be connected. We still need to keep that place guarded, but I cannot risk losing another man. Are you willing to look into this thing?</text>
+	<string id="mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_about">
+		<text>You know - the swamp has always been a pretty dangerous place. We've fought hard to establish our base and safeguard the surroundings. Nowadays mutants rarely come close to us. Renegades are still assaulting our outer outpost from time to time, but they always regret their decisions.\n \nSpeaking of - something weird has been happening around there lately. Our lads have been reporting mysterious barking and whispers coming out of nowhere. Since there were not mutants to be found around, we've been ignoring... till one of our sentries' massacred body has been found behind the building after going to take a piss at night and not coming back for a long time.\n \nI've remembered one thing then... Back in the time when Lebedev was our leader, one old-timer loner dropped by our bar and told a story about a peaceful family with a dog that used to live in that place before the Chernobyl accident. The man has also started hearing voices which have driven him into madness. He lost his mind and killed his whole family in the sleep, including the dog. Next day, after realising what he's done, he hanged himself... I have a bad feeling that these incidents might be connected. We still need to keep that place guarded, but I cannot risk losing another man. Are you willing to look into this thing?</text>
 	</string>
-	<string id="bar_visitors_barman_stalker_trader_task_baba_yaga_finish">
+	<string id="mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_finish">
 		<text>I guess the old man was saying the truth then... what a story. We'll need to double our security there so it never happens again. Here - this is for you.</text>
 	</string>
-	<string id="baba_yaga_details">
+	<string id="house_of_horrors_details">
         <text>Investigate the place during the night</text>
     </string>
 </string_table>

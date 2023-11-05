@@ -57,6 +57,7 @@ target_smart = lim_smart_terrain_4
 npc_in_squad = 2, 2
 common		 = false
 
+;---------- Creatures define (hack, but works) ----------
 [baba_yaga_immunities]
 burn_immunity           = 0.0
 strike_immunity 		= 0.05
@@ -68,7 +69,6 @@ chemical_burn_immunity  = 0.0
 explosion_immunity 		= 0.12
 fire_wound_immunity  	= 0.46
 
-;---------- Creatures define (hack, but works) ----------
 [baba_yaga]:zombie_wich
 Health              = 1000
 species             = arena_monstr
@@ -78,3 +78,27 @@ Velocity_RunFwdNormal   = 3.3,    1.5,          1.2,         0.6,     2
 Velocity_RunFwdDamaged  = 3.3,    2.3,          2.3,         0.5,     1
 Velocity_WalkFwdNormal  = 2.0,    2.3,          2.3,         0.2,     2.0
 Velocity_WalkFwdDamaged = 2.0,    2.3,          2.3,         0.2,     2.0
+
+[house_of_horrors_zombie_immunities]
+burn_immunity           = 0.0
+strike_immunity 		= 0.05
+shock_immunity          = 0.01
+wound_immunity 			= 0.05
+radiation_immunity 		= 0.0
+telepatic_immunity 		= 0.0
+chemical_burn_immunity  = 0.0
+explosion_immunity 		= 0.10
+fire_wound_immunity  	= 0.30
+
+[house_of_horrors_zombie]:zombie_ghost
+Health              = 1000
+species             = arena_monstr
+immunities_sect		= house_of_horrors_zombie_immunities
+StartFakeDeathHealthThreshold	= 0.0
+
+psy_linear_factor		=	0.3		;0.4
+psy_quadratic_factor	=	0.0
+psy_max_distance		=	25.0
+psy_max_power			=	0.25
+psy_pp_effector_name	= 	psy_antenna
+psy_pp_highest_at		= 	0.1
