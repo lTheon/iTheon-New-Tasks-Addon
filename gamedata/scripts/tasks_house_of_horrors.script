@@ -128,7 +128,7 @@ function destroy_zombie()
     local se_obj = alife_object(state.zombie_id)
     particles:play_at_pos(se_obj.position)
     local snd = xr_sound.get_safe_sound_object("monsters\\poltergeist\\death_1")
-    snd:play(level.object_by_id(state.hanged_man_id), 0, sound_object.s2d)
+    snd:play(level.object_by_id(state.zombie_id), 0, sound_object.s2d)
     safe_release_manager.release({ id = state.zombie_id })
 end
 

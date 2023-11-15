@@ -18,7 +18,7 @@ end
 local state = {
     art_id = nil,
     was_teleported = false,
-    hag_id = nil
+    hag_id = nil,
 }
 function save_state(mdata)
 	mdata.baba_yaga_task_data = state
@@ -65,12 +65,10 @@ task_status_functor.baba_yaga_task_status_functor = function(tsk,task_id)
     end
 
     if stage == 2 then
-        local se_hag = alife_object(state.hag_id)
-
         if db.actor:position():distance_to(baba_yaga_configs.teleport_to_location.vector) > 35 then
             teleport()
         end
-        if not se_hag then
+        if not state.hag_id then
             tsk.stage = 3
         end
     end
@@ -128,14 +126,8 @@ xr_effects.baba_yaga_cleanup = function()
 end
 
 function teleport ()
-    teleport_visual()
+    nta_utils.teleport_visual()
     db.actor:set_actor_position(baba_yaga_configs.teleport_to_location.vector)
-end
-
-function teleport_visual()
-    level.add_pp_effector ("teleport.ppe", 2006, false)
-    local snd_obj = sound_object("affects\\tinnitus3a")
-    snd_obj:play_no_feedback(db.actor, sound_object.s2d, 0, VEC_ZERO, 1.0, 1.0)
 end
 
 function actor_on_item_take(item)
@@ -148,8 +140,9 @@ end
 
 function monster_on_death_callback(monster)
     if state.hag_id and monster:id() == state.hag_id then
-        teleport_visual()
+        nta_utils.teleport_visual()
         safe_release_manager.release({ id = state.hag_id })
+        state.hag_id = nil
     end
 end
 

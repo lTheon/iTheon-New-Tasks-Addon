@@ -218,4 +218,20 @@
 	<string id="house_of_horrors_details">
         <text>Investigate the place during the night</text>
     </string>
+
+	<string id="zat_a2_stalker_barmen_task_mirage_name">
+		<text>Mirage</text>
+	</string>
+	<string id="zat_a2_stalker_barmen_task_mirage_text">
+		<text>A rescued artifact hunter claims that he was shot by another stalker that looked exactly like him. Beard asked me to visit the place and have a look around.</text>
+	</string>
+	<string id="zat_a2_stalker_barmen_task_mirage_about">
+		<text>I've got a task for you. As you may already know, I always have some contracts from collectors for some rare artifacts and there's no better place to find them. One of my contractors has been recently brought back with a bullet in his guts after a trip to the Iron Forest. That bastard was lucky that someone catched his SOS signal. After waking up from anesthesia he said some unbelievable story.\n \nHe claims that when he was bowing down to pick up an artifact, he heard someone calling him. When he turned around, a person was standing not far behind him, aiming a gun straight at him. He immediately lost his shit when he realised that this person looked exactly like him, but didn't have time to panic, as right after that he took a bullet. After he fell and looked back again, the shooter was nowhere to be seen. He immediately sent an SOS and fainted not so long after. He was found by a squad that was not far from there. The rescuers were saying that they've all heard some whispers as they were leaving the place, but weren't so eager to find out what it was. Here's the deal - find out what's lurking in that place and you'll get some good money, eh?</text>
+	</string>
+	<string id="zat_a2_stalker_barmen_task_mirage_finish">
+		<text>Woah... I knew burers can manipulate the matter, but didn't expect they can do this to this extent! I don't think visitors will believe me when I'll tell them your story. Here, you've earned it.\n \nGood hunting, stalker... *laughs*</text>
+	</string>
+	<string id="mirage_details">
+        <text>Investigate the place</text>
+    </string>
 </string_table>
