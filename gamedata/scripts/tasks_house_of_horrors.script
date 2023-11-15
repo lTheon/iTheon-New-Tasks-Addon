@@ -182,6 +182,7 @@ function monster_on_death_callback(monster)
     if state.zombie_id and monster:id() == state.zombie_id then
         destroy_zombie()
         destroy_board()
+        state.zombie_id = nil
     end
 end
 
