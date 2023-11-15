@@ -57,6 +57,14 @@ target_smart = lim_smart_terrain_4
 npc_in_squad = 2, 2
 common		 = false
 
+;---------- Mirage ----------
+[mirage_squad]:online_offline_group
+faction = monolith
+npc			 = mirage_stalker
+npc_random 	= mirage_stalker
+npc_in_squad = 1, 1
+common			= false
+
 ;---------- Creatures define (hack, but works) ----------
 [baba_yaga_immunities]
 burn_immunity           = 0.0
@@ -102,3 +110,74 @@ psy_max_distance		=	25.0
 psy_max_power			=	0.25
 psy_pp_effector_name	= 	psy_antenna
 psy_pp_highest_at		= 	0.1
+
+[mirage_stalker]:sim_default_monolith_4
+; make him silent without circular dependency
+sound_death						=
+sound_anomaly_death				=
+sound_hit						=
+
+sound_humming					=
+sound_alarm						=
+sound_backup					=
+sound_detour					=
+sound_friendly_fire				=
+sound_panic_human				=
+sound_panic_monster				=
+sound_tolls						=
+sound_wounded					=
+sound_grenade_alarm				=
+sound_friendly_grenade_alarm	=
+sound_need_backup				=
+sound_running_in_danger			=
+sound_walking_in_danger			=
+sound_kill_wounded				=
+sound_enemy_critically_wounded	=
+sound_enemy_killed_or_wounded	=
+
+sound_attack_no_allies				=
+sound_attack_allies_single_enemy	=
+sound_attack_allies_several_enemies	=
+sound_search1_no_allies				=
+sound_search1_with_allies			=
+sound_enemy_lost_no_allies			=
+sound_enemy_lost_with_allies		=
+sound_throw_grenade					=
+
+[stalker_trader_controller]:m_controller_normal1111
+visual					= monsters\controller\stalker_trader_controller
+corpse_visual			= monsters\controller\stalker_trader_controller
+
+[big_burer_immunities]
+burn_immunity = 0.0
+strike_immunity = 0.12
+shock_immunity = 0.0
+wound_immunity				= 0.08
+radiation_immunity 			= 0.0
+telepatic_immunity 			= 0.0
+chemical_burn_immunity = 0.0
+explosion_immunity		= 0.25
+fire_wound_immunity		= 0.12
+
+[burer_big]:burer_normal
+visual					= monsters\burer\burer_big
+corpse_visual			= monsters\burer\burer_big
+immunities_sect			= big_burer_immunities
+
+; speed factors			linear | angular_real | angular_path | min |  max
+Velocity_Stand			= 0,		12.0,			12.0,		0.4,	1
+Velocity_RunFwdNormal	= 9.0,		5.0,			5.0,		0.4,	2
+Velocity_RunFwdDamaged	= 7.0,  	6.0,			6.0,		0.4,	2
+Velocity_WalkFwdNormal	= 3.2,		6.0,			6.0,		0.04,	3.0
+Velocity_WalkFwdDamaged	= 2.0,		6.0,			6.0,		1.0,	4.0
+Velocity_Drag			= 2.0,		6.0,			6.0,		2,		2
+Velocity_Steal			= 3.0,		6.0,			6.0,		2,		2
+
+
+; acceleration
+Accel_Generic			= 3
+Accel_Calm				= 3
+Accel_Aggressive		= 400 ;6.5
+
+MinAttackDist			= 3
+MaxAttackDist			= 5

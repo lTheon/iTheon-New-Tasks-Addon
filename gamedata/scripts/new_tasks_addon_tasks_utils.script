@@ -21,6 +21,18 @@ function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle
     return se_obj.id
 end
 
+-- Todo: check existing tasks that could use it to decrease amount of code
+function spawn_helper(spawn_config)
+    return spawn_at_position(
+        spawn_config.section,
+        spawn_config.vector,
+        spawn_config.lvid,
+        spawn_config.gvid,
+        spawn_config.is_squad,
+        spawn_config.angle
+    )
+end
+
 function is_dark_night ()
 	return level.get_time_hours() <= 3 or level.get_time_hours() >= 22
 end
@@ -86,6 +98,16 @@ function is_axe()
     return item and string.find(item:section(), "axe")
 end
 
+function is_melee(item)
+    return string.find(item:section(), "axe") or string.find(item:section(), "knife")
+end
+
+function teleport_visual()
+    level.add_pp_effector ("teleport.ppe", 2006, false)
+    local snd_obj = sound_object("affects\\tinnitus3a")
+    snd_obj:play_no_feedback(db.actor, sound_object.s2d, 0, VEC_ZERO, 1.0, 1.0)
+end
+
 function spawn_companion_squad(sq_section, vector, lvid, gvid)
     local id = spawn_at_position(sq_section, vector, lvid, gvid, true)
     local squad = alife_object(id)
@@ -120,15 +142,48 @@ function squad_alive(id)
     return alive
 end
 
+local earthquake_cam_eff = 3
+function earthquake_screen_effect_gradual(duration_multiplier)
+    local phase_duration_multiplier = duration_multiplier or 2
+    local effector_names = {
+        "camera_effects\\earthquake_20.anm",
+        "camera_effects\\earthquake_40.anm",
+        "camera_effects\\earthquake_60.anm",
+        "camera_effects\\earthquake_80.anm",
+        "camera_effects\\earthquake.anm",
+        "camera_effects\\earthquake_80.anm",
+        "camera_effects\\earthquake_60.anm",
+        "camera_effects\\earthquake_40.anm",
+        "camera_effects\\earthquake_20.anm"
+    }
+
+
+
+    for index, name in ipairs(effector_names) do
+        CreateTimeEvent(0,"nta_earthquake_screen_" .. index, (index - 1) * phase_duration_multiplier, function ()
+            level.remove_cam_effector(earthquake_cam_eff)
+            level.add_cam_effector(name, earthquake_cam_eff, true, "", 0, false)
+            return true
+        end)
+    end
+
+    CreateTimeEvent(0,"nta_earthquake_screen_remove", #effector_names * phase_duration_multiplier, function ()
+        level.remove_cam_effector(earthquake_cam_eff)
+        return true
+    end)
+end
+
+function earthquake_screen_effect_strong(duration)
+    level.add_cam_effector("camera_effects\\earthquake.anm", earthquake_cam_eff, true, "", 0, false)
+
+    CreateTimeEvent(0,"nta_earthquake_screen_remove", duration or 6, function ()
+        level.remove_cam_effector(earthquake_cam_eff)
+        return true
+    end)
+end
+
 add_console_command("chopper", function() 
     se_id = spawn_helicopter(true, vector():set(-178.07975769043,5.3180623054504,-181.78283691406))
-end)
-
-local landing_pad_vector = vector():set(-177.2140,7.0825,-179.6182)
-local landing_pad_lvid = 45538
-local landing_pad_gvid = 1037
-add_console_command("imm_expl", function() 
-    spawn_at_position("immediate_explosion_heli", landing_pad_vector, landing_pad_lvid, landing_pad_gvid, false)
 end)
 
 -- alife_object(level.get_target_obj():id()).angle = vector():set(0,0.27839148044586,0)

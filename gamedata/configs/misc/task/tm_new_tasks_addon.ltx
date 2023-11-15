@@ -176,6 +176,27 @@ on_init = %+mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_st
 on_complete = %=complete_task_inc_goodwill(75:csky) =reward_random_money(8000:11000) -mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started%
 on_fail = %=fail_task_dec_goodwill(50:csky) -mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started%
 
+[zat_a2_stalker_barmen_task_mirage]
+icon = ui_icons_burer16
+storyline = false
+repeat_timeout = 31600
+
+title = zat_a2_stalker_barmen_task_mirage_name
+descr = zat_a2_stalker_barmen_task_mirage_text
+job_descr = zat_a2_stalker_barmen_task_mirage_about
+task_complete_descr = zat_a2_stalker_barmen_task_mirage_finish
+precondition = {-zat_a2_stalker_barmen_task_mirage_started} true, false
+condlist_0 = {!task_giver_alive(zat_a2_stalker_barmen_task_mirage)} fail
+
+stage_complete = 7
+target_functor = mirage_task_target_functor
+status_functor = mirage_task_status_functor
+
+on_job_descr = %=dispatch_mirage_details(zat_a2_stalker_barmen_task_mirage)%
+on_init = %+zat_a2_stalker_barmen_task_mirage_started =mirage_cleanup()%
+on_complete = %=complete_task_inc_goodwill(100:stalker) =reward_random_money(20000:30000) -zat_a2_stalker_barmen_task_mirage_started%
+on_fail = %=fail_task_dec_goodwill(75:stalker) -zat_a2_stalker_barmen_task_mirage_started%
+
 
 ;------------------ General tasks ------------------
 [simulation_task_gambling_with_life]
