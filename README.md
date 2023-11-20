@@ -2,6 +2,7 @@
 
 This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.
 Note: "During the night" refers to 10 PM - 3 AM.
+Changelog available at the bottom.
 
 Currently available quests with short descriptions (you'll find more in-depth story behind when talking with NPCs):
 
@@ -33,6 +34,12 @@ Barman:
 
 Cold:
 - House of Horrors - an eviscerated sentry has been found at the seemingly safe Clear Sky outpost. You need to look into this case.
+
+Beard:
+- Mirage - an artifact hunter has barely made it out alive after being shot by someone who looked exactly like him. You need to investigate the place.
+
+Trapper:
+- Big Game - a pack of pseudogiants has taken refuge in a train tunnel in Jupiter. Trapper asks you to eliminate the threat.
  
 **From random NPCs:**
 
@@ -45,3 +52,5 @@ Bandits:
 Contributors:<br>
 [JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
 El_Rosarino - Spanish translation
+
+v 0.1.0: There has to be some point where I start versioning it, so why not start right now. At this point the mod introduces 13 new tasks
