@@ -1,6 +1,9 @@
-local landing_pad_vector = vector():set(-177.2140,5.0825,-179.6182)
-local landing_pad_lvid = 45538
-local landing_pad_gvid = 1037
+local nta_utils = new_tasks_addon_tasks_utils
+local landing_pad_location = {
+    vector = vector():set(-177.2140,5.0825,-179.6182),
+    lvid = 45538,
+    gvid = 1037
+}
 local heli_trigger_radius = 151
 local static_heli_trigger_radius = 61
 
@@ -48,7 +51,7 @@ task_status_functor.skyfall_task_status_functor = function(tsk,task_id)
 	if (stage == 0) then
         if
             is_agroprom()
-            and db.actor:position():distance_to(landing_pad_vector) < heli_trigger_radius
+            and db.actor:position():distance_to(landing_pad_location.vector) < heli_trigger_radius
         then
             if not is_enemies_with_military() then
                 spawn_static_heli()
@@ -68,14 +71,14 @@ task_status_functor.skyfall_task_status_functor = function(tsk,task_id)
         if not state.static_heli_id then
             tsk.stage = 3
         end
-        
+
         -- GG triggered the stealth stage but became enemies with military and is somewhere between the base entrance and base heli trigger radius
         -- Despawn static heli and send dynamic one
-        if 
-            state.static_heli_id 
-            and is_enemies_with_military() 
-            and db.actor:position():distance_to(landing_pad_vector) > static_heli_trigger_radius 
-            and db.actor:position():distance_to(landing_pad_vector) < heli_trigger_radius 
+        if
+            state.static_heli_id
+            and is_enemies_with_military()
+            and db.actor:position():distance_to(landing_pad_location.vector) > static_heli_trigger_radius
+            and db.actor:position():distance_to(landing_pad_location.vector) < heli_trigger_radius
         then
             despawn_static_heli_and_barrels()
             spawn_dynamic_heli()
@@ -122,7 +125,7 @@ end
 xr_effects.skyfall_cleanup = function()
     if state.dynamic_heli_id then safe_release_manager.release({id = state.dynamic_heli_id}) end
     if state.static_heli_id then safe_release_manager.release({id = state.static_heli_id}) end
-    if state.barrels_ids then 
+    if state.barrels_ids then
         for _, id in pairs(state.barrels_ids) do
             safe_release_manager.release({id = id})
         end
@@ -139,7 +142,7 @@ xr_effects.skyfall_fail_message = function ()
 end
 
 function spawn_static_heli()
-    state.static_heli_id = new_tasks_addon_tasks_utils.spawn_at_position("new_tasks_addon_heli_strong_static", landing_pad_vector, landing_pad_lvid, landing_pad_gvid, false)
+    state.static_heli_id = nta_utils.spawn_helper(landing_pad_location, "new_tasks_addon_heli_strong_static")
 end
 
 function static_heli_binder(obj)
@@ -156,13 +159,13 @@ end
 
 function blow_static_heli()
     despawn_static_heli_and_barrels()
-    new_tasks_addon_tasks_utils.spawn_at_position("immediate_explosion_heli", landing_pad_vector, landing_pad_lvid, landing_pad_gvid, false)
+    nta_utils.spawn_helper(landing_pad_location, "immediate_explosion_heli")
 end
 
 function spawn_barrels()
     local t = {}
     for _, b in pairs(barrels) do
-        table.insert(t, new_tasks_addon_tasks_utils.spawn_at_position("fake_explosive_barrel", b.vector, b.lvid, b.gvid, false))
+        table.insert(t, nta_utils.spawn_helper(b, "fake_explosive_barrel"))
     end
     state.barrels_ids = t
 end
@@ -175,7 +178,12 @@ function blow_cover()
 end
 
 function spawn_dynamic_heli()
-    state.dynamic_heli_id = new_tasks_addon_tasks_utils.spawn_helicopter(true, landing_pad_vector, landing_pad_lvid, landing_pad_gvid)
+    state.dynamic_heli_id = nta_utils.spawn_helicopter(
+        true,
+        landing_pad_location.vector,
+        landing_pad_location.lvid,
+        landing_pad_location.gvid
+    )
 end
 
 function is_agroprom()

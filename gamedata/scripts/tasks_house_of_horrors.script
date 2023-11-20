@@ -40,7 +40,7 @@ task_status_functor.house_of_horrors_task_status_functor = function(tsk,task_id)
             tsk.stage = 0
             return
         end
-        if db.actor:position():distance_to(configs.hanged_man_location.vector) < 5 then
+        if db.actor:position():distance_to(configs.hanged_man_location.vector) < 3 then
             explode_hanged_man()
             play_screams()
             spawn_board()
@@ -59,14 +59,7 @@ task_status_functor.house_of_horrors_task_status_functor = function(tsk,task_id)
 end
 
 function spawn_hanged_man()
-    state.hanged_man_id = nta_utils.spawn_at_position(
-        "hanged_man",
-        configs.hanged_man_location.vector,
-        configs.hanged_man_location.lvid,
-        configs.hanged_man_location.gvid,
-        false,
-        configs.hanged_man_location.angle
-    )
+    state.hanged_man_id = nta_utils.spawn_helper(configs.hanged_man_location)
 end
 
 function explode_hanged_man()
@@ -79,34 +72,15 @@ function explode_hanged_man()
 end
 
 function spawn_board()
-    state.board_id = nta_utils.spawn_at_position(
-        "wooden_board",
-        configs.board_location.vector,
-        configs.board_location.lvid,
-        configs.board_location.gvid,
-        false,
-        configs.board_location.angle
-    )
+    state.board_id = nta_utils.spawn_helper(configs.board_location)
 end
 
 function spawn_dog()
-    nta_utils.spawn_at_position(
-        "dog_strong_black",
-        configs.dog_location.vector,
-        configs.dog_location.lvid,
-        configs.dog_location.gvid,
-        false
-    )
+    nta_utils.spawn_helper(configs.dog_location)
 end
 
 function spawn_zombie()
-    state.zombie_id = nta_utils.spawn_at_position(
-        "house_of_horrors_zombie",
-        configs.zombie_location.vector,
-        configs.zombie_location.lvid,
-        configs.zombie_location.gvid,
-        false
-    )
+    state.zombie_id = nta_utils.spawn_helper(configs.zombie_location)
 end
 
 function destroy_zombie()

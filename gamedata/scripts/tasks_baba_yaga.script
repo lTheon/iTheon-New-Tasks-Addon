@@ -26,12 +26,10 @@ task_status_functor.baba_yaga_task_status_functor = function(tsk,task_id)
             and db.actor:position():distance_to(baba_yaga_configs.art_location.vector) < 25
             and nta_utils.is_dark_night()
         then
-            state.art_id = alife_create(
-                baba_yaga_configs.art_sections[math.random(#baba_yaga_configs.art_sections)],
-                baba_yaga_configs.art_location.vector,
-                baba_yaga_configs.art_location.lvid,
-                baba_yaga_configs.art_location.gvid
-            ).id
+            state.art_id = nta_utils.spawn_helper(
+                baba_yaga_configs.art_location,
+                baba_yaga_configs.art_sections[math.random(#baba_yaga_configs.art_sections)]
+            )
             tsk.stage = 1
         end
     end
@@ -61,23 +59,10 @@ task_status_functor.baba_yaga_task_status_functor = function(tsk,task_id)
 end
 
 function spawn()
-    local hag_id = nta_utils.spawn_at_position(
-        "baba_yaga",
-        baba_yaga_configs.hag_location.vector,
-        baba_yaga_configs.hag_location.lvid,
-        baba_yaga_configs.hag_location.gvid,
-        false
-    )
-    state.hag_id = hag_id
+    state.hag_id = nta_utils.spawn_helper(baba_yaga_configs.hag_spot)
 
     for _, spawn_config in pairs(baba_yaga_configs.karlik_spots) do
-        nta_utils.spawn_at_position(
-            "m_karlik_e",
-            spawn_config.vector,
-            spawn_config.lvid,
-            spawn_config.gvid,
-            false
-        )
+        nta_utils.spawn_helper(spawn_config, "m_karlik_e")
     end
 end
 

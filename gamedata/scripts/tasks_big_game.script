@@ -54,7 +54,7 @@ end
 
 function spawn_small_giants()
     for _, spawn_config in pairs(big_game_configs.small_giants_spots) do
-        table.insert(state.small_giants_ids, nta_utils.spawn_helper(spawn_config))
+        table.insert(state.small_giants_ids, nta_utils.spawn_helper(spawn_config, "gigant_weak"))
     end
 end
 

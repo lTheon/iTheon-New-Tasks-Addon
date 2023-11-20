@@ -24,7 +24,8 @@ karlik_spots = {{
     gvid = 660
 }}
 
-hag_location = {
+hag_spot = {
+    section = "baba_yaga",
     vector = vector():set(256.2065,-8.6728,-136.2168),
     lvid = 347821,
     gvid = 660

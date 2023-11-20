@@ -94,13 +94,7 @@ end
 
 function spawn_mirages(spots)
     for _, spot in ipairs(spots) do
-        local se_id = nta_utils.spawn_at_position(
-            mirage_section,
-            spot.vector,
-            spot.lvid,
-            spot.gvid,
-            false
-        )
+        local se_id = nta_utils.spawn_helper(spot, mirage_section)
         logic_enforcer.assign(se_id,'scripts\\mirage_beh.ltx','logic', 'beh@mirage')
 
         local mirage_se = alife_object(se_id)
