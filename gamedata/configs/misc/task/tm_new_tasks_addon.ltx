@@ -197,6 +197,27 @@ on_init = %+zat_a2_stalker_barmen_task_mirage_started =mirage_cleanup()%
 on_complete = %=complete_task_inc_goodwill(100:stalker) =reward_random_money(20000:30000) -zat_a2_stalker_barmen_task_mirage_started%
 on_fail = %=fail_task_dec_goodwill(75:stalker) -zat_a2_stalker_barmen_task_mirage_started%
 
+[jup_b220_trapper_task_big_game]
+icon = ui_new_tasks_addon_giant
+storyline = false
+repeat_timeout = 31600
+
+title = jup_b220_trapper_task_big_game_name
+descr = jup_b220_trapper_task_big_game_text
+job_descr = jup_b220_trapper_task_big_game_about
+task_complete_descr = jup_b220_trapper_task_big_game_finish
+precondition = {-jup_b220_trapper_task_big_game_started} true, false
+condlist_0 = {!task_giver_alive(jup_b220_trapper_task_big_game)} fail
+
+stage_complete = 3
+target_functor = big_game_task_target_functor
+status_functor = big_game_task_status_functor
+
+on_job_descr = %=dispatch_big_game_details(jup_b220_trapper_task_big_game)%
+on_init = %+jup_b220_trapper_task_big_game_started =big_game_cleanup()%
+on_complete = %=complete_task_inc_goodwill(100:stalker) =reward_random_money(15000:20000) -jup_b220_trapper_task_big_game_started%
+on_fail = %=fail_task_dec_goodwill(75:stalker) -jup_b220_trapper_task_big_game_started%
+
 
 ;------------------ General tasks ------------------
 [simulation_task_gambling_with_life]

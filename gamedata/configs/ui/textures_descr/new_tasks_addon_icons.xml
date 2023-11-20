@@ -5,5 +5,6 @@
         <texture id="ui_new_tasks_addon_zombie" x="0" y="47" width="83" height="47" />
 
         <texture id="ui_new_tasks_addon_swamp" x="83" y="0" width="83" height="47" />
+        <texture id="ui_new_tasks_addon_giant" x="83" y="47" width="83" height="47" />
    </file>
 </w>
