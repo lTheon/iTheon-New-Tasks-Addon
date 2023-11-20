@@ -21,10 +21,10 @@ function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle
     return se_obj.id
 end
 
--- Todo: check existing tasks that could use it to decrease amount of code
-function spawn_helper(spawn_config)
+-- Second param is mainly used for loop spawning to not have same sections defined in configs
+function spawn_helper(spawn_config, section_override)
     return spawn_at_position(
-        spawn_config.section,
+        spawn_config.section or section_override,
         spawn_config.vector,
         spawn_config.lvid,
         spawn_config.gvid,
@@ -169,6 +169,20 @@ function earthquake_screen_effect_gradual(duration_multiplier)
 
     CreateTimeEvent(0,"nta_earthquake_screen_remove", #effector_names * phase_duration_multiplier, function ()
         level.remove_cam_effector(earthquake_cam_eff)
+        return true
+    end)
+end
+
+xr_effects.dispatch_nta_task_details = function(actor, npc, p)
+    CreateTimeEvent(0,"nta_task_details",0, function ()
+        local task_id = p[1]
+        -- Build News
+        local news_caption = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "title")) or "error"
+
+        local news_text = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "nta_task_details")) or "error"
+        local news_ico = task_manager.task_ini:r_string_ex(task_id, "icon")
+
+        db.actor:give_talk_message2(news_caption, news_text, news_ico, "iconed_answer_item")
         return true
     end)
 end

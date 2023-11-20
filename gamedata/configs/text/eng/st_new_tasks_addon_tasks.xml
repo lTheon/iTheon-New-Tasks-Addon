@@ -234,4 +234,20 @@
 	<string id="mirage_details">
         <text>Investigate the place</text>
     </string>
+
+	<string id="jup_b220_trapper_task_big_game_name">
+		<text>Big Game</text>
+	</string>
+	<string id="jup_b220_trapper_task_big_game_text">
+		<text>A band of pseudogiants have taken refuge in the southern train tunnel in Jupiter. Trapper asked me to take care of them.</text>
+	</string>
+	<string id="jup_b220_trapper_task_big_game_about">
+		<text>Are you interested in improving your hunting skills? The scientists from the bunker have reported a loud rumbling and roars coming out from the souther train tunnel and offered a hefty price for anyone willing to investigate the site and take care of the potential threat. Without a doubt it has to be a pseudogiant... or even a pair of them. Perfect opportunity for honing your skills in taking down these majestic yet dangerous monsters. What do you say? Are you up for some big game hunting?</text>
+	</string>
+	<string id="jup_b220_trapper_task_big_game_finish">
+		<text>What a story! I didn't think pseudogiants can reach these sizes... now I regret I didn't come back from my retirement just to claim that kill for myself. Anyway, here's the bounty.</text>
+	</string>
+	<string id="big_game_details">
+        <text>Investigate the place</text>
+    </string>
 </string_table>
