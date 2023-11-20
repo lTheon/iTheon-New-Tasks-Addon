@@ -2,20 +2,6 @@ local nta_utils = new_tasks_addon_tasks_utils
 local configs = house_of_horrors_configs
 local outpost_smart_terrain = "mar_smart_terrain_5_12"
 
-xr_effects.dispatch_house_of_horrors_details = function(actor, npc, p)
-    CreateTimeEvent(0,"dispatch_house_of_horrors_details",0, function ()
-        local task_id = p[1]
-        -- Build News
-        local news_caption = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "title")) or "error"
-
-        local news_text = game.translate_string('house_of_horrors_details')
-        local news_ico = task_manager.task_ini:r_string_ex(task_id, "icon")
-
-        db.actor:give_talk_message2(news_caption, news_text, news_ico, "iconed_answer_item")
-        return true
-    end)
-end
-
 local state = {
     zombie_id = nil,
     hanged_man_id = nil,

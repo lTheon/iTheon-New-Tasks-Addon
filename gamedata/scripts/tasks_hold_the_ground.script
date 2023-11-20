@@ -14,21 +14,6 @@ local spawn_points = {{
 }}
 local middle_of_battleground = vector():set(188.9683,0.4104,153.6230)
 
-xr_effects.dispatch_hold_the_ground_details = function(actor, npc, p)
-    CreateTimeEvent(0,"dispatch_hold_the_ground_details",0, function ()
-        local task_id = p[1]
-        -- Build News
-        local news_caption = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "title")) or "error"
-
-        local news_text = game.translate_string('hold_the_ground_details')
-        local news_ico = task_manager.task_ini:r_string_ex(task_id, "icon")
-
-        db.actor:give_talk_message2(news_caption, news_text, news_ico, "iconed_answer_item")
-        return true
-    end)
-end
-
-
 local state = {
     killed_squads = 0,
     task_failed = false

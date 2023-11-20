@@ -1,20 +1,6 @@
 local nta_utils = new_tasks_addon_tasks_utils
 local tunnel_smart_terrain = "jup_sim_2"
 
-xr_effects.dispatch_big_game_details = function(actor, npc, p)
-    CreateTimeEvent(0,"dispatch_big_game_details",0, function ()
-        local task_id = p[1]
-        -- Build News
-        local news_caption = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "title")) or "error"
-
-        local news_text = game.translate_string('big_game_details')
-        local news_ico = task_manager.task_ini:r_string_ex(task_id, "icon")
-
-        db.actor:give_talk_message2(news_caption, news_text, news_ico, "iconed_answer_item")
-        return true
-    end)
-end
-
 local state = {
     small_giants_ids = {},
     big_giant_id = nil

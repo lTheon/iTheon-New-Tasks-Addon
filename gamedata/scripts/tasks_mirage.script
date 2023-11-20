@@ -4,20 +4,6 @@ local mirage_section = "mirage_stalker"
 -- Keep it as local var instead of state var so it can restart after the save reload
 local explosion_loop_started = false
 
-xr_effects.dispatch_mirage_details = function(actor, npc, p)
-    CreateTimeEvent(0,"dispatch_mirage_details",0, function ()
-        local task_id = p[1]
-        -- Build News
-        local news_caption = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "title")) or "error"
-
-        local news_text = game.translate_string('mirage_details')
-        local news_ico = task_manager.task_ini:r_string_ex(task_id, "icon")
-
-        db.actor:give_talk_message2(news_caption, news_text, news_ico, "iconed_answer_item")
-        return true
-    end)
-end
-
 local state = {
     mirages = {},
     sidor_id = nil,

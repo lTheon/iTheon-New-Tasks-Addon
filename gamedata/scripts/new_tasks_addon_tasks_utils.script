@@ -173,6 +173,20 @@ function earthquake_screen_effect_gradual(duration_multiplier)
     end)
 end
 
+xr_effects.dispatch_nta_task_details = function(actor, npc, p)
+    CreateTimeEvent(0,"nta_task_details",0, function ()
+        local task_id = p[1]
+        -- Build News
+        local news_caption = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "title")) or "error"
+
+        local news_text = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "nta_task_details")) or "error"
+        local news_ico = task_manager.task_ini:r_string_ex(task_id, "icon")
+
+        db.actor:give_talk_message2(news_caption, news_text, news_ico, "iconed_answer_item")
+        return true
+    end)
+end
+
 function earthquake_screen_effect_strong(duration)
     level.add_cam_effector("camera_effects\\earthquake.anm", earthquake_cam_eff, true, "", 0, false)
 
