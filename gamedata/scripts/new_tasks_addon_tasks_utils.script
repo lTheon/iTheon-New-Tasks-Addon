@@ -173,6 +173,28 @@ function earthquake_screen_effect_gradual(duration_multiplier)
     end)
 end
 
+local function load_defaults()
+	local t = {}
+	local op = new_tasks_addon_mcm.op
+	for _, v in ipairs(op.gr) do
+		if v.def ~= nil then
+			t[v.id] = v.def
+		end
+	end
+	return t
+end
+
+mcm_config = load_defaults()
+
+local function load_settings()
+	mcm_config = load_defaults()
+	if ui_mcm then
+		for k, v in pairs(mcm_config) do
+			mcm_config[k] = ui_mcm.get("new_tasks_addon/" .. k)
+		end
+	end
+end
+
 xr_effects.dispatch_nta_task_details = function(actor, npc, p)
     CreateTimeEvent(0,"nta_task_details",0, function ()
         local task_id = p[1]
@@ -185,6 +207,15 @@ xr_effects.dispatch_nta_task_details = function(actor, npc, p)
         db.actor:give_talk_message2(news_caption, news_text, news_ico, "iconed_answer_item")
         return true
     end)
+end
+
+xr_conditions.check_nta_replayability = function(actor, npc, p)
+    local task_id = p[1]
+    if not db.actor:has_info(task_id .. '_completed') then
+        return true
+    else
+        return mcm_config["repl_" .. task_id]
+    end
 end
 
 function earthquake_screen_effect_strong(duration)
@@ -200,5 +231,7 @@ add_console_command("chopper", function()
     se_id = spawn_helicopter(true, vector():set(-178.07975769043,5.3180623054504,-181.78283691406))
 end)
 
--- alife_object(level.get_target_obj():id()).angle = vector():set(0,0.27839148044586,0)
--- printf(alife_object(level.get_target_obj():id()).angle.x .. ', ' .. alife_object(level.get_target_obj():id()).angle.y .. ', ' .. alife_object(level.get_target_obj():id()).angle.z)
+function on_game_start()
+    RegisterScriptCallback("on_game_load", load_settings)
+	RegisterScriptCallback("on_option_change", load_settings)
+end
