@@ -14,6 +14,13 @@ function load_state(mdata)
 end
 
 function actor_on_first_update()
+    if
+        not xr_conditions.check_nta_replayability(nil, nil, { "urgent_orders" })
+        or not nta_utils.check_nta_auto_assignment("urgent_orders")
+    then
+        return
+    end
+
     local last_time_assigned = state.last_time_assigned and ta2ti(state.last_time_assigned) or level.get_start_time()
 	local seconds = tonumber(game.get_game_time():diffSec(last_time_assigned))
 	local days = math.floor(((seconds/60)/60)/24)

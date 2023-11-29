@@ -13,7 +13,7 @@ status_functor = urgent_orders_status_functor
 target_functor = urgent_orders_target_functor
 stage_complete = 1
 
-on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(100:dolg) =urgent_orders_clear_eco_squad()%
+on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(100:dolg) =urgent_orders_clear_eco_squad() +urgent_orders_completed%
 on_fail = %=fail_task_dec_goodwill(75:dolg) =urgent_orders_clear_eco_squad()%
 
 [agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders]
@@ -30,7 +30,7 @@ status_functor = urgent_orders_status_functor
 target_functor = urgent_orders_target_functor
 stage_complete = 1
 
-on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(100:army) =urgent_orders_clear_eco_squad()%
+on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(100:army) =urgent_orders_clear_eco_squad() +urgent_orders_completed%
 on_fail = %=fail_task_dec_goodwill(75:army) =urgent_orders_clear_eco_squad()%
 
 ;------------------ Unique npc tasks ------------------
@@ -43,7 +43,7 @@ descr = esc_m_trader_task_new_tasks_addon_dead_night_text
 job_descr = esc_m_trader_task_new_tasks_addon_dead_night_about
 task_complete_descr = esc_m_trader_task_new_tasks_addon_dead_night_finish
 nta_task_details = dead_night_details
-precondition = {-dead_night_started} true, false
+precondition = {-dead_night_started =check_nta_replayability(esc_m_trader_task_new_tasks_addon_dead_night)} true, false
 
 status_functor = dead_night_task_status_functor
 target_functor = dead_night_task_target_functor
@@ -51,7 +51,7 @@ stage_complete = 2
 
 on_job_descr = %=dispatch_nta_task_details(esc_m_trader_task_new_tasks_addon_dead_night)%
 on_init = %+dead_night_started%
-on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(75:stalker) =dead_night_cleanup() -dead_night_started%
+on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(75:stalker) =dead_night_cleanup() -dead_night_started +esc_m_trader_task_new_tasks_addon_dead_night_completed%
 on_fail = %=fail_task_dec_goodwill(50:stalker) =dead_night_cleanup() -dead_night_started%
 
 [mil_smart_terrain_7_7_freedom_leader_stalker_task_skyfall]
@@ -63,7 +63,7 @@ descr = mil_smart_terrain_7_7_freedom_leader_stalker_task_skyfall_text
 job_descr = mil_smart_terrain_7_7_freedom_leader_stalker_task_skyfall_about
 task_complete_descr = mil_smart_terrain_7_7_freedom_leader_stalker_task_skyfall_finish
 nta_task_details = skyfall_details
-precondition = {-skyfall_started} true, false
+precondition = {-skyfall_started =check_nta_replayability(mil_smart_terrain_7_7_freedom_leader_stalker_task_skyfall)} true, false
 condlist_0 = {!task_giver_alive(mil_smart_terrain_7_7_freedom_leader_stalker_task_skyfall)} fail
 
 status_functor = skyfall_task_status_functor
@@ -72,7 +72,7 @@ stage_complete = 3
 
 on_job_descr = %=dispatch_nta_task_details(mil_smart_terrain_7_7_freedom_leader_stalker_task_skyfall)%
 on_init = %+skyfall_started%
-on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(75:freedom) =skyfall_cleanup() -skyfall_started%
+on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(75:freedom) =skyfall_cleanup() -skyfall_started +mil_smart_terrain_7_7_freedom_leader_stalker_task_skyfall_completed%
 on_fail = %=fail_task_dec_goodwill(50:freedom) =skyfall_cleanup() =skyfall_fail_message() -skyfall_started%
 
 [bar_dolg_general_petrenko_stalker_task_hold_the_ground]
@@ -84,7 +84,7 @@ descr = bar_dolg_general_petrenko_stalker_task_hold_the_ground_text
 job_descr = bar_dolg_general_petrenko_stalker_task_hold_the_ground_about
 task_complete_descr = bar_dolg_general_petrenko_stalker_task_hold_the_ground_finish
 nta_task_details = hold_the_ground_details
-precondition = {-hold_the_ground_started} true, false
+precondition = {-hold_the_ground_started =check_nta_replayability(bar_dolg_general_petrenko_stalker_task_hold_the_ground)} true, false
 condlist_0 = {!task_giver_alive(bar_dolg_general_petrenko_stalker_task_hold_the_ground)} fail
 
 status_functor = hold_the_ground_task_status_functor
@@ -93,7 +93,7 @@ stage_complete = 2
 
 on_job_descr = %=dispatch_nta_task_details(bar_dolg_general_petrenko_stalker_task_hold_the_ground)%
 on_init = %+hold_the_ground_started =hold_the_ground_cleanup()%
-on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(75:dolg) -hold_the_ground_started%
+on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(75:dolg) -hold_the_ground_started +bar_dolg_general_petrenko_stalker_task_hold_the_ground_completed%
 on_fail = %=fail_task_dec_goodwill(50:dolg) =hold_the_ground_fail_message() -hold_the_ground_started%
 
 [cit_killers_merc_trader_stalker_task_no_step_back]
@@ -105,7 +105,7 @@ descr = cit_killers_merc_trader_stalker_task_no_step_back_text
 job_descr = cit_killers_merc_trader_stalker_task_no_step_back_about
 task_complete_descr = cit_killers_merc_trader_stalker_task_no_step_back_finish
 nta_task_details = no_step_back_details
-precondition = {-no_step_back_started} true, false
+precondition = {-no_step_back_started =check_nta_replayability(cit_killers_merc_trader_stalker_task_no_step_back)} true, false
 condlist_0 = {!task_giver_alive(cit_killers_merc_trader_stalker_task_no_step_back)} fail
 
 status_functor = no_step_back_task_status_functor
@@ -114,7 +114,7 @@ stage_complete = 2
 
 on_job_descr = %=dispatch_nta_task_details(cit_killers_merc_trader_stalker_task_no_step_back)%
 on_init = %+no_step_back_started =no_step_back_init() =no_step_back_cleanup()%
-on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(75:killer) -no_step_back_started%
+on_complete = %=reward_random_money(12000:15000) =reward_stash(true) =complete_task_inc_goodwill(75:killer) -no_step_back_started +cit_killers_merc_trader_stalker_task_no_step_back_completed%
 on_fail = %=fail_task_dec_goodwill(50:killer) =no_step_back_fail_message() -no_step_back_started%
 
 [yan_stalker_sakharov_task_brain_game]
@@ -127,7 +127,7 @@ descr = yan_stalker_sakharov_task_brain_game_text
 job_descr = yan_stalker_sakharov_task_brain_game_about
 task_complete_descr = yan_stalker_sakharov_task_brain_game_finish
 nta_task_details = brain_game_details
-precondition = {-yan_stalker_sakharov_task_brain_game_started} true, false
+precondition = {-yan_stalker_sakharov_task_brain_game_started =check_nta_replayability(yan_stalker_sakharov_task_brain_game)} true, false
 condlist_0 = {!task_giver_alive(yan_stalker_sakharov_task_brain_game)} fail
 
 stage_complete = 1
@@ -136,7 +136,7 @@ status_functor = brain_game_status_functor
 
 on_job_descr = %=dispatch_nta_task_details(yan_stalker_sakharov_task_brain_game)%
 on_init = %+yan_stalker_sakharov_task_brain_game_started =brain_game_cleanup()%
-on_complete = %=complete_task_inc_goodwill(75:ecolog) =reward_random_money(8000:11000) -yan_stalker_sakharov_task_brain_game_started%
+on_complete = %=complete_task_inc_goodwill(75:ecolog) =reward_random_money(8000:11000) -yan_stalker_sakharov_task_brain_game_started +yan_stalker_sakharov_task_brain_game_completed%
 on_fail = %=fail_task_dec_goodwill(50:ecolog) -yan_stalker_sakharov_task_brain_game_started%
 
 [bar_visitors_barman_stalker_trader_task_baba_yaga]
@@ -149,7 +149,7 @@ descr = bar_visitors_barman_stalker_trader_task_baba_yaga_text
 job_descr = bar_visitors_barman_stalker_trader_task_baba_yaga_about
 task_complete_descr = bar_visitors_barman_stalker_trader_task_baba_yaga_finish
 nta_task_details = baba_yaga_details
-precondition = {-bar_visitors_barman_stalker_trader_task_baba_yaga_started} true, false
+precondition = {-bar_visitors_barman_stalker_trader_task_baba_yaga_started =check_nta_replayability(bar_visitors_barman_stalker_trader_task_baba_yaga)} true, false
 condlist_0 = {!task_giver_alive(bar_visitors_barman_stalker_trader_task_baba_yaga)} fail
 
 stage_complete = 3
@@ -158,7 +158,7 @@ status_functor = baba_yaga_task_status_functor
 
 on_job_descr = %=dispatch_nta_task_details(bar_visitors_barman_stalker_trader_task_baba_yaga)%
 on_init = %+bar_visitors_barman_stalker_trader_task_baba_yaga_started =baba_yaga_cleanup()%
-on_complete = %=complete_task_inc_goodwill(75:stalker) =reward_random_money(8000:11000) -bar_visitors_barman_stalker_trader_task_baba_yaga_started%
+on_complete = %=complete_task_inc_goodwill(75:stalker) =reward_random_money(8000:11000) -bar_visitors_barman_stalker_trader_task_baba_yaga_started +bar_visitors_barman_stalker_trader_task_baba_yaga_completed%
 on_fail = %=fail_task_dec_goodwill(50:stalker) -bar_visitors_barman_stalker_trader_task_baba_yaga_started%
 
 [mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors]
@@ -171,7 +171,7 @@ descr = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_text
 job_descr = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_about
 task_complete_descr = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_finish
 nta_task_details = house_of_horrors_details
-precondition = {-mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started} true, false
+precondition = {-mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started =check_nta_replayability(mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors)} true, false
 condlist_0 = {!task_giver_alive(mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors)} fail
 
 stage_complete = 3
@@ -180,7 +180,7 @@ status_functor = house_of_horrors_task_status_functor
 
 on_job_descr = %=dispatch_nta_task_details(mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors)%
 on_init = %+mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started =house_of_horrors_cleanup()%
-on_complete = %=complete_task_inc_goodwill(75:csky) =reward_random_money(8000:11000) -mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started%
+on_complete = %=complete_task_inc_goodwill(75:csky) =reward_random_money(8000:11000) -mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started +mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_completed%
 on_fail = %=fail_task_dec_goodwill(50:csky) -mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started%
 
 [zat_a2_stalker_barmen_task_mirage]
@@ -193,7 +193,7 @@ descr = zat_a2_stalker_barmen_task_mirage_text
 job_descr = zat_a2_stalker_barmen_task_mirage_about
 task_complete_descr = zat_a2_stalker_barmen_task_mirage_finish
 nta_task_details = mirage_details
-precondition = {-zat_a2_stalker_barmen_task_mirage_started} true, false
+precondition = {-zat_a2_stalker_barmen_task_mirage_started =check_nta_replayability(zat_a2_stalker_barmen_task_mirage)} true, false
 condlist_0 = {!task_giver_alive(zat_a2_stalker_barmen_task_mirage)} fail
 
 stage_complete = 7
@@ -202,7 +202,7 @@ status_functor = mirage_task_status_functor
 
 on_job_descr = %=dispatch_nta_task_details(zat_a2_stalker_barmen_task_mirage)%
 on_init = %+zat_a2_stalker_barmen_task_mirage_started =mirage_cleanup()%
-on_complete = %=complete_task_inc_goodwill(100:stalker) =reward_random_money(20000:30000) -zat_a2_stalker_barmen_task_mirage_started%
+on_complete = %=complete_task_inc_goodwill(100:stalker) =reward_random_money(20000:30000) -zat_a2_stalker_barmen_task_mirage_started +zat_a2_stalker_barmen_task_mirage_completed%
 on_fail = %=fail_task_dec_goodwill(75:stalker) -zat_a2_stalker_barmen_task_mirage_started%
 
 [jup_b220_trapper_task_big_game]
@@ -215,7 +215,7 @@ descr = jup_b220_trapper_task_big_game_text
 job_descr = jup_b220_trapper_task_big_game_about
 task_complete_descr = jup_b220_trapper_task_big_game_finish
 nta_task_details = big_game_details
-precondition = {-jup_b220_trapper_task_big_game_started} true, false
+precondition = {-jup_b220_trapper_task_big_game_started =check_nta_replayability(jup_b220_trapper_task_big_game)} true, false
 condlist_0 = {!task_giver_alive(jup_b220_trapper_task_big_game)} fail
 
 stage_complete = 3
@@ -224,7 +224,7 @@ status_functor = big_game_task_status_functor
 
 on_job_descr = %=dispatch_nta_task_details(jup_b220_trapper_task_big_game)%
 on_init = %+jup_b220_trapper_task_big_game_started =big_game_cleanup()%
-on_complete = %=complete_task_inc_goodwill(100:stalker) =reward_random_money(15000:20000) -jup_b220_trapper_task_big_game_started%
+on_complete = %=complete_task_inc_goodwill(100:stalker) =reward_random_money(15000:20000) -jup_b220_trapper_task_big_game_started +jup_b220_trapper_task_big_game_completed%
 on_fail = %=fail_task_dec_goodwill(75:stalker) -jup_b220_trapper_task_big_game_started%
 
 
@@ -240,7 +240,7 @@ descr = simulation_task_gambling_with_life_text
 job_descr = simulation_task_gambling_with_life_about
 task_complete_descr = simulation_task_gambling_with_life_finish
 nta_task_details = gambling_with_life_details
-precondition = {-simulation_task_gambling_with_life_started} true, false
+precondition = {-simulation_task_gambling_with_life_started =check_nta_replayability(simulation_task_gambling_with_life)} true, false
 condlist_0 = {!task_giver_alive(simulation_task_gambling_with_life)} fail
 
 stage_complete = 1
@@ -249,7 +249,7 @@ status_functor = gambling_with_life_status_functor
 
 on_job_descr = %=dispatch_nta_task_details(simulation_task_gambling_with_life)%
 on_init = %+simulation_task_gambling_with_life_started =gambling_with_life_cleanup()%
-on_complete = %=inc_goodwill_by_tasker_comm(simulation_task_gambling_with_life:50) =reward_random_money(8000:11000) -simulation_task_gambling_with_life_started%
+on_complete = %=inc_goodwill_by_tasker_comm(simulation_task_gambling_with_life:50) =reward_random_money(8000:11000) -simulation_task_gambling_with_life_started +simulation_task_gambling_with_life_completed%
 on_fail = %=dec_goodwill_by_tasker_id(simulation_task_gambling_with_life:25) -simulation_task_gambling_with_life_started%
 
 [simulation_task_vengence_amplified]
@@ -263,7 +263,7 @@ descr = simulation_task_vengence_amplified_text
 job_descr = simulation_task_vengence_amplified_about
 task_complete_descr = simulation_task_vengence_amplified_finish
 nta_task_details = vengence_amplified_details
-precondition = {-simulation_task_vengence_amplified_started} true, false
+precondition = {-simulation_task_vengence_amplified_started =check_nta_replayability(simulation_task_vengence_amplified)} true, false
 condlist_0 = {!task_giver_alive(simulation_task_vengence_amplified)} fail
 
 stage_complete = 1
@@ -272,5 +272,5 @@ status_functor = vengence_amplified_status_functor
 
 on_job_descr = %=dispatch_nta_task_details(simulation_task_vengence_amplified)%
 on_init = %+simulation_task_vengence_amplified_started =vengence_amplified_cleanup()%
-on_complete = %=inc_goodwill_by_tasker_comm(simulation_task_vengence_amplified:50) =reward_random_money(8000:11000) -simulation_task_vengence_amplified_started%
+on_complete = %=inc_goodwill_by_tasker_comm(simulation_task_vengence_amplified:50) =reward_random_money(8000:11000) -simulation_task_vengence_amplified_started +simulation_task_vengence_amplified_completed%
 on_fail = %=dec_goodwill_by_tasker_id(simulation_task_vengence_amplified:25) -simulation_task_vengence_amplified_started%
