@@ -53,7 +53,7 @@ Contributors:<br>
 [JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
 El_Rosarino - Spanish translation
 
-v.0.1.1
+v0.1.1
 - Add MCM config for tasks replayability and auto-assignment (currently only one task is auto-assigned)
 
-v 0.1.0: There has to be some point where I start versioning it, so why not start right now. At this point the mod introduces 13 new tasks
+v0.1.0: There has to be some point where I start versioning it, so why not start right now. At this point the mod introduces 13 new tasks
