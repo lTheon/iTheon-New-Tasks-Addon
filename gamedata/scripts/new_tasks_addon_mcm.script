@@ -14,6 +14,9 @@ config = {
         simulation_task_vengence_amplified = true,
 
         urgent_orders = true
+    },
+    auto_assignment_defaults = {
+        urgent_orders = true
     }
 }
 
@@ -38,7 +41,10 @@ op = {
         replayability_options_factory("simulation_task_vengence_amplified"),
         -- Exception for Urgent Orders
         {id = "repl_urgent_orders", type = "check", val = 1, def = config.replayability_defaults.urgent_orders},
-        {id = "divider", type = "line"}
+        {id = "divider", type = "line"},
+        {id = "auto_assignment_title", type = "desc", clr = {200, 200, 255, 200}, text="ui_mcm_new_tasks_addon_auto_assignment_title"},
+        {id = "auto_assignment_desc", type = "desc", text="ui_mcm_new_tasks_addon_auto_assignment_desc"},
+        {id = "auto_assignment_urgent_orders", type = "check", val = 1, def = config.auto_assignment_defaults.urgent_orders}
 	}
 }
 

@@ -173,6 +173,15 @@ function earthquake_screen_effect_gradual(duration_multiplier)
     end)
 end
 
+function earthquake_screen_effect_strong(duration)
+    level.add_cam_effector("camera_effects\\earthquake.anm", earthquake_cam_eff, true, "", 0, false)
+
+    CreateTimeEvent(0,"nta_earthquake_screen_remove", duration or 6, function ()
+        level.remove_cam_effector(earthquake_cam_eff)
+        return true
+    end)
+end
+
 local function load_defaults()
 	local t = {}
 	local op = new_tasks_addon_mcm.op
@@ -218,13 +227,8 @@ xr_conditions.check_nta_replayability = function(actor, npc, p)
     end
 end
 
-function earthquake_screen_effect_strong(duration)
-    level.add_cam_effector("camera_effects\\earthquake.anm", earthquake_cam_eff, true, "", 0, false)
-
-    CreateTimeEvent(0,"nta_earthquake_screen_remove", duration or 6, function ()
-        level.remove_cam_effector(earthquake_cam_eff)
-        return true
-    end)
+function check_nta_auto_assignment(task_id)
+    return mcm_config["auto_assignment_" .. task_id]
 end
 
 add_console_command("chopper", function() 

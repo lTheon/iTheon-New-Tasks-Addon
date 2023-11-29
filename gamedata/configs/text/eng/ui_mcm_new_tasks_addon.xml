@@ -43,4 +43,14 @@
 	<string id="ui_mcm_new_tasks_addon_repl_jup_b220_trapper_task_big_game">
 		<text>Big Game</text>
 	</string>
+
+	<string id="ui_mcm_new_tasks_addon_auto_assignment_title">
+		<text>Tasks auto-assignment</text>
+	</string>
+	<string id="ui_mcm_new_tasks_addon_auto_assignment_desc">
+		<text>Please keep in mind that these will most likely be only available through auto-assignment, so disabling them means you'll not be able to get them at all.</text>
+	</string>
+	<string id="ui_mcm_new_tasks_addon_auto_assignment_urgent_orders">
+		<text>Urgent orders</text>
+	</string>
 </string_table>
