@@ -278,12 +278,6 @@ function start_explosions_loop()
     end)
 end
 
-function monster_on_death_callback(monster)
-    if state.controller_id and monster:id() == state.controller_id then
-        state.controller_killed = true
-    end
-end
-
 function on_death_callback(npc)
     local id = npc:id()
     if state.mirages[id] then
@@ -335,7 +329,6 @@ end
 function on_game_start()
 	RegisterScriptCallback("save_state",save_state)
 	RegisterScriptCallback("load_state",load_state)
-    RegisterScriptCallback("monster_on_death_callback", monster_on_death_callback)
     RegisterScriptCallback("npc_on_death_callback", on_death_callback)
     RegisterScriptCallback("monster_on_death_callback", on_death_callback)
     RegisterScriptCallback("npc_on_choose_weapon", npc_on_choose_weapon)
