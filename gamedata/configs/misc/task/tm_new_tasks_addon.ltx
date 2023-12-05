@@ -227,6 +227,27 @@ on_init = %+jup_b220_trapper_task_big_game_started =big_game_cleanup()%
 on_complete = %=complete_task_inc_goodwill(100:stalker) =reward_random_money(15000:20000) -jup_b220_trapper_task_big_game_started +jup_b220_trapper_task_big_game_completed%
 on_fail = %=fail_task_dec_goodwill(75:stalker) -jup_b220_trapper_task_big_game_started%
 
+[agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo]
+icon = ui_iconsTotal_tutorial_find_artefact
+storyline = false
+sim_communities = army
+repeat_timeout = 31600
+
+title = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_name
+descr = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_text
+job_descr = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_about
+task_complete_descr = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_finish
+precondition = {-agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_started =check_nta_replayability(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo) =enforce_embargo_check()} true, false
+condlist_0 = {!task_giver_alive(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo)} fail
+
+stage_complete = 2
+target_functor = enforce_embargo_task_target_functor
+status_functor = enforce_embargo_task_status_functor
+
+on_job_descr = %=dispatch_enforce_embargo_task_details(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo)%
+on_init = %+agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_started =enforce_embargo_cleanup() =spawn_enforce_embargo_artifact()%
+on_complete = %=complete_task_inc_goodwill(50:army) =reward_random_money(10000:14000) -agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_started +agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_completed =enforce_embargo_completed()%
+on_fail = %=fail_task_dec_goodwill(50:army) -agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_started%
 
 ;------------------ General tasks ------------------
 [simulation_task_gambling_with_life]

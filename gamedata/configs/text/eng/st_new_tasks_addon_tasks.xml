@@ -250,4 +250,21 @@
 	<string id="big_game_details">
         <text>Investigate the place</text>
     </string>
+
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_name">
+		<text>Enforce Embargo</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_text">
+		<text>A stalker is planning to sell an artifact to a collector from outside the Zone. I need to intercept it and bring it back to the Colonel.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_about">
+		<text>At ease, soldier. There's one thing that needs to be taken care of. Our undercover agent has overheard a chat between two stalkers in 100 Rads bar. They've been talking about their most recent contract on delivering one of those shiny things called artifacts to a collector outside the perimeter - quite uncommon one to be precise. That's where we come in. You need to intercept that thing and bring it back to me, understood?\n \nOne more thing - if the target dies and the package gets intercepted by someone else, that's on you. You're also not supposed to break the seal on the box. We'd like to pay a visit to the client and have a nice talk with him.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_finish">
+		<text>Great job, soldier - keep it up. Dismissed.</text>
+	</string>
+
+	<string id="nta_intercept_item">
+		<text>Intercept an item:</text>
+	</string>
 </string_table>
