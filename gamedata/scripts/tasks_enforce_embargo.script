@@ -86,7 +86,7 @@ xr_effects.enforce_embargo_cleanup = function()
 end
 
 xr_effects.enforce_embargo_completed = function()
-    afe_release_manager.release({ id = state.artifact_id })
+    safe_release_manager.release({ id = state.artifact_id })
 end
 
 xr_conditions.enforce_embargo_check = function()

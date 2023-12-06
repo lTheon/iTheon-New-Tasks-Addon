@@ -246,8 +246,8 @@ status_functor = enforce_embargo_task_status_functor
 
 on_job_descr = %=dispatch_enforce_embargo_task_details(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo)%
 on_init = %+agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_started =enforce_embargo_cleanup() =spawn_enforce_embargo_artifact()%
-on_complete = %=complete_task_inc_goodwill(50:army) =reward_random_money(10000:14000) -agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_started +agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_completed =enforce_embargo_completed()%
-on_fail = %=fail_task_dec_goodwill(50:army) -agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_started%
+on_complete = %=complete_task_inc_goodwill(100:army) =reward_random_money(10000:14000) -agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_started +agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_completed =enforce_embargo_completed()%
+on_fail = %=fail_task_dec_goodwill(200:army) -agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_started%
 
 ;------------------ General tasks ------------------
 [simulation_task_gambling_with_life]
