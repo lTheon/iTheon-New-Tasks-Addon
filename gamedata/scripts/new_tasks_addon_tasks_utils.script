@@ -170,35 +170,53 @@ nothern_maps = {
 	"l10_radar",
 }
 
-function find_random_stalker(factions, maps)
+sim_stalkers = nil
+function prefetch_sim_stalkers()
+    sim_stalkers = {}
     local gg = game_graph()
-    local limit = 10000
     local sim = alife()
-    -- Check 10k random objects at most and make it completely random, unlike in other tasks that iterate 1-65534
-    -- Todo: check performance on this
-    for i = 1, limit do
-        local id = math.random(1, 65534)
-        local se_obj = sim:object(id)
+    for i = 1, 65534 do
+        local se_obj = sim:object(i)
 
         if
             se_obj
-		    and (id ~= 0 and IsStalker(nil,se_obj:clsid()) and se_obj:alive() and string.find(se_obj:section_name(),"sim_default") and get_object_story_id(id) == nil)
+		    and (IsStalker(nil,se_obj:clsid()) and se_obj:alive() and string.find(se_obj:section_name(),"sim_default") and get_object_story_id(id) == nil)
 		    and (se_obj.group_id ~= 65535 and get_object_story_id(se_obj.group_id) == nil)
 		then
 			local comm = alife_character_community(se_obj)
-            local map = sim:level_name(gg:vertex(se_obj.m_game_vertex_id):level_id())
-			if
-                (not factions or has_value(factions, comm))
-                and (not maps or has_value(maps, map))
-            then
-                return {
-                    id = se_obj.id,
-                    level = map,
-                    comm = comm,
-                    name = se_obj:character_name()
-                }
+            local level = sim:level_name(gg:vertex(se_obj.m_game_vertex_id):level_id())
+
+            if not sim_stalkers[comm] then
+                sim_stalkers[comm] = {}
             end
+
+            table.insert(sim_stalkers[comm], {
+                id = se_obj.id,
+                level = level
+            })
 		end
+    end
+end
+
+function find_random_stalker(factions, maps)
+    local limit = 1000
+    local sim = alife()
+    -- Check 1k random stalkers at most and make it completely random
+    -- Todo: check performance on this
+    for i = 1, limit do
+        local faction = factions[math.random(1, #factions)]
+        local faction_stalkers = sim_stalkers[faction]
+        local stalker = faction_stalkers[math.random(1, #faction_stalkers)]
+
+        if not maps or has_value(maps, stalker.level) then
+            local se_obj = sim:object(stalker.id)
+            return {
+                id = stalker.id,
+                level = stalker.level,
+                faction = faction,
+                name = se_obj:character_name()
+            }
+        end
     end
 end
 
@@ -291,6 +309,10 @@ function check_nta_auto_assignment(task_id)
     return mcm_config["auto_assignment_" .. task_id]
 end
 
+function actor_on_first_update()
+    prefetch_sim_stalkers()
+end
+
 add_console_command("chopper", function() 
     se_id = spawn_helicopter(true, vector():set(-178.07975769043,5.3180623054504,-181.78283691406))
 end)
@@ -298,4 +320,5 @@ end)
 function on_game_start()
     RegisterScriptCallback("on_game_load", load_settings)
 	RegisterScriptCallback("on_option_change", load_settings)
+    RegisterScriptCallback("actor_on_first_update",actor_on_first_update)
 end
