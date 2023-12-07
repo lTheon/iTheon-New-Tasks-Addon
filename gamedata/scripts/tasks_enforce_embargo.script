@@ -86,6 +86,7 @@ xr_effects.enforce_embargo_cleanup = function()
 end
 
 xr_effects.enforce_embargo_completed = function()
+    news_manager.relocate_item(nil, "out", state.artifact_section)
     safe_release_manager.release({ id = state.artifact_id })
 end
 
