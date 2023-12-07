@@ -10,6 +10,8 @@ config = {
         mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors = false,
         zat_a2_stalker_barmen_task_mirage = false,
         jup_b220_trapper_task_big_game = true,
+        agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo = true,
+
         simulation_task_gambling_with_life = true,
         simulation_task_vengence_amplified = true,
 
@@ -36,6 +38,7 @@ op = {
         replayability_options_factory("mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors"),
         replayability_options_factory("zat_a2_stalker_barmen_task_mirage"),
         replayability_options_factory("jup_b220_trapper_task_big_game"),
+        replayability_options_factory("agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo"),
 
         replayability_options_factory("simulation_task_gambling_with_life"),
         replayability_options_factory("simulation_task_vengence_amplified"),

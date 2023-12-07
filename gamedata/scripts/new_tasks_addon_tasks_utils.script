@@ -142,6 +142,66 @@ function squad_alive(id)
     return alive
 end
 
+-- Excluded Bar
+southern_maps = {
+    "k00_marsh",
+	"k01_darkscape",
+	"k02_trucks_cemetery",
+	"l01_escape",
+	"l02_garbage",
+	"l03_agroprom",
+	"l04_darkvalley",
+	"l06_rostok",
+	"l07_military",
+	"l08_yantar",
+	"l09_deadcity",
+    "y04_pole",
+}
+
+nothern_maps = {
+    "l10_red_forest",
+	"jupiter",
+	"pripyat",
+	"zaton",
+	"l13_generators",
+	"l12_stancia_2",
+	"l12_stancia",
+	"l11_pripyat",
+	"l10_radar",
+}
+
+function find_random_stalker(factions, maps)
+    local gg = game_graph()
+    local limit = 10000
+    local sim = alife()
+    -- Check 10k random objects at most and make it completely random, unlike in other tasks that iterate 1-65534
+    -- Todo: check performance on this
+    for i = 1, limit do
+        local id = math.random(1, 65534)
+        local se_obj = sim:object(id)
+
+        if
+            se_obj
+		    and (id ~= 0 and IsStalker(nil,se_obj:clsid()) and se_obj:alive() and string.find(se_obj:section_name(),"sim_default") and get_object_story_id(id) == nil)
+		    and (se_obj.group_id ~= 65535 and get_object_story_id(se_obj.group_id) == nil)
+		then
+			local comm = alife_character_community(se_obj)
+            local map = sim:level_name(gg:vertex(se_obj.m_game_vertex_id):level_id())
+			if
+                (not factions or has_value(factions, comm))
+                and (not maps or has_value(maps, map))
+            then
+                return {
+                    id = se_obj.id,
+                    level = map,
+                    comm = comm,
+                    name = se_obj:character_name()
+                }
+            end
+		end
+    end
+end
+
 local earthquake_cam_eff = 3
 function earthquake_screen_effect_gradual(duration_multiplier)
     local phase_duration_multiplier = duration_multiplier or 2

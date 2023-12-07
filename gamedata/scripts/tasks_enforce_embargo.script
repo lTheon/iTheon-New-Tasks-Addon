@@ -1,0 +1,129 @@
+local nta_utils = new_tasks_addon_tasks_utils
+local art_sections = {
+    "af_empty",
+    "af_eye",
+    "af_fuzz_kolobok",
+    "af_bracelet",
+    "af_mincer_meat",
+    "af_gravi",
+    "af_cristall",
+    "af_pin",
+    "af_ring",
+    "af_vyvert",
+    "af_sponge",
+    "af_dummy_dummy",
+    "af_electra_moonlight",
+    "af_lobster_eyes"
+}
+
+local state = {
+    artifact_id = nil,
+    artifact_section = nil,
+    stalker_id = nil,
+}
+local target = nil
+local rolled_artifact = nil
+-- Target reroll will be available on reload/location change if player was unlucky. It should be cool.
+local target_rolled = false
+
+function save_state(mdata)
+	mdata.enforce_embargo_task_data = state
+end
+
+function load_state(mdata)
+	if mdata.enforce_embargo_task_data then
+		state = mdata.enforce_embargo_task_data
+	end
+end
+
+task_status_functor.enforce_embargo_task_status_functor = function(tsk,task_id)
+	if not (db.actor and tsk) then return end
+	local stage = tsk.stage
+
+    local art = alife_object(state.artifact_id)
+    if not art or not string.find(art:section_name(), state.artifact_section) then
+        -- Fail if the item doesn't exist anymore (stalker holding it or the item itself despawned)
+        return "fail"
+    end
+
+	if stage == 0 or stage == 1 then
+        if utils_item.has_item_by_id(nil, state.artifact_id) then
+            tsk.stage = 2
+        end
+    end
+
+	if stage == 2 then
+        if not utils_item.has_item_by_id(nil, state.artifact_id) then
+            tsk.stage = 1
+        end
+    end
+end
+
+task_functor.enforce_embargo_task_target_functor = function(task_id,field,p,tsk)
+	if not (db.actor and tsk) then return nil end
+	local stage = tsk.stage
+
+    if stage == 0 then
+        return state.stalker_id
+    end
+
+    -- Stage 1 happens only if player picks up the artifact container and stores it somewhere/drops it
+    if stage == 1 then
+        return state.artifact_id
+    end
+
+    if stage == 2 then
+        return tsk.task_giver_id
+    end
+end
+
+xr_effects.enforce_embargo_cleanup = function()
+    state = {
+        artifact_id = nil,
+        artifact_section = nil,
+        stalker_id = nil,
+    }
+end
+
+xr_effects.enforce_embargo_completed = function()
+    news_manager.relocate_item(nil, "out", state.artifact_section)
+    safe_release_manager.release({ id = state.artifact_id })
+end
+
+xr_conditions.enforce_embargo_check = function()
+    if not target_rolled then
+        target = nta_utils.find_random_stalker({ "stalker" }, nta_utils.southern_maps)
+        target_rolled = true
+        rolled_artifact = art_sections[math.random(1, #art_sections)]
+    end
+    return not not target
+end
+
+xr_effects.dispatch_enforce_embargo_task_details = function(actor, npc, p)
+    CreateTimeEvent(0,"enforce_embargo_task_details",0, function ()
+        local task_id = p[1]
+        -- Build News
+        local news_caption = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "title")) or "error"
+
+        local news_text = game.translate_string("st_mm_new_game_name") .. " " .. target.name ..
+            "\\n " .. game.translate_string("st_mm_new_game_faction_2") .. " " .. game.translate_string(target.comm) ..
+            "\\n " .. game.translate_string("st_location") .. " " .. game.translate_string(target.level) ..
+            "\\n " .. game.translate_string("nta_intercept_item") .. " " .. game.translate_string("st_" .. rolled_artifact .. "_name")
+        local news_ico = task_manager.task_ini:r_string_ex(task_id, "icon")
+
+        db.actor:give_talk_message2(news_caption, news_text, news_ico, "iconed_answer_item")
+        return true
+    end)
+end
+
+xr_effects.spawn_enforce_embargo_artifact = function()
+    local section = rolled_artifact .. "_lead_box"
+    state.artifact_id = alife_create_item(section, alife_object(target.id)).id
+    state.artifact_section = section
+    state.stalker_id = target.id
+end
+
+function on_game_start()
+	RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("load_state",load_state)
+end
