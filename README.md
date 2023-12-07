@@ -1,4 +1,4 @@
-# iTheon's New Tasks Addon v0.1.1
+# iTheon's New Tasks Addon v0.1.2
 
 This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.
 Note: "During the night" refers to 10 PM - 3 AM.
@@ -25,6 +25,7 @@ Voronin:
 
 Kuznetsov:
 - Urgent orders - same as Voronin's quest but for military.
+- Enforce Embargo - intercept an artifact from a loner stalker
 
 Sidor:
 - Dead night - investigate the disappearance of stalkers in Darkscape at night.
@@ -52,6 +53,9 @@ Bandits:
 Contributors:<br>
 [JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
 El_Rosarino - Spanish translation
+
+v0.1.2
+- Add Enforce Embargo task (Kuznetsov)
 
 v0.1.1
 - Add MCM config for tasks replayability and auto-assignment (currently only one task is auto-assigned)
