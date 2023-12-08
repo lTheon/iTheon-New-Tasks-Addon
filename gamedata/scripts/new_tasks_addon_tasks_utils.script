@@ -173,10 +173,8 @@ nothern_maps = {
 sim_stalkers = nil
 function prefetch_sim_stalkers()
     sim_stalkers = {}
-    local gg = game_graph()
-    local sim = alife()
     for i = 1, 65534 do
-        local se_obj = sim:object(i)
+        local se_obj = alife_object(i)
 
         if
             se_obj
@@ -184,40 +182,44 @@ function prefetch_sim_stalkers()
 		    and (se_obj.group_id ~= 65535 and get_object_story_id(se_obj.group_id) == nil)
 		then
 			local comm = alife_character_community(se_obj)
-            local level = sim:level_name(gg:vertex(se_obj.m_game_vertex_id):level_id())
 
             if not sim_stalkers[comm] then
                 sim_stalkers[comm] = {}
             end
 
-            table.insert(sim_stalkers[comm], {
-                id = se_obj.id,
-                level = level
-            })
+            table.insert(sim_stalkers[comm], se_obj.id)
 		end
     end
 end
 
 function find_random_stalker(factions, maps)
-    local limit = 1000
-    local sim = alife()
-    -- Check 1k random stalkers at most and make it completely random
-    -- Todo: check performance on this
+    local limit = 60
+    -- Check 60 random stalkers at most and make it completely random
     for i = 1, limit do
         local faction = factions[math.random(1, #factions)]
         local faction_stalkers = sim_stalkers[faction]
-        local stalker = faction_stalkers[math.random(1, #faction_stalkers)]
+        local stalker_id = faction_stalkers[math.random(1, #faction_stalkers)]
+        local se_obj = alife_object(stalker_id)
+        local level = get_object_level_id(se_obj)
 
-        if not maps or has_value(maps, stalker.level) then
-            local se_obj = sim:object(stalker.id)
+        if
+            (not maps or has_value(maps, level))
+            and IsStalker(nil,se_obj:clsid()) and se_obj:alive() and alife_character_community(se_obj) == faction
+        then
             return {
-                id = stalker.id,
-                level = stalker.level,
+                id = stalker_id,
+                level = level,
                 faction = faction,
                 name = se_obj:character_name()
             }
         end
     end
+end
+
+function get_object_level_id(se_obj)
+    local gg = game_graph()
+    local sim = alife()
+    return sim:level_name(gg:vertex(se_obj.m_game_vertex_id):level_id())
 end
 
 local earthquake_cam_eff = 3
