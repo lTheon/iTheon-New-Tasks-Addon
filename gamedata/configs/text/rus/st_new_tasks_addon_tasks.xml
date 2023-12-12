@@ -249,4 +249,20 @@
 	<string id="big_game_details">
         <text>Осмотрите место</text>
     </string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_name">
+		<text>Обеспечение эмбарго</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_text">
+		<text>Сталкер планирует продать артефакт коллекционеру из-за пределов Зоны. Мне нужно перехватить его и вернуть полковнику.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_about">
+		<text>Вольно, солдат. Есть одно поручение, которым нужно заняться. Наш агент под прикрытием подслушал разговор двух сталкеров в баре "100 рентген". Они обсуждали свой недавний контракт на доставку одной из этих блестящих штуковин, называемых артефактами, коллекционеру за периметром - довольно редкого, если быть точнее. Вот тут-то мы и вступаем в дело. Ты должен перехватить эту посылку и доставить её мне, понятно?\n \n Еще одно - если цель погибнет, а посылку перехватит кто-то другой, это будет на твоей ответственности. Ты также не должен нарушать целостность коробки. Мы хотели бы навестить клиента и мило с ним побеседовать.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_finish">
+		<text>Отличная работа, боец - продолжай в том же духе. Вольно.</text>
+	</string>
+
+	<string id="nta_intercept_item">
+		<text>Перехватить предмет:</text>
+	</string>
 </string_table>
