@@ -164,7 +164,7 @@
 	<string id="bar_dolg_leader_task_urgent_orders_report">
         <text>Soldier! This is General Voronin! I've got an urgent order for you. One of our brothers was wounded and poisoned by some new kind of bloodsucker. Our medic is not able to help him. I've contacted Professor Sakharov asking for help and there is a chance that his experimental medicine might help our brother.\n \nYou need to depart towards Yantar at once and escort a group scientists to our base. Do not fail me, soldier!</text>
     </string>
-	<string id="bar_dolg_leader_task_urgent_orders_sciencists_response">
+	<string id="bar_dolg_leader_task_urgent_orders_scientists_response">
         <text>Greetings, lad! I've received information about your arrival from your general. My assistants have everything they need to cure your friend and will join you shortly.</text>
     </string>
 	<string id="bar_dolg_leader_task_urgent_orders_fail">
@@ -180,7 +180,7 @@
 	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_report">
         <text>Soldier! This is Colonel Kuznetsov! I've got an urgent order for you. One of our brothers was wounded and poisoned by some new kind of bloodsucker. Our medic is not able to help him. I've contacted Professor Sakharov asking for help and there is a chance that his experimental medicine might help our brother.\n \nYou need to depart towards Yantar at once and escort a group scientists to our base. Do not fail me, soldier!</text>
     </string>
-	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_sciencists_response">
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_scientists_response">
         <text>Greetings, lad! I've received information about your arrival from Colonel Kuznetsov. My assistants have everything they need to cure your friend and will join you shortly.</text>
     </string>
 	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_fail">
@@ -281,7 +281,7 @@
 		<text>Shakedown</text>
 	</string>
 	<string id="val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_text">
-		<text>Olivius wants me to bring him an artifact that sciencists found on the bandit's turf.</text>
+		<text>Olivius wants me to bring him an artifact that scientists found on the bandits' turf.</text>
 	</string>
 	<string id="val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_about">
 		<text>Listen up, mate. As you should already know, we call this place ours and we treat it really seriously. From time to time we have visitors that seem to not understand that and they usually end bad. Our boys have spotted a group of eggheads sniffing around the Glowing Pit. Since they usually carry some advanced artifact detectors and that place is quite dangerous, our boys decided to let the eggheads do the dirty job and then take whatever they find there from their dead bodies. When they spotted that our guests are packing some sparkling goodies to the lead box, one of our best shots lifted his SKS, getting ready to shoot. Right at that same moment his head literally exploded... he took a sniper round to the head. The rest of his squad did not know where the shot came from, so they ran for their lives as fast as they could. When a bigger group went back there, they were nowhere to be found. They also took our dead brother's stuff.\n \nIt's us who take stuff from others here - not the other way around... Find these bastards, teach them this lesson and bring the box back to me.</text>
