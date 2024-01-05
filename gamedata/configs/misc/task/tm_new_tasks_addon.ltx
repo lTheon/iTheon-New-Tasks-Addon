@@ -250,7 +250,7 @@ on_complete = %=complete_task_inc_goodwill(100:army) =reward_random_money(10000:
 on_fail = %=fail_task_dec_goodwill(200:army) -agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_started =intercept_artifact_cleanup(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo)%
 
 [esc_m_trader_task_cold_blooded_betrayal]
-icon = ui_iconsTotal_lost_thing
+icon = ui_iconsTotal_bar_crazy_veterans_quest
 storyline = false
 repeat_timeout = 73200
 
@@ -268,6 +268,27 @@ on_job_descr = %=dispatch_intercept_artifact_task_details(esc_m_trader_task_cold
 on_init = %+esc_m_trader_task_cold_blooded_betrayal_started =spawn_intercept_artifact_artifact(esc_m_trader_task_cold_blooded_betrayal)%
 on_complete = %=complete_task_inc_goodwill(100:stalker) =reward_random_money(10000:14000) -esc_m_trader_task_cold_blooded_betrayal_started +esc_m_trader_task_cold_blooded_betrayal_completed =intercept_artifact_completed(esc_m_trader_task_cold_blooded_betrayal) =intercept_artifact_cleanup(esc_m_trader_task_cold_blooded_betrayal)%
 on_fail = %=fail_task_dec_goodwill(200:stalker) -esc_m_trader_task_cold_blooded_betrayal_started =intercept_artifact_cleanup(esc_m_trader_task_cold_blooded_betrayal)%
+
+[val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown]
+icon = ui_iconsTotal_tutorial_find_artefact
+storyline = false
+repeat_timeout = 73200
+
+title = val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_name
+descr = val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_text
+job_descr = val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_about
+task_complete_descr = val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_finish
+precondition = {-val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_started =check_nta_replayability(val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown) =intercept_artifact_check(val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown:2:southern_maps:ecolog:csky)} true, false
+condlist_0 = {!task_giver_alive(val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown)} fail
+
+stage_complete = 2
+target_functor = intercept_artifact_task_target_functor
+status_functor = intercept_artifact_task_status_functor
+
+on_job_descr = %=dispatch_intercept_artifact_task_details(val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown)%
+on_init = %+val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_started =spawn_intercept_artifact_artifact(val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown)%
+on_complete = %=complete_task_inc_goodwill(100:bandit) =reward_random_money(10000:14000) -val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_started +val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_completed =intercept_artifact_completed(val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown) =intercept_artifact_cleanup(val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown)%
+on_fail = %=fail_task_dec_goodwill(200:bandit) -val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_started =intercept_artifact_cleanup(val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown)%
 
 ;------------------ General tasks ------------------
 [simulation_task_gambling_with_life]
