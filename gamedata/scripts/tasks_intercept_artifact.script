@@ -21,7 +21,17 @@ local art_sections = {
         "af_lobster_eyes"
     },
     -- T3
-    {}
+    {
+        "af_baloon",
+        "af_black_spray",
+        "af_electra_flash",
+        "af_fire",
+        "af_fireball",
+        "af_full_empty",
+        "af_glass",
+        "af_gold_fish",
+        "af_ice"
+    }
 }
 
 local state = {

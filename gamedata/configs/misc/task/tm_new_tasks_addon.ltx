@@ -290,6 +290,27 @@ on_init = %+val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_started =
 on_complete = %=complete_task_inc_goodwill(100:bandit) =reward_random_money(10000:14000) -val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_started +val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_completed =intercept_artifact_completed(val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown) =intercept_artifact_cleanup(val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown)%
 on_fail = %=fail_task_dec_goodwill(200:bandit) -val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_started =intercept_artifact_cleanup(val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown)%
 
+[yan_stalker_sakharov_task_stolen_specimen]
+icon = ui_inGame2_kompas
+storyline = false
+repeat_timeout = 73200
+
+title = yan_stalker_sakharov_task_stolen_specimen_name
+descr = yan_stalker_sakharov_task_stolen_specimen_text
+job_descr = yan_stalker_sakharov_task_stolen_specimen_about
+task_complete_descr = yan_stalker_sakharov_task_stolen_specimen_finish
+precondition = {-yan_stalker_sakharov_task_stolen_specimen_started =check_nta_replayability(yan_stalker_sakharov_task_stolen_specimen) =intercept_artifact_check(yan_stalker_sakharov_task_stolen_specimen:3:northern_maps:greh)} true, false
+condlist_0 = {!task_giver_alive(yan_stalker_sakharov_task_stolen_specimen)} fail
+
+stage_complete = 2
+target_functor = intercept_artifact_task_target_functor
+status_functor = intercept_artifact_task_status_functor
+
+on_job_descr = %=dispatch_intercept_artifact_task_details(yan_stalker_sakharov_task_stolen_specimen)%
+on_init = %+yan_stalker_sakharov_task_stolen_specimen_started =spawn_intercept_artifact_artifact(yan_stalker_sakharov_task_stolen_specimen)%
+on_complete = %=complete_task_inc_goodwill(125:ecolog) =reward_random_money(16000:20000) -yan_stalker_sakharov_task_stolen_specimen_started +yan_stalker_sakharov_task_stolen_specimen_completed =intercept_artifact_completed(yan_stalker_sakharov_task_stolen_specimen) =intercept_artifact_cleanup(yan_stalker_sakharov_task_stolen_specimen)%
+on_fail = %=fail_task_dec_goodwill(250:ecolog) -yan_stalker_sakharov_task_stolen_specimen_started =intercept_artifact_cleanup(yan_stalker_sakharov_task_stolen_specimen)%
+
 ;------------------ General tasks ------------------
 [simulation_task_gambling_with_life]
 icon = ui_inGame2_Ohota_na_Krovososov
