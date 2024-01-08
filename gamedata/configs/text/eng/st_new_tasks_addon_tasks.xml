@@ -74,7 +74,7 @@
     </string>
 
 	<string id="cit_killers_merc_trader_stalker_task_no_step_back_name">
-		<text>No step back</text>
+		<text>No Step Back</text>
 	</string>
 	<string id="cit_killers_merc_trader_stalker_task_no_step_back_text">
 		<text>Mercenaries have been steadily loosing control over Limansk and Dushman is worried that the Dead City will soon be under attack by Monolith. I've got to take back the territory up to the bridge and destroy any possible reinforcements they might receive.</text>
@@ -99,7 +99,7 @@
     </string>
 
 	<string id="simulation_task_gambling_with_life_name">
-		<text>Gambling with life</text>
+		<text>Gambling with Life</text>
 	</string>
 	<string id="simulation_task_gambling_with_life_text">
 		<text>I've accepted a bet with a Freedomer that I'll kill a healthy bloodsucker using only a knife. Hippies on high have weird ideas, but money is money, so...</text>
@@ -115,7 +115,7 @@
     </string>
 
 	<string id="simulation_task_vengence_amplified_name">
-		<text>Vengence amplified</text>
+		<text>Vengence Amplified</text>
 	</string>
 	<string id="simulation_task_vengence_amplified_text">
 		<text>A bandit wants me to chop the chimera to pieces with an axe to avenge his friend. Taking on this task was probably a mistake...</text>
@@ -131,7 +131,7 @@
     </string>
 
 	<string id="yan_stalker_sakharov_task_brain_game_name">
-		<text>Brain game</text>
+		<text>Brain Game</text>
 	</string>
 	<string id="yan_stalker_sakharov_task_brain_game_text">
 		<text>Sakharov needs a controller with undamaged brain to perform further research on its psi abilities.</text>
@@ -153,7 +153,7 @@
     </string>
 
 	<string id="urgent_orders_name">
-		<text>Urgent orders</text>
+		<text>Urgent Orders</text>
 	</string>
 	<string id="bar_dolg_leader_task_urgent_orders_text">
 		<text>A fellow Duty soldier has been critically wounded by a new type of bloodsucker and requires medical treatment from scientists. I need to hurry up!</text>
@@ -164,7 +164,7 @@
 	<string id="bar_dolg_leader_task_urgent_orders_report">
         <text>Soldier! This is General Voronin! I've got an urgent order for you. One of our brothers was wounded and poisoned by some new kind of bloodsucker. Our medic is not able to help him. I've contacted Professor Sakharov asking for help and there is a chance that his experimental medicine might help our brother.\n \nYou need to depart towards Yantar at once and escort a group scientists to our base. Do not fail me, soldier!</text>
     </string>
-	<string id="bar_dolg_leader_task_urgent_orders_sciencists_response">
+	<string id="bar_dolg_leader_task_urgent_orders_scientists_response">
         <text>Greetings, lad! I've received information about your arrival from your general. My assistants have everything they need to cure your friend and will join you shortly.</text>
     </string>
 	<string id="bar_dolg_leader_task_urgent_orders_fail">
@@ -180,7 +180,7 @@
 	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_report">
         <text>Soldier! This is Colonel Kuznetsov! I've got an urgent order for you. One of our brothers was wounded and poisoned by some new kind of bloodsucker. Our medic is not able to help him. I've contacted Professor Sakharov asking for help and there is a chance that his experimental medicine might help our brother.\n \nYou need to depart towards Yantar at once and escort a group scientists to our base. Do not fail me, soldier!</text>
     </string>
-	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_sciencists_response">
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_scientists_response">
         <text>Greetings, lad! I've received information about your arrival from Colonel Kuznetsov. My assistants have everything they need to cure your friend and will join you shortly.</text>
     </string>
 	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_fail">
@@ -262,6 +262,45 @@
 	</string>
 	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_enforce_embargo_finish">
 		<text>Great job, soldier - keep it up. Dismissed.</text>
+	</string>
+
+	<string id="esc_m_trader_task_cold_blooded_betrayal_name">
+		<text>Cold-blooded Betrayal</text>
+	</string>
+	<string id="esc_m_trader_task_cold_blooded_betrayal_text">
+		<text>Sidorovich asked me to bring an ex-loner that killed his squadmates to justice. I also need to bring back an artifact that was the cause of his crimes.</text>
+	</string>
+	<string id="esc_m_trader_task_cold_blooded_betrayal_about">
+		<text>I've got a rather unusual artifact-hunting job for you. I've received a request for an uncommon artifact from a client beyond the perimeter and the contract was picked up shortly after by a group of two newbies led by some more experienced guy. Two days later I've received a message from them that they've found it around the Garbage and are heading back next day. I was kinda surprised by that... you usually find just some trash around there.\n \nNow to the interesting part. They've decided to spend the night at the hangar. The Butcher mentioned that one of them was particularly nervous after having some beef with the group leader. Just a moment before laying down to get some sleep, he heard shots coming from the campfire's direction and loud steps of someone dashing out of the hangar. When he got to the campfire with his gun in the hands, he saw only two bodies and none of them was the suspicious guy that he remembered. He found a note about the contract on leader's body and let me know about the incident.\n \nThat bastard has probably seen an artifact like this for the first time and decided to kill his brothers just to snatch it, while also double-crossing me. That was his last mistake. Put the bullet in his head and bring back what he stole.</text>
+	</string>
+	<string id="esc_m_trader_task_cold_blooded_betrayal_finish">
+		<text>So the justice has been served... Good job, stalker.</text>
+	</string>
+
+	<string id="val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_name">
+		<text>Shakedown</text>
+	</string>
+	<string id="val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_text">
+		<text>Olivius wants me to bring him an artifact that scientists found on the bandits' turf.</text>
+	</string>
+	<string id="val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_about">
+		<text>Listen up, mate. As you should already know, we call this place ours and we treat it really seriously. From time to time we have visitors that seem to not understand that and they usually end bad. Our boys have spotted a group of eggheads sniffing around the Glowing Pit. Since they usually carry some advanced artifact detectors and that place is quite dangerous, our boys decided to let the eggheads do the dirty job and then take whatever they find there from their dead bodies. When they spotted that our guests are packing some sparkling goodies to the lead box, one of our best shots lifted his SKS, getting ready to shoot. Right at that same moment his head literally exploded... he took a sniper round to the head. The rest of his squad did not know where the shot came from, so they ran for their lives as fast as they could. When a bigger group went back there, they were nowhere to be found. They also took our dead brother's stuff.\n \nIt's us who take stuff from others here - not the other way around... Find these bastards, teach them this lesson and bring the box back to me.</text>
+	</string>
+	<string id="val_smart_terrain_7_4_bandit_trader_stalker_task_shakedown_finish">
+		<text>Hah - there it is. It won't bring our brother back to life, but will definitely lift the spirits around.</text>
+	</string>
+
+	<string id="yan_stalker_sakharov_task_stolen_specimen_name">
+		<text>Stolen Specimen</text>
+	</string>
+	<string id="yan_stalker_sakharov_task_stolen_specimen_text">
+		<text>Scientists have lost a rare artifact to the Sin squad. I've agreed to retrieve it.</text>
+	</string>
+	<string id="yan_stalker_sakharov_task_stolen_specimen_about">
+		<text>I think I might have a job for you. We've sent an expedition to Limansk recently aiming to do some measurements of anomalous activities in that region. Since it's a place of constant battle between mercenaries and Monolith forces, we've decided to hire some experts from their ranks to cover our colleagues. Everything went according to the plan... up to some point.\n \nOur lads have gathered the required data and found some pretty rare artifact. When they've been preparing to depart, a strong emission hit the place. They took cover in the basement of a nearby building. When things went quiet, the mercenaries went outside to scout the surroundings. Not long after our colleagues heard a shootout. They didn't even have time to grab their guns when a grenade landed in the basement, tearing two scientists into pieces. The last one - barely alive - crawled to the farthest wall, holding on to the container with the artifact. Three men with pale faces entered the basement, aiming the gun at him. When their leader saw the container, he reached out with his hand and pointed at it. Not thinking twice, the survivor tossed the box at him, already saying his prayers. The fanatics however did not end his life, seeing he's already dying. They've grabbed the box and left in silence. Our lad fainted at that moment and was found by a nearby squad of mercenaries that arrived late at the place. Thankfully, he's alive.\n \nHere's my request. We need that artifact back. It's a crucial reference for the gathered data. The box had a GPS tracker on it, so you'll be able to find those fanatics. I'm a pacifist, but there's no reasoning with a blind faith. Do what you have to do.</text>
+	</string>
+	<string id="yan_stalker_sakharov_task_stolen_specimen_finish">
+		<text>Great job, lad. Now we can continue our research... in memory of our fallen colleagues.</text>
 	</string>
 
 	<string id="nta_intercept_item">

@@ -111,7 +111,7 @@ function get_faction_configs()
             giver_name = game.translate_string("bar_voronin_name"),
             task_section = "bar_dolg_leader_task_urgent_orders",
             report_dialog = game.translate_string("bar_dolg_leader_task_urgent_orders_report"),
-            sciencist_response_dialog = game.translate_string("bar_dolg_leader_task_urgent_orders_sciencists_response"),
+            sciencist_response_dialog = game.translate_string("bar_dolg_leader_task_urgent_orders_scientists_response"),
             failure_dialog = game.translate_string("bar_dolg_leader_task_urgent_orders_fail"),
         }
     else
@@ -121,7 +121,7 @@ function get_faction_configs()
             giver_name = game.translate_string("agr_kuznetsov_name"),
             task_section = "agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders",
             report_dialog = game.translate_string("agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_report"),
-            sciencist_response_dialog = game.translate_string("agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_sciencists_response"),
+            sciencist_response_dialog = game.translate_string("agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_scientists_response"),
             failure_dialog = game.translate_string("agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_urgent_orders_fail"),
         }
     end

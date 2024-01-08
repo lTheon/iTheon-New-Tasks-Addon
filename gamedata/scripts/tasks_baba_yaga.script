@@ -96,7 +96,7 @@ xr_effects.baba_yaga_cleanup = function()
     }
 end
 
-function teleport ()
+function teleport()
     nta_utils.teleport_visual()
     db.actor:set_actor_position(baba_yaga_configs.teleport_to_location.vector)
 end
@@ -112,7 +112,7 @@ end
 function monster_on_death_callback(monster)
     if state.hag_id and monster:id() == state.hag_id then
         nta_utils.teleport_visual()
-        safe_release_manager.release({ id = state.hag_id })
+        nta_utils.hide_through_teleport(state.hag_id)
         state.hag_id = nil
     end
 end
