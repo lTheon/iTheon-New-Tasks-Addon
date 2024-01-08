@@ -108,6 +108,17 @@ function teleport_visual()
     snd_obj:play_no_feedback(db.actor, sound_object.s2d, 0, VEC_ZERO, 1.0, 1.0)
 end
 
+-- Used to push dead bodies that should disappear below the textures to avoid errors caused by on_death callbacks from other mods
+function hide_through_teleport(id)
+    CreateTimeEvent(0,"nta_hide_body_teleport_" .. id,0, function ()
+        local obj = level.object_by_id(id)
+        local pos = obj:position()
+        pos.y = pos.y - 40
+        obj:force_set_position(pos, false)
+        return true
+    end)
+end
+
 function spawn_companion_squad(sq_section, vector, lvid, gvid)
     local id = spawn_at_position(sq_section, vector, lvid, gvid, true)
     local squad = alife_object(id)

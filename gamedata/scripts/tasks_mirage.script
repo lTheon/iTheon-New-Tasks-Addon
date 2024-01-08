@@ -187,7 +187,7 @@ function destroy_mirage(id)
     particles:play_at_pos(se_obj.position)
     local snd = xr_sound.get_safe_sound_object("monsters\\poltergeist\\death_1")
     snd:play(level.object_by_id(id), 0, sound_object.s2d)
-    safe_release_manager.release({ id = id })
+    nta_utils.hide_through_teleport(id)
 end
 
 function give_mirages_weapon()
