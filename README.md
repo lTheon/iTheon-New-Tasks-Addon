@@ -1,4 +1,4 @@
-# iTheon's New Tasks Addon v0.1.2
+# iTheon's New Tasks Addon v0.1.3
 
 This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.
 Note: "During the night" refers to 10 PM - 3 AM.
@@ -15,20 +15,22 @@ Lukash:
 - Skyfall - destroy a military helicopter
 
 Dushman:
-- No step back - take back part of Limansk and hold against storming monolith forces.
+- No Step Back - take back part of Limansk and hold against storming monolith forces.
 
 Sakharov:
-- Brain game - kill a controller without damaging its head.
+- Brain Game - kill a controller without damaging its head.
+- Stolen Specimen - retrieve a rare artifact required for further research from Sinners
 
 Voronin:
-- Urgent orders - this quest is assigned automatically to Dutyer (original Dutyer - disguise won't work) to give a more military-like feeling to the faction. Go to Yantar and bring back a squad of sciencists to save wounded soldier with limited time (5 in game hours)
+- Urgent Orders - this quest is assigned automatically to Dutyer (original Dutyer - disguise won't work) to give a more military-like feeling to the faction. Go to Yantar and bring back a squad of sciencists to save wounded soldier with limited time (5 in game hours)
 
 Kuznetsov:
-- Urgent orders - same as Voronin's quest but for military.
+- Urgent Orders - same as Voronin's quest but for military.
 - Enforce Embargo - intercept an artifact from a loner stalker
 
 Sidor:
-- Dead night - investigate the disappearance of stalkers in Darkscape at night.
+- Dead Night - investigate the disappearance of stalkers in Darkscape at night.
+- Cold-blooded Betrayal - retrieve an artifact from a loner outcast
 
 Barman:
 - Baba Yaga - investigate the disappearance of stalkers on Garbage at night.
@@ -37,22 +39,34 @@ Cold:
 - House of Horrors - an eviscerated sentry has been found at the seemingly safe Clear Sky outpost. You need to look into this case.
 
 Beard:
-- Mirage - an artifact hunter has barely made it out alive after being shot by someone who looked exactly like him. You need to investigate the place.
+- Mirage - an artifact hunter has barely made it out alive after being shot by someone who looked exactly like himself. You need to investigate the place.
 
 Trapper:
 - Big Game - a pack of pseudogiants has taken refuge in a train tunnel in Jupiter. Trapper asks you to eliminate the threat.
+
+Olivius:
+- Shakedown - retrieve an artifact from a group of scientists that tresspassed on Bandit's territory
  
 **From random NPCs:**
 
 Freedom:
-- Gambling with life - kill a healthy bloodsucker using only a knife
+- Gambling with Life - kill a healthy bloodsucker using only a knife
 
 Bandits:
-- Vengence amplified - finish-off chimera using an axe (can be damaged by anyone and with any weapon before)
+- Vengence Amplified - finish-off chimera using an axe (can be damaged by anyone and with any weapon before)
 
 Contributors:<br>
 [JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
 El_Rosarino - Spanish translation
+
+v0.1.3
+- Add Stolen Specimen task (Sakharov)
+- Add Cold-blooded Betrayal task (Sidor)
+- Add Shakeup task (Olivius)
+- Fix typos and capitalization
+- Lay foundations for Outskirts tasks
+- Code cleanup (add mini-framework for artifact interception tasks, greatly reducing the size of code)
+- Potential fix for silent engine error in Baba Yaga, House of Horrors and Mirage
 
 v0.1.2
 - Add Enforce Embargo task (Kuznetsov)
