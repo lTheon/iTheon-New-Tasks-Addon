@@ -1,0 +1,15 @@
+function on_xml_read()
+	RegisterScriptCallback("on_xml_read", function(xml_file_name, xml_obj)
+		if xml_file_name:find( [[\character_desc_pripyat.xml]] ) then
+			local query_res = xml_obj:query("specific_character[id=trader_pri_a15_mlr]")
+			if not (type(query_res) == "table" and size_table(query_res) == 1) then return end
+
+			local el = query_res[1]
+			local task_dialog = [[
+				<actor_dialog>dm_ordered_task_dialog</actor_dialog>
+				<actor_dialog>dm_ordered_task_completed_dialog</actor_dialog>
+			]]
+			xml_obj:insertFromXMLString(task_dialog, el, #el.kids)
+		end
+	end)
+end
