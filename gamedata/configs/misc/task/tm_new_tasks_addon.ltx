@@ -332,6 +332,27 @@ on_init = %+trader_pri_a15_mlr_task_blood_stained_coin_started =spawn_intercept_
 on_complete = %=complete_task_inc_goodwill(125:stalker) =reward_random_money(18000:22000) -trader_pri_a15_mlr_task_blood_stained_coin_started +trader_pri_a15_mlr_task_blood_stained_coin_completed =intercept_artifact_completed(trader_pri_a15_mlr_task_blood_stained_coin) =intercept_artifact_cleanup(trader_pri_a15_mlr_task_blood_stained_coin)%
 on_fail = %=fail_task_dec_goodwill(250:stalker) -trader_pri_a15_mlr_task_blood_stained_coin_started =intercept_artifact_cleanup(trader_pri_a15_mlr_task_blood_stained_coin)%
 
+[jup_a6_stalker_barmen_task_the_keepsake]
+icon = ui_new_tasks_addon_campfire
+storyline = false
+repeat_timeout = 73200
+
+title = jup_a6_stalker_barmen_task_the_keepsake_name
+descr = jup_a6_stalker_barmen_task_the_keepsake_text
+job_descr = jup_a6_stalker_barmen_task_the_keepsake_about
+task_complete_descr = jup_a6_stalker_barmen_task_the_keepsake_finish
+precondition = {-jup_a6_stalker_barmen_task_the_keepsake_started =check_nta_replayability(jup_a6_stalker_barmen_task_the_keepsake) =intercept_artifact_check(jup_a6_stalker_barmen_task_the_keepsake:3:northern_maps:monolith)} true, false
+condlist_0 = {!task_giver_alive(jup_a6_stalker_barmen_task_the_keepsake)} fail
+
+stage_complete = 2
+target_functor = intercept_artifact_task_target_functor
+status_functor = intercept_artifact_task_status_functor
+
+on_job_descr = %=dispatch_intercept_artifact_task_details(jup_a6_stalker_barmen_task_the_keepsake)%
+on_init = %+jup_a6_stalker_barmen_task_the_keepsake_started =spawn_intercept_artifact_artifact(jup_a6_stalker_barmen_task_the_keepsake)%
+on_complete = %=complete_task_inc_goodwill(125:stalker) =reward_random_money(18000:22000) -jup_a6_stalker_barmen_task_the_keepsake_started +jup_a6_stalker_barmen_task_the_keepsake_completed =intercept_artifact_completed(jup_a6_stalker_barmen_task_the_keepsake) =intercept_artifact_cleanup(jup_a6_stalker_barmen_task_the_keepsake)%
+on_fail = %=fail_task_dec_goodwill(250:stalker) -jup_a6_stalker_barmen_task_the_keepsake_started =intercept_artifact_cleanup(jup_a6_stalker_barmen_task_the_keepsake)%
+
 ;------------------ General tasks ------------------
 [simulation_task_gambling_with_life]
 icon = ui_inGame2_Ohota_na_Krovososov

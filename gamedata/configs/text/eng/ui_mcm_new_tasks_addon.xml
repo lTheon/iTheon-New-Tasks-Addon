@@ -58,6 +58,9 @@
 	<string id="ui_mcm_new_tasks_addon_repl_trader_pri_a15_mlr_task_blood_stained_coin">
 		<text>Blood-stained Coin</text>
 	</string>
+	<string id="ui_mcm_new_tasks_addon_repl_jup_a6_stalker_barmen_task_the_keepsake">
+		<text>The Keepsake</text>
+	</string>
 
 	<string id="ui_mcm_new_tasks_addon_auto_assignment_title">
 		<text>Tasks auto-assignment</text>

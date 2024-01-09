@@ -316,6 +316,19 @@
 		<text>Color me impressed, stalker. I didn't expect to see you back alive. Here - you've earned it.</text>
 	</string>
 
+	<string id="jup_a6_stalker_barmen_task_the_keepsake_name">
+		<text>The Keepsake</text>
+	</string>
+	<string id="jup_a6_stalker_barmen_task_the_keepsake_text">
+		<text>I've agreed to avenge the death of certain stalker's brother and bring back the cause of his death as a keepsake.</text>
+	</string>
+	<string id="jup_a6_stalker_barmen_task_the_keepsake_about">
+		<text>Listen, friend. You're not afraid to kill for money, right? Especially when it comes to scumbags...\nHere's the thing - some stalker visited Yanov few days ago. His face was expressionless... I knew he saw some shit. He came up to me and ordered two bottles of vodka. He just stood here in silence, taking a sip after sip, looking at the bottom of his mug. It wasn't even one hour when one bottle was gone. Then he finally broke the silence with these words - "Today I've lost my brother... not like a true friend, but an actual brother...". He then proceeded to tell me the whole story. They've came to Jupiter for their last contract before leaving the Zone for good. They've agreed to find some very rare artifact for a good price and this place seemed perfect for that task - far enough north and relatively safe. After few days of searching, they've found one at the Concrete Bath anomaly... or rather his brother found one when he went a bit away into the bushes to do his business. When he was about to go back, he heard a sniper rifle shot and short after saw his brother falling on the ground. He took cover in the bushes again. A squad of heavily armored Monolith fanatics approached his body. The stalker knew he couldn't do anything at this point. They took the container with the artifact, threw the body into the anomaly and left shortly after. Before he managed to get close, his brother's body has already dissolved.\n \nHe didn't care about the contract at this point. He left a good chunk of money here with the contact info and said that whoever kills those bastards and brings back the artifact can have it. He wants it as a memento. What do you say? It seems like a very noble cause. The box had a localizer on hit, so you won't have issues finding the target, though you might need to go to some dangerous place.</text>
+	</string>
+	<string id="jup_a6_stalker_barmen_task_the_keepsake_finish">
+		<text>You've done a good thing today, stalker. Our friend has already left the Zone, but I'll make sure that this package gets to him.</text>
+	</string>
+
 	<string id="nta_intercept_item">
 		<text>Intercept an item:</text>
 	</string>
