@@ -303,6 +303,19 @@
 		<text>Great job, lad. Now we can continue our research... in memory of our fallen colleagues.</text>
 	</string>
 
+	<string id="trader_pri_a15_mlr_task_blood_stained_coin_name">
+		<text>Blood-stained Coin</text>
+	</string>
+	<string id="trader_pri_a15_mlr_task_blood_stained_coin_text">
+		<text>The Cashier tasked me with retrieving a rare artifact that was taken by the squad of ISG scientists.</text>
+	</string>
+	<string id="trader_pri_a15_mlr_task_blood_stained_coin_about">
+		<text>You look like someone that likes to take some risk, huh? I've got a very lucrative contract for a rare artifact. In fact, another stalker brought me that artifact a few days ago. You might ask why is the contract still standing, right? Well... a squad of very dangerous people was tailing that stalker. When we were about to make a deal here, they've stormed inside, taking everyone by surprise. You could tell right away they were all experts in their craft - wearing some top notch armor and barrels. No shots were fired however - we knew we were doomed, so we surrendered. Their leader slowly approached me, punched me in the face with his ironclad fist and took the container with artifact and the payment that was prepared for the stalker. He warned us that if anyone was to follow them, they'd leave noone alive here. So we just stayed there the whole day...\n \nThe original contractor wasn't happy with how things turned out. The box had a GPS tracker on it, so he went out to look for these men. Given that I haven't seen him in a long time, I assume he's biting the dust. We had no luck finding a similar artifact and the client is getting impatient. So I've been thinking - would you be willing to pay them back in my name and bring back the package?</text>
+	</string>
+	<string id="trader_pri_a15_mlr_task_blood_stained_coin_finish">
+		<text>Color me impressed, stalker. I didn't expect to see you back alive. Here - you've earned it.</text>
+	</string>
+
 	<string id="nta_intercept_item">
 		<text>Intercept an item:</text>
 	</string>

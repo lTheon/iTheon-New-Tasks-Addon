@@ -311,6 +311,27 @@ on_init = %+yan_stalker_sakharov_task_stolen_specimen_started =spawn_intercept_a
 on_complete = %=complete_task_inc_goodwill(125:ecolog) =reward_random_money(16000:20000) -yan_stalker_sakharov_task_stolen_specimen_started +yan_stalker_sakharov_task_stolen_specimen_completed =intercept_artifact_completed(yan_stalker_sakharov_task_stolen_specimen) =intercept_artifact_cleanup(yan_stalker_sakharov_task_stolen_specimen)%
 on_fail = %=fail_task_dec_goodwill(250:ecolog) -yan_stalker_sakharov_task_stolen_specimen_started =intercept_artifact_cleanup(yan_stalker_sakharov_task_stolen_specimen)%
 
+[trader_pri_a15_mlr_task_blood_stained_coin]
+icon = ui_new_tasks_addon_stalker_crosshair
+storyline = false
+repeat_timeout = 73200
+
+title = trader_pri_a15_mlr_task_blood_stained_coin_name
+descr = trader_pri_a15_mlr_task_blood_stained_coin_text
+job_descr = trader_pri_a15_mlr_task_blood_stained_coin_about
+task_complete_descr = trader_pri_a15_mlr_task_blood_stained_coin_finish
+precondition = {-trader_pri_a15_mlr_task_blood_stained_coin_started =check_nta_replayability(trader_pri_a15_mlr_task_blood_stained_coin) =intercept_artifact_check(trader_pri_a15_mlr_task_blood_stained_coin:3:northern_maps:isg)} true, false
+condlist_0 = {!task_giver_alive(trader_pri_a15_mlr_task_blood_stained_coin)} fail
+
+stage_complete = 2
+target_functor = intercept_artifact_task_target_functor
+status_functor = intercept_artifact_task_status_functor
+
+on_job_descr = %=dispatch_intercept_artifact_task_details(trader_pri_a15_mlr_task_blood_stained_coin)%
+on_init = %+trader_pri_a15_mlr_task_blood_stained_coin_started =spawn_intercept_artifact_artifact(trader_pri_a15_mlr_task_blood_stained_coin)%
+on_complete = %=complete_task_inc_goodwill(125:stalker) =reward_random_money(18000:22000) -trader_pri_a15_mlr_task_blood_stained_coin_started +trader_pri_a15_mlr_task_blood_stained_coin_completed =intercept_artifact_completed(trader_pri_a15_mlr_task_blood_stained_coin) =intercept_artifact_cleanup(trader_pri_a15_mlr_task_blood_stained_coin)%
+on_fail = %=fail_task_dec_goodwill(250:stalker) -trader_pri_a15_mlr_task_blood_stained_coin_started =intercept_artifact_cleanup(trader_pri_a15_mlr_task_blood_stained_coin)%
+
 ;------------------ General tasks ------------------
 [simulation_task_gambling_with_life]
 icon = ui_inGame2_Ohota_na_Krovososov

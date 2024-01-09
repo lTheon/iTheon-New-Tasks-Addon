@@ -55,6 +55,9 @@
 	<string id="ui_mcm_new_tasks_addon_repl_yan_stalker_sakharov_task_stolen_specimen">
 		<text>Stolen Specimen</text>
 	</string>
+	<string id="ui_mcm_new_tasks_addon_repl_trader_pri_a15_mlr_task_blood_stained_coin">
+		<text>Blood-stained Coin</text>
+	</string>
 
 	<string id="ui_mcm_new_tasks_addon_auto_assignment_title">
 		<text>Tasks auto-assignment</text>
