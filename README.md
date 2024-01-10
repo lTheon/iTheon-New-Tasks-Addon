@@ -1,4 +1,4 @@
-# iTheon's New Tasks Addon v0.1.3
+# iTheon's New Tasks Addon v0.1.4
 
 This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.
 Note: "During the night" refers to 10 PM - 3 AM.
@@ -45,7 +45,13 @@ Trapper:
 - Big Game - a pack of pseudogiants has taken refuge in a train tunnel in Jupiter. Trapper asks you to eliminate the threat.
 
 Olivius:
-- Shakedown - retrieve an artifact from a group of scientists that tresspassed on Bandit's territory
+- Shakedown - retrieve an artifact from a group of scientists that tresspassed on Bandit's territory.
+
+Cashier:
+- Blood-stained Coin - Cashier was robbed of a rare artifact right before making a deal with a stalker. You need to retrieve it.
+
+Hawaiian:
+- The Keepsake - a stalker has lost his actual brother during their last northern contract before leaving the Zone for good. He wants the contract target back as a memento
  
 **From random NPCs:**
 
@@ -58,6 +64,12 @@ Bandits:
 Contributors:<br>
 [JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
 El_Rosarino - Spanish translation
+
+v0.1.4
+- Add Blood-stained Coin (Cashier)
+- No Step Back adjustments - switched 2 novice squads for 2 veteran ones and changed the target of the squads to (hopefully) prevent them from always bum-rushing the building
+- Add The Keepsake (Hawaiian)
+- Made the northern artifact interception (T3 artifacts) quests one-time only by default
 
 v0.1.3
 - Add Stolen Specimen task (Sakharov)
