@@ -117,12 +117,15 @@ end
 
 function spawn(index, spawn_config)
     local squad_section
-    -- Will spawn 7 squads as novice
-    if state.killed_squads < 6 then
+    -- Will spawn 5 squads as novice
+    if state.killed_squads < 4 then
         squad_section = "monolith_defence_squad_novice"
     -- 2 as advanced
-    elseif state.killed_squads < 8 then
+    elseif state.killed_squads < 6 then
         squad_section = "monolith_defence_squad_advanced"
+    -- 2 as veteran
+    elseif state.killed_squads < 8 then
+        squad_section = "monolith_defence_squad_veteran"
     -- and one as alpha
     else
         squad_section = "monolith_defence_squad_alpha"
