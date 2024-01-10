@@ -1,4 +1,4 @@
-# iTheon's New Tasks Addon v0.1.4
+# iTheon's New Tasks Addon v0.1.4a
 
 This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.<br>
 Note: "During the night" refers to 10 PM - 3 AM.<br>
@@ -65,6 +65,9 @@ Bandits:
 Contributors:<br>
 [JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
 El_Rosarino - Spanish translation
+
+v0.1.4a
+- Fix find_random_stalker edge case that causes CTDs
 
 v0.1.4
 - Add Blood-stained Coin (Cashier)
