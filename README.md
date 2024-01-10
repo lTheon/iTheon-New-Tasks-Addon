@@ -1,8 +1,9 @@
 # iTheon's New Tasks Addon v0.1.4
 
-This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.
-Note: "During the night" refers to 10 PM - 3 AM.
-Changelog available at the bottom.
+This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.<br>
+Note: "During the night" refers to 10 PM - 3 AM.<br>
+Changelog available at the bottom.<br>
+You need the modified exes by Demonized for some the quest dialogs to be registered properly to the existing NPCs (if you're playing some modpack, then you almost surely got them installed)
 
 Currently available quests with short descriptions (you'll find more in-depth story behind when talking with NPCs):
 
