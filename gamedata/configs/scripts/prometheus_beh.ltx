@@ -1,0 +1,18 @@
+[logic]
+active = beh@base
+relation = neutral
+
+[beh@general]
+combat_ignore_keep_when_attacked = true
+combat_ignore_cond = true
+gather_items_enabled = false
+corpse_detection_enabled = false
+behavior_state = beh_wait
+invulnerable = true
+meet = no_meet
+
+[beh@base]:beh@general
+on_info1 = {+the_living_fire_prometheus_garbage_spawned} beh@garbage_trance
+
+[beh@garbage_trance]:beh@general
+wait_anim = trans_0

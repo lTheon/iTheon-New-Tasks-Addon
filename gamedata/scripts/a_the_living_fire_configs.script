@@ -1,5 +1,5 @@
 garbage_prometheus_location = {
-    section = '',
+    section = 'the_living_fire_prometheus',
     vector = vector():set(259.2471,1.4636,111.9623),
     lvid = 348888,
     gvid = 860,

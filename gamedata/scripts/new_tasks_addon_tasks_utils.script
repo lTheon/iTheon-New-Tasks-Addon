@@ -273,6 +273,11 @@ function earthquake_screen_effect_strong(duration)
     end)
 end
 
+function actor_in_range(spawn_config, vec, dist)
+    local v = spawn_config and spawn_config.vector or vec
+    return db.actor:position():distance_to(v) < dist
+end
+
 local function load_defaults()
 	local t = {}
 	local op = new_tasks_addon_mcm.op

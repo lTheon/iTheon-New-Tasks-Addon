@@ -21,5 +21,16 @@ function on_xml_read()
 				end
 			end
 		end
+
+		if xml_file_name:find("character_desc_garbage.xml") then
+				local query_res = xml_obj:query("specific_character[id=baraholka_trader]")
+				if not (type(query_res) == "table" and size_table(query_res) == 1) then return end
+
+				local el = query_res[1]
+				local task_dialog = [[
+					<actor_dialog>baraholka_trader_the_living_fire_1</actor_dialog>
+				]]
+				xml_obj:insertFromXMLString(task_dialog, el, #el.kids)
+		end
 	end)
 end

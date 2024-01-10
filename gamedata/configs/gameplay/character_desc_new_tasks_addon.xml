@@ -6,7 +6,7 @@
 		<icon>ui_inGame2_no_data</icon>
 		
 		<class>the_living_fire_prometheus</class>
-		<community>greh</community>
+		<community>greh_npc</community>
 		<terrain_sect>stalker_terrain</terrain_sect>
 		<snd_config>characters_voice\human\greh_1\</snd_config>
 		

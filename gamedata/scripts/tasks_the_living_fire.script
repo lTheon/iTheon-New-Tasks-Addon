@@ -1,7 +1,9 @@
 local nta_utils = new_tasks_addon_tasks_utils
+local configs = a_the_living_fire_configs
 
 local state = {
-    
+    prometheus_id = nil,
+    garbage_mutant_id = nil,
 }
 function save_state(mdata)
 	-- mdata.the_living_fire_task_data = state
@@ -24,14 +26,15 @@ task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
     end
 
     if stage == 1 then
-        
+        if nta_utils.actor_in_range(configs.garbage_prometheus_location, nil, configs.garbage_prometheus_spawn_activation_distance) then
+            state.prometheus_id = nta_utils.spawn_helper(configs.garbage_prometheus_location)
+            db.actor:give_info_portion("the_living_fire_prometheus_garbage_spawned")
+            tsk.stage = 2
+        end
     end
 
     if stage == 2 then
-        local giant = level.object_by_id(state.big_giant_id)
-        if giant and not giant:alive() then
-            tsk.stage = 3
-        end
+        
     end
 end
 
@@ -52,6 +55,10 @@ task_functor.the_living_fire_task_target_functor = function(task_id,field,p,tsk)
         return id_by_sid('baraholka_trader')
     end
     -- stage 1 - no pointer - enough clues given
+
+    if tsk.stage == 2 then
+        
+    end
 
     if tsk.stage == 3 then
         return tsk.task_giver_id
