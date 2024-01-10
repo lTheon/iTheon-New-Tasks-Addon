@@ -1,15 +1,24 @@
+local npcs_requiring_task_dialog = {
+	character_desc_pripyat = {"trader_pri_a15_mlr"},
+	character_desc_jupiter = {"jup_a6_stalker_barmen"}
+}
+
 function on_xml_read()
 	RegisterScriptCallback("on_xml_read", function(xml_file_name, xml_obj)
-		if xml_file_name:find( [[\character_desc_pripyat.xml]] ) then
-			local query_res = xml_obj:query("specific_character[id=trader_pri_a15_mlr]")
-			if not (type(query_res) == "table" and size_table(query_res) == 1) then return end
+		for file_name, npcs in pairs(npcs_requiring_task_dialog) do
+			if xml_file_name:find(file_name .. ".xml") then
+				for _, npc in ipairs(npcs) do
+					local query_res = xml_obj:query("specific_character[id=" .. npc .. "]")
+					if not (type(query_res) == "table" and size_table(query_res) == 1) then return end
 
-			local el = query_res[1]
-			local task_dialog = [[
-				<actor_dialog>dm_ordered_task_dialog</actor_dialog>
-				<actor_dialog>dm_ordered_task_completed_dialog</actor_dialog>
-			]]
-			xml_obj:insertFromXMLString(task_dialog, el, #el.kids)
+					local el = query_res[1]
+					local task_dialog = [[
+						<actor_dialog>dm_ordered_task_dialog</actor_dialog>
+						<actor_dialog>dm_ordered_task_completed_dialog</actor_dialog>
+					]]
+					xml_obj:insertFromXMLString(task_dialog, el, #el.kids)
+				end
+			end
 		end
 	end)
 end
