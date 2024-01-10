@@ -1,6 +1,7 @@
 local npcs_requiring_task_dialog = {
 	character_desc_pripyat = {"trader_pri_a15_mlr"},
-	character_desc_jupiter = {"jup_a6_stalker_barmen"}
+	character_desc_jupiter = {"jup_a6_stalker_barmen"},
+	character_desc_bar = {"bar_informator_mlr"},
 }
 
 function on_xml_read()

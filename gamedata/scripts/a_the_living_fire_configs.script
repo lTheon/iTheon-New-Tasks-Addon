@@ -1,0 +1,18 @@
+garbage_prometheus_location = {
+    section = '',
+    vector = vector():set(259.2471,1.4636,111.9623),
+    lvid = 348888,
+    gvid = 860,
+    angle = vector():set(0.308773,0.043173,-0.95015)
+}
+
+garbage_prometheus_spawn_activation_distance = 79.5
+garbage_mutant_spawn_activation_distance = 37.5
+
+garbage_mutant_location = {
+    section = 'flesh_01a_normal',
+    vector = vector():set(270.9603,2.9909,125.8575),
+    lvid = 352700,
+    gvid = 860,
+    angle = vector():set(-0.61890,-0.65488,-0.43368)
+}

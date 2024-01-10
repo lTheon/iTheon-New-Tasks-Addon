@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<game_dialogs>
+
+    <!-- The Living Fire -->
+	<dialog id="baraholka_trader_the_living_fire_1">
+        <has_info>bar_informator_mlr_task_the_living_fire_started</has_info>
+		<dont_has_info>baraholka_trader_the_living_fire_1_passed</dont_has_info>
+		<phrase_list>
+			<phrase id="0">
+				<text>baraholka_trader_the_living_fire_1_0</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text>baraholka_trader_the_living_fire_1_1</text>
+				<next>2</next>
+			</phrase>
+			<phrase id="2">
+				<text>baraholka_trader_the_living_fire_1_2</text>
+				<next>3</next>
+			</phrase>
+			<phrase id="3">
+				<text>baraholka_trader_the_living_fire_1_3</text>
+				<give_info>baraholka_trader_the_living_fire_1_passed</give_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<!-- The Living Fire end -->
+</game_dialogs>

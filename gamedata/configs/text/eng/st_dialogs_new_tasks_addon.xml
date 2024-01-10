@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<string_table>
+	<!-- The Living Fire -->
+	<string id="baraholka_trader_the_living_fire_1_0">
+		<text>Snitch told me to meet you. You know something that could shed some light on the "fiery" stalker from the rumors, right?</text>
+	</string>
+	<string id="baraholka_trader_the_living_fire_1_1">
+		<text>Ah, yes... I've got something, but don't get your hopes too high. Some time ago we've observed weird flashes happening at night behind the huge garbage pile south of us, followed by some terrifying howling of mutants. Some loners were curious what's happened there and visited the place during the day. They've found some dead fleshes there which were... well.. slightly grilled. At first we thought that those fleshes got into some hardly visible anomaly that disappeared the next day or encountered a flame poltergeist, but there was one peculiar thing on one of them. It had something that looked like a brand on its back - it was in shape of a human hand. It could have been a simple accident... or not? Who knows...\n \nYou could have a look around here at night if you'd like to find out more. If that guy really exists, then his affinity with fire might be a good clue where you should look for him.</text>
+	</string>
+	<string id="baraholka_trader_the_living_fire_1_2">
+		<text>Hmm... this still sounds like some veteran story to scare rookies. Either way, I'll try to find out something more. Thanks.</text>
+	</string>
+	<string id="baraholka_trader_the_living_fire_1_3">
+		<text>Yeah... I've got to admit it sounds nuts. You should still watch your back. The Zone is a strange place...\nAnyway - Snitch owes me one round for this, no matter what's the outcome of your investigation.</text>
+	</string>
+
+    <!-- <string id="baraholka_trader_the_living_fire_1_1">
+		<text>Trust me - I wish these were just rumors. More and more stalkers around here report finding burnt corpses, mutant and human alike. He even earned himself a few nicknames among the locals... some call him Lucifer, while others - The Living Fire. We still don't know what's his goal here...</text>
+	</string>
+    <string id="baraholka_trader_the_living_fire_1_2">
+		<text>No way... I thought that this was yet another campfire story to scare the rookies.</text>
+	</string>
+    <string id="baraholka_trader_the_living_fire_1_3">
+		<text>Not just you - we all did. The visiting stalkers mentioned that the burns on some bodies were unlike the ones that you could get from the anomalies. The part of the flesh was missing, as if it was disintegrated and the rest of the body wasn't "grilled", but you could see the cauterized flesh next to the missing parts. It had to be done through a very high temperature and short time of exposure. No anomaly or mutant I know of could do it.</text>
+	</string>
+    <string id="baraholka_trader_the_living_fire_1_4">
+		<text>Well - it doesn't sound like I should try to get in his way...</text>
+	</string>
+    <string id="baraholka_trader_the_living_fire_1_5">
+		<text>Easy, boy. We're just looking for information for now, remember? Noone is asking you to try to kill that demigod. At least for now... *laughs*\n \nListen up. We've seen some weird flashes at night recently. From what I've heard so far, he's traveling only at night to avoid detection. No idea what he's looking for around here, but that guy likes fire... that might be some clue.\n \nIf you find him, don't try to shoot him. You won't be able to kill him this way. We've found molten bullets close to his human victims. Maybe you'll be able to talk to him?</text>
+	</string>
+    <string id="baraholka_trader_the_living_fire_1_6">
+		<text>Thanks for the advice...</text>
+	</string>
+    <string id="baraholka_trader_the_living_fire_1_7">
+		<text>You're welcome. I hope you won't end up as a crisp... *laughs*</text>
+	</string> -->
+</string_table>
