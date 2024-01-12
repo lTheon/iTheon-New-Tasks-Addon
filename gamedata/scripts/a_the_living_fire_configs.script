@@ -1,13 +1,12 @@
 garbage_prometheus_location = {
     section = 'the_living_fire_prometheus',
-    vector = vector():set(259.2471,1.4636,111.9623),
+    vector = vector():set(258.33874511719,1.4770770072937,115.07250213623),
     lvid = 348888,
-    gvid = 860,
-    angle = vector():set(0.308773,0.043173,-0.95015)
+    gvid = 860
 }
 
 garbage_prometheus_spawn_activation_distance = 79.5
-garbage_mutant_spawn_activation_distance = 37.5
+garbage_mutant_spawn_activation_distance = 30
 
 garbage_mutant_location = {
     section = 'flesh_01a_normal',
@@ -15,4 +14,44 @@ garbage_mutant_location = {
     lvid = 352700,
     gvid = 860,
     angle = vector():set(-0.61890,-0.65488,-0.43368)
+}
+
+garbage_zhar_location = {
+    section = 'zone_zhar',
+    vector = vector():set(259.3239,1.4491,112.0573),
+    lvid = 348888,
+    gvid = 860,
+    is_anomaly = true
+}
+garbage_zharka_locations = {{
+    section = 'zone_zharka_static_strong_fast',
+    vector = vector():set(261.1329,1.7068,111.7404),
+    lvid = 349611,
+    gvid = 860,
+    is_anomaly = true
+},{
+    section = 'zone_zharka_static_strong_fast',
+    vector = vector():set(256.8685,1.8688,110.8892),
+    lvid = 348140,
+    gvid = 752,
+    is_anomaly = true
+},{
+    section = 'zone_zharka_static_strong_fast',
+    vector = vector():set(258.5245,1.8870,107.3416),
+    lvid = 348632,
+    gvid = 860,
+    is_anomaly = true
+},{
+    section = 'zone_zharka_static_strong_fast',
+    vector = vector():set(262.0410,1.9682,107.8764),
+    lvid = 349852,
+    gvid = 860,
+    is_anomaly = true
+}}
+
+garbage_trash_location = {
+    section = 'krujka',
+    vector = vector():set(260.0375,1.5603,110.4457),
+    lvid = 349131,
+    gvid = 860
 }

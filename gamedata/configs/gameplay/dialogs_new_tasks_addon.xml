@@ -24,5 +24,150 @@
 			</phrase>
 		</phrase_list>
 	</dialog>
+	<dialog id="baraholka_trader_the_living_fire_2">
+        <has_info>the_living_fire_prometheus_garbage_disappeared</has_info>
+		<dont_has_info>baraholka_trader_the_living_fire_2_passed</dont_has_info>
+		<phrase_list>
+			<phrase id="0">
+				<text>baraholka_trader_the_living_fire_2_0</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text>baraholka_trader_the_living_fire_2_1</text>
+				<next>2</next>
+			</phrase>
+			<phrase id="2">
+				<text>baraholka_trader_the_living_fire_2_2</text>
+				<next>3</next>
+			</phrase>
+			<phrase id="3">
+				<text>baraholka_trader_the_living_fire_2_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="4">
+				<text>baraholka_trader_the_living_fire_2_4</text>
+				<next>5</next>
+			</phrase>
+			<phrase id="5">
+				<text>baraholka_trader_the_living_fire_2_5</text>
+				<next>6</next>
+			</phrase>
+			<phrase id="6">
+				<text>baraholka_trader_the_living_fire_2_6</text>
+				<next>7</next>
+			</phrase>
+			<phrase id="7">
+				<text>baraholka_trader_the_living_fire_2_7</text>
+				<give_info>baraholka_trader_the_living_fire_2_passed</give_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="bar_informator_mlr_the_living_fire_2">
+        <has_info>baraholka_trader_the_living_fire_2_passed</has_info>
+		<dont_has_info>bar_informator_mlr_the_living_fire_2_passed</dont_has_info>
+		<phrase_list>
+			<phrase id="0">
+				<text>bar_informator_mlr_the_living_fire_2_0</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text>bar_informator_mlr_the_living_fire_2_1</text>
+				<action>tasks_the_living_fire.snitch_reward_1</action>
+				<next>2</next>
+			</phrase>
+			<phrase id="2">
+				<text>bar_informator_mlr_the_living_fire_2_2</text>
+				<next>3</next>
+			</phrase>
+			<phrase id="3">
+				<text>bar_informator_mlr_the_living_fire_2_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="4">
+				<text>bar_informator_mlr_the_living_fire_2_4</text>
+				<next>5</next>
+			</phrase>
+			<phrase id="5">
+				<text>bar_informator_mlr_the_living_fire_2_5</text>
+				<next>6</next>
+			</phrase>
+			<phrase id="6">
+				<text>bar_informator_mlr_the_living_fire_2_6</text>
+				<next>7</next>
+			</phrase>
+			<phrase id="7">
+				<text>bar_informator_mlr_the_living_fire_2_7</text>
+				<give_info>bar_informator_mlr_the_living_fire_2_passed</give_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+
+	<dialog id="yan_stalker_sakharov_the_living_fire_1">
+        <has_info>bar_informator_mlr_the_living_fire_2_passed</has_info>
+		<dont_has_info>yan_stalker_sakharov_the_living_fire_1_passed</dont_has_info>
+		<phrase_list>
+			<phrase id="0">
+				<text>yan_stalker_sakharov_the_living_fire_1_0</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text>yan_stalker_sakharov_the_living_fire_1_1</text>
+				<next>2</next>
+			</phrase>
+			<phrase id="2">
+				<text>yan_stalker_sakharov_the_living_fire_1_2</text>
+				<next>3</next>
+			</phrase>
+			<phrase id="3">
+				<text>yan_stalker_sakharov_the_living_fire_1_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="4">
+				<text>yan_stalker_sakharov_the_living_fire_1_4</text>
+				<next>5</next>
+			</phrase>
+			<phrase id="5">
+				<text>yan_stalker_sakharov_the_living_fire_1_5</text>
+				<next>6</next>
+			</phrase>
+			<phrase id="6">
+				<text>yan_stalker_sakharov_the_living_fire_1_6</text>
+				<next>7</next>
+			</phrase>
+			<phrase id="7">
+				<text>yan_stalker_sakharov_the_living_fire_1_7</text>
+				<next>8</next>
+			</phrase>
+			<phrase id="8">
+				<text>yan_stalker_sakharov_the_living_fire_1_8</text>
+				<next>9</next>
+			</phrase>
+			<phrase id="9">
+				<text>yan_stalker_sakharov_the_living_fire_1_9</text>
+				<next>10</next>
+			</phrase>
+			<phrase id="10">
+				<text>yan_stalker_sakharov_the_living_fire_1_10</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="11">
+				<text>yan_stalker_sakharov_the_living_fire_1_11</text>
+				<next>12</next>
+			</phrase>
+			<phrase id="12">
+				<text>yan_stalker_sakharov_the_living_fire_1_12</text>
+				<next>13</next>
+			</phrase>
+			<phrase id="13">
+				<text>yan_stalker_sakharov_the_living_fire_1_13</text>
+				<next>14</next>
+			</phrase>
+			<phrase id="14">
+				<text>yan_stalker_sakharov_the_living_fire_1_14</text>
+				<action>dialogs.break_dialog</action>
+				<give_info>yan_stalker_sakharov_the_living_fire_1_passed</give_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
 	<!-- The Living Fire end -->
 </game_dialogs>

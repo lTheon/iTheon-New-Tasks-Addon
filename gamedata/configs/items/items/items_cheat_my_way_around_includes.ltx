@@ -43,6 +43,17 @@ blast_impulse_factor  = 0
 frags				  = 0
 frags_r				  = 0
 
+[immediate_fiery_explosion]:explosive_grenade
+script_binding        = bind_physic_object.init
+custom_data           = scripts\immediate_explosion.ltx
+explode_particles	  = explosions\expl_benzin_00
+snd_explode           = new_tasks_addon\explosion_loud
+blast				  = 8
+blast_r				  = 10
+blast_impulse_factor  = 0
+frags				  = 0
+frags_r				  = 0
+
 [hanged_man]:physic_object
 visual                        = dynamics\dead_body\trupik_rope.ogf
 fixed_bones					  = link

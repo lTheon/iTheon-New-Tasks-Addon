@@ -345,6 +345,25 @@
 	<string id="the_living_fire_prometheus_name">
 		<text>Prometheus</text>
 	</string>
+	<string id="the_living_fire_mysterious_stalker_name">
+		<text>Mysterious Stalker</text>
+	</string>
+
+	<string id="the_living_fire_garbage_actor_msg_1">
+		<text>What was that sound?</text>
+	</string>
+	<string id="the_living_fire_garbage_prometheus_msg_1">
+		<text>Filthy mutant - begone...</text>
+	</string>
+	<string id="the_living_fire_garbage_actor_msg_2">
+		<text>Who are...</text>
+	</string>
+	<string id="the_living_fire_garbage_prometheus_msg_2">
+		<text>You will know my name... Everyone will...</text>
+	</string>
+	<string id="the_living_fire_garbage_actor_msg_3">
+		<text>What the hell just happened? I have a bad feeling about this...</text>
+	</string>
 	<!-- The Living Fire end -->
 
 	<string id="nta_intercept_item">

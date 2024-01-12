@@ -4,6 +4,25 @@ local npcs_requiring_task_dialog = {
 	character_desc_bar = {"bar_informator_mlr"},
 }
 
+local custom_dialogs = {
+	character_desc_garbage = {
+		baraholka_trader = [[
+			<actor_dialog>baraholka_trader_the_living_fire_1</actor_dialog>
+			<actor_dialog>baraholka_trader_the_living_fire_2</actor_dialog>
+		]]
+	},
+	character_desc_bar = {
+		bar_informator_mlr = [[
+			<actor_dialog>bar_informator_mlr_the_living_fire_2</actor_dialog>
+		]]
+	},
+	character_desc_yantar = {
+		yan_stalker_sakharov = [[
+			<actor_dialog>yan_stalker_sakharov_the_living_fire_1</actor_dialog>
+		]]
+	}
+}
+
 function on_xml_read()
 	RegisterScriptCallback("on_xml_read", function(xml_file_name, xml_obj)
 		for file_name, npcs in pairs(npcs_requiring_task_dialog) do
@@ -22,15 +41,16 @@ function on_xml_read()
 			end
 		end
 
-		if xml_file_name:find("character_desc_garbage.xml") then
-				local query_res = xml_obj:query("specific_character[id=baraholka_trader]")
-				if not (type(query_res) == "table" and size_table(query_res) == 1) then return end
+		for file_name, npcs in pairs(custom_dialogs) do
+			if xml_file_name:find(file_name .. ".xml") then
+				for npc, dial in pairs(npcs) do
+					local query_res = xml_obj:query("specific_character[id=" .. npc .. "]")
+					if not (type(query_res) == "table" and size_table(query_res) == 1) then return end
 
-				local el = query_res[1]
-				local task_dialog = [[
-					<actor_dialog>baraholka_trader_the_living_fire_1</actor_dialog>
-				]]
-				xml_obj:insertFromXMLString(task_dialog, el, #el.kids)
+					local el = query_res[1]
+					xml_obj:insertFromXMLString(dial, el, #el.kids)
+				end
+			end
 		end
 	end)
 end
