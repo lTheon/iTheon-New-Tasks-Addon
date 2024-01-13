@@ -55,3 +55,94 @@ garbage_trash_location = {
     lvid = 349131,
     gvid = 860
 }
+
+swamp_spawn_activation_distance = 90
+
+swamp_explosion_locations = {{
+    section = 'immediate_fiery_explosion',
+    vector = vector():set(377.5145,1.4910,313.3359),
+    lvid = 387613,
+    gvid = 270
+},{
+    section = 'immediate_fiery_explosion',
+    vector = vector():set(378.8956,2.3883,321.4124),
+    lvid = 389824,
+    gvid = 270
+},{
+    section = 'immediate_fiery_explosion',
+    vector = vector():set(382.0600,1.8370,314.6118),
+    lvid = 388175,
+    gvid = 270
+},{
+    section = 'immediate_fiery_explosion',
+    vector = vector():set(388.4934,2.0121,311.4114),
+    lvid = 388175,
+    gvid = 270
+},{
+    section = 'immediate_fiery_explosion',
+    vector = vector():set(388.9738,2.3708,316.0510),
+    lvid = 388175,
+    gvid = 270
+},{
+    section = 'immediate_fiery_explosion',
+    vector = vector():set(391.9536,2.2150,320.2223),
+    lvid = 388176,
+    gvid = 270
+}}
+
+swamp_mutant_locations = {{
+    section = 'm_poltergeist_normal_flame_tlf',
+    vector = vector():set(381.3572,2.9300,335.3167),
+    lvid = 392477,
+    gvid = 270
+},{
+    section = 'm_poltergeist_normal_flame_tlf',
+    vector = vector():set(389.7079,3.2380,335.6265),
+    lvid = 397855,
+    gvid = 270
+},{
+    section = 'm_poltergeist_normal_flame_tlf',
+    vector = vector():set(402.1235,2.0809,329.5285),
+    lvid = 406578,
+    gvid = 270
+},{
+    section = 'm_poltergeist_normal_flame_tlf',
+    vector = vector():set(407.4608,2.4145,317.4733),
+    lvid = 412019,
+    gvid = 270
+},{
+    section = 'm_poltergeist_normal_flame_tlf',
+    vector = vector():set(408.2388,2.0195,309.5494),
+    lvid = 412531,
+    gvid = 125
+},{
+    section = 'm_poltergeist_normal_flame_tlf',
+    vector = vector():set(400.1750,2.9509,296.3104),
+    lvid = 407022,
+    gvid = 125
+},{
+    section = 'm_poltergeist_normal_flame_tlf',
+    vector = vector():set(388.1782,2.5586,299.3748),
+    lvid = 397841,
+    gvid = 99
+},{
+    section = 'm_poltergeist_normal_flame_tlf',
+    vector = vector():set(374.5965,2.2245,300.4570),
+    lvid = 387045,
+    gvid = 99
+},{
+    section = 'm_poltergeist_normal_flame_tlf',
+    vector = vector():set(370.3809,2.0558,306.9438),
+    lvid = 383340,
+    gvid = 270
+},{
+    section = 'm_poltergeist_normal_flame_tlf',
+    vector = vector():set(367.2089,1.7041,314.7975),
+    lvid = 380915,
+    gvid = 270
+},{
+    section = 'm_poltergeist_normal_flame_tlf',
+    vector = vector():set(370.2082,2.0441,324.5357),
+    lvid = 383360,
+    gvid = 270
+}}

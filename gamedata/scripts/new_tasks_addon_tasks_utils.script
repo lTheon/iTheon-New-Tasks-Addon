@@ -321,6 +321,25 @@ function obj_position_to_spawn_config_partial(obj)
     }
 end
 
+levels = {
+    swamp = "k00_marsh",
+	darkscape = "k01_darkscape",
+	truck_cemetery = "k02_trucks_cemetery",
+	cordon = "l01_escape",
+	garbage = "l02_garbage",
+	agroprom = "l03_agroprom",
+	dark_valley = "l04_darkvalley",
+	wild_territory = "l06_rostok",
+	army_warehouses = "l07_military",
+	yantar = "l08_yantar",
+	dead_city = "l09_deadcity",
+    meadow = "y04_pole"
+}
+-- TODO: Remove separate functions from task files and use this one instead
+function actor_on_level(lvl)
+    return level.name() == lvl
+end
+
 local function load_defaults()
 	local t = {}
 	local op = new_tasks_addon_mcm.op

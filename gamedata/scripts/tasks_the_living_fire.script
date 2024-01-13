@@ -4,7 +4,8 @@ local configs = a_the_living_fire_configs
 local state = {
     prometheus_id = nil,
     garbage_mutant_id = nil,
-    anomaly_ids = {}
+    anomaly_ids = {},
+    swamp_mutant_ids = {}
 }
 function save_state(mdata)
 	-- mdata.the_living_fire_task_data = state
@@ -17,6 +18,11 @@ function load_state(mdata)
 end
 
 local prometheus_icon = 'ui_inGame2_no_data'
+local prometheus_name = 'the_living_fire_mysterious_stalker_name'
+local sakharov_icon = 'ui_inGame2_sakharov'
+local sakharov_name = 'yan_st_sakharov_name'
+local snitch_name = 'bar_informator_mlr_name'
+local snitch_icon = 'ui_inGame2_bandit_4'
 
 task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
 	if not (db.actor and tsk) then return end
@@ -42,7 +48,7 @@ task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
     if stage == 2 then
         if nta_utils.actor_in_range(configs.garbage_prometheus_location, nil, configs.garbage_mutant_spawn_activation_distance) then
             spawn_garbage_mutant()
-            delayed_message('the_living_fire_garbage_prometheus_msg_1', 1, prometheus_icon, 'the_living_fire_mysterious_stalker_name')
+            delayed_message('the_living_fire_garbage_prometheus_msg_1', 1, prometheus_icon, prometheus_name)
             garbage_delayed_kill_mutant()
             tsk.stage = 3
         end
@@ -51,7 +57,7 @@ task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
     if stage == 3 then
         if db.actor:has_info('the_living_fire_garbage_mutant_killed') then
             delayed_message('the_living_fire_garbage_actor_msg_2', 3.5, nta_utils.actor_icon(), nta_utils.actor_name())
-            delayed_message('the_living_fire_garbage_prometheus_msg_2', 4.5, prometheus_icon, 'the_living_fire_mysterious_stalker_name')
+            delayed_message('the_living_fire_garbage_prometheus_msg_2', 4.5, prometheus_icon, prometheus_name)
             tsk.stage = 4
         end
     end
@@ -93,11 +99,47 @@ task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
             tsk.stage = 8
         end
     end
+
+    if stage == 8 then
+        if nta_utils.actor_on_level(nta_utils.levels.swamp) and nta_utils.actor_in_range(
+            nil,
+            get_story_object('mar_smart_terrain_11_3_anomaly_spot'):position(),
+            configs.swamp_spawn_activation_distance
+        ) then
+            spawn_swamp_explosions()
+            delayed_message('the_living_fire_swamp_actor_msg_1', 3, nta_utils.actor_icon(), nta_utils.actor_name(), 6)
+            delayed_message('the_living_fire_swamp_sakharov_msg_1', 7, sakharov_icon, sakharov_name, 12)
+            spawn_swamp_mutants()
+            tsk.stage = 9
+        end
+    end
+
+    if stage == 9 then
+        if not first_swamp_alive_mutant_id() then
+            delayed_message('the_living_fire_swamp_sakharov_msg_2', 2, sakharov_icon, sakharov_name, 12)
+            db.actor:give_info_portion('the_living_fire_swamp_mutants_killed')
+            tsk.stage = 10
+        end
+    end
+
+    if stage == 10 then
+        if db.actor:has_info('yan_stalker_sakharov_the_living_fire_2_passed') then
+            delayed_message('the_living_fire_yantar_snitch_msg_1', 5, snitch_icon, snitch_name, 8)
+            delayed_message('the_living_fire_yantar_actor_msg_1', 10, nta_utils.actor_icon(), nta_utils.actor_name(), 8)
+            tsk.stage = 11
+        end
+    end
+
+    if stage == 11 then
+        if db.actor:has_info('bar_informator_mlr_the_living_fire_3_passed') then
+            tsk.stage = 12
+        end
+    end
 end
 
 function spawn_garbage_prometheus()
     state.prometheus_id = nta_utils.spawn_helper(configs.garbage_prometheus_location)
-    alife_object(state.prometheus_id):set_character_name(game.translate_string('the_living_fire_mysterious_stalker_name'))
+    alife_object(state.prometheus_id):set_character_name(game.translate_string(prometheus_name))
 end
 
 function spawn_garbage_anomalies()
@@ -144,9 +186,36 @@ end
 
 function snitch_reward_1()
     if not db.actor:has_info('bar_informator_mlr_the_living_fire_reward_1_given') then
-        printf('given money')
         db.actor:give_info_portion('bar_informator_mlr_the_living_fire_reward_1_given')
         dialogs.relocate_money( db.actor, 5000, "in" )
+    end
+end
+
+function snitch_reward_2()
+    if not db.actor:has_info('bar_informator_mlr_the_living_fire_reward_2_given') then
+        db.actor:give_info_portion('bar_informator_mlr_the_living_fire_reward_2_given')
+        dialogs.relocate_money( db.actor, 10000, "in" )
+    end
+end
+
+function spawn_swamp_explosions()
+    for _, spawn_config in pairs(configs.swamp_explosion_locations) do
+        nta_utils.spawn_helper(spawn_config)
+    end
+end
+
+function spawn_swamp_mutants()
+    for _, spawn_config in pairs(configs.swamp_mutant_locations) do
+        table.insert(state.swamp_mutant_ids, nta_utils.spawn_helper(spawn_config))
+    end
+end
+
+function first_swamp_alive_mutant_id()
+    for _, id in pairs(state.swamp_mutant_ids) do
+        local obj = level.object_by_id(id)
+        if obj and obj:alive() then
+            return id
+        end
     end
 end
 
@@ -183,6 +252,24 @@ task_functor.the_living_fire_task_target_functor = function(task_id,field,p,tsk)
     if tsk.stage == 8 then
         return get_story_object_id('mar_smart_terrain_11_3_anomaly_spot')
     end
+
+    if tsk.stage == 9 then
+        return first_swamp_alive_mutant_id()
+    end
+
+    if tsk.stage == 10 then
+        return get_story_object_id('yan_stalker_sakharov')
+    end
+
+    if tsk.stage == 11 then
+        return get_story_object_id('bar_informator_mlr')
+    end
+
+    if tsk.stage == 12 then
+        -- todo: fix the target here
+        -- return get_story_object_id('dar_smart_terrain_complex_proizv_spot')
+        -- return get_story_object_id('dar_close_door_zone')
+    end
     return
 end
 
@@ -190,7 +277,41 @@ xr_effects.the_living_fire_cleanup = function()
     state = {}
 end
 
+local hit_already = false
+function npc_on_before_hit(npc,shit,bone_id)
+    -- TODO: Add Prometheus to invulnerable npcs array in GBO once it's available
+    if npc:id() == get_story_object_id('the_living_fire_prometheus') then
+        shit.power = 0
+        npc:set_health_ex(1)
+        if shit.draftsman and shit.draftsman:id() == AC_ID and not hit_already then
+            hit_already = true
+            local sin_snd = xr_sound.get_safe_sound_object([[characters_voice\human\greh_1\fight\attack\attack_4]])
+            sin_snd:play(npc, 0, sound_object.s2d)
+
+            CreateTimeEvent(0,"the_living_fire_prometheus_revenge", 2, function ()
+                local spawn_config = nta_utils.obj_position_to_spawn_config_partial(db.actor)
+                spawn_config.section = 'zone_zhar'
+                spawn_config.is_anomaly = true
+                spawn_config.vector.y = spawn_config.vector.y - 1
+
+                nta_utils.spawn_helper(spawn_config)
+
+                local zhar_sound = xr_sound.get_safe_sound_object([[ambient\anomaly\zhar_blow]])
+                zhar_sound:play(db.actor, 0, sound_object.s2d)
+
+                CreateTimeEvent(0,"the_living_fire_prometheus_revenge_player_death", 0.2, function ()
+                    db.actor:set_health_ex(0)
+                    return true
+                end)
+                return true
+            end)
+
+        end
+    end
+end
+
 function on_game_start()
 	RegisterScriptCallback("save_state",save_state)
 	RegisterScriptCallback("load_state",load_state)
+    RegisterScriptCallback("npc_on_before_hit",npc_on_before_hit)
 end

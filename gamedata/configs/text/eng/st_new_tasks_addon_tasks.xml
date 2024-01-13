@@ -364,6 +364,21 @@
 	<string id="the_living_fire_garbage_actor_msg_3">
 		<text>What the hell just happened? I have a bad feeling about this...</text>
 	</string>
+	<string id="the_living_fire_swamp_actor_msg_1">
+		<text>Fuck... I'm late.</text>
+	</string>
+	<string id="the_living_fire_swamp_sakharov_msg_1">
+		<text>What happened there, stalker? Our readings went off scale again! It looks like the anomaly is branching. We need to stop this!</text>
+	</string>
+	<string id="the_living_fire_swamp_sakharov_msg_2">
+		<text>You've done it! The readings are going back to normal again. Come back to me. We need to talk.</text>
+	</string>
+	<string id="the_living_fire_yantar_snitch_msg_1">
+		<text>Oi, stalker! Are you still alive? I'm still waiting here for you report from Yantar.</text>
+	</string>
+	<string id="the_living_fire_yantar_actor_msg_1">
+		<text>Yeah... I was about to head back to you. I'll meet you soon.</text>
+	</string>
 	<!-- The Living Fire end -->
 
 	<string id="nta_intercept_item">
