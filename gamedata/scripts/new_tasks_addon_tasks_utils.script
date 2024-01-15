@@ -397,6 +397,10 @@ add_console_command("chopper", function()
     se_id = spawn_helicopter(true, vector():set(-178.07975769043,5.3180623054504,-181.78283691406))
 end)
 
+function change_level(configs)
+    change_level_now(configs.vector, configs.lvid, configs.gvid, configs.angle or vector():set(0, 0, 0))
+end
+
 function on_game_start()
     RegisterScriptCallback("on_game_load", load_settings)
 	RegisterScriptCallback("on_option_change", load_settings)

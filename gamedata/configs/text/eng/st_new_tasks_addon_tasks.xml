@@ -379,6 +379,18 @@
 	<string id="the_living_fire_yantar_actor_msg_1">
 		<text>Yeah... I was about to head back to you. I'll meet you soon.</text>
 	</string>
+	<string id="the_living_fire_dark_valley_actor_msg_1">
+		<text>I guess those are the unlucky soldiers...</text>
+	</string>
+	<string id="the_living_fire_x18_prometheus_msg_1">
+		<text>You're very persistent, stalker... Very well - come up to me. I guess you want to chat.</text>
+	</string>
+	<string id="the_living_fire_x18_military_msg_1">
+		<text>Unit 1 and 2 - safeguard the retreat route. Rest - search the last level. Open fire on sight, take no prisoners.</text>
+	</string>
+	<string id="the_living_fire_bar_actor_msg_1">
+		<text>I should visit Sidorovich and ask him if he knows something more about Prometheus. If he finds out in what deep shit he's in, he'll probably quickly remember everything.</text>
+	</string>
 	<!-- The Living Fire end -->
 
 	<string id="nta_intercept_item">

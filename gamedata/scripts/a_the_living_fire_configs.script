@@ -146,3 +146,89 @@ swamp_mutant_locations = {{
     lvid = 383360,
     gvid = 270
 }}
+
+x18_prometheus_location = {
+    section = 'the_living_fire_prometheus',
+    vector = vector():set(20.3700,-5.6448,-18.6233),
+    lvid = 5869,
+    gvid = 3760
+}
+
+x18_prometheus_msg_trigger_distance = 10
+
+dark_valley_corpses_locations = {{
+    section = 'burnt_corpse',
+    vector = vector():set(111.8177,2.2114,-260.6928),
+    lvid = 291764,
+    gvid = 1479,
+    angle = vector():set(0.864,4.821,0.925)
+},{
+    section = 'burnt_corpse',
+    vector = vector():set(124.8901,2.1722,-255.6436),
+    lvid = 304818,
+    gvid = 1479,
+    angle = vector():set(0.264,3.521,2.325)
+},{
+    section = 'burnt_corpse',
+    vector = vector():set(118.8484,2.1348,-249.6699),
+    lvid = 298989,
+    gvid = 1479,
+    angle = vector():set(0.764,0.491,0.758)
+},{
+    section = 'burnt_corpse',
+    vector = vector():set(128.1505,2.2330,-238.4363),
+    lvid = 308238,
+    gvid = 1479,
+    angle = vector():set(0.564,1.321,3.325)
+},{
+    section = 'burnt_corpse',
+    vector = vector():set(135.5211,2.2343,-264.7344),
+    lvid = 317291,
+    gvid = 1624,
+    angle = vector():set(2.8643,4.781,2.385)
+}}
+
+dark_valley_actor_msg_trigger_location = {
+    vector = vector():set(118.1769,0.1828,-256.8796),
+    lvid = 298304,
+    gvid = 1479
+}
+
+dark_valley_actor_msg_trigger_distance = 10
+
+x18_military_locations = {{
+    section = 'sim_default_military_5',
+    vector = vector():set(28.9156,-10.8155,4.3242),
+    lvid = 6879,
+    gvid = 3756
+},{
+    section = 'sim_default_military_5',
+    vector = vector():set(39.1388,-10.8143,-0.6025),
+    lvid = 7405,
+    gvid = 3756
+},{
+    section = 'sim_default_military_5',
+    vector = vector():set(-10.7342,-10.8194,-4.3039),
+    lvid = 1625,
+    gvid = 3770
+},{
+    section = 'sim_default_military_5',
+    vector = vector():set(-1.2834,-0.8076,-12.3146),
+    lvid = 2535,
+    gvid = 3749
+},{
+    section = 'sim_default_military_5',
+    vector = vector():set(-9.6617,4.1892,-4.7216),
+    lvid = 1680,
+    gvid = 3733
+},{
+    section = 'sim_default_military_5',
+    vector = vector():set(0.5395,4.1894,3.2381),
+    lvid = 2920,
+    gvid = 3744
+},{
+    section = 'sim_default_military_5',
+    vector = vector():set(-0.7148,9.3171,-7.6517),
+    lvid = 2694,
+    gvid = 3729
+}}

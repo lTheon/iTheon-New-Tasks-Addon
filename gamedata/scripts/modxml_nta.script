@@ -15,12 +15,18 @@ local custom_dialogs = {
 		bar_informator_mlr = [[
 			<actor_dialog>bar_informator_mlr_the_living_fire_2</actor_dialog>
 			<actor_dialog>bar_informator_mlr_the_living_fire_3</actor_dialog>
+			<actor_dialog>bar_informator_mlr_the_living_fire_4</actor_dialog>
 		]]
 	},
 	character_desc_yantar = {
 		yan_stalker_sakharov = [[
 			<actor_dialog>yan_stalker_sakharov_the_living_fire_1</actor_dialog>
 			<actor_dialog>yan_stalker_sakharov_the_living_fire_2</actor_dialog>
+		]]
+	},
+	character_desc_escape = {
+		esc_2_12_stalker_trader = [[
+			<actor_dialog>esc_2_12_stalker_trader_the_living_fire_1</actor_dialog>
 		]]
 	}
 }

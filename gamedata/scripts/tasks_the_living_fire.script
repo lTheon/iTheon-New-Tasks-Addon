@@ -5,24 +5,28 @@ local state = {
     prometheus_id = nil,
     garbage_mutant_id = nil,
     anomaly_ids = {},
-    swamp_mutant_ids = {}
+    swamp_mutant_ids = {},
+    dark_valley_corpse_ids = {},
+    dark_valley_corpse_moved = {},
+    x18_military_ids = {},
+    x18_military_relation_set = {}
 }
 function save_state(mdata)
-	-- mdata.the_living_fire_task_data = state
+	mdata.the_living_fire_task_data = state
 end
 
 function load_state(mdata)
-	-- if mdata.the_living_fire_task_data then
-	-- 	state = mdata.the_living_fire_task_data
-	-- end
+	if mdata.the_living_fire_task_data then
+		state = mdata.the_living_fire_task_data
+	end
 end
 
 local prometheus_icon = 'ui_inGame2_no_data'
 local prometheus_name = 'the_living_fire_mysterious_stalker_name'
 local sakharov_icon = 'ui_inGame2_sakharov'
 local sakharov_name = 'yan_st_sakharov_name'
-local snitch_name = 'bar_informator_mlr_name'
 local snitch_icon = 'ui_inGame2_bandit_4'
+local snitch_name = 'bar_informator_mlr_name'
 
 task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
 	if not (db.actor and tsk) then return end
@@ -132,10 +136,39 @@ task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
 
     if stage == 11 then
         if db.actor:has_info('bar_informator_mlr_the_living_fire_3_passed') then
+            state.prometheus_id = nta_utils.spawn_helper(configs.x18_prometheus_location)
+            alife_object(state.prometheus_id):set_character_name(game.translate_string(prometheus_name))
+            spawn_dark_valley_corpses()
             tsk.stage = 12
         end
     end
+
+    if stage == 12 then
+        move_dark_valley_corpses()
+        send_dark_valley_actor_msg()
+        send_x18_prometheus_msg()
+        adjust_x18_prometheus_position()
+        if db.actor:has_info('the_living_fire_prometheus_the_living_fire_1_passed') then
+            despawn_x18_prometheus()
+            tsk.stage = 13
+            CreateTimeEvent(0,"the_living_fire_x18_spawn_military", 1, function ()
+                spawn_x18_military()
+                delayed_message('the_living_fire_x18_military_msg_1', 4, 'army', 'ui_icon_news_trx_army', 10)
+                return true
+            end)
+        end
+    end
+
+    if stage == 13 then
+        set_x18_military_relation()
+        if db.actor:has_info('bar_informator_mlr_the_living_fire_4_passed') then
+            delayed_message('the_living_fire_bar_actor_msg_1', 5, nta_utils.actor_icon(), nta_utils.actor_name(), 10)
+            tsk.stage = 14
+        end
+    end
 end
+-- new_tasks_addon_tasks_utils.change_level(a_the_living_fire_configs.x18_prometheus_location)
+-- new_tasks_addon_tasks_utils.change_level(a_the_living_fire_configs.dark_valley_actor_msg_trigger_location)
 
 function spawn_garbage_prometheus()
     state.prometheus_id = nta_utils.spawn_helper(configs.garbage_prometheus_location)
@@ -219,6 +252,85 @@ function first_swamp_alive_mutant_id()
     end
 end
 
+function spawn_dark_valley_corpses()
+    for _, spawn_config in pairs(configs.dark_valley_corpses_locations) do
+        table.insert(state.dark_valley_corpse_ids, nta_utils.spawn_helper(spawn_config))
+    end
+end
+
+function move_dark_valley_corpses()
+    for _, corpse_id in ipairs(state.dark_valley_corpse_ids) do
+        local obj = level.object_by_id(corpse_id)
+        if obj and not state.dark_valley_corpse_moved[corpse_id] then
+            -- Trigger some force on the object so it turns into ragdoll
+            obj:get_physics_shell():apply_force(0, 0, 1)
+            state.dark_valley_corpse_moved[corpse_id] = true
+        end
+    end
+end
+
+function send_dark_valley_actor_msg()
+    if
+        not db.actor:has_info('the_living_fire_dark_valley_actor_msg_sent') and
+        nta_utils.actor_in_range(configs.dark_valley_actor_msg_trigger_location, nil, configs.dark_valley_actor_msg_trigger_distance)
+    then
+        db.actor:give_info_portion("the_living_fire_dark_valley_actor_msg_sent")
+        delayed_message('the_living_fire_dark_valley_actor_msg_1', 2, nta_utils.actor_icon(), nta_utils.actor_name(), 10)
+    end
+end
+
+function send_x18_prometheus_msg()
+    if
+        not db.actor:has_info('the_living_fire_x18_prometheus_msg_sent') and
+        nta_utils.actor_in_range(configs.x18_prometheus_location, nil, configs.x18_prometheus_msg_trigger_distance)
+    then
+        db.actor:give_info_portion("the_living_fire_x18_prometheus_msg_sent")
+        delayed_message('the_living_fire_x18_prometheus_msg_1', 0, prometheus_icon, prometheus_name, 10)
+    end
+end
+
+function adjust_x18_prometheus_position()
+    -- Prometheus is moved to the ground on reloading the game few times - correction needed
+    local obj = level.object_by_id(state.prometheus_id)
+    if obj then
+        if obj:position():distance_to(configs.x18_prometheus_location.vector) > 0.3 then
+            level.object_by_id(state.prometheus_id):set_npc_position(configs.x18_prometheus_location.vector)
+        end
+    end
+end
+
+function despawn_x18_prometheus()
+    local zhar_particle = particles_object([[anomaly2\heat_03]])
+    local pos = nta_utils.obj_position_to_spawn_config_partial(level.object_by_id(state.prometheus_id)).vector
+    pos.y = pos.y - 1.5
+    zhar_particle:play_at_pos(pos)
+    local zhar_sound = xr_sound.get_safe_sound_object([[ambient\anomaly\zhar_blow]])
+    zhar_sound:play(level.object_by_id(state.prometheus_id), 0, sound_object.s2d)
+    CreateTimeEvent(0,"the_living_fire_x18_zhar_sound_stop", 2, function ()
+        zhar_sound:stop()
+        return true
+    end)
+    safe_release_manager.release({id = state.prometheus_id})
+end
+
+function spawn_x18_military()
+    for i, spawn_config in ipairs(configs.x18_military_locations) do
+        local id = nta_utils.spawn_helper(spawn_config)
+        logic_enforcer.assign(id, [[scripts\x18_tlf_military_beh.ltx]],'logic', 'beh@pos_' .. i)
+        table.insert(state.x18_military_ids, id)
+    end
+end
+
+function set_x18_military_relation()
+    for _, id in ipairs(state.x18_military_ids) do
+        local obj = level.object_by_id(id)
+        if obj and not state.x18_military_relation_set[id] then
+            state.x18_military_relation_set[id] = true
+            obj:set_relation(-5000, db.actor)
+        end
+    end
+end
+
 local delayed_message_index = 0
 function delayed_message(msg, delay, icon, name, keep_time)
     local k_time = keep_time or 5
@@ -266,9 +378,15 @@ task_functor.the_living_fire_task_target_functor = function(task_id,field,p,tsk)
     end
 
     if tsk.stage == 12 then
-        -- todo: fix the target here
-        -- return get_story_object_id('dar_smart_terrain_complex_proizv_spot')
-        -- return get_story_object_id('dar_close_door_zone')
+        return get_story_object_id('the_living_fire_prometheus')
+    end
+
+    if tsk.stage == 13 then
+        return get_story_object_id('bar_informator_mlr')
+    end
+
+    if tsk.stage == 14 then
+        return get_story_object_id('esc_2_12_stalker_trader')
     end
     return
 end
