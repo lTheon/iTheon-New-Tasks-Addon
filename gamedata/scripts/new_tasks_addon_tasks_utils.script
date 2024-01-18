@@ -300,9 +300,8 @@ function earthquake_screen_effect_strong(duration)
     end)
 end
 
-function actor_in_range(spawn_config, vec, dist)
-    local v = spawn_config and spawn_config.vector or vec
-    return db.actor:position():distance_to(v) < dist
+function actor_in_range(vector, dist)
+    return db.actor:position():distance_to(vector) < dist
 end
 
 function actor_icon()
@@ -333,7 +332,11 @@ levels = {
 	army_warehouses = "l07_military",
 	yantar = "l08_yantar",
 	dead_city = "l09_deadcity",
-    meadow = "y04_pole"
+    meadow = "y04_pole",
+    x16 = 'l08u_brainlab',
+    x18 = 'l04u_labx18',
+    red_forest = 'l10_red_forest',
+    outskirts = 'pripyat'
 }
 -- TODO: Remove separate functions from task files and use this one instead
 function actor_on_level(lvl)
@@ -368,7 +371,7 @@ xr_effects.dispatch_nta_task_details = function(actor, npc, p)
         -- Build News
         local news_caption = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "title")) or "error"
 
-        local news_text = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "nta_task_details")) or "error"
+        local news_text = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "nta_task_details")) or ""
         local news_ico = task_manager.task_ini:r_string_ex(task_id, "icon")
 
         db.actor:give_talk_message2(news_caption, news_text, news_ico, "iconed_answer_item")

@@ -391,6 +391,65 @@
 	<string id="the_living_fire_bar_actor_msg_1">
 		<text>I should visit Sidorovich and ask him if he knows something more about Prometheus. If he finds out in what deep shit he's in, he'll probably quickly remember everything.</text>
 	</string>
+	<string id="the_living_fire_escape_sakharov_msg_1">
+		<text>Stalker - you need to come to my bunker immediately! We've spotted a great increase in anomalous activity nearby.</text>
+	</string>
+	<string id="the_living_fire_yantar_barman_msg_1">
+		<text>Hey stalker. I've seen Snitch talking with some shady people - some big money was involved. I've heard you two had some beef and I know you were his main source of information regarding Prometheus. You better watch your back.</text>
+	</string>
+	<string id="the_living_fire_x16_prometheus_msg_1">
+		<text>It's you again, stalker. I really admire your dedication. I guess you want to continue our previous conversation...</text>
+	</string>
+	<string id="the_living_fire_red_forest_actor_msg_1">
+		<text>Professor - I've managed to clear the region around the anomaly.</text>
+	</string>
+	<string id="the_living_fire_red_forest_sakharov_msg_1">
+		<text>Good job, lad. I've managed to convince the military about the urgency of this matter. They've agreed to help. We'll be waiting for your signal.</text>
+	</string>
+	<string id="the_living_fire_red_forest_actor_msg_2">
+		<text>I guess those were the people that Barman has warned me about. It's time to pay Snitch a visit...</text>
+	</string>
+	<string id="the_living_fire_bar_actor_msg_2">
+		<text>Professor - I know where Prometheus will execute his ultimate plan. I'll head there as soon as possible. Be ready for my signal.</text>
+	</string>
+	<string id="the_living_fire_bar_sakharov_msg_1">
+		<text>Great news, young man. I wish you good luck. Don't forget to take the weapon you've mentioned. Aim straight at the head. We might have only one chance to stop him.</text>
+	</string>
+	<string id="the_living_fire_outskirts_actor_msg_1">
+		<text>Professor - tell the military to get in positions.</text>
+	</string>
+	<string id="the_living_fire_outskirts_prometheus_msg_1">
+		<text>You're here... Witness the birth of the new world order.</text>
+	</string>
+	<string id="the_living_fire_outskirts_prometheus_msg_2">
+		<text>You can't stop it anymore... Brothers - aid me!</text>
+	</string>
+	<string id="the_living_fire_outskirts_sakharov_msg_1">
+		<text>The soldiers are on positions. Give the sig...</text>
+	</string>
+	<string id="the_living_fire_outskirts_actor_msg_2">
+		<text>Now! Do it NOW!</text>
+	</string>
+	<string id="the_living_fire_outskirts_prometheus_msg_3">
+		<text>What? What's... you! It's your doing!</text>
+	</string>
+	<string id="the_living_fire_outskirts_actor_msg_3">
+		<text>Now's my only chance!</text>
+	</string>
+	<string id="the_living_fire_outskirts_actor_msg_4">
+		<text>It's over professor. Prometheus is gone.</text>
+	</string>
+	<string id="the_living_fire_outskirts_sakharov_msg_2">
+		<text>Great job, young man! I'm awaiting you at the bunker. I've got something for you.</text>
+	</string>
+
+	<string id="st_af_tlf_prometheus">
+		<text>Prometheus</text>
+	</string>
+	<string id="st_af_tlf_prometheus_descr">
+		<text>A unique artifact that was born in the Greek Fire after the stalker of the legend with the same name has been slain. It gives the user immense resistance to heat and makes the wounds heal faster.</text>
+	</string>
+	
 	<!-- The Living Fire end -->
 
 	<string id="nta_intercept_item">

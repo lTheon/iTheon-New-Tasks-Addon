@@ -357,23 +357,22 @@ on_fail = %=fail_task_dec_goodwill(250:stalker) -jup_a6_stalker_barmen_task_the_
 [bar_informator_mlr_task_the_living_fire]
 icon = ui_new_tasks_addon_prometheus
 storyline = false
-repeat_timeout = 73200
 
 title = bar_informator_mlr_task_the_living_fire_name
 descr = bar_informator_mlr_task_the_living_fire_text
 job_descr = bar_informator_mlr_task_the_living_fire_about
 task_complete_descr = bar_informator_mlr_task_the_living_fire_finish
-precondition = {-bar_informator_mlr_task_the_living_fire_started} true, false
+precondition = {-bar_informator_mlr_task_the_living_fire_started -bar_informator_mlr_task_the_living_fire_failed -bar_informator_mlr_task_the_living_fire_completed} true, false
 condlist_0 = {!task_giver_alive(bar_informator_mlr_task_the_living_fire)} fail
 
-stage_complete = 2
+stage_complete = 27
 target_functor = the_living_fire_task_target_functor
 status_functor = the_living_fire_task_status_functor
 
 on_job_descr = %=dispatch_nta_task_details(bar_informator_mlr_task_the_living_fire)%
 on_init = %+bar_informator_mlr_task_the_living_fire_started%
-on_complete = %=complete_task_inc_goodwill(150:stalker) =reward_random_money(12000:15000) -bar_informator_mlr_task_the_living_fire_started +bar_informator_mlr_task_the_living_fire_completed%
-on_fail = %=fail_task_dec_goodwill(75:stalker) -bar_informator_mlr_task_the_living_fire_started%
+on_complete = %-bar_informator_mlr_task_the_living_fire_started +bar_informator_mlr_task_the_living_fire_completed =reward_random_item(af_tlf_prometheus)%
+on_fail = %-bar_informator_mlr_task_the_living_fire_started +bar_informator_mlr_task_the_living_fire_failed%
 
 
 ;------------------ General tasks ------------------

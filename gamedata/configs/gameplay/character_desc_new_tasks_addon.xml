@@ -12,6 +12,7 @@
 		<rank>100000</rank>
 		<reputation>0</reputation>	
 		<actor_dialog>the_living_fire_prometheus_the_living_fire_1</actor_dialog>
+		<actor_dialog>the_living_fire_prometheus_the_living_fire_2</actor_dialog>
 		<visual>actors\stalker_greh\stalker_greh_0b_1</visual>
 #include "gameplay\character_criticals.xml"
 	</specific_character>

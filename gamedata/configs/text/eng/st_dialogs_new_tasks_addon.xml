@@ -249,7 +249,7 @@
 		<text>Yo Snitch. I...</text>
 	</string>
 	<string id="bar_informator_mlr_the_living_fire_4_1">
-		<text>Our savior is back! You've made it out alive again - that's great! Did you finally deal with legend?</text>
+		<text>Our savior is back! You've made it out alive again - that's great! Did you finally deal with the legend?</text>
 	</string>
 	<string id="bar_informator_mlr_the_living_fire_4_2">
 		<text>He turned a squad of military into crisps, so you can guess I didn't... but I had a chance to talk with him.</text>
@@ -277,7 +277,7 @@
 	</string>
 
 	<string id="esc_2_12_stalker_trader_the_living_fire_1_0">
-		<text>Sidorovich - we need to talk?</text>
+		<text>Sidorovich - we need to talk.</text>
 	</string>
 	<string id="esc_2_12_stalker_trader_the_living_fire_1_1">
 		<text>What is it? I'm pretty busy right now.</text>
@@ -295,7 +295,7 @@
 		<text>The new stupid rumor? Yes, I did. Why the hell are you asking so stupid questions? I don't have time for this.</text>
 	</string>
 	<string id="esc_2_12_stalker_trader_the_living_fire_1_6">
-		<text>And what if I tell you that your life is in danger? Boris now goes by name Prometheus and he's that Living Fire from the rumor. Let's say he doesn't like you much... because you're a dickhead that sent him for certain death.</text>
+		<text>And what if I tell you that your life is in danger? Boris now goes by name Prometheus and he's that Living Fire from the rumor. Let's say he doesn't like you much... because you're a dickhead that sent him for a certain death.</text>
 	</string>
 	<string id="esc_2_12_stalker_trader_the_living_fire_1_7">
 		<text>Quit that shit! Why should I believe you?</text>
@@ -307,15 +307,155 @@
 		<text>How do you know all of that?! Oh shit - you're serious! Why didn't you put the bullet in his head when you had a chance?</text>
 	</string>
 	<string id="esc_2_12_stalker_trader_the_living_fire_1_10">
-		<text>You've clearly missed the important parts from that rumor, didn't you? You're not the only one valuing your life. I don't think he can be killed with a weapon. Our best shot is just to reason with him. Now since you've remembered everything with some good motivation, doo you know something that'd allow me to find him again?</text>
+		<text>You've clearly missed the important parts from that rumor, didn't you? You're not the only one valuing your life. I don't think he can be killed with a weapon. Our best shot is just to reason with him. Now since you've remembered everything with some good motivation, do you know something that'd help me find him again?</text>
 	</string>
 	<string id="esc_2_12_stalker_trader_the_living_fire_1_11">
 		<text>I know that this miserable weakling had a friend around here named Andrei. They sticked together because they were both unlucky and poor. He's not here anymore. Reportedly he headed north not so long time ago. That fool is probably dead by now.</text>
 	</string>
 	<string id="esc_2_12_stalker_trader_the_living_fire_1_12">
-		<text>Fuck... that doesn't help me much. Anyway - I'd suggest you to hire some guards and install some heat-resistant doors. If that guy decides to pay you a visit, it might save your life... I doubt it though.</text>
+		<text>Fuck... that doesn't help me much. Anyway - I'd suggest you hire some guards and install some heat-resistant doors. If that guy decides to pay you a visit, it might save your life... I doubt it though.</text>
 	</string>
 	<string id="esc_2_12_stalker_trader_the_living_fire_1_13">
 		<text>Hah... funny guy...</text>
+	</string>
+
+	<string id="yan_stalker_sakharov_the_living_fire_3_0">
+		<text>What's the situation, professor?</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_3_1">
+		<text>It's good to see you, young man. The situation is very serious, so I'll be quick.\n \nWe've spotted an extreme spike in anomalous activity in the X-16 underground complex. I've never seen a thing like this. It's surely the doing of our mysterious stalker. If an energy of this magnitute turns into an actual anomalous field, this whole place is going to turn into hell!\n \nWe've sent a small group of mercenaries to investigate the place and they've met a single stalker at the entrance that opened fire on sight. The mercenaries had the numbers, so they've stormed the place. This was a mistake. They've managed to kill that stalker, but something unexpected happened soon after. They've started to rally near his body and then it suddenly exploded. Only one man from the mercenary squad has survived - his body was badly burned.</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_3_2">
+		<text>That definitely sounds like some trick of Prometheus...</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_3_3">
+		<text>Prometheus? Is that the name of that stalker we've been looking for?</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_3_4">
+		<text>I'm sorry professor, but I don't think I have time to explain you everything in details.</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_3_5">
+		<text>Ah, you're right young man. You've once managed to stop the branching of the anomaly, so I hope you can do it again.</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_3_6">
+		<text>I hope so too. I'll be on my way.</text>
+	</string>
+
+	<string id="the_living_fire_prometheus_the_living_fire_2_0">
+		<text>Wha... What happened here? What are all these burnt bodies?</text>
+	</string>
+	<string id="the_living_fire_prometheus_the_living_fire_2_1">
+		<text>These are fellow stalkers which share my vision. They've came looking for me after my friend Andrei whom I've met recently started spreading my message. I'm going to purify this world of all the unjust filth and they agreed to aid me in this endeavor. They've suffered enough - just like me.</text>
+	</string>
+	<string id="the_living_fire_prometheus_the_living_fire_2_2">
+		<text>Why are they all dead then?</text>
+	</string>
+	<string id="the_living_fire_prometheus_the_living_fire_2_3">
+		<text>It's not all of them - those are just some failed experiments. You've met some of the successful ones on your way here.</text>
+	</string>
+	<string id="the_living_fire_prometheus_the_living_fire_2_4">
+		<text>What did you do to them? Doesn't killing those people and turning them into walking bombs put you in line with the "filth" that you want to eradicate? Killing a man is the worst crime.</text>
+	</string>
+	<string id="the_living_fire_prometheus_the_living_fire_2_5">
+		<text>Watch your words - you're treading on thin ice... All of them came to me willingly and agreed to whatever comes. Besides - it was you who killed the living ones. I've started to like you, so I won't kill you on spot - I'll let you witness my Magnum Opus.</text>
+	</string>
+	<string id="the_living_fire_prometheus_the_living_fire_2_6">
+		<text>Your what? What are you planning?</text>
+	</string>
+	<string id="the_living_fire_prometheus_the_living_fire_2_7">
+		<text>I've imbued those people with my power. Unfortunately not all bodies are able to withstand it. They will serve me as a power relay when the time comes. There's one more place that I have to visit personally - no relay would be able to harness its power. Then... you will see what happens next. Farewell, stalker.</text>
+	</string>
+	<string id="the_living_fire_prometheus_the_living_fire_2_8">
+		<text>I'll find a way to stop you, Prometheus...</text>
+	</string>
+
+	<string id="yan_stalker_sakharov_the_living_fire_4_0">
+		<text>Prof...</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_4_1">
+		<text>You've done it again, young man! The readings are going back to normal. I...</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_4_2">
+		<text>It's not over yet. Prometheus has escaped and he's planning something. I don't know what it is, but it's definitely not something good. I'll need your help.</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_4_3">
+		<text>Oh - what can I do for you?</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_4_4">
+		<text>The man that the mercenaries have killed is one of Prometheus followers. He has imbued them with his power and he's planning to use them as some kind of power relay. We'll need to use your connections with authorities.</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_4_5">
+		<text>I see. You want me to request the military to protect as many thermal anomalies as possible and dispose of suspicious stalkers when they come close, right?</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_4_6">
+		<text>Not exactly. I think Prometheus will feel it when he loses connection with his followers. We need to make him think that everything is alright. He'll try to use all this power at once, so if we dispose of all his power relays at the same time, he'll probably drain too much of his own power before he realises what happened. This might give me some window of opportunity to end his life.</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_4_7">
+		<text>That's a very risky plan... I don't think we have any other options though.</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_4_8">
+		<text>Probably not. I'll try to use some powerful weapon to increase my chance of success. The Gauss rifle should be good enough.</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_4_9">
+		<text>This sounds like a plan. Do you know where he is now?</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_4_10">
+		<text>He said he'll need to visit some anomaly personally to harness its power. Do you know which anomaly he was speaking of?</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_4_11">
+		<text>There's one anomaly with exceptionally high energy. It's located in the Red Forest. I doubt military will agree to send some people there. It's too risky. You'll need to secure it yourself first. If it also starts branching, I hope you'll manage to stop it again.</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_4_12">
+		<text>Thank you, professor. I'll let you know when the place is safe. Goodbye.</text>
+	</string>
+
+	<string id="bar_informator_mlr_the_living_fire_5_0">
+		<text>You little rat. Tell me why I shouldn't put a bullet in your head now?</text>
+	</string>
+	<string id="bar_informator_mlr_the_living_fire_5_1">
+		<text>What? What are you talking about?</text>
+	</string>
+	<string id="bar_informator_mlr_the_living_fire_5_2">
+		<text>I've met the bounty squad you've sent after me. They're all dead and now it's your turn.</text>
+	</string>
+	<string id="bar_informator_mlr_the_living_fire_5_3">
+		<text>Wait! I didn't hire any bounty squad! Some serious people visited me some time ago and started asking about Prometheus. I've just told them that you're the one who knows the most about him. I didn't know they'd assault you. It was just a business.</text>
+	</string>
+	<string id="bar_informator_mlr_the_living_fire_5_4">
+		<text>I don't give a shit, Snitch. I could have died... so now I'll repeat my question. Why shouldn't I kill you now?</text>
+	</string>
+	<string id="bar_informator_mlr_the_living_fire_5_5">
+		<text>Wait! How about some free information in exchange for my life? Let's call it a compensation for your losses. I assure you it will be of use to you.</text>
+	</string>
+	<string id="bar_informator_mlr_the_living_fire_5_6">
+		<text>I'm all ears...</text>
+	</string>
+	<string id="bar_informator_mlr_the_living_fire_5_7">
+		<text>The freedom guys caught some kind of a preacher in their base. Apparently it was a friend of Prometheus. Freedom has squeezed some more info from him. They'll be gathering at the Outskirts for "something grand". He mentioned the Prometheus Movie Theater.</text>
+	</string>
+	<string id="bar_informator_mlr_the_living_fire_5_8">
+		<text>Shit... his Magnum Opus... couldn't have thought of a better place.</text>
+	</string>
+	<string id="bar_informator_mlr_the_living_fire_5_9">
+		<text>His what? What are you...</text>
+	</string>
+	<string id="bar_informator_mlr_the_living_fire_5_10">
+		<text>You've redeemed yourself, Snitch. I need to go now.</text>
+	</string>
+
+	<string id="yan_stalker_sakharov_the_living_fire_5_0">
+		<text>I'm back, professor. Prometheus is no more - I've seen him explode with my own eyes. That wouldn't be possible without your connections. What is it that you wanted?</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_5_1">
+		<text>I wanted to thank you, young man. Maybe the military did aid us in stopping Prometheus, but it was you who actually investigated this issue and led it to the end, risking your own life.\n \nI'm not sure what Prometheus was doing at that moment, but he somehow managed to remotely empower the biggest anomaly in the zone that's located further north than the CNPP. If you wouldn't stop him, many people would have died. You have my gratitude.</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_5_2">
+		<text>Well - he also wanted to kill me, so it's not like I had any other choice.</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_5_3">
+		<text>That may be *laughs*\n \nAnyway - you still deserve a reward. My colleagues have assisted the military near the anomalies that Prometheus visited personally. After his death, an exceptional artifact was born in the Greek Fire. I'd like to have it. It seems to have some bad influence over my colleagues and I'd rather not have another power-crazy man emerge again.\n \nYou've survived multiple encounters with Prometheus, so he saw something in you... I believe that thing will protect you from the influence of this artifact.</text>
+	</string>
+	<string id="yan_stalker_sakharov_the_living_fire_5_4">
+		<text>Thank you, professor. I hope I'll not lose my sanity either.</text>
 	</string>
 </string_table>
