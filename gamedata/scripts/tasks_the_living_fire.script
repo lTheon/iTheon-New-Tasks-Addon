@@ -310,8 +310,6 @@ task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
         end
     end
 
-    printf(stage)
-
     if stage == 24 then
         if 
             not first_alive_greh_id()
@@ -358,13 +356,6 @@ task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
         end
     end
 end
--- new_tasks_addon_tasks_utils.change_level(a_the_living_fire_configs.x18_prometheus_location)
--- new_tasks_addon_tasks_utils.change_level(a_the_living_fire_configs.x16_prometheus_location)
--- new_tasks_addon_tasks_utils.change_level(a_the_living_fire_configs.dark_valley_actor_msg_trigger_location)
--- new_tasks_addon_tasks_utils.change_level(a_the_living_fire_configs.x16_corpse_locations[#a_the_living_fire_configs.x16_corpse_locations])
--- new_tasks_addon_tasks_utils.change_level(a_the_living_fire_configs.red_forest_testing)
--- new_tasks_addon_tasks_utils.change_level(a_the_living_fire_configs.outskirts_greh_locations[#a_the_living_fire_configs.outskirts_greh_locations])
--- tasks_the_living_fire.spawn_outskirts_anomalies()
 
 function spawn_garbage_prometheus()
     state.prometheus_id = nta_utils.spawn_helper(configs.garbage_prometheus_location)
@@ -647,6 +638,17 @@ end
 
 function tlf_complete()
     task_manager.get_task_manager( ):set_task_completed('bar_informator_mlr_task_the_living_fire')
+    -- TODO: Remove when Grok exposes a table in his script
+    if grok_artefacts_random_condition then
+        CreateTimeEvent(0,"the_living_fire_gamma_temp_fix", 1, function ()
+            db.actor:iterate_inventory(function (_, item)
+                if item:section() == 'af_tlf_prometheus' then
+		            item:set_condition(0.98)
+                end
+            end, nil)
+            return true
+        end)
+    end
 end
 
 local delayed_message_index = 0

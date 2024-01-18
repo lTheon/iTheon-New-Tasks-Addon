@@ -360,13 +360,6 @@ x16_corpse_locations = {{
     angle = vector():set(4.956052838341592, 4.23969880829088, 6.6407334853573445)
 }}
 
--- TODO: remove after testing
-red_forest_testing = {
-    vector = vector():set(191.5434,-1.3726,-272.9132),
-    lvid = 124188,
-    gvid = 2779
-}
-
 red_forest_greh_locations = {{
     section = 'sim_default_greh_4',
     vector = vector():set(182.3466,-0.2725,-226.5441),
