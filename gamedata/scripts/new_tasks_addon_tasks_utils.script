@@ -237,18 +237,21 @@ function find_random_stalker(factions, maps)
         if faction_stalkers then
             local stalker_id = faction_stalkers[math.random(1, #faction_stalkers)]
             local se_obj = alife_object(stalker_id)
-            local level = get_object_level_id(se_obj)
 
-            if
-                (not maps or has_value(maps, level))
-                and IsStalker(nil,se_obj:clsid()) and se_obj:alive() and alife_character_community(se_obj) == faction
-            then
-                return {
-                    id = stalker_id,
-                    level = level,
-                    faction = faction,
-                    name = se_obj:character_name()
-                }
+            if se_obj then
+                local level = get_object_level_id(se_obj)
+
+                if
+                    (not maps or has_value(maps, level))
+                    and IsStalker(nil,se_obj:clsid()) and se_obj:alive() and alife_character_community(se_obj) == faction
+                then
+                    return {
+                        id = stalker_id,
+                        level = level,
+                        faction = faction,
+                        name = se_obj:character_name()
+                    }
+                end
             end
         end
     end
