@@ -1,9 +1,12 @@
-# iTheon's New Tasks Addon v0.1.4a
+# iTheon's New Tasks Addon v0.2.0
 
 This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.<br>
 Note: "During the night" refers to 10 PM - 3 AM.<br>
 Changelog available at the bottom.<br>
 You need the modified exes by Demonized for some the quest dialogs to be registered properly to the existing NPCs (if you're playing some modpack, then you almost surely got them installed)
+
+Added questlines (much longer than the radiant tasks described below):
+- The Living Fire - questline starts at Bar and is taken from Snitch in a similar manner as an ordinary task. Prerequisites: finished Living Legend and turned of the Miracle Machine (DLTX mandatory for the dialogs to get registered)
 
 Currently available quests with short descriptions (you'll find more in-depth story behind when talking with NPCs):
 
@@ -65,6 +68,9 @@ Bandits:
 Contributors:<br>
 [JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
 El_Rosarino - Spanish translation
+
+v0.2.0
+- Added The Living Fire questline
 
 v0.1.4a
 - Fix find_random_stalker edge case that causes CTDs
