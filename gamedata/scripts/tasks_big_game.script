@@ -54,12 +54,12 @@ end
 
 function spawn_small_giants()
     for _, spawn_config in pairs(big_game_configs.small_giants_spots) do
-        table.insert(state.small_giants_ids, nta_utils.spawn_helper(spawn_config, "gigant_weak"))
+        table.insert(state.small_giants_ids, nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(spawn_config)))
     end
 end
 
 function spawn_big_giant()
-    state.big_giant_id = nta_utils.spawn_helper(big_game_configs.big_giant_spot)
+    state.big_giant_id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(big_game_configs.big_giant_spot))
 end
 
 function is_jupiter()

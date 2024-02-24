@@ -57,25 +57,7 @@ target_smart = lim_smart_terrain_4
 npc_in_squad = 2, 2
 common		 = false
 
-;---------- Mirage ----------
-[mirage_squad]:online_offline_group
-faction = monolith
-npc			 = mirage_stalker
-npc_random 	= mirage_stalker
-npc_in_squad = 1, 1
-common			= false
-
 ;---------- Creatures define (hack, but works) ----------
-[baba_yaga_immunities]
-burn_immunity           = 0.0
-strike_immunity 		= 0.05
-shock_immunity          = 0.01
-wound_immunity 			= 0.05
-radiation_immunity 		= 0.0
-telepatic_immunity 		= 0.0
-chemical_burn_immunity  = 0.0
-explosion_immunity 		= 0.12
-fire_wound_immunity  	= 0.46
 
 [baba_yaga]:zombie_wich
 Health              = 1000
@@ -87,7 +69,7 @@ Velocity_RunFwdDamaged  = 3.3,    2.3,          2.3,         0.5,     1
 Velocity_WalkFwdNormal  = 2.0,    2.3,          2.3,         0.2,     2.0
 Velocity_WalkFwdDamaged = 2.0,    2.3,          2.3,         0.2,     2.0
 
-[house_of_horrors_zombie_immunities]
+[baba_yaga_immunities]
 burn_immunity           = 0.0
 strike_immunity 		= 0.05
 shock_immunity          = 0.01
@@ -95,8 +77,28 @@ wound_immunity 			= 0.05
 radiation_immunity 		= 0.0
 telepatic_immunity 		= 0.0
 chemical_burn_immunity  = 0.0
-explosion_immunity 		= 0.10
-fire_wound_immunity  	= 0.30
+explosion_immunity 		= 0.12
+fire_wound_immunity  	= 0.46
+
+[baba_yaga_squad]:online_offline_group
+faction         = monster_special
+npc             = baba_yaga
+common			= false
+
+[baba_yaga_karlik_squad]:online_offline_group
+faction  = monster_special
+npc      = m_karlik_e
+common	 = false
+
+[house_of_horrors_zombie_squad]:online_offline_group
+faction  = monster_special
+npc      = house_of_horrors_zombie
+common	 = false
+
+[house_of_horrors_dog_squad]:online_offline_group
+faction  = monster_special
+npc      = dog_strong_black
+common	 = false
 
 [house_of_horrors_zombie]:zombie_ghost
 Health              = 1000
@@ -110,6 +112,22 @@ psy_max_distance		=	25.0
 psy_max_power			=	0.25
 psy_pp_effector_name	= 	psy_antenna
 psy_pp_highest_at		= 	0.1
+
+[house_of_horrors_zombie_immunities]
+burn_immunity           = 0.0
+strike_immunity 		= 0.05
+shock_immunity          = 0.01
+wound_immunity 			= 0.05
+radiation_immunity 		= 0.0
+telepatic_immunity 		= 0.0
+chemical_burn_immunity  = 0.0
+explosion_immunity 		= 0.10
+fire_wound_immunity  	= 0.30
+
+[mirage_stalker_squad]:online_offline_group
+faction         = monolith
+npc			    = mirage_stalker
+common			= false
 
 [mirage_stalker]:sim_default_monolith_4
 ; make him silent without circular dependency
@@ -144,6 +162,12 @@ sound_enemy_lost_no_allies			=
 sound_enemy_lost_with_allies		=
 sound_throw_grenade					=
 
+[stalker_trader_controller_squad]:online_offline_group
+faction         = monster_special
+npc_random      = stalker_trader_controller
+npc_in_squad    = 2
+common	        = false
+
 [stalker_trader_controller]:m_controller_normal1111
 visual					= monsters\controller\stalker_trader_controller
 corpse_visual			= monsters\controller\stalker_trader_controller
@@ -158,6 +182,11 @@ telepatic_immunity 			= 0.0
 chemical_burn_immunity = 0.0
 explosion_immunity		= 0.25
 fire_wound_immunity		= 0.12
+
+[burer_big_squad]:online_offline_group
+faction  = monster_special
+npc      = burer_big
+common	 = false
 
 [burer_big]:burer_normal
 visual					= monsters\burer\burer_big
@@ -223,6 +252,32 @@ ph_box1_size 		 = 0.80, 1.2,  0.80
 MinAttackDist		= 2.8
 MaxAttackDist		= 4.5
 
+[gigant_very_big_squad]:online_offline_group
+faction  = monster_special
+npc      = gigant_very_big
+common	 = false
+
+[big_game_gigant_weak_squad]:online_offline_group
+faction  = monster_special
+npc      = gigant_weak
+common	 = false
+
+[dead_night_zombie_squad]:online_offline_group
+faction         = monster_special
+npc_random      = zombi_9, zombi_x3, zombi_x4, zombi_babka_1, zombi_babka_2, zombi_babka_3, zombie_ghol, zombie_strong, zombie_teta, zombie_wich
+npc_in_squad    = 1
+common	        = false
+
+[dead_night_zombie_blind_squad]:online_offline_group
+faction         = monster_special
+npc             = zombie_blind
+common	        = false
+
+[dead_night_controller_squad]:online_offline_group
+faction         = monster_special
+npc             = m_controller_normal
+common			= false
+
 ;---------- The Living Fire ----------
 [the_living_fire_prometheus]:stalker
 character_profile = the_living_fire_prometheus
@@ -231,13 +286,46 @@ story_id = the_living_fire_prometheus
 custom_data = scripts\prometheus_beh.ltx
 
 [the_living_fire_prometheus_squad]:online_offline_group
-faction = greh_npc
-npc = the_living_fire_prometheus
-story_id = the_living_fire_prometheus_squad
+faction         = greh_npc
+npc             = the_living_fire_prometheus
+story_id        = the_living_fire_prometheus_squad
+common			= false
+
+[the_livint_fire_garbage_mutant_squad]:online_offline_group
+faction         = monster_special
+npc             = flesh_01a_normal
+common			= false
+
+[tlf_military_squad]:online_offline_group
+faction         = army
+npc             = sim_default_military_4
+common			= false
+
+[tlf_greh_squad]:online_offline_group
+faction         = greh
+npc_random      = sim_default_greh_2, sim_default_greh_3, sim_default_greh_4
+npc_in_squad    = 1
+common			= false
+
+[tlf_isg_squad]:online_offline_group
+faction         = isg
+npc_random      = sim_default_isg_3, sim_default_isg_4
+npc_in_squad    = 1
+common			= false
 
 [m_poltergeist_normal_flame_tlf]:m_poltergeist_normal_flame
 detection_pp_effector_name  =
 psy_pp_effector_name	    = postprocess_thermal
 
+[m_poltergeist_normal_flame_tlf_squad]:online_offline_group
+faction         = monster_special
+npc             = m_poltergeist_normal_flame_tlf
+common			= false
+
 [m_poltergeist_normal_flame_tlf_endgame]:m_poltergeist_normal_flame_tlf
 custom_data = scripts\outskirts_tlf_endgame_mutant_beh.ltx
+
+[m_poltergeist_normal_flame_tlf_endgame_squad]:online_offline_group
+faction         = monster_special
+npc             = m_poltergeist_normal_flame_tlf_endgame
+common			= false

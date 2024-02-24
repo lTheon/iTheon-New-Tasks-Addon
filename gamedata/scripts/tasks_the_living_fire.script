@@ -82,6 +82,7 @@ task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
             safe_release_manager.release({id = state.prometheus_id})
             local explosion_spawn_config = nta_utils.shallow_copy(configs.garbage_prometheus_location)
             explosion_spawn_config.section = 'immediate_fiery_explosion'
+            explosion_spawn_config.is_squad = false
             nta_utils.spawn_helper(explosion_spawn_config)
             CreateTimeEvent(0,"the_living_fire_garbage_anomalies_disappear", 0.5, function ()
                 despawn_anomalies()
@@ -145,7 +146,7 @@ task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
 
     if stage == 11 then
         if db.actor:has_info('bar_informator_mlr_the_living_fire_3_passed') then
-            state.prometheus_id = nta_utils.spawn_helper(configs.x18_prometheus_location)
+            state.prometheus_id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(configs.x18_prometheus_location))
             alife_object(state.prometheus_id):set_character_name(game.translate_string(prometheus_name))
             spawn_corpses(configs.dark_valley_corpses_locations)
             tsk.stage = 12
@@ -191,7 +192,7 @@ task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
     if stage == 15 then
         if db.actor:has_info('yan_stalker_sakharov_the_living_fire_3_passed') then
             delayed_message('the_living_fire_yantar_barman_msg_1', 5, 'ui_inGame2_barman', 'bar_barmen_name', 10)
-            state.prometheus_id = nta_utils.spawn_helper(configs.x16_prometheus_location)
+            state.prometheus_id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(configs.x16_prometheus_location))
             spawn_greh(configs.x16_greh_locations, [[scripts\x16_tlf_greh_beh.ltx]])
             spawn_corpses(configs.x16_corpse_locations)
             tsk.stage = 16
@@ -254,7 +255,7 @@ task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
         if db.actor:has_info('bar_informator_mlr_the_living_fire_5_passed') then
             state.anomaly_ids = {}
             spawn_greh(configs.outskirts_greh_locations, [[scripts\outskirts_tlf_greh_beh.ltx]])
-            state.prometheus_id = nta_utils.spawn_helper(configs.outskirts_prometheus_location)
+            state.prometheus_id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(configs.outskirts_prometheus_location))
             delayed_message('the_living_fire_bar_actor_msg_2', 4, nta_utils.actor_icon(), nta_utils.actor_name(), 10)
             delayed_message('the_living_fire_bar_sakharov_msg_1', 10, sakharov_icon, sakharov_name, 10)
             tsk.stage = 22
@@ -358,7 +359,7 @@ task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
 end
 
 function spawn_garbage_prometheus()
-    state.prometheus_id = nta_utils.spawn_helper(configs.garbage_prometheus_location)
+    state.prometheus_id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(configs.garbage_prometheus_location))
     alife_object(state.prometheus_id):set_character_name(game.translate_string(prometheus_name))
 end
 
@@ -375,7 +376,7 @@ function spawn_garbage_trash()
 end
 
 function spawn_garbage_mutant()
-    state.garbage_mutant_id = nta_utils.spawn_helper(configs.garbage_mutant_location)
+    state.garbage_mutant_id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(configs.garbage_mutant_location))
 end
 
 function garbage_delayed_kill_mutant()
@@ -432,7 +433,7 @@ end
 
 function spawn_mutants(cfg, endgame)
     for _, spawn_config in pairs(cfg) do
-        local id = nta_utils.spawn_helper(spawn_config)
+        local id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(spawn_config))
         if endgame then 
             logic_enforcer.assign(id, [[scripts\outskirts_tlf_endgame_mutant_beh.ltx]],'logic', 'beh@base')
         end
@@ -542,7 +543,7 @@ end
 
 function spawn_x18_military()
     for i, spawn_config in ipairs(configs.x18_military_locations) do
-        local id = nta_utils.spawn_helper(spawn_config)
+        local id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(spawn_config))
         logic_enforcer.assign(id, [[scripts\x18_tlf_military_beh.ltx]],'logic', 'beh@pos_' .. i)
         table.insert(state.x18_military_ids, id)
     end
@@ -560,7 +561,7 @@ end
 
 function spawn_greh(cfg, script_file)
     for i, spawn_config in ipairs(cfg) do
-        local id = nta_utils.spawn_helper(spawn_config)
+        local id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(spawn_config))
         logic_enforcer.assign(id, script_file,'logic', 'beh@pos_' .. i)
         table.insert(state.greh_ids, id)
     end
@@ -586,7 +587,7 @@ end
 
 function spawn_isg()
     for i, spawn_config in ipairs(configs.red_forest_isg_locations) do
-        local id = nta_utils.spawn_helper(spawn_config)
+        local id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(spawn_config))
         logic_enforcer.assign(id, [[scripts\red_forest_tlf_isg_beh.ltx]],'logic', 'beh@pos_' .. i)
     end
 end
@@ -600,6 +601,7 @@ function spawn_outskirts_anomalies()
             anomaly_location.vector = vector():set(coords[1], 0, coords[2])
             anomaly_location.section = 'zone_zhar_tlf'
             anomaly_location.is_anomaly = true
+            anomaly_location.is_squad = false
             table.insert(state.anomaly_ids, nta_utils.spawn_helper(anomaly_location))
         end
     end
@@ -607,7 +609,7 @@ end
 
 xr_effects.tlf_on_outskirts_mutant_death = function()
     if #state.mutant_ids < 12 then
-        local id = nta_utils.spawn_helper(configs.outskirts_mutant_locations[math.random(1,4)])
+        local id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(configs.outskirts_mutant_locations[math.random(1,4)]))
         logic_enforcer.assign(id, [[scripts\outskirts_tlf_endgame_mutant_beh.ltx]],'logic', 'beh@base')
         table.insert(state.mutant_ids, id)
     end
@@ -773,6 +775,7 @@ function npc_on_before_hit(npc,shit,bone_id)
                     explosion_spawn_config.vector.y = explosion_spawn_config.vector.y - 3
                     explosion_spawn_config.vector.z = explosion_spawn_config.vector.z + 1
                     explosion_spawn_config.vector.x = explosion_spawn_config.vector.x + 1
+                    explosion_spawn_config.is_squad = false
 
                     explosion_spawn_config.section = 'immediate_fiery_explosion'
                     for i=1,5 do nta_utils.spawn_helper(explosion_spawn_config) end

@@ -26,10 +26,9 @@ task_status_functor.baba_yaga_task_status_functor = function(tsk,task_id)
             and db.actor:position():distance_to(baba_yaga_configs.art_location.vector) < 25
             and nta_utils.is_dark_night()
         then
-            state.art_id = nta_utils.spawn_helper(
-                baba_yaga_configs.art_location,
-                baba_yaga_configs.art_sections[math.random(#baba_yaga_configs.art_sections)]
-            )
+            -- This config resets after every load, so no need to copy it just to add section to it
+            baba_yaga_configs.art_location.section = baba_yaga_configs.art_sections[math.random(#baba_yaga_configs.art_sections)]
+            state.art_id = nta_utils.spawn_helper(baba_yaga_configs.art_location)
             tsk.stage = 1
         end
     end
@@ -59,10 +58,10 @@ task_status_functor.baba_yaga_task_status_functor = function(tsk,task_id)
 end
 
 function spawn()
-    state.hag_id = nta_utils.spawn_helper(baba_yaga_configs.hag_spot)
+    state.hag_id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(baba_yaga_configs.hag_spot))
 
     for _, spawn_config in pairs(baba_yaga_configs.karlik_spots) do
-        nta_utils.spawn_helper(spawn_config, "m_karlik_e")
+        nta_utils.spawn_helper(spawn_config)
     end
 end
 

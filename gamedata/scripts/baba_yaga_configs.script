@@ -11,24 +11,31 @@ teleport_to_location = {
 }
 
 karlik_spots = {{
+    section = 'baba_yaga_karlik_squad',
     vector = vector():set(265.7138,-9.1120,-154.1806),
     lvid = 351150,
-    gvid = 846
+    gvid = 846,
+    is_squad = true,
 },{
+    section = 'baba_yaga_karlik_squad',
     vector = vector():set(249.6845,-5.2066,-146.9241),
     lvid = 345584,
-    gvid = 846
+    gvid = 846,
+    is_squad = true,
 },{
+    section = 'baba_yaga_karlik_squad',
     vector = vector():set(240.0387,-2.4944,-124.3965),
     lvid = 342116,
-    gvid = 660
+    gvid = 660,
+    is_squad = true,
 }}
 
 hag_spot = {
-    section = "baba_yaga",
+    section = "baba_yaga_squad",
     vector = vector():set(256.2065,-8.6728,-136.2168),
     lvid = 347821,
-    gvid = 660
+    gvid = 660,
+    is_squad = true,
 }
 
 art_sections = {

@@ -1,6 +1,5 @@
 local nta_utils = new_tasks_addon_tasks_utils
 local iron_forest_smart = "zat_b100"
-local mirage_section = "mirage_stalker"
 -- Keep it as local var instead of state var so it can restart after the save reload
 local explosion_loop_started = false
 
@@ -94,7 +93,7 @@ end
 
 function spawn_mirages(spots)
     for _, spot in ipairs(spots) do
-        local se_id = nta_utils.spawn_helper(spot, mirage_section)
+        local se_id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(spot))
         logic_enforcer.assign(se_id,'scripts\\mirage_beh.ltx','logic', 'beh@mirage')
 
         local mirage_se = alife_object(se_id)
@@ -136,12 +135,18 @@ function despawn_sidor()
 end
 
 function spawn_sidor_controllers()
-    state.sidor_controllers[nta_utils.spawn_helper(mirage_configs.sidor_controller_1_spawn_config)] = true
-    state.sidor_controllers[nta_utils.spawn_helper(mirage_configs.sidor_controller_2_spawn_config)] = true
+    local sid = nta_utils.spawn_helper(mirage_configs.sidor_controller_1_spawn_config)
+    for se_npc in alife_object(sid):squad_members() do
+        state.sidor_controllers[se_npc.id] = true
+    end
+    CreateTimeEvent(0,"mirage_set_controller_enemy",0.2, function ()
+        level.object_by_id(nta_utils.get_first_squad_member_id(sid)):set_npc_position(mirage_configs.sidor_controller_2_spawn_config.vector)
+        return true
+    end)
 end
 
 function spawn_burer()
-    state.burer_id = nta_utils.spawn_helper(mirage_configs.burer_spawn_config)
+    state.burer_id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(mirage_configs.burer_spawn_config))
 
     local earthquake_snd = xr_sound.get_safe_sound_object("new_tasks_addon\\earthquake_old")
     earthquake_snd:play(db.actor, 0, sound_object.s2d)

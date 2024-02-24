@@ -80,7 +80,7 @@ function spawn_dog()
 end
 
 function spawn_zombie()
-    state.zombie_id = nta_utils.spawn_helper(configs.zombie_location)
+    state.zombie_id = nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(configs.zombie_location))
 end
 
 function destroy_zombie()

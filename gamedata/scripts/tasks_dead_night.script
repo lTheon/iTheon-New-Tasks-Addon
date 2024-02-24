@@ -42,7 +42,7 @@ end
 
 function spawn()
     for _, spawn_config in pairs(dead_night_configs.spawn_configs) do
-        table.insert(state, nta_utils.spawn_helper(spawn_config, spawn_config.section_func()))
+        table.insert(state, nta_utils.get_first_squad_member_id(nta_utils.spawn_helper(spawn_config)))
     end
 end
 
@@ -82,14 +82,6 @@ task_functor.dead_night_task_target_functor = function(task_id,field,p,tsk)
 end
 
 xr_effects.dead_night_cleanup = function()
-    local sim = alife()
-
-	for _, id in pairs(state) do
-		if sim:object(id) then
-			safe_release_manager.release({id = id})
-		end
-	end
-
     state = {}
 end
 

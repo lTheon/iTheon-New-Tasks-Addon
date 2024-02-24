@@ -49,6 +49,13 @@ function spawn_helper(spawn_config, section_override)
     )
 end
 
+function get_first_squad_member_id(se_id)
+    -- idk if squad_members are an array or object - it's safer this way
+    for k in alife_object(se_id):squad_members() do
+        return k.id
+    end
+end
+
 function is_dark_night ()
 	return level.get_time_hours() <= 3 or level.get_time_hours() >= 22
 end
