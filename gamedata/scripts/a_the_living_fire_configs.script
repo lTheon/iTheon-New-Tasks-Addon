@@ -197,37 +197,37 @@ dark_valley_actor_msg_trigger_location = {
 dark_valley_actor_msg_trigger_distance = 10
 
 x18_military_locations = {{
-    section = 'sim_default_military_5',
+    section = 'sim_default_military_4',
     vector = vector():set(28.9156,-10.8155,4.3242),
     lvid = 6879,
     gvid = 3756
 },{
-    section = 'sim_default_military_5',
+    section = 'sim_default_military_4',
     vector = vector():set(39.1388,-10.8143,-0.6025),
     lvid = 7405,
     gvid = 3756
 },{
-    section = 'sim_default_military_5',
+    section = 'sim_default_military_4',
     vector = vector():set(-10.7342,-10.8194,-4.3039),
     lvid = 1625,
     gvid = 3770
 },{
-    section = 'sim_default_military_5',
+    section = 'sim_default_military_4',
     vector = vector():set(-1.2834,-0.8076,-12.3146),
     lvid = 2535,
     gvid = 3749
 },{
-    section = 'sim_default_military_5',
+    section = 'sim_default_military_4',
     vector = vector():set(-9.6617,4.1892,-4.7216),
     lvid = 1680,
     gvid = 3733
 },{
-    section = 'sim_default_military_5',
+    section = 'sim_default_military_4',
     vector = vector():set(0.5395,4.1894,3.2381),
     lvid = 2920,
     gvid = 3744
 },{
-    section = 'sim_default_military_5',
+    section = 'sim_default_military_4',
     vector = vector():set(-0.7148,9.3171,-7.6517),
     lvid = 2694,
     gvid = 3729
@@ -495,12 +495,12 @@ red_forest_isg_locations = {{
     lvid = 119108,
     gvid = 2801
 },{
-    section = 'sim_default_isg_5',
+    section = 'sim_default_isg_4',
     vector = vector():set(179.5856,-0.1886,-191.2958),
     lvid = 118348,
     gvid = 2801
 },{
-    section = 'sim_default_isg_3',
+    section = 'sim_default_isg_4',
     vector = vector():set(154.7671,-0.1879,-182.9161),
     lvid = 107266,
     gvid = 2754
