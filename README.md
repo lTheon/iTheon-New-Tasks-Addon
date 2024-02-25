@@ -1,4 +1,4 @@
-# iTheon's New Tasks Addon v0.2.0a
+# iTheon's New Tasks Addon v0.2.1
 
 This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.<br>
 Note: "During the night" refers to 10 PM - 3 AM.<br>
@@ -68,6 +68,9 @@ Bandits:
 Contributors:<br>
 [JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
 El_Rosarino - Spanish translation
+
+v0.2.1
+- Fix minor bugs in The Living Fire for vanilla Anomaly
 
 v0.2.0a
 - Add compatibility patch for Demonized's dynamic anomalies artifact spawning
