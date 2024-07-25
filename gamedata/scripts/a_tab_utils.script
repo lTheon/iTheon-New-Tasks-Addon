@@ -1,0 +1,12 @@
+-- TODO: move all table shit here - NTA utils get too big because of random stuff
+function filter(tab, callback)
+    local result = {}
+
+    for _, v in ipairs(tab) do
+		if callback(v) then
+			table.insert(result, v)
+		end
+	end
+
+    return result
+end

@@ -1,0 +1,377 @@
+local nta_utils = new_tasks_addon_tasks_utils
+local ti2ta = utils_data.CTime_to_table
+local configs = mystery_of_the_swamps_configs
+
+local state = {
+    dependency_task_finished_at = nil,
+    mutant_ids = {},
+    ghost_ids = {}
+}
+
+xr_effects.mystery_of_the_swamps_save_dependency_time = function()
+    state.dependency_task_finished_at = ti2ta(level.get_start_time())
+end
+
+function start_task()
+    nta_utils.spawn_companion_squad(configs.stalker_squad_1_config)
+    nta_utils.spawn_companion_squad(configs.eco_squad_1_config)
+    task_manager.get_task_manager():give_task('task_mystery_of_the_swamps', get_story_object_id('yan_stalker_sakharov'))
+    nta_utils.set_timeout(function ()
+        -- AW part fail check needs to be delayed till squads appear
+        give_info('nta_mots_allow_aw_checks')
+    end, 1)
+end
+
+
+
+function save_state(mdata)
+	mdata.mystery_of_the_swamps_task_data = state
+end
+
+function load_state(mdata)
+	if mdata.mystery_of_the_swamps_task_data then
+		state = mdata.mystery_of_the_swamps_task_data
+	end
+end
+
+task_status_functor.mystery_of_the_swamps_task_status_functor = function(tsk,task_id)
+	if not (db.actor and tsk) then return end
+	local stage = tsk.stage
+
+    if stage >= 0 and stage <= 3 then
+        if not get_aw_task_status() then
+            fail_aw_task_section()
+            return 'fail';
+        end
+    end
+	if stage == 0 then
+        if
+            nta_utils.actor_on_level(nta_utils.levels.army_warehouses)
+            and nta_utils.actor_in_range(configs.aw_message_point, configs.aw_message_activation_distance)
+            and not has_alife_info('mystery_of_the_swamps_actor_msg_1_sent')
+        then
+            give_info('mystery_of_the_swamps_actor_msg_1_sent')
+            nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_1', 2, 'actor')
+            nta_utils.mass_spawn_helper(configs.aw_karlik_configs, state.mutant_ids)
+            tsk.stage = 1
+        end
+    end
+
+    if stage == 1 then
+        if #state.mutant_ids == 0 then
+            nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_2', 3, 'actor', 8)
+            nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_ecolog_msg_1', 7, 'nta_mots_ecolog_squad_1')
+            xr_logic.restore_scheme_and_logic(nta_utils.get_squad_commander(get_story_object_id('nta_mots_ecolog_squad_1')))
+            logic_enforcer.assign(get_story_object_id('nta_mots_ecolog_squad_1'),'scripts\\aw_mots_ecolog_beh.ltx','logic', 'beh@base')
+            tsk.stage = 2
+        end
+    end
+
+    if stage == 2 then
+        if has_alife_info('aw_mots_ecolog_scan_done') then
+            nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_ecolog_msg_2', 2, 'nta_mots_ecolog_squad_1')
+            xr_logic.restore_scheme_and_logic(nta_utils.get_squad_commander(get_story_object_id('nta_mots_ecolog_squad_1')))
+            logic_enforcer.assign(get_story_object_id('nta_mots_ecolog_squad_1'),'scripts\\beh_companion.ltx','logic', 'beh@base')
+            tsk.stage = 3
+        end
+    end
+
+    if stage == 3 then
+        if has_alife_info('yan_stalker_sakharov_mystery_of_the_swamps_3_passed') then
+            -- TODO: make other tasks that utilize companions also use this function
+            axr_companions.release_special_squad(get_story_se_object('nta_mots_ecolog_squad_1'))
+            tsk.stage = 4
+        end
+    end
+
+    if stage == 4 then
+        if nta_utils.actor_on_level(nta_utils.levels.garbage) and not level_changing() then
+            nta_utils.spawn_helper(configs.dead_ecolog_spawn_config)
+            tsk.stage = 5
+        end
+    end
+
+    if stage == 5 then
+        conditional_send_stalker_1_message()
+        if nta_utils.actor_in_range(configs.dead_ecolog_spawn_config.vector, 20) then
+            nta_utils.mass_spawn_helper(configs.garbage_karlik_configs, state.mutant_ids)
+            tsk.stage = 6
+        end
+    end
+
+    if stage == 6 then
+        conditional_send_stalker_1_message()
+        if has_alife_info('nta_mots_dead_ecolog_looted') then
+            data_collected_message()
+            spawn_garbage_ghost({ bonk_actor = not stalker_1_close_to_actor() })
+            tsk.stage = 7
+        end
+    end
+
+    if stage == 7 then
+        if nta_utils.entity_is_dead_with_wait(state.ghost_ids[1], 'nta_tough_zombie_ghost') then
+            post_garbage_ghost_messages()
+            nta_utils.spawn_helper(configs.dead_ecolog_2_spawn_config)
+            state.ghost_ids = {}
+            tsk.stage = 8
+        end
+    end
+
+    if stage == 8 then
+        if has_alife_info('nta_mots_dead_ecolog_2_looted') then
+            post_dv_logic(tsk)
+        end
+    end
+
+    -- TODO: check if stages are defined correctly
+    if stage >= 8 and stage <= 11 then
+        if not get_ds_task_status() then
+            fail_ds_task_section()
+            return 'fail';
+        end
+    end
+
+    if stage == 9 then
+        if nta_utils.actor_on_level(nta_utils.levels.darkscape) and nta_utils.actor_in_range(db.zone_by_name['ds_under_the_bridge']:position(), 40) then
+            ds_arrive_logic_setup()
+            tsk.stage = 10
+        end
+    end
+
+    if stage == 10 then
+        if nta_utils.actor_in_range(configs.ds_mid_bridge, 4) and db.actor:position().y < -3 then
+            nta_utils.mass_spawn_helper(configs.ds_ghosts_configs, state.ghost_ids)
+            tsk.stage = 11
+        end
+    end
+end
+
+task_functor.mystery_of_the_swamps_task_target_functor = function(task_id,field,p,tsk)
+	if not (db.actor and tsk) then return nil end
+	local stage = tsk.stage
+
+    if stage >= 0 and stage <=2 then
+        return get_story_object_id('mil_smart_terrain_4_7_anomaly_spot')
+    end
+
+    if stage == 3 then
+        return tsk.task_giver_id
+    end
+
+    if stage == 4 then
+        return get_story_object_id('gar_smart_terrain_5_6_anomaly_spot')
+    end
+
+    if stage == 5 then
+        return get_story_object_id('nta_mots_dead_ecolog')
+    end
+
+    if stage == 6 then
+        return get_story_object_id('nta_mots_dead_ecolog')
+    end
+
+    if stage == 7 then
+        return state.ghost_ids[1]
+    end
+
+    if stage == 8 then
+        return get_story_object_id('nta_mots_dead_ecolog_2')
+    end
+
+    if stage == 9 then
+        return
+            (not level_changing()
+            and nta_utils.actor_on_level(nta_utils.levels.darkscape)
+            and db.zone_by_name['ds_under_the_bridge']:id())
+            or SIMBOARD:get_smart_by_name('ds_kem3').id
+    end
+end
+
+function get_aw_task_status()
+    if not has_alife_info('nta_mots_allow_aw_checks') then return true end
+
+    return get_story_se_object('nta_mots_stalker_squad_1') and nta_utils.entity_in_range(get_story_object_id('nta_mots_ecolog_squad_1'), 120)
+end
+
+function fail_aw_task_section()
+    nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_fail_1', 3, 'yan_stalker_sakharov', 8)
+    axr_companions.release_special_squad(get_story_se_object('nta_mots_ecolog_squad_1'))
+    axr_companions.release_special_squad(get_story_se_object('nta_mots_stalker_squad_1'))
+end
+
+function stalker_1_close_to_actor()
+    return nta_utils.entity_in_range(get_story_object_id('nta_mots_stalker_squad_1'), 50)
+end
+
+function conditional_send_stalker_1_message()
+    if
+        get_story_se_object('nta_mots_stalker_squad_1')
+        and not has_alife_info('nta_mots_conditional_stalker_1_msg_sent')
+        and not level_changing()
+        and not stalker_1_close_to_actor()
+    then
+        give_info('nta_mots_conditional_stalker_1_msg_sent')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_stalker_msg_1', 2, 'nta_mots_stalker_squad_1', 8)
+    end
+end
+
+function data_collected_message()
+    news_manager.send_tip(db.actor, game.translate_string("mystery_of_the_swamps_data_collected_1"), nil, "common", 6000)
+end
+
+function spawn_garbage_ghost(args)
+    CreateTimeEvent(0,"nta_mots_garbage_spawn_ghost", 1, function ()
+        nta_utils.mass_spawn_helper(configs.garbage_ghost_configs, state.ghost_ids)
+        local zombie_growl_sound = xr_sound.get_safe_sound_object([[monsters\zombie_blind\zombie_blind_attack_2]])
+        zombie_growl_sound:play(db.actor, 0, sound_object.s2d)
+        if args.bonk_actor then
+            local zombie_hit_sound = xr_sound.get_safe_sound_object([[monsters\zombie\zombie_attack_hit_0]])
+            zombie_hit_sound:play(db.actor, 0, sound_object.s2d)
+
+            local h = hit()
+            h.power = 1.3
+            h.direction = db.actor:direction()
+            h.draftsman = db.actor
+            h.impulse = 1
+            h.type = hit.wound
+            db.actor:hit(h)
+        else
+            nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_stalker_msg_2', 0, 'nta_mots_stalker_squad_1', 5)
+        end
+        return true
+    end)
+end
+
+function post_garbage_ghost_messages()
+    if stalker_1_close_to_actor() then
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_stalker_msg_3', 2, 'nta_mots_stalker_squad_1')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_3', 6, 'actor')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_1', 10, 'yan_stalker_sakharov', 15)
+    else
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_4', 2, 'actor')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_1', 6, 'yan_stalker_sakharov', 15)
+    end
+end
+
+local post_dv_logic_started = false
+function post_dv_logic(tsk)
+    if
+        not post_dv_logic_started
+    then
+        post_dv_logic_started = true
+        alife_release(get_story_se_object('nta_mots_dead_ecolog'))
+
+        data_collected_message()
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_5', 2, 'actor')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_2', 7, 'yan_stalker_sakharov', 18)
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_6', 23, 'actor')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_3', 30, 'yan_stalker_sakharov')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_7', 37, 'actor')
+
+        if get_story_se_object('nta_mots_stalker_squad_1') then 
+            nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_stalker_msg_4', 44, 'nta_mots_stalker_squad_1', 6)
+            nta_utils.set_timeout(function () 
+                axr_companions.release_special_squad(get_story_se_object('nta_mots_stalker_squad_1'))
+            end, 46)
+            nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_4_1', 51, 'yan_stalker_sakharov', 8)
+            nta_utils.set_timeout(function () 
+                nta_utils.spawn_companion_squad(configs.stalker_squad_2_configs)
+                nta_utils.spawn_companion_squad(configs.stalker_squad_3_configs)
+                tsk.stage = 9
+                nta_utils.set_timeout(function ()
+                    give_info('nta_mots_allow_ds_checks')
+                end, 1)
+            end, 51)
+        else 
+            nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_4_2', 46, 'yan_stalker_sakharov', 8)
+            nta_utils.set_timeout(function () 
+                nta_utils.spawn_companion_squad(configs.stalker_squad_2_configs)
+                nta_utils.spawn_companion_squad(configs.stalker_squad_3_configs)
+                tsk.stage = 9
+                nta_utils.set_timeout(function ()
+                    give_info('nta_mots_allow_ds_checks')
+                end, 1)
+            end, 46)
+        end
+    end
+end
+
+function ds_arrive_logic_setup()
+    nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_8', 0, 'actor')
+    xr_logic.restore_scheme_and_logic(nta_utils.get_squad_commander(get_story_object_id('nta_mots_stalker_squad_2')))
+    logic_enforcer.assign(nta_utils.get_squad_commander(get_story_object_id('nta_mots_stalker_squad_2')):id(),'scripts\\darkscape_mots_beh.ltx','logic', 'beh@stalker_1')
+    xr_logic.restore_scheme_and_logic(nta_utils.get_squad_commander(get_story_object_id('nta_mots_stalker_squad_3')))
+    logic_enforcer.assign(nta_utils.get_squad_commander(get_story_object_id('nta_mots_stalker_squad_3')):id(),'scripts\\darkscape_mots_beh.ltx','logic', 'beh@stalker_2')
+end
+
+function get_ds_task_status()
+    if not has_alife_info('nta_mots_allow_ds_checks') then return true end
+
+    return get_story_se_object('nta_mots_stalker_squad_2') and nta_utils.entity_in_range(get_story_object_id('nta_mots_stalker_squad_2'), 120)
+        and get_story_se_object('nta_mots_stalker_squad_3') and nta_utils.entity_in_range(get_story_object_id('nta_mots_stalker_squad_3'), 120)
+end
+
+function fail_ds_task_section()
+    nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_fail_2', 3, 'yan_stalker_sakharov', 8)
+    axr_companions.release_special_squad(get_story_se_object('nta_mots_stalker_squad_2'))
+    axr_companions.release_special_squad(get_story_se_object('nta_mots_stalker_squad_3'))
+end
+
+function on_game_start()
+	RegisterScriptCallback("save_state", save_state)
+	RegisterScriptCallback("load_state", load_state)
+	RegisterScriptCallback("actor_on_first_update", actor_on_first_update)
+    RegisterScriptCallback("monster_on_death_callback", monster_on_death_callback)
+    RegisterScriptCallback("npc_on_use",npc_on_use)
+end
+
+function actor_on_first_update()
+    if
+        has_alife_info('mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_completed')
+        and has_alife_info('bar_visitors_barman_stalker_trader_task_baba_yaga_completed')
+        and not has_alife_info('task_mystery_of_the_swamps_available')
+        and state.dependency_task_finished_at
+    then
+        if (nta_utils.days_passed_from_date(state.dependency_task_finished_at) >= 2) then
+            give_info('task_mystery_of_the_swamps_available')
+        end
+    end
+
+    if
+        has_alife_info('task_mystery_of_the_swamps_available')
+        and not has_alife_info('task_mystery_of_the_swamps_barman_hint_sent')
+        and not has_alife_info('yan_stalker_sakharov_mystery_of_the_swamps_1_passed')
+    then
+        RegisterScriptCallback("actor_on_update", actor_on_update)
+    end
+end
+
+function actor_on_update()
+    if db.actor_inside_zones['bar_visitors_sr_light'] then
+        give_info('task_mystery_of_the_swamps_barman_hint_sent')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_barman_msg_1', 2, 'bar_visitors_barman_stalker_trader')
+        UnregisterScriptCallback("actor_on_update", actor_on_update)
+    end
+end
+
+function monster_on_death_callback(monster)
+    local id = monster:id()
+    if nta_utils.has_value(state.mutant_ids, id) then
+        state.mutant_ids = a_tab_utils.filter(state.mutant_ids, function (el) return el ~= id end)
+    end
+end
+
+function npc_on_use(looted_npc, who)
+    if looted_npc:id() == get_story_object_id('nta_mots_dead_ecolog') and who:id() == AC_ID then
+        give_info('nta_mots_dead_ecolog_looted')
+    end
+
+    if looted_npc:id() == get_story_object_id('nta_mots_dead_ecolog_2') and who:id() == AC_ID then
+        give_info('nta_mots_dead_ecolog_2_looted')
+    end
+end
+
+-- TODO: try using the `nta_money_rewards` functions instead
+function give_reward_1_and_despawn_ecolog()
+    dialogs.relocate_money( db.actor, 7000, "in" )
+end

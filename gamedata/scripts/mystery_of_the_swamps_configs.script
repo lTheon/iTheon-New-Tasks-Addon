@@ -1,0 +1,107 @@
+stalker_squad_1_config = {
+    section = "nta_mots_stalker_squad_1",
+    vector = vector():set(50.7723,-11.8801,-269.1232),
+    lvid = 90125,
+    gvid = 2288,
+    is_squad = true
+}
+
+eco_squad_1_config = {
+    section = "nta_mots_ecolog_squad_1",
+    vector = vector():set(50.7723,-11.8801,-269.1232),
+    lvid = 90125,
+    gvid = 2288,
+    is_squad = true
+}
+
+aw_message_point = vector():set(104.9109,-11.6276,166.1361)
+aw_message_activation_distance = 75
+
+aw_karlik_configs = {{
+    section = "m_karlik_e",
+    vector = vector():set(77.7028,-12.4854,164.0059),
+    lvid = 352828,
+    gvid = 2015
+},{
+    section = "m_karlik_e",
+    vector = vector():set(93.1515,-12.1905,189.5512),
+    lvid = 363824,
+    gvid = 2015
+},{
+    section = "m_karlik_e",
+    vector = vector():set(76.8912,-8.0990,183.8730),
+    lvid = 352853,
+    gvid = 2016
+}}
+
+dead_ecolog_spawn_config = {
+    section = "nta_mots_dead_ecolog",
+    vector = vector():set(123.5494,0.0870,-128.2986),
+    lvid = 269196,
+    gvid = 844,
+}
+
+garbage_karlik_configs = {{
+    section = "m_karlik_e",
+    vector = vector():set(142.2154,0.1118,-121.2643),
+    lvid = 282459,
+    gvid = 831
+},{
+    section = "m_karlik_e",
+    vector = vector():set(142.8509,0.1051,-122.0291),
+    lvid = 283952,
+    gvid = 831
+},{
+    section = "m_karlik_e",
+    vector = vector():set(121.1636,0.0034,-141.3363),
+    lvid = 268151,
+    gvid = 661
+}}
+
+garbage_ghost_configs = {{
+    section = "nta_tough_zombie_ghost",
+    vector = vector():set(124.3751,0.0869,-130.8341),
+    lvid = 270232,
+    gvid = 844
+}}
+
+dead_ecolog_2_spawn_config = {
+    section = "nta_mots_dead_ecolog_2",
+    vector = vector():set(-33.6560,0.4608,-520.1382),
+    lvid = 132243,
+    gvid = 1473
+}
+
+stalker_squad_2_configs = {
+    section = 'nta_mots_stalker_squad_2',
+    vector = vector():set(22.3546,1.9527,-472.8051),
+    lvid = 190983,
+    gvid = 1440,
+    is_squad = true
+}
+
+stalker_squad_3_configs = {
+    section = 'nta_mots_stalker_squad_3',
+    vector = vector():set(23.5880,1.8132,-474.3630),
+    lvid = 192449,
+    gvid = 1440,
+    is_squad = true
+}
+
+ds_ghosts_configs = {{
+    section = "nta_tough_zombie_ghost",
+    vector = vector():set(238.2173,-3.7445,559.6921),
+    lvid = 654818,
+    gvid = 1095
+},{
+    section = "nta_tough_zombie_ghost",
+    vector = vector():set(241.9836,-3.7295,577.4965),
+    lvid = 659423,
+    gvid = 1312
+}}
+
+ds_mid_bridge = {
+    vector = vector():set(239.1392,-3.7714,567.8186),
+    lvid = 656278,
+    gvid = 1095
+}

@@ -139,50 +139,6 @@ on_init = %+yan_stalker_sakharov_task_brain_game_started =brain_game_cleanup()%
 on_complete = %=complete_task_inc_goodwill(75:ecolog) =reward_random_money(8000:11000) -yan_stalker_sakharov_task_brain_game_started +yan_stalker_sakharov_task_brain_game_completed%
 on_fail = %=fail_task_dec_goodwill(50:ecolog) -yan_stalker_sakharov_task_brain_game_started%
 
-[bar_visitors_barman_stalker_trader_task_baba_yaga]
-icon = ui_new_tasks_addon_swamp
-storyline = false
-repeat_timeout = 31600
-
-title = bar_visitors_barman_stalker_trader_task_baba_yaga_name
-descr = bar_visitors_barman_stalker_trader_task_baba_yaga_text
-job_descr = bar_visitors_barman_stalker_trader_task_baba_yaga_about
-task_complete_descr = bar_visitors_barman_stalker_trader_task_baba_yaga_finish
-nta_task_details = baba_yaga_details
-precondition = {-bar_visitors_barman_stalker_trader_task_baba_yaga_started =check_nta_replayability(bar_visitors_barman_stalker_trader_task_baba_yaga)} true, false
-condlist_0 = {!task_giver_alive(bar_visitors_barman_stalker_trader_task_baba_yaga)} fail
-
-stage_complete = 3
-target_functor = baba_yaga_task_target_functor
-status_functor = baba_yaga_task_status_functor
-
-on_job_descr = %=dispatch_nta_task_details(bar_visitors_barman_stalker_trader_task_baba_yaga)%
-on_init = %+bar_visitors_barman_stalker_trader_task_baba_yaga_started =baba_yaga_cleanup()%
-on_complete = %=complete_task_inc_goodwill(75:stalker) =reward_random_money(8000:11000) -bar_visitors_barman_stalker_trader_task_baba_yaga_started +bar_visitors_barman_stalker_trader_task_baba_yaga_completed%
-on_fail = %=fail_task_dec_goodwill(50:stalker) -bar_visitors_barman_stalker_trader_task_baba_yaga_started%
-
-[mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors]
-icon = ui_new_tasks_addon_zombie
-storyline = false
-repeat_timeout = 31600
-
-title = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_name
-descr = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_text
-job_descr = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_about
-task_complete_descr = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_finish
-nta_task_details = house_of_horrors_details
-precondition = {-mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started =check_nta_replayability(mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors)} true, false
-condlist_0 = {!task_giver_alive(mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors)} fail
-
-stage_complete = 3
-target_functor = house_of_horrors_task_target_functor
-status_functor = house_of_horrors_task_status_functor
-
-on_job_descr = %=dispatch_nta_task_details(mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors)%
-on_init = %+mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started =house_of_horrors_cleanup()%
-on_complete = %=complete_task_inc_goodwill(75:csky) =reward_random_money(8000:11000) -mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started +mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_completed%
-on_fail = %=fail_task_dec_goodwill(50:csky) -mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started%
-
 [zat_a2_stalker_barmen_task_mirage]
 icon = ui_icons_burer16
 storyline = false
@@ -373,6 +329,71 @@ on_job_descr = %=dispatch_nta_task_details(bar_informator_mlr_task_the_living_fi
 on_init = %+bar_informator_mlr_task_the_living_fire_started%
 on_complete = %-bar_informator_mlr_task_the_living_fire_started +bar_informator_mlr_task_the_living_fire_completed =reward_random_item(af_tlf_prometheus)%
 on_fail = %-bar_informator_mlr_task_the_living_fire_started +bar_informator_mlr_task_the_living_fire_failed%
+
+;------------------ Baba Yaga chain ------------------
+
+[bar_visitors_barman_stalker_trader_task_baba_yaga]
+icon = ui_new_tasks_addon_swamp
+storyline = false
+repeat_timeout = 31600
+
+title = bar_visitors_barman_stalker_trader_task_baba_yaga_name
+descr = bar_visitors_barman_stalker_trader_task_baba_yaga_text
+job_descr = bar_visitors_barman_stalker_trader_task_baba_yaga_about
+task_complete_descr = bar_visitors_barman_stalker_trader_task_baba_yaga_finish
+nta_task_details = baba_yaga_details
+precondition = {-bar_visitors_barman_stalker_trader_task_baba_yaga_started -bar_visitors_barman_stalker_trader_task_baba_yaga_completed} true, false
+condlist_0 = {!task_giver_alive(bar_visitors_barman_stalker_trader_task_baba_yaga)} fail
+
+stage_complete = 3
+target_functor = baba_yaga_task_target_functor
+status_functor = baba_yaga_task_status_functor
+
+on_job_descr = %=dispatch_nta_task_details(bar_visitors_barman_stalker_trader_task_baba_yaga)%
+on_init = %+bar_visitors_barman_stalker_trader_task_baba_yaga_started =baba_yaga_cleanup()%
+on_complete = %=complete_task_inc_goodwill(75:stalker) =reward_random_money(8000:11000) -bar_visitors_barman_stalker_trader_task_baba_yaga_started +bar_visitors_barman_stalker_trader_task_baba_yaga_completed =mystery_of_the_swamps_save_dependency_time()%
+on_fail = %=fail_task_dec_goodwill(50:stalker) -bar_visitors_barman_stalker_trader_task_baba_yaga_started%
+
+[mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors]
+icon = ui_new_tasks_addon_zombie
+storyline = false
+repeat_timeout = 31600
+
+title = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_name
+descr = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_text
+job_descr = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_about
+task_complete_descr = mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_finish
+nta_task_details = house_of_horrors_details
+precondition = {-mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started -mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_completed} true, false
+condlist_0 = {!task_giver_alive(mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors)} fail
+
+stage_complete = 3
+target_functor = house_of_horrors_task_target_functor
+status_functor = house_of_horrors_task_status_functor
+
+on_job_descr = %=dispatch_nta_task_details(mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors)%
+on_init = %+mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started =house_of_horrors_cleanup()%
+on_complete = %=complete_task_inc_goodwill(75:csky) =reward_random_money(8000:11000) -mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started +mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_completed =mystery_of_the_swamps_save_dependency_time()%
+on_fail = %=fail_task_dec_goodwill(50:csky) -mar_smart_terrain_base_stalker_leader_marsh_task_house_of_horrors_started%
+
+[task_mystery_of_the_swamps]
+icon = ui_new_tasks_addon_mystery_of_the_swamps_2
+storyline = false
+repeat_timeout = 31600
+
+title = task_mystery_of_the_swamps_name
+descr = task_mystery_of_the_swamps_text
+precondition = {-task_mystery_of_the_swamps_started -task_mystery_of_the_swamps_completed} true, false
+condlist_0 = {!task_giver_alive(task_mystery_of_the_swamps)} fail
+
+stage_complete = 3
+target_functor = mystery_of_the_swamps_task_target_functor
+status_functor = mystery_of_the_swamps_task_status_functor
+
+on_job_descr = %=dispatch_nta_task_details(task_mystery_of_the_swamps)%
+on_init = %+task_mystery_of_the_swamps_started =mystery_of_the_swamps_cleanup()%
+on_complete = %=complete_task_inc_goodwill(200:ecolog) =reward_random_money(8000:11000) -task_mystery_of_the_swamps_started +task_mystery_of_the_swamps_completed%
+on_fail = %=fail_task_dec_goodwill(100:ecolog) -task_mystery_of_the_swamps_started%
 
 
 ;------------------ General tasks ------------------

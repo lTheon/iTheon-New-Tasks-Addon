@@ -702,4 +702,175 @@
 		</phrase_list>
 	</dialog>
 	<!-- The Living Fire end -->
+
+	<!-- Mystery of the Swamps start -->
+	<dialog id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1">
+        <has_info>task_mystery_of_the_swamps_available</has_info>
+		<dont_has_info>bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_passed</dont_has_info>
+		<phrase_list>
+			<phrase id="0">
+				<text>bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_0</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text>bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_1</text>
+				<next>2</next>
+				<next>3</next>
+			</phrase>
+			<phrase id="2">
+				<text>bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_2_0</text>
+				<action>dialogs.break_dialog</action>
+			</phrase>
+			<phrase id="3">
+				<text>bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_2_1</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="4">
+				<text>bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_3</text>
+				<give_info>bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_passed</give_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+
+	<dialog id="yan_stalker_sakharov_mystery_of_the_swamps_1">
+        <has_info>task_mystery_of_the_swamps_available</has_info>
+		<dont_has_info>yan_stalker_sakharov_mystery_of_the_swamps_1_passed</dont_has_info>
+		<phrase_list>
+			<phrase id="0">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_1_0</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_1_1</text>
+				<next>2</next>
+				<next>3</next>
+			</phrase>
+			<phrase id="2">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_1_2_0</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="3">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_1_2_1</text>
+				<next>6</next>
+			</phrase>
+			<phrase id="4">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_1_3</text>
+				<next>5</next>
+			</phrase>
+			<phrase id="5">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_1_4</text>
+				<action>dialogs.break_dialog</action>
+				<action>tasks_mystery_of_the_swamps.start_task</action>
+				<give_info>yan_stalker_sakharov_mystery_of_the_swamps_1_passed</give_info>
+				<give_info>yan_stalker_sakharov_mystery_of_the_swamps_2_passed</give_info>
+			</phrase>
+			<phrase id="6">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_1_5</text>
+				<give_info>yan_stalker_sakharov_mystery_of_the_swamps_1_passed</give_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+
+	<dialog id="yan_stalker_sakharov_mystery_of_the_swamps_2">
+        <has_info>task_mystery_of_the_swamps_available</has_info>
+		<has_info>yan_stalker_sakharov_mystery_of_the_swamps_1_passed</has_info>
+		<dont_has_info>yan_stalker_sakharov_mystery_of_the_swamps_2_passed</dont_has_info>
+		<phrase_list>
+			<phrase id="0">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_2_0</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_2_1</text>
+				<next>2</next>
+				<next>3</next>
+			</phrase>
+			<phrase id="2">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_2_2_0</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="3">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_2_2_1</text>
+				<next>6</next>
+			</phrase>
+			<phrase id="4">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_2_3</text>
+				<next>5</next>
+			</phrase>
+			<phrase id="5">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_2_4</text>
+				<action>dialogs.break_dialog</action>
+				<action>tasks_mystery_of_the_swamps.start_task</action>
+				<give_info>yan_stalker_sakharov_mystery_of_the_swamps_2_passed</give_info>
+			</phrase>
+			<phrase id="6">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_2_5</text>
+			</phrase>
+		</phrase_list>
+	</dialog>
+
+	<dialog id="yan_stalker_sakharov_mystery_of_the_swamps_3">
+		<has_info>aw_mots_ecolog_scan_done</has_info>
+		<dont_has_info>yan_stalker_sakharov_mystery_of_the_swamps_3_passed</dont_has_info>
+		<phrase_list>
+			<phrase id="0">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_0</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_1</text>
+				<next>2</next>
+			</phrase>
+			<phrase id="2">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_2</text>
+				<next>3</next>
+			</phrase>
+			<phrase id="3">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="4">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_4</text>
+				<next>5</next>
+			</phrase>
+			<phrase id="5">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_5</text>
+				<action>tasks_mystery_of_the_swamps.give_reward_1_and_despawn_ecolog</action>
+				<next>6</next>
+			</phrase>
+			<phrase id="6">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_6</text>
+				<next>7</next>
+			</phrase>
+			<phrase id="7">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_7</text>
+				<next>8</next>
+			</phrase>
+			<phrase id="8">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_8</text>
+				<next>9</next>
+			</phrase>
+			<phrase id="9">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_9</text>
+				<next>10</next>
+			</phrase>
+			<phrase id="10">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_10</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="11">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_11</text>
+				<next>12</next>
+			</phrase>
+			<phrase id="12">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_12</text>
+				<next>13</next>
+			</phrase>
+			<phrase id="13">
+				<text>yan_stalker_sakharov_mystery_of_the_swamps_3_13</text>
+				<give_info>yan_stalker_sakharov_mystery_of_the_swamps_3_passed</give_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<!-- Mystery of the Swamps end -->
 </game_dialogs>

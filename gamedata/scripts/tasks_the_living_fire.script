@@ -1,5 +1,6 @@
 local nta_utils = new_tasks_addon_tasks_utils
 local configs = a_the_living_fire_configs
+local delayed_message = nta_utils.delayed_message
 
 local state = {
     prometheus_id = nil,
@@ -433,9 +434,6 @@ end
 function spawn_mutants(cfg, endgame)
     for _, spawn_config in pairs(cfg) do
         local id = nta_utils.spawn_helper(spawn_config)
-        if endgame then 
-            logic_enforcer.assign(id, [[scripts\outskirts_tlf_endgame_mutant_beh.ltx]],'logic', 'beh@base')
-        end
         table.insert(state.mutant_ids, id)
     end
 end
@@ -443,10 +441,14 @@ end
 function first_alive_mutant_id()
     for _, id in pairs(state.mutant_ids) do
         local obj = level.object_by_id(id)
-        if obj and obj:alive() then
+        if obj and is_tlf_poltergeist(obj) and obj:alive() then
             return id
         end
     end
+end
+
+function is_tlf_poltergeist(obj)
+    return obj:section() == 'm_poltergeist_normal_flame_tlf' or obj:section() == 'm_poltergeist_normal_flame_tlf_endgame';
 end
 
 function first_alive_greh_id()
@@ -615,7 +617,6 @@ end
 xr_effects.tlf_on_outskirts_mutant_death = function()
     if #state.mutant_ids < 12 then
         local id = nta_utils.spawn_helper(configs.outskirts_mutant_locations[math.random(1,4)])
-        logic_enforcer.assign(id, [[scripts\outskirts_tlf_endgame_mutant_beh.ltx]],'logic', 'beh@base')
         table.insert(state.mutant_ids, id)
     end
 end
@@ -656,16 +657,6 @@ function tlf_complete()
             return true
         end)
     end
-end
-
-local delayed_message_index = 0
-function delayed_message(msg, delay, icon, name, keep_time)
-    local k_time = keep_time or 5
-    CreateTimeEvent(0,"the_living_fire_delayed_message_" .. delayed_message_index, delay, function ()
-        dynamic_news_helper.send_tip(msg, name, nil, k_time, icon, nil, 'npc')
-        return true
-    end)
-    delayed_message_index = delayed_message_index + 1
 end
 
 task_functor.the_living_fire_task_target_functor = function(task_id,field,p,tsk)

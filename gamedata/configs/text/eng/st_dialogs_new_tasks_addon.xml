@@ -458,4 +458,108 @@
 	<string id="yan_stalker_sakharov_the_living_fire_5_4">
 		<text>Thank you, professor. I hope I'll not lose my sanity either.</text>
 	</string>
+
+	<!-- Mystery of the Swamps -->
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_0">
+		<text>Hey Barkeep. What is it that you wanted?</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_1">
+		<text>Aren't you looking for some job by a chance? Sakharov contacted me recently. He's hiring some mercenaries to protect his scientific crews when they carry out some measurements. I think he'll tell you more when you get there.</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_2_0">
+		<text>I could use some cash. Thanks - I'll pay him a visit.</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_2_1">
+		<text>Sorry, I'm busy at the moment.</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_3">
+		<text>Too bad. If you change your mind, you can try talking to him anyway.</text>
+	</string>
+
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_0">
+		<text>Greetings, professor. You look a bit worried. Do you need some help?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_1">
+		<text>In a matter of fact - yes. We're looking for some mercenaries to protect our scientific crews. The military is stretched thin at the moment, so we're forced to hire individual stalkers instead.\n \nYou see - something weird has started happening around swampy areas of the Zone. We've been receiving data about increased anomalous activity, even in seemingly calm places. Some stalkers have also reported that unusual amounts of Karliks are drawn towards those. We'd want to gather some data on all of those places. Would you be interested in taking this job?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_2_0">
+		<text>Sounds interesting. Count me in.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_2_1">
+		<text>Running around the swamps and chasing some dwarves? Seems like a waste of time...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_3">
+		<text>Great! We've already assembled few teams that are on the mission right now. Let's see... Darkscape, Agroprom and Garbage are already covered and the Clear Sky has agreed to report their findings on the Great Swamps... there you go - you'll be sent to Military Warehouses. Our scientist and the other bodyguard are waiting for you outside.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_4">
+		<text>Great. We'll be back soon.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_5">
+		<text>Your loss, young man. If you change your mind, I'll still be here... if we don't fill all the mercenary roles that is.</text>
+	</string>
+
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_0">
+		<text>About that escorting mission...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_1">
+		<text>Yes?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_2_0">
+		<text>I've changed my mind. Count me in.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_2_1">
+		<text>Never mind...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_3">
+		<text>Great! We've already assembled few teams that are on the mission right now. Let's see... Darkscape, Agroprom and Garbage are already covered and the Clear Sky has agreed to report their findings on the Great Swamps... there you go - you'll be sent to Military Warehouses. Our scientist and the other bodyguard are waiting for you outside.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_4">
+		<text>Great. We'll be back soon.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_5">
+		<text>Stop wasting my time, young man.</text>
+	</string>
+
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_0">
+		<text>We're back professor. I believe your friend has gathered the data you wanted.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_1">
+		<text>Perfect! Let me see... huh? It doesn't make any sense. The anomaly itself didn't experience any change in the activity. Our scanners here also stopped recording any abnormalities after you went there.\n \nPlease tell me - did you find anything peculiar close to the anomaly?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_2">
+		<text>Not really... maybe except for more than the average amount of Karliks around it, though you've probably already guessed that, given that you've warned me about it.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_3">
+		<text>Yes... that'strange indeed...\n \nMaybe it was the Karliks that caused those weird readings on our scanners... We need more data on that.\n \nThe team that was sent to Agroprom and Clear Sky stalkers on Great Swamps have also encountered Karliks around the measurement areas and things went back to normal after they got rid of them, though the abnormalities weren't that spectacular to begin with, so...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_4">
+		<text>Ekhm... Sorry to interrupt you, professor, but I don't think this stuff involves me, right? Besides - didn't you forget about something?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_5">
+		<text>Ah, yes... those young, impatient people... Here's your reward.\n \nWould you mind hearing me out now? You might earn a bit more.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_6">
+		<text>Well - I'm all ears.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_7">
+		<text>Great. So where was I? Right - the data from Agroprom and Great Swamps will not be of much use to us, but I'd like to hire you for another mission.\n \nYou see - one of our mercenaries has failed his bodyguard duties. He came back here and demanded his payment, because he claimed we've lied to him about the task. He said that he cleared out the Karliks and our scientist has managed to collect the data, but just when he was about to stand up, a ghostly apparition broke poor man's neck.\n \nCan you believe that? Claiming that ghost has killed our colleague... My take on it is that the man was affected by the psychic powers of Karliks or inhaled too much vapors from the anomaly...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_8">
+		<text>Well - I've seen many weird things that are hard to believe... Maybe that man wasn't lying.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_9">
+		<text>Are you feeling alright, young man? I think you might also require medical attention...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_10">
+		<text>Stop making fun of me. I'm dead serious, professor.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_11">
+		<text>Well - your weird experiences actually make you a perfect fit for the mission that I've mentioned. We need to retrieve the data that our scientist has gathered. I'll not take "no" for an answer - that data is crucial for us and we can't risk it getting lost. You'll be well rewarded.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_12">
+		<text>Fine... I'll help you again... You'll owe me one though.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_13">
+		<text>Splendid! Your companion from your last mission will also go with you. Please, watch each other's back and make haste!</text>
+	</string>
 </string_table>

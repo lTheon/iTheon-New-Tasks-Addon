@@ -6,6 +6,8 @@
         <texture id="ui_new_tasks_addon_stalker_crosshair" x="0" y="94" width="83" height="47" />
         <texture id="ui_new_tasks_addon_campfire" x="0" y="141" width="83" height="47" />
         <texture id="ui_new_tasks_addon_prometheus" x="0" y="188" width="83" height="47" />
+        <texture id="ui_new_tasks_addon_mystery_of_the_swamps" x="0" y="235" width="83" height="47" />
+        <texture id="ui_new_tasks_addon_mystery_of_the_swamps_2" x="0" y="282" width="83" height="47" />
 
         <texture id="ui_new_tasks_addon_swamp" x="83" y="0" width="83" height="47" />
         <texture id="ui_new_tasks_addon_giant" x="83" y="47" width="83" height="47" />
