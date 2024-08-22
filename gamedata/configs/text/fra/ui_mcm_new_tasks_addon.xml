@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="Windows-1252" ?>
 <!-- ALSEWARE -->
-<!-- File made by Oyissan using ALSÉWARE Tool -->
+<!-- File made by Oyissan using ALSÃ‰WARE Tool - Traduit en franÃ§ais par Thundard -->
 <string_table>
 	<string id="ui_mcm_menu_new_tasks_addon">
-		<text>iTheon - Nouvelles tâches v0.2.1</text>
+		<text>iTheon - Nouvelles tÃ¢ches v0.2.1</text>
 	</string>
 	<string id="ui_mcm_new_tasks_addon_replayability_title">
-		<text>Rejouabilité des missions</text>
+		<text>RejouabilitÃ© des missions</text>
 	</string>
 	<string id="ui_mcm_new_tasks_addon_repl_esc_m_trader_task_new_tasks_addon_dead_night">
 		<text>Nuit Mortelle</text>
@@ -15,7 +15,7 @@
 		<text>Skyfall</text>
 	</string>
 	<string id="ui_mcm_new_tasks_addon_repl_bar_dolg_general_petrenko_stalker_task_hold_the_ground">
-		<text>Défenses de positions</text>
+		<text>DÃ©fenses de positions</text>
 	</string>
 	<string id="ui_mcm_new_tasks_addon_repl_cit_killers_merc_trader_stalker_task_no_step_back">
 		<text>Pas question de reculer</text>
@@ -24,7 +24,7 @@
 		<text>Jouer avec la vie</text>
 	</string>
 	<string id="ui_mcm_new_tasks_addon_repl_simulation_task_vengence_amplified">
-		<text>Vengeance Decuplée</text>
+		<text>Vengeance DecuplÃ©e</text>
 	</string>
 	<string id="ui_mcm_new_tasks_addon_repl_yan_stalker_sakharov_task_brain_game">
 		<text>Jeu Mental</text>
@@ -54,7 +54,7 @@
 		<text>Extorsion</text>
 	</string>
 	<string id="ui_mcm_new_tasks_addon_repl_yan_stalker_sakharov_task_stolen_specimen">
-		<text>Spécimens volés</text>
+		<text>SpÃ©cimens volÃ©s</text>
 	</string>
 	<string id="ui_mcm_new_tasks_addon_repl_trader_pri_a15_mlr_task_blood_stained_coin">
 		<text>Monnaie Sanglante</text>
@@ -66,7 +66,7 @@
 		<text>Accepter les ordres automatiquement</text>
 	</string>
 	<string id="ui_mcm_new_tasks_addon_auto_assignment_desc">
-		<text>Veuillez noter que ces tâches seront tres probablement disponibles uniquement par auto-attribution, donc les désactiver signifie que vous ne pourrez pas du tout les obtenir.</text>
+		<text>Veuillez noter que ces tÃ¢ches seront tres probablement disponibles uniquement par auto-attribution, donc les dÃ©sactiver signifie que vous ne pourrez pas du tout les obtenir.</text>
 	</string>
 	<string id="ui_mcm_new_tasks_addon_auto_assignment_urgent_orders">
 		<text>Ordres Urgents</text>
