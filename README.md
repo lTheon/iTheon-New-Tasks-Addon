@@ -67,7 +67,8 @@ Bandits:
 
 Contributors:<br>
 [JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
-El_Rosarino - Spanish translation
+El_Rosarino - Spanish translation<br>
+[Thundard](https://github.com/Thundard) - French translation
 
 v0.2.1
 - Fix minor bugs in The Living Fire for vanilla Anomaly
