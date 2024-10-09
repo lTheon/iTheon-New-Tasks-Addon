@@ -36,9 +36,16 @@ function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle
     return se_obj.id
 end
 
+-- TODO: adjust all the spawn configs that also spawn some kind of sound/particles - that'll massively improve readability in some places
 -- TODO: remove second param - it's cancer
 -- Second param is mainly used for loop spawning to not have same sections defined in configs
 function spawn_helper(spawn_config, section_override)
+    if spawn_config.particles then
+        spawn_particles_at_position(spawn_config.particles, spawn_config.vector)
+    end
+    if spawn_config.sound then
+        spawn_sound_at_position(spawn_config.sound, spawn_config.vector)
+    end
     return spawn_at_position(
         spawn_config.section or section_override,
         spawn_config.vector,
@@ -53,10 +60,9 @@ end
 -- TODO: replace separate functions for spawning in all task files with this thing
 function mass_spawn_helper(spawn_configs, tab_with_ids)
     for _, v in ipairs(spawn_configs) do
+        local id = spawn_helper(v)
         if tab_with_ids then
-            table.insert(tab_with_ids, spawn_helper(v))
-        else
-            spawn_helper(v)
+            table.insert(tab_with_ids, id)
         end
 	end
 end
@@ -437,6 +443,16 @@ function destroy_with_poltergeist_effect(obj, without_sound)
     safe_release_manager.release(alife_object(obj:id()))
 end
 
+function spawn_particles_at_position(particle_path, vec)
+    local part = particles_object(particle_path)
+    part:play_at_pos(vec)
+end
+
+function spawn_sound_at_position(sound_path, vec)
+    local snd = xr_sound.get_safe_sound_object(sound_path)
+    snd:play_at_pos(db.actor, vec)
+end
+
 levels = {
     swamp = "k00_marsh",
 	darkscape = "k01_darkscape",
@@ -458,6 +474,31 @@ levels = {
 -- TODO: Remove separate functions from task files and use this one instead
 function actor_on_level(lvl)
     return level.name() == lvl
+end
+
+function enforce_logic(story_id, script_name, section, reset_target)
+    if level_changing() then return end
+
+    local se_obj = get_story_se_object(story_id)
+    if not se_obj then return end
+
+    local is_squad = se_obj.commander_id
+
+    local stalker_id
+    if is_squad then
+        stalker_id = get_squad_commander(se_obj.id):id()
+    else
+        stalker_id = se_obj.id
+    end
+
+    logic_enforcer.assign(stalker_id, script_name, 'logic', section)
+
+    if reset_target then
+        local st = db.storage[stalker_id]
+        if st.desired_target then
+            st.desired_target.__keep_until = nil
+        end
+    end
 end
 
 local function load_defaults()

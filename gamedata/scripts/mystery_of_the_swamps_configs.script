@@ -62,7 +62,8 @@ garbage_ghost_configs = {{
     section = "nta_tough_zombie_ghost",
     vector = vector():set(124.3751,0.0869,-130.8341),
     lvid = 270232,
-    gvid = 844
+    gvid = 844,
+    sound = [[monsters\zombie_blind\zombie_blind_attack_2]]
 }}
 
 dead_ecolog_2_spawn_config = {
@@ -90,18 +91,37 @@ stalker_squad_3_configs = {
 
 ds_ghosts_configs = {{
     section = "nta_tough_zombie_ghost",
-    vector = vector():set(238.2173,-3.7445,559.6921),
-    lvid = 654818,
-    gvid = 1095
+    vector = vector():set(245.7287,-2.4321,604.9596),
+    lvid = 663500,
+    gvid = 1305,
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
 },{
     section = "nta_tough_zombie_ghost",
-    vector = vector():set(241.9836,-3.7295,577.4965),
-    lvid = 659423,
-    gvid = 1312
+    vector = vector():set(233.0034,-2.7059,614.3851),
+    lvid = 649394,
+    gvid = 1305,
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
 }}
 
-ds_mid_bridge = {
-    vector = vector():set(239.1392,-3.7714,567.8186),
-    lvid = 656278,
-    gvid = 1095
+ds_swamp_trigger = {
+    vector = vector():set(245.5741,-2.6289,618.4694),
+    lvid = 663518,
+    gvid = 1305
+}
+
+ds_baba_yaga_config = {
+    section = "baba_yaga_controller",
+    vector = vector():set(231.1000,0.8773,569.8445),
+    lvid = 646926,
+    gvid = 1095,
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+}
+
+jupiter_campfire_config = {
+    vector = vector():set(-333.7086,-2.8604,266.3536),
+    lvid = 151362,
+    gvid = 4526
 }

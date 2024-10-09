@@ -5,7 +5,6 @@ local configs = mystery_of_the_swamps_configs
 local state = {
     dependency_task_finished_at = nil,
     mutant_ids = {},
-    ghost_ids = {}
 }
 
 xr_effects.mystery_of_the_swamps_save_dependency_time = function()
@@ -109,10 +108,9 @@ task_status_functor.mystery_of_the_swamps_task_status_functor = function(tsk,tas
     end
 
     if stage == 7 then
-        if nta_utils.entity_is_dead_with_wait(state.ghost_ids[1], 'nta_tough_zombie_ghost') then
+        if not state.mutant_ids[1] then
             post_garbage_ghost_messages()
             nta_utils.spawn_helper(configs.dead_ecolog_2_spawn_config)
-            state.ghost_ids = {}
             tsk.stage = 8
         end
     end
@@ -133,15 +131,56 @@ task_status_functor.mystery_of_the_swamps_task_status_functor = function(tsk,tas
 
     if stage == 9 then
         if nta_utils.actor_on_level(nta_utils.levels.darkscape) and nta_utils.actor_in_range(db.zone_by_name['ds_under_the_bridge']:position(), 40) then
-            ds_arrive_logic_setup()
+            nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_8', 0, 'actor')
             tsk.stage = 10
         end
     end
 
     if stage == 10 then
-        if nta_utils.actor_in_range(configs.ds_mid_bridge, 4) and db.actor:position().y < -3 then
-            nta_utils.mass_spawn_helper(configs.ds_ghosts_configs, state.ghost_ids)
+        ds_arrive_logic_setup()
+        if nta_utils.actor_in_range(configs.ds_swamp_trigger.vector, 10) then
+            nta_utils.mass_spawn_helper(configs.ds_ghosts_configs, state.mutant_ids)
             tsk.stage = 11
+        end
+    end
+
+    if stage == 11 then
+        ds_arrive_logic_setup()
+        if #state.mutant_ids == 0 then
+            nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_9', 2, 'actor')
+            tsk.stage = 12
+        end
+    end
+
+    if stage == 12 then
+        ds_wait_logic_setup()
+        if nta_utils.actor_in_range(SIMBOARD:get_smart_by_name('ds_kem3').position, 3) then
+            post_ds_logic(tsk)
+        end
+    end
+
+    if stage == 13 then
+        if has_alife_info('yan_stalker_sakharov_mystery_of_the_swamps_4_passed') then
+            despawn_ds_baba_yaga()
+            tsk.stage = 14
+        end
+    end
+
+    if stage == 14 then
+        if has_alife_info('hunter_gar_trader_mystery_of_the_swamps_1_passed') then
+            tsk.stage = 15
+        end
+    end
+
+    if stage == 15 then
+        if has_alife_info('red_forester_tech_mystery_of_the_swamps_1_passed') then
+            tsk.stage = 16
+        end
+    end
+
+    if stage == 16 then
+        if has_alife_info('jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_passed') then
+            tsk.stage = 17
         end
     end
 end
@@ -171,7 +210,7 @@ task_functor.mystery_of_the_swamps_task_target_functor = function(task_id,field,
     end
 
     if stage == 7 then
-        return state.ghost_ids[1]
+        return state.mutant_ids[1]
     end
 
     if stage == 8 then
@@ -184,6 +223,26 @@ task_functor.mystery_of_the_swamps_task_target_functor = function(task_id,field,
             and nta_utils.actor_on_level(nta_utils.levels.darkscape)
             and db.zone_by_name['ds_under_the_bridge']:id())
             or SIMBOARD:get_smart_by_name('ds_kem3').id
+    end
+
+    if stage == 11 then
+        return SIMBOARD:get_smart_by_name('ds_kem3').id
+    end
+
+    if stage == 12 then
+        return SIMBOARD:get_smart_by_name('ds_kem3').id
+    end
+
+    if stage == 13 then
+        return tsk.task_giver_id
+    end
+
+    if stage == 14 then
+        return get_story_object_id('hunter_gar_trader')
+    end
+
+    if stage == 16 then
+        return get_story_object_id('jup_b6_scientist_nuclear_physicist')
     end
 end
 
@@ -220,10 +279,8 @@ function data_collected_message()
 end
 
 function spawn_garbage_ghost(args)
-    CreateTimeEvent(0,"nta_mots_garbage_spawn_ghost", 1, function ()
-        nta_utils.mass_spawn_helper(configs.garbage_ghost_configs, state.ghost_ids)
-        local zombie_growl_sound = xr_sound.get_safe_sound_object([[monsters\zombie_blind\zombie_blind_attack_2]])
-        zombie_growl_sound:play(db.actor, 0, sound_object.s2d)
+    nta_utils.set_timeout(function ()
+        nta_utils.mass_spawn_helper(configs.garbage_ghost_configs, state.mutant_ids)
         if args.bonk_actor then
             local zombie_hit_sound = xr_sound.get_safe_sound_object([[monsters\zombie\zombie_attack_hit_0]])
             zombie_hit_sound:play(db.actor, 0, sound_object.s2d)
@@ -239,7 +296,7 @@ function spawn_garbage_ghost(args)
             nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_stalker_msg_2', 0, 'nta_mots_stalker_squad_1', 5)
         end
         return true
-    end)
+    end, 1)
 end
 
 function post_garbage_ghost_messages()
@@ -296,12 +353,20 @@ function post_dv_logic(tsk)
     end
 end
 
+local ds_arrive_logic_set = false
 function ds_arrive_logic_setup()
-    nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_8', 0, 'actor')
-    xr_logic.restore_scheme_and_logic(nta_utils.get_squad_commander(get_story_object_id('nta_mots_stalker_squad_2')))
-    logic_enforcer.assign(nta_utils.get_squad_commander(get_story_object_id('nta_mots_stalker_squad_2')):id(),'scripts\\darkscape_mots_beh.ltx','logic', 'beh@stalker_1')
-    xr_logic.restore_scheme_and_logic(nta_utils.get_squad_commander(get_story_object_id('nta_mots_stalker_squad_3')))
-    logic_enforcer.assign(nta_utils.get_squad_commander(get_story_object_id('nta_mots_stalker_squad_3')):id(),'scripts\\darkscape_mots_beh.ltx','logic', 'beh@stalker_2')
+    -- Logic needs to be reapplied constantly because player might reload the game and squad logic will kick in instead
+    nta_utils.enforce_logic('nta_mots_stalker_squad_2', [[scripts\darkscape_mots_beh.ltx]], 'beh@stalker_2_guard', not ds_arrive_logic_set)
+    nta_utils.enforce_logic('nta_mots_stalker_squad_3', [[scripts\darkscape_mots_beh.ltx]], 'beh@stalker_3_guard', not ds_arrive_logic_set)
+    ds_arrive_logic_set = true
+end
+
+local ds_wait_logic_set = false
+function ds_wait_logic_setup()
+    -- Logic needs to be reapplied constantly because player might reload the game and squad logic will kick in instead
+    nta_utils.enforce_logic('nta_mots_stalker_squad_2', [[scripts\darkscape_mots_beh.ltx]], 'beh@stalker_2_wait', not ds_wait_logic_set)
+    nta_utils.enforce_logic('nta_mots_stalker_squad_3', [[scripts\darkscape_mots_beh.ltx]], 'beh@stalker_3_wait', not ds_wait_logic_set)
+    ds_wait_logic_set = true
 end
 
 function get_ds_task_status()
@@ -315,6 +380,53 @@ function fail_ds_task_section()
     nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_fail_2', 3, 'yan_stalker_sakharov', 8)
     axr_companions.release_special_squad(get_story_se_object('nta_mots_stalker_squad_2'))
     axr_companions.release_special_squad(get_story_se_object('nta_mots_stalker_squad_3'))
+end
+
+local post_ds_logic_started = false
+function post_ds_logic(tsk)
+    if not post_ds_logic_started then
+        post_ds_logic_started = true
+        local squad_commander_2 = nta_utils.get_squad_commander(get_story_object_id('nta_mots_stalker_squad_2'))
+        local squad_commander_3 = nta_utils.get_squad_commander(get_story_object_id('nta_mots_stalker_squad_3'))
+
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_10', 0, 'actor')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_stalker_msg_5', 4, 'nta_mots_stalker_squad_2')
+        nta_utils.set_timeout(function () give_info('nta_mots_squad_2_radio_out') end, 4)
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_5', 9, 'yan_stalker_sakharov')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_stalker_msg_6', 13, 'nta_mots_stalker_squad_2')
+        nta_utils.set_timeout(function ()
+            nta_utils.spawn_sound_at_position([[new_tasks_addon\invisible_old]], squad_commander_2:position())
+        end, 15)
+        nta_utils.set_timeout(function ()
+            local pos = squad_commander_2:position()
+            pos.y = pos.y + 1.5
+            nta_utils.spawn_particles_at_position([[anomaly2\body_tear_00]], squad_commander_2:position())
+            nta_utils.spawn_sound_at_position([[anomaly\anomaly_body_tear_1]], squad_commander_2:position())
+            alife_release(alife_object(squad_commander_2:id()))
+            give_info('nta_mots_squad_2_exploded')
+        end, 16)
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_stalker_msg_7', 19, 'nta_mots_stalker_squad_3')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_11', 22, 'actor')
+        nta_utils.set_timeout(function ()
+            local pos = squad_commander_3:position()
+            pos.y = pos.y + 1.5
+            nta_utils.spawn_particles_at_position([[anomaly2\body_tear_00]], squad_commander_3:position())
+            nta_utils.spawn_sound_at_position([[anomaly\anomaly_body_tear_1]], squad_commander_3:position())
+            alife_release(alife_object(squad_commander_3:id()))
+        end, 23)
+        nta_utils.set_timeout(function () 
+            nta_utils.mass_spawn_helper({ configs.ds_baba_yaga_config }, state.mutant_ids)
+            tsk.stage = 13 
+        end, 25)
+    end
+end
+
+function despawn_ds_baba_yaga()
+    local se_obj = alife_object(state.mutant_ids[1])
+    if se_obj and se_obj:section_name() == 'baba_yaga_controller' then
+        alife_release(se_obj)
+    end
+    state.mutant_ids = {}
 end
 
 function on_game_start()
@@ -369,9 +481,4 @@ function npc_on_use(looted_npc, who)
     if looted_npc:id() == get_story_object_id('nta_mots_dead_ecolog_2') and who:id() == AC_ID then
         give_info('nta_mots_dead_ecolog_2_looted')
     end
-end
-
--- TODO: try using the `nta_money_rewards` functions instead
-function give_reward_1_and_despawn_ecolog()
-    dialogs.relocate_money( db.actor, 7000, "in" )
 end

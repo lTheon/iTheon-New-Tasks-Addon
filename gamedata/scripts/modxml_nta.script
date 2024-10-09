@@ -9,7 +9,10 @@ local custom_dialogs = {
 		baraholka_trader = [[
 			<actor_dialog>baraholka_trader_the_living_fire_1</actor_dialog>
 			<actor_dialog>baraholka_trader_the_living_fire_2</actor_dialog>
-		]]
+		]],
+		hunter_gar_trader = [[
+			<actor_dialog>hunter_gar_trader_mystery_of_the_swamps_1</actor_dialog>
+		]],
 	},
 	character_desc_bar = {
 		bar_informator_mlr = [[
@@ -20,6 +23,7 @@ local custom_dialogs = {
 		]],
 		bar_visitors_barman_stalker_trader = [[
 			<actor_dialog>bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1</actor_dialog>
+			<actor_dialog>bar_visitors_barman_stalker_trader_mystery_of_the_swamps_2</actor_dialog>
 		]]
 	},
 	character_desc_yantar = {
@@ -32,13 +36,25 @@ local custom_dialogs = {
 			<actor_dialog>yan_stalker_sakharov_mystery_of_the_swamps_1</actor_dialog>
 			<actor_dialog>yan_stalker_sakharov_mystery_of_the_swamps_2</actor_dialog>
 			<actor_dialog>yan_stalker_sakharov_mystery_of_the_swamps_3</actor_dialog>
+			<actor_dialog>yan_stalker_sakharov_mystery_of_the_swamps_4</actor_dialog>
 		]]
 	},
 	character_desc_escape = {
 		esc_2_12_stalker_trader = [[
 			<actor_dialog>esc_2_12_stalker_trader_the_living_fire_1</actor_dialog>
+			<actor_dialog>esc_2_12_stalker_trader_mystery_of_the_swamps_1</actor_dialog>
 		]]
 	},
+	character_desc_red_forest = {
+		red_forester_tech = [[
+			<actor_dialog>red_forester_tech_mystery_of_the_swamps_1</actor_dialog>
+		]]
+	},
+	character_desc_jupiter = {
+		jup_b6_scientist_nuclear_physicist = [[
+			<actor_dialog>jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1</actor_dialog>
+		]]
+	}
 }
 
 function on_xml_read()

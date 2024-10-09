@@ -528,6 +528,27 @@
 	<string id="mystery_of_the_swamps_sakharov_msg_fail_2">
 		<text>Abort the mission, stalker. Seems like you're not suited for it...</text>
 	</string>
+	<string id="mystery_of_the_swamps_actor_msg_9">
+		<text>That should be it. Get ready to move out. I'll be there in a minute.</text>
+	</string>
+	<string id="mystery_of_the_swamps_actor_msg_10">
+		<text>Are you guys ready? Let's get moving...</text>
+	</string>
+	<string id="mystery_of_the_swamps_stalker_msg_5">
+		<text>Wait up! My radio is picking something up.</text>
+	</string>
+	<string id="mystery_of_the_swamps_sakharov_msg_5">
+		<text>Ab...t the m...ion! ... rep..., ab...</text>
+	</string>
+	<string id="mystery_of_the_swamps_stalker_msg_6">
+		<text>It's Sakharov. We should get out of this damn canyon to catch the sig...</text>
+	</string>
+	<string id="mystery_of_the_swamps_stalker_msg_7">
+		<text>What the fuck was that!?</text>
+	</string>
+	<string id="mystery_of_the_swamps_actor_msg_11">
+		<text>Run!</text>
+	</string>
 	<!-- Mystery of the Swamps end -->
 
 	<string id="nta_intercept_item">
