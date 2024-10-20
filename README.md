@@ -1,4 +1,4 @@
-# iTheon's New Tasks Addon v0.2.1
+# iTheon's New Tasks Addon v0.3.0
 
 This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.<br>
 Note: "During the night" refers to 10 PM - 3 AM.<br>
@@ -7,6 +7,7 @@ You need the modified exes by Demonized for some the quest dialogs to be registe
 
 Added questlines (much longer than the radiant tasks described below):
 - The Living Fire - questline starts at Bar and is taken from Snitch in a similar manner as an ordinary task. Prerequisites: finished Living Legend and turned of the Miracle Machine (DLTX mandatory for the dialogs to get registered)
+- Mystery of the Swamps - continues the story of some other tasks. It has some hidden prerequisites that aren't hard to meet and the player will be guided towards the quest giver afterwards through some SMS and dialogs once it becomes available.
 
 Currently available quests with short descriptions (you'll find more in-depth story behind when talking with NPCs):
 
@@ -69,6 +70,9 @@ Contributors:<br>
 [JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
 El_Rosarino - Spanish translation<br>
 [Thundard](https://github.com/Thundard) - French translation
+
+v.0.3.0
+- Added Mystery of the Swamps questline
 
 v0.2.1
 - Fix minor bugs in The Living Fire for vanilla Anomaly
