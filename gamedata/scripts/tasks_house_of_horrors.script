@@ -23,7 +23,7 @@ task_status_functor.house_of_horrors_task_status_functor = function(tsk,task_id)
 
 	if stage == 0 then
         if
-            is_swamp()
+            nta_utils.actor_on_level(nta_utils.levels.swamp)
             and db.actor:position():distance_to(configs.house_location.vector) < 25
             and nta_utils.is_dark_night()
         then
@@ -35,7 +35,7 @@ task_status_functor.house_of_horrors_task_status_functor = function(tsk,task_id)
 
     if stage == 1 then
         -- Revert to prev stage if the night is over or player left swamps
-        if not is_swamp() or not nta_utils.is_dark_night() then
+        if not nta_utils.actor_on_level(nta_utils.levels.swamp) or not nta_utils.is_dark_night() then
             safe_release_manager.release({ id = state.hanged_man_id })
             tsk.stage = 0
             return
@@ -83,22 +83,6 @@ function spawn_zombie()
     state.zombie_id = nta_utils.spawn_helper(configs.zombie_location)
 end
 
-function destroy_zombie()
-    local particles = particles_object("monsters\\polter_death_00")
-    local se_obj = alife_object(state.zombie_id)
-    particles:play_at_pos(se_obj.position)
-    local snd = xr_sound.get_safe_sound_object("monsters\\poltergeist\\death_1")
-    snd:play(level.object_by_id(state.zombie_id), 0, sound_object.s2d)
-    nta_utils.hide_through_teleport(state.zombie_id)
-end
-
-function destroy_board()
-    local particles = particles_object("monsters\\polter_death_00")
-    local se_obj = alife_object(state.board_id)
-    particles:play_at_pos(se_obj.position)
-    safe_release_manager.release({ id = state.board_id })
-end
-
 function play_whispers()
     local snd = xr_sound.get_safe_sound_object("new_tasks_addon\\controller_presence_l_1")
     snd:play(db.actor, 0, sound_object.s2d)
@@ -108,12 +92,6 @@ function play_screams()
     local snd = xr_sound.get_safe_sound_object("new_tasks_addon\\voc_harold_scream_2d")
     snd:play(db.actor, 0, sound_object.s2d)
 end
-
-function is_swamp()
-    return level.name() == "k00_marsh"
-end
-
-
 
 task_functor.house_of_horrors_task_target_functor = function(task_id,field,p,tsk)
 	if not (db.actor and tsk) then return nil end
@@ -140,8 +118,7 @@ end
 
 function monster_on_death_callback(monster)
     if state.zombie_id and monster:id() == state.zombie_id then
-        destroy_zombie()
-        destroy_board()
+        nta_utils.destroy_with_poltergeist_effect(state.board_id, true)
         state.zombie_id = nil
     end
 end

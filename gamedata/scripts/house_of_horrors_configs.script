@@ -5,7 +5,7 @@ house_location = {
 }
 
 zombie_location = {
-    section = "house_of_horrors_zombie",
+    section = "nta_tough_zombie_ghost",
     vector = vector():set(43.7496,2.9150,-235.1493),
     lvid = 165513,
     gvid = 13

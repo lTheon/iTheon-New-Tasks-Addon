@@ -81,7 +81,7 @@ task_status_functor.the_living_fire_task_status_functor = function(tsk,task_id)
     if stage == 4 then
         CreateTimeEvent(0,"the_living_fire_garbage_prometheus_disappear", 8, function ()
             safe_release_manager.release({id = state.prometheus_id})
-            local explosion_spawn_config = nta_utils.shallow_copy(configs.garbage_prometheus_location)
+            local explosion_spawn_config = a_tab_utils.shallow_copy(configs.garbage_prometheus_location)
             explosion_spawn_config.section = 'immediate_fiery_explosion'
             nta_utils.spawn_helper(explosion_spawn_config)
             CreateTimeEvent(0,"the_living_fire_garbage_anomalies_disappear", 0.5, function ()
@@ -605,7 +605,7 @@ function spawn_outskirts_anomalies()
     for i, coords in ipairs(configs.outskirts_anomaly_xz_data) do
         -- Spawning 100 anomalies kills FPS - try with lowered number
         if math.fmod(i,2) == 0 then
-            local anomaly_location = nta_utils.shallow_copy(configs.outskirts_prometheus_location)
+            local anomaly_location = a_tab_utils.shallow_copy(configs.outskirts_prometheus_location)
             anomaly_location.vector = vector():set(coords[1], 0, coords[2])
             anomaly_location.section = 'zone_zhar_tlf'
             anomaly_location.is_anomaly = true
@@ -767,7 +767,7 @@ function npc_on_before_hit(npc,shit,bone_id)
 	            local sec = wpn:section()
                 if bone_id == 15 and (sec == 'wpn_gauss' or sec == 'wpn_gauss_quest') then
                     safe_release_manager.release({id = state.prometheus_id})
-                    local explosion_spawn_config = nta_utils.shallow_copy(configs.outskirts_prometheus_location)
+                    local explosion_spawn_config = a_tab_utils.shallow_copy(configs.outskirts_prometheus_location)
                     explosion_spawn_config.vector.y = explosion_spawn_config.vector.y - 3
                     explosion_spawn_config.vector.z = explosion_spawn_config.vector.z + 1
                     explosion_spawn_config.vector.x = explosion_spawn_config.vector.x + 1
@@ -782,7 +782,7 @@ function npc_on_before_hit(npc,shit,bone_id)
 end
 
 function npc_on_death_callback(npc)
-    if npc and nta_utils.has_value(state.greh_ids, npc:id()) then
+    if npc and a_tab_utils.has_value(state.greh_ids, npc:id()) then
         local explosion_spawn_config = nta_utils.obj_position_to_spawn_config_partial(npc)
         explosion_spawn_config.section = 'immediate_fiery_explosion'
         nta_utils.spawn_helper(explosion_spawn_config)

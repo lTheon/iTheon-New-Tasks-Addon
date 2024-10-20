@@ -25,7 +25,7 @@ function actor_on_first_update()
 	local seconds = tonumber(game.get_game_time():diffSec(last_time_assigned))
 	local days = math.floor(((seconds/60)/60)/24)
 
-    local is_right_place_and_faction = is_bar() and is_from_duty() or is_agroprom() and is_from_army()
+    local is_right_place_and_faction = nta_utils.actor_on_level(nta_utils.levels.bar) and is_from_duty() or nta_utils.actor_on_level(nta_utils.levels.agroprom) and is_from_army()
     -- Fire every 5 days
     if (days >= 5 and is_right_place_and_faction) then
         CreateTimeEvent(0,"urgent_orders_delay",20, function ()
@@ -67,7 +67,7 @@ task_status_functor.urgent_orders_status_functor = function(tsk,task_id)
         local se_smart = SIMBOARD:get_smart_by_name(yantar_bunker)
         local smart = level.object_by_id(se_smart.id)
         if
-            is_yantar()
+            nta_utils.actor_on_level(nta_utils.levels.yantar)
             and smart
             and (db.actor:position():distance_to(smart:position()) < 60)
         then
@@ -85,24 +85,12 @@ task_status_functor.urgent_orders_status_functor = function(tsk,task_id)
     end
 end
 
-function is_bar()
-    return level.name() == "l05_bar"
-end
-
 function is_from_duty()
     return get_actor_true_community() == "dolg"
 end
 
-function is_agroprom()
-    return level.name() == "l03_agroprom"
-end
-
 function is_from_army()
     return get_actor_true_community() == "army"
-end
-
-function is_yantar()
-    return level.name() == "l08_yantar"
 end
 
 function get_faction_configs()

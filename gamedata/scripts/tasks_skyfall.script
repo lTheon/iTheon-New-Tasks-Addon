@@ -44,13 +44,13 @@ task_status_functor.skyfall_task_status_functor = function(tsk,task_id)
 	if not (db.actor and tsk) then return end
 	local stage = tsk.stage
 
-    if not level_changing() and not is_agroprom() and (stage == 1 or stage == 2) then 
+    if not level_changing() and not nta_utils.actor_on_level(nta_utils.levels.agroprom) and (stage == 1 or stage == 2) then 
         return "fail"
     end
 
 	if (stage == 0) then
         if
-            is_agroprom()
+            nta_utils.actor_on_level(nta_utils.levels.agroprom)
             and db.actor:position():distance_to(landing_pad_location.vector) < heli_trigger_radius
         then
             if not is_enemies_with_military() then
@@ -184,10 +184,6 @@ function spawn_dynamic_heli()
         landing_pad_location.lvid,
         landing_pad_location.gvid
     )
-end
-
-function is_agroprom()
-    return level.name() == "l03_agroprom"
 end
 
 -- Take goodwill into account as well

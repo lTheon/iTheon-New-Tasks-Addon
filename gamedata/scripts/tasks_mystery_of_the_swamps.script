@@ -562,7 +562,7 @@ end
 
 function monster_on_death_callback(monster)
     local id = monster:id()
-    if nta_utils.has_value(state.mutant_ids, id) then
+    if a_tab_utils.has_value(state.mutant_ids, id) then
         state.mutant_ids = a_tab_utils.filter(state.mutant_ids, function (el) return el ~= id end)
     end
 end

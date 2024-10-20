@@ -22,7 +22,7 @@ task_status_functor.baba_yaga_task_status_functor = function(tsk,task_id)
 
 	if stage == 0 then
         if
-            is_garbage()
+            nta_utils.actor_on_level(nta_utils.levels.garbage)
             and db.actor:position():distance_to(baba_yaga_configs.art_location.vector) < 25
             and nta_utils.is_dark_night()
         then
@@ -64,10 +64,6 @@ function spawn()
     for _, spawn_config in pairs(baba_yaga_configs.karlik_spots) do
         nta_utils.spawn_helper(spawn_config, "m_karlik_e")
     end
-end
-
-function is_garbage()
-    return level.name() == "l02_garbage"
 end
 
 task_functor.baba_yaga_task_target_functor = function(task_id,field,p,tsk)

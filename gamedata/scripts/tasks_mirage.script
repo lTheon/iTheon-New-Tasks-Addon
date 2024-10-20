@@ -29,14 +29,14 @@ task_status_functor.mirage_task_status_functor = function(tsk,task_id)
 
 	if stage == 0 then
         if
-            is_zaton()
+            nta_utils.actor_on_level(nta_utils.levels.zaton)
             and db.actor:position():distance_to(mirage_configs.first_spawn_activator) < mirage_configs.first_spawn_activation_distance
         then
             spawn_mirages(mirage_configs.first_spawn_spots)
             tsk.stage = 1
         end
 
-        if is_zaton() and db.actor:position():distance_to(mirage_configs.second_spawn_activator) < mirage_configs.second_spawn_activation_distance then
+        if nta_utils.actor_on_level(nta_utils.levels.zaton) and db.actor:position():distance_to(mirage_configs.second_spawn_activator) < mirage_configs.second_spawn_activation_distance then
             teleport()
         end
     end
@@ -149,10 +149,6 @@ function spawn_burer()
     brain_death_snd:play(db.actor, 0, sound_object.s2d)
 
     nta_utils.earthquake_screen_effect_strong(8)
-end
-
-function is_zaton()
-    return level.name() == "zaton"
 end
 
 task_functor.mirage_task_target_functor = function(task_id,field,p,tsk)

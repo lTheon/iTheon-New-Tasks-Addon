@@ -132,35 +132,6 @@ function immediate_explosion(actor,obj)
     end
 end
 
-function noop() end
-
-function find_index(tab, val)
-    for index, value in ipairs(tab) do
-        if value == val then
-            return index
-        end
-    end
-    return -1
-end
-
-function has_value(tab, val)
-    for index, value in ipairs(tab) do
-        if value == val then
-            return true
-        end
-    end
-
-    return false
-end
-
-function shallow_copy(t)
-	local res = {}
-	for k,v in pairs(t) do
-		res[k] = v
-	end
-	return res
-end
-
 -- No invalid range check - expect to receive the right input
 function rand_with_exclusion(min, max, exclude)
     local t = {}
@@ -291,7 +262,7 @@ function find_random_stalker(factions, maps)
                 local level = get_object_level_id(se_obj)
 
                 if
-                    (not maps or has_value(maps, level))
+                    (not maps or a_tab_utils.has_value(maps, level))
                     and IsStalker(nil,se_obj:clsid()) and se_obj:alive() and alife_character_community(se_obj) == faction
                 then
                     return {
@@ -432,7 +403,6 @@ function days_passed_from_date(time_table)
     return days
 end
 
--- TODO: use it in HoH for doors (direct call) and zombie (can be done through `on_death` beh)
 function destroy_with_poltergeist_effect(obj, without_sound)
     local particles = particles_object("monsters\\polter_death_00")
     particles:play_at_pos(obj:position())
@@ -471,9 +441,12 @@ levels = {
     x18 = 'l04u_labx18',
     red_forest = 'l10_red_forest',
     outskirts = 'pripyat',
-    jupiter = 'jupiter'
+    jupiter = 'jupiter',
+    zaton = 'zaton',
+    limansk = 'l10_limansk',
+    bar = 'l05_bar'
 }
--- TODO: Remove separate functions from task files and use this one instead
+
 function actor_on_level(lvl)
     return level.name() == lvl
 end
