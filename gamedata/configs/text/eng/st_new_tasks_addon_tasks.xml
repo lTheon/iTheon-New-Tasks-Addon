@@ -449,8 +449,114 @@
 	<string id="st_af_tlf_prometheus_descr">
 		<text>A unique artifact that was born in the Greek Fire after the stalker of the legend with the same name has been slain. It gives the user immense resistance to heat and makes the wounds heal faster.</text>
 	</string>
-	
 	<!-- The Living Fire end -->
+	
+	<!-- Mystery of the Swamps -->
+	<string id="task_mystery_of_the_swamps_name">
+		<text>Mystery of the Swamps</text>
+	</string>
+	<string id="task_mystery_of_the_swamps_text">
+		<text>Sakharov has asked me to assist with investigating recent abnormalities around swampy regions of the Zone</text>
+	</string>
+
+	<string id="mystery_of_the_swamps_barman_msg_1">
+		<text>Hey friend! Come up here - we need to talk</text>
+	</string>
+	<string id="mystery_of_the_swamps_actor_msg_1">
+		<text>We're getting close. Stay alert.</text>
+	</string>
+	<string id="mystery_of_the_swamps_actor_msg_2">
+		<text>I think that's the last of them. Sakharov was right... the number of Karliks was very abnormal. Anyway - do you science stuff. We don't want to stay here for too long.</text>
+	</string>
+	<string id="mystery_of_the_swamps_ecolog_msg_1">
+		<text>On it!</text>
+	</string>
+	<string id="mystery_of_the_swamps_ecolog_msg_2">
+		<text>I've got all the data. Let's get back to the bunker.</text>
+	</string>
+	<string id="mystery_of_the_swamps_sakharov_msg_fail_1">
+		<text>You've disappointed me, stalker... hiring you as bodyguard was a mistake.</text>
+	</string>
+	<string id="mystery_of_the_swamps_stalker_msg_1">
+		<text>I think we should stay close, buddy. We don't know what killed that scientist.</text>
+	</string>
+	<string id="mystery_of_the_swamps_data_collected_1">
+		<text>Data collected.</text>
+	</string>
+	<string id="mystery_of_the_swamps_stalker_msg_2">
+		<text>Oh SHIT! Watch out!</text>
+	</string>
+	<string id="mystery_of_the_swamps_stalker_msg_3">
+		<text>What the hell was that?!</text>
+	</string>
+	<string id="mystery_of_the_swamps_actor_msg_3">
+		<text>This looked like a... ghost... I've got a bad feeling about this...</text>
+	</string>
+	<string id="mystery_of_the_swamps_actor_msg_4">
+		<text>Ghost? Again? I've got a bad feeling about this...</text>
+	</string>
+	<string id="mystery_of_the_swamps_sakharov_msg_1">
+		<text>Stalker! Do you copy? Change of plans! Head towards the abandoned farm in Dark Valley. One of our scientists urgently requires medical attention! I'm sending you the coordinates. Don't mention the money - we'll take care of that later.</text>
+	</string>
+	<string id="mystery_of_the_swamps_actor_msg_5">
+		<text>It's too late, Professor. Your man is dead. I can't see any wounds on his body though... What's going on here?</text>
+	</string>
+	<string id="mystery_of_the_swamps_sakharov_msg_2">
+		<text>Yet another tragedy...\n \nThat man was sent with two bodyguards to take readings from the swamp in the Darkscape. He said they were attacked by some kind of a beast and he barely made it out alive. Few minutes later he repoted that he's losing senses and feels excruciating pain all over his body. We've lost connection with him, but we've managed to capture his last coordinates. Then we contacted you.</text>
+	</string>
+	<string id="mystery_of_the_swamps_actor_msg_6">
+		<text>Well - this man was probably dead long time before I got here. Can't do anything about that now. I'll soon be back at your bunker.</text>
+	</string>
+	<string id="mystery_of_the_swamps_sakharov_msg_3">
+		<text>Hold on, lad. Since you're already there, would you be willing to take care of that mutant before you come back? For a price, that is.</text>
+	</string>
+	<string id="mystery_of_the_swamps_actor_msg_7">
+		<text>It's probably the same thing that killed your other man. I can do that.</text>
+	</string>
+	<string id="mystery_of_the_swamps_stalker_msg_4">
+		<text>Wait a second! I didn't sign up for all this shit! Something crazy is hapening here and I don't want to have anything to do with it! I'm out!</text>
+	</string>
+	<string id="mystery_of_the_swamps_sakharov_msg_4_1">
+		<text>No worries. I've contacted other team that was conducting the investigation around the Dark Valley's swamp. Two of their bodyguards have agreed to help you. They're on their way towards your position.</text>
+	</string>
+	<string id="mystery_of_the_swamps_sakharov_msg_4_2">
+		<text>I've contacted other team that was conducting the investigation around the Dark Valley's swamp. Two of their bodyguards have agreed to help you. They're on their way towards your position.</text>
+	</string>
+	<string id="mystery_of_the_swamps_actor_msg_8">
+		<text>We're getting close. Take some defensive positions and secure the area. I'll look for the bodies and the mutant that killed the scientists.</text>
+	</string>
+	<string id="mystery_of_the_swamps_sakharov_msg_fail_2">
+		<text>Abort the mission, stalker. Seems like you're not suited for it...</text>
+	</string>
+	<string id="mystery_of_the_swamps_actor_msg_9">
+		<text>That should be it. Get ready to move out. I'll be there in a minute.</text>
+	</string>
+	<string id="mystery_of_the_swamps_actor_msg_10">
+		<text>Are you guys ready? Let's get moving...</text>
+	</string>
+	<string id="mystery_of_the_swamps_stalker_msg_5">
+		<text>Wait up! My radio is picking something up.</text>
+	</string>
+	<string id="mystery_of_the_swamps_sakharov_msg_5">
+		<text>Ab...t the m...ion! ... rep..., ab...</text>
+	</string>
+	<string id="mystery_of_the_swamps_stalker_msg_6">
+		<text>It's Sakharov. We should get out of this damn canyon to catch the sig...</text>
+	</string>
+	<string id="mystery_of_the_swamps_stalker_msg_7">
+		<text>What the fuck was that!?</text>
+	</string>
+	<string id="mystery_of_the_swamps_actor_msg_11">
+		<text>Run!</text>
+	</string>
+
+	<string id="st_af_tlf_lost_soul">
+		<text>Lost Soul</text>
+	</string>
+	<string id="st_af_tlf_lost_soul_descr">
+		<text>Although this artifact resembles a common Soul artifact, it possesses extraordinary properties. It provides greater telepathic protection and has no negative effects.</text>
+	</string>
+	<!-- Mystery of the Swamps end -->
 
 	<string id="nta_intercept_item">
 		<text>Intercept an item:</text>

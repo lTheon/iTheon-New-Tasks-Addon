@@ -458,4 +458,306 @@
 	<string id="yan_stalker_sakharov_the_living_fire_5_4">
 		<text>Thank you, professor. I hope I'll not lose my sanity either.</text>
 	</string>
+
+	<!-- Mystery of the Swamps -->
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_0">
+		<text>Hey Barkeep. What is it that you wanted?</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_1">
+		<text>Aren't you looking for some job by a chance? Sakharov contacted me recently. He's hiring some mercenaries to protect his scientific crews when they carry out some measurements. I think he'll tell you more when you get there.</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_2_0">
+		<text>I could use some cash. Thanks - I'll pay him a visit.</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_2_1">
+		<text>Sorry, I'm busy at the moment.</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_3">
+		<text>Too bad. If you change your mind, you can try talking to him anyway.</text>
+	</string>
+
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_0">
+		<text>Greetings, professor. You look a bit worried. Do you need some help?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_1">
+		<text>In a matter of fact - yes. We're looking for some mercenaries to protect our scientific crews. The military is stretched thin at the moment, so we're forced to hire individual stalkers instead.\n \nYou see - something weird has started happening around swampy areas of the Zone. We've been receiving data about increased anomalous activity, even in seemingly calm places. Some stalkers have also reported that unusual amounts of Karliks are drawn towards those. We'd want to gather some data on all of those places. Would you be interested in taking this job?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_2_0">
+		<text>Sounds interesting. Count me in.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_2_1">
+		<text>Running around the swamps and chasing some dwarves? Seems like a waste of time...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_3">
+		<text>Great! We've already assembled few teams that are on the mission right now. Let's see... Darkscape, Agroprom and Garbage are already covered and the Clear Sky has agreed to report their findings on the Great Swamps... there you go - you'll be sent to Military Warehouses. Our scientist and the other bodyguard are waiting for you outside.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_4">
+		<text>Great. We'll be back soon.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_1_5">
+		<text>Your loss, young man. If you change your mind, I'll still be here... if we don't fill all the mercenary roles that is.</text>
+	</string>
+
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_0">
+		<text>About that escorting mission...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_1">
+		<text>Yes?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_2_0">
+		<text>I've changed my mind. Count me in.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_2_1">
+		<text>Never mind...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_3">
+		<text>Great! We've already assembled few teams that are on the mission right now. Let's see... Darkscape, Agroprom and Garbage are already covered and the Clear Sky has agreed to report their findings on the Great Swamps... there you go - you'll be sent to Military Warehouses. Our scientist and the other bodyguard are waiting for you outside.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_4">
+		<text>Great. We'll be back soon.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_2_5">
+		<text>Stop wasting my time, young man.</text>
+	</string>
+
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_0">
+		<text>We're back professor. I believe your friend has gathered the data you wanted.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_1">
+		<text>Perfect! Let me see... huh? It doesn't make any sense. The anomaly itself didn't experience any change in the activity. Our scanners here also stopped recording any abnormalities after you went there.\n \nPlease tell me - did you find anything peculiar close to the anomaly?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_2">
+		<text>Not really... maybe except for more than the average amount of Karliks around it, though you've probably already guessed that, given that you've warned me about it.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_3">
+		<text>Yes... that'strange indeed...\n \nMaybe it was the Karliks that caused those weird readings on our scanners... We need more data on that.\n \nThe team that was sent to Agroprom and Clear Sky stalkers on Great Swamps have also encountered Karliks around the measurement areas and things went back to normal some time after they got rid of them, though the abnormalities weren't that spectacular to begin with...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_4">
+		<text>Ekhm... Sorry to interrupt you, professor, but I don't think this stuff involves me, right? Besides - didn't you forget about something?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_5">
+		<text>Ah, yes... those young, impatient people... Here's your reward.\n \nWould you mind hearing me out now? You might earn a bit more.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_6">
+		<text>Well - I'm all ears.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_7">
+		<text>Great. So where was I? Right - the data from Agroprom and Great Swamps will not be of much use to us, but I'd like to hire you for another mission.\n \nYou see - one of our mercenaries has failed his bodyguard duties. He came back here and demanded his payment, because he claimed we've lied to him about the task. He said that he cleared out the Karliks and our scientist has managed to collect the data, but just when he was about to stand up, a ghostly apparition broke poor man's neck.\n \nCan you believe that? Claiming that ghost has killed our colleague... My take on it is that the man was affected by the psychic powers of Karliks or inhaled too much vapors from the anomaly...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_8">
+		<text>Well - I've seen many weird things that are hard to believe... Maybe that man wasn't lying.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_9">
+		<text>Are you feeling alright, young man? I think you might also require medical attention...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_10">
+		<text>Stop making fun of me. I'm dead serious, professor.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_11">
+		<text>Well - your weird experiences actually make you a perfect fit for the mission that I've mentioned. We need to retrieve the data that our scientist has gathered. That data is crucial for us and we can't risk it getting lost. You'll be well rewarded.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_12">
+		<text>Fine. I'll help you. Things are becoming... interesting.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_3_13">
+		<text>Splendid! Your companion from your last mission will also go with you. Please, watch each other's back and make haste!</text>
+	</string>
+
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_0">
+		<text>Professor, I...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_1">
+		<text>Dear God! You're alive! Our machinery has detected extremely strong psi activity that originated in the Darkscape. What happened there? Where are our other mercenares?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_2">
+		<text>You're not gonna believe me... The bodyguard of your colleague that was sent to the Garbage was not lying. We've encountered a ghost there. That's why my first partner has decided to terminate his contract.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_3">
+		<text>And what about the Darkscape? What was that immense energy?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_4">
+		<text>We've also met a few ghosts there, but I don't think it was them that caused that.\nWhen we were about to move out, your men were torn into pieces by... Baba Yaga.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_5">
+		<text>Pardon me? ... A what?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_6">
+		<text>Baba...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_7">
+		<text>I've heard what you were saying! I just feel like you're trying to make a fool of me! Baba Yaga? You want me to believe that some old hag from Slavic tales for children killed my men?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_8">
+		<text>Do I look like I'm kidding?! I'm serious, professor. Barman has asked me some time ago to investigate the case of a mutant that has earned a nickname of Baba Yaga. I thought I've killed her, but apparently it's not that easy...</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_9">
+		<text>I... forgive me, young man. Please understand that as a man of science it's hard for me to believe in ghosts. Zone is a weird place after all, but... ghosts?</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_10">
+		<text>Yes... I'm hardly getting surprised by anything now. Swamps are abundant throughout the Zone and if this witch is somehow bound to them, she needs to be taken care of before more people die.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_11">
+		<text>I don't think science can help you with that, young man.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_12">
+		<text>Don't worry, professor. I like unraveling the mysteries of the Zone and I think I know who could help me.</text>
+	</string>
+	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_13">
+		<text>Well - good luck on your quest then. Oh - and don't forget the reward for the data that you've gathered.</text>
+	</string>
+
+	<string id="hunter_gar_trader_mystery_of_the_swamps_1_0">
+		<text>Howdy, Butcher! We need to talk.</text>
+	</string>
+	<string id="hunter_gar_trader_mystery_of_the_swamps_1_1">
+		<text>What's up? Need some fresh meat? Or maybe some hunting advice?</text>
+	</string>
+	<string id="hunter_gar_trader_mystery_of_the_swamps_1_2">
+		<text>Hah - you've actually guessed right with the latter, though it's not going to be an ordinary question. Tell me - have you ever dealt with ghosts before?</text>
+	</string>
+	<string id="hunter_gar_trader_mystery_of_the_swamps_1_3">
+		<text>Ghosts? No... but I've heard some old folk stories about banishing vengeful spirits if you're interested. Who did you piss up?</text>
+	</string>
+	<string id="hunter_gar_trader_mystery_of_the_swamps_1_4">
+		<text>At least you're not making fun of me...\nAnyway - do you remember Baba Yaga? I've met her again. It turns out she's not some ordinary mutant. She possesses some powerful psychic powers that also draw Karliks to her. It seems like she can also somehow conjure other spirits...</text>
+	</string>
+	<string id="hunter_gar_trader_mystery_of_the_swamps_1_5">
+		<text>Interesting... It sound like we've got a witch here. Given that you weren't able to dispatch of her the first time using guns, I guess it's even worse - a witch's spirit.</text>
+	</string>
+	<string id="hunter_gar_trader_mystery_of_the_swamps_1_6">
+		<text>Great... how can you kill a ghost?</text>
+	</string>
+	<string id="hunter_gar_trader_mystery_of_the_swamps_1_7">
+		<text>You can't. But you can banish it through burning its bones or helping it fulfill its unfinished business. At least that's what the old stories say.</text>
+	</string>
+	<string id="hunter_gar_trader_mystery_of_the_swamps_1_8">
+		<text>It doesn't seem like she's eager to have a talk, so it might be hard to find out what's binding her. I guess I need to find the body. Got any leads? One thing I know for sure is that she's somehow bound to swamps.</text>
+	</string>
+	<string id="hunter_gar_trader_mystery_of_the_swamps_1_9">
+		<text>I don't think you'll be able to find it just like that. There's too many swamps around the zone. Digging through all of them would take ages.\n \nYou should probably ask some people around if they know some stories that'd give you some clues... Preferably the ones that spent a lot of time here.</text>
+	</string>
+	<string id="hunter_gar_trader_mystery_of_the_swamps_1_10">
+		<text>Thanks for all the tips. I'll be on my way.</text>
+	</string>
+
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_2_0">
+		<text>Hey Barkeep. You've spent a lot of time in the Zone and you've surely heard a lot of stories around here. Do you mind me asking some questions?</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_2_1">
+		<text>Hah - you're interested in some drunkards' stories? Sure, ask.</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_2_2">
+		<text>Do you know some story about woman that lived around here who also happened to be some kind of witch?</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_2_3">
+		<text>Well - a lot of people used to live here before, especially in Pripyat, but I haven't heard anything like this... except for the story about Baba Yaga that you've dealt with.</text>
+	</string>
+	<string id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_2_4">
+		<text>Um, yeah... never mind. Thank you.</text>
+	</string>
+
+	<string id="esc_2_12_stalker_trader_mystery_of_the_swamps_1_0">
+		<text>Hey Sidor. I need to ask you something.</text>
+	</string>
+	<string id="esc_2_12_stalker_trader_mystery_of_the_swamps_1_1">
+		<text>What is it?</text>
+	</string>
+	<string id="esc_2_12_stalker_trader_mystery_of_the_swamps_1_2">
+		<text>You've been sitting in this bunker for quite a while, right? Have you heard about some woman that lived around here who had some kind of psychic powers?</text>
+	</string>
+	<string id="esc_2_12_stalker_trader_mystery_of_the_swamps_1_3">
+		<text>Powers? What are you talking about?</text>
+	</string>
+	<string id="esc_2_12_stalker_trader_mystery_of_the_swamps_1_4">
+		<text>You know... telepathy and stuff...</text>
+	</string>
+	<string id="esc_2_12_stalker_trader_mystery_of_the_swamps_1_5">
+		<text>We've got controllers around here and they're quite alive according to the stories. You could make yourself useful and hunt some of them instead of asking stupid questions.</text>
+	</string>
+	<string id="esc_2_12_stalker_trader_mystery_of_the_swamps_1_6">
+		<text>Thanks for nothing...</text>
+	</string>
+
+	<string id="red_forester_tech_mystery_of_the_swamps_1_0">
+		<text>Hey Forester. You've spent a lot of time around here, right? May I ask you some questions?</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_1">
+		<text>I don't get visitors too often... not to mention the ones that would be willing to have some longer chat. What would you like to know, young man?</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_2">
+		<text>I'm trying to find some information about a knowledgable woman that died some long time ago. You might not believe me, but it seems like her ghost has became restless and seeks justice.</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_3">
+		<text>I believe you, my friend. I've seen many things in my life that are hard to explain. As for your question - a knowledgable woman... do you mean some kind of a whisperer... or perhaps a witch?</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_4">
+		<text>Yes! That's it! Did you know a person like that?</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_5">
+		<text>Yes... Very long time ago, when I was a little boy, a woman like that was living in the nearby village. You might have heard about it. It's the Kopachy village north of here.\n \nBack in the times, when this land was only beginning to heal after the war, it was hard to receive a proper medical help in remote locations like that and people often put their fate in hands of the local witches, elders or shamans. The woman you're asking about was this kind of healer. Don't get me wrong here - her knowledge was passed down through generations and she was actually able to help many people using natural remedies. She was well known around here.\n \nUnfortunately, the trust of simple-minded people goes as quickly as it comes... whenever a plague or famine hit the village, people were suspicious of the woman that stayed in good health... some even claimed that it was all her doing.\n \nPeople that feed on similar lies will sooner or later snap... and so it happened with one of the men whose young son went missing one day and was never found. The father started talking nonsense about the witch that was eating children and feasting on the sorrow of her neighbours whenever some tragedy hit the village. Am... am I not boring you with this tale?</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_6">
+		<text>No! Of course not! Please, continue.</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_7">
+		<text>Very well. We're getting close to the end of the story. It's hard for me to understand, but people around soon started believing the words of that madman and started turning their back at her. Each iteration of the stories told among the folks was becoming darker and darker. As the time passed, a once revered healer was by many believed to be the devil incarnate.\n \nIt took only one more tragedy to seal the fate of that woman. Another child disappeared somewhere in the woods when their parents were working and people were more willing to believe that it was her and not some pack or wolves or a bear. The angry mob came to the hut of the woman at night and even though they did not find any evidence for murder, they still found her guilty. Her pleas were for nothing. The two fathers of missing children have dragged her to the nearby swamp and drowned her there. In their words, it was a "proper punishment for a witch"...\n \nIt was a terrible, unnecessary death... To think that people can turn their back at the person that was always there to help... It makes me feel that we're worse than animals. Anyway - if its her ghost that you're trying to deal with, you can clearly see she has a reason to hate people.</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_8">
+		<text>That's a very sad story... I also pity her.\n \nButcher has mentioned that there are two ways to banish the spirit - burn the bones of its body or help it with finishing the business that bounds it to this world. Given how she seems to be the victim here, do you have some idea what could be her unfinished business?</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_9">
+		<text>All the people responsible for her death - be it directly or indirectly - are long time dead. The Zone is still full of the people ready to stab their friends in the back for whatever reason. Maybe her purpose is to punish people like this and in that case I doubt it you could ever help her to fulfill it.</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_10">
+		<text>Hmm... her spirit was accompanied by some other ghosts when I last met her. Maybe she's tormenting those souls even after death?</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_11">
+		<text>Given how badly she was treated by people she helped, I wouldn't be surprised if she did. Maybe you should let her have her revenge?</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_12">
+		<text>I gladly would if not for the fact that she has also tried to kill me. I'm not a bad person... or at least I think so. She also killed some scientists and my companions. How likely is it that we're all deserving this?</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_13">
+		<text>Hmm... there's something to it. According to some old stories that I've heard as a child, if souls are wandering this world for too long, they become corrupted. I thought she came back only recently, but given how she attacks everybody, I'm pretty sure her sould is beyond saving.\n \nThere's no other way. You'll need to burn her bones.</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_14">
+		<text>But how will I find them? You've said that she was drowned in the swamp very long time ago.</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_15">
+		<text>You said that her psychic powers have persisted even after death. You should talk to the scientists. I'm almost sure they'll be able to help you locate the bones. Also it's in their best interest given how one of their bunkers stands next to Kopachy and the other one borders a huge swamp...</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_16">
+		<text>Thank you, Forester. You've helped me a lot.</text>
+	</string>
+	<string id="red_forester_tech_mystery_of_the_swamps_1_17">
+		<text>Thank you too, young man. Drop by sometimes to chat some more. I wish you good luck. And don't forget the matches!</text>
+	</string>
+
+	<string id="jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_0">
+		<text>Greetings, Professor. Would you spare me a minute of your time?</text>
+	</string>
+	<string id="jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_1">
+		<text>Be quick, please. We're having a problem with huge plague of Karliks haunting the nearby village ruins.</text>
+	</string>
+	<string id="jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_2">
+		<text>Actually that's related to the thing I need to discuss with you. Are your instruments detecting some abnormal psy field around the village?</text>
+	</string>
+	<string id="jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_3">
+		<text>Huh - how did you know that?</text>
+	</string>
+	<string id="jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_4">
+		<text>That's irrelevant, but let's say I know how to take care of your problem. Can you give me some more details?</text>
+	</string>
+	<string id="jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_5">
+		<text>Of course! We've been detecting this weak abnormal psy field slowly building up over the past few weeks. For most of the time it was dispersed throughout the whole village region, but just recently we've been able to track the emergence of its center. It's located inside the big building that has best maintained its structure. We've been trying to send some squads to investigate that place, but as soon as someone gets close to the village, Karliks crawl out of the ground and rubble. Some of our colleagues have also reported hallucinations. Now - can you please tell me what you know?</text>
+	</string>
+	<string id="jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_6">
+		<text>I'm sorry Professor, but there's no time for explanations. We'll be in big trouble if we don't act quickly. Do you have some men able to fight?</text>
+	</string>
+	<string id="jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_7">
+		<text>I'm afraid I can't help you with that. We're heavily understaffed. If you say we're in danger, we can't leave the bunker unprotected.</text>
+	</string>
+	<string id="jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_8">
+		<text>Understood. I'll be on my way then.</text>
+	</string>
 </string_table>

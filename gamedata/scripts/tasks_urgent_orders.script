@@ -41,10 +41,12 @@ function actor_on_first_update()
 end
 
 local yantar_bunker = "yan_smart_terrain_6_4"
-local squad_pos = {
+local squad_spawn_config = {
+    section = "urgent_orders_ecolog_sim_squad_novice",
     vector = vector():set(37.2095,-11.7333,-276.3480),
     lvid = 82898,
-    gvid = 2281
+    gvid = 2281,
+    is_squad = true
 }
 task_status_functor.urgent_orders_status_functor = function(tsk,task_id)
 	if not (db.actor and tsk) then return end
@@ -70,7 +72,7 @@ task_status_functor.urgent_orders_status_functor = function(tsk,task_id)
             and (db.actor:position():distance_to(smart:position()) < 60)
         then
             dynamic_news_helper.send_tip(task_config.sciencist_response_dialog, game.translate_string("yan_st_sakharov_name"), nil,nil, 'ui_inGame2_sakharov', nil, 'npc')
-            state.squad_id = nta_utils.spawn_companion_squad("urgent_orders_ecolog_sim_squad_novice", squad_pos.vector, squad_pos.lvid, squad_pos.gvid)
+            state.squad_id = nta_utils.spawn_companion_squad(squad_spawn_config)
             tsk.stage = 1
         end
     end

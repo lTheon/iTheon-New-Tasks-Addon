@@ -87,7 +87,7 @@ Velocity_RunFwdDamaged  = 3.3,    2.3,          2.3,         0.5,     1
 Velocity_WalkFwdNormal  = 2.0,    2.3,          2.3,         0.2,     2.0
 Velocity_WalkFwdDamaged = 2.0,    2.3,          2.3,         0.2,     2.0
 
-[house_of_horrors_zombie_immunities]
+[nta_tough_zombie_ghost_immunities]
 burn_immunity           = 0.0
 strike_immunity 		= 0.05
 shock_immunity          = 0.01
@@ -98,10 +98,10 @@ chemical_burn_immunity  = 0.0
 explosion_immunity 		= 0.10
 fire_wound_immunity  	= 0.30
 
-[house_of_horrors_zombie]:zombie_ghost
+[nta_tough_zombie_ghost]:zombie_ghost
 Health              = 1000
 species             = arena_monstr
-immunities_sect		= house_of_horrors_zombie_immunities
+immunities_sect		= nta_tough_zombie_ghost_immunities
 StartFakeDeathHealthThreshold	= 0.0
 
 psy_linear_factor		=	0.3		;0.4
@@ -110,6 +110,10 @@ psy_max_distance		=	25.0
 psy_max_power			=	0.25
 psy_pp_effector_name	= 	psy_antenna
 psy_pp_highest_at		= 	0.1
+custom_data = scripts\destroy_with_poltergeist_effect.ltx
+
+; TODO: remove this section and adjust the quest - a more general section name was created above instead
+[house_of_horrors_zombie]:nta_tough_zombie_ghost
 
 [mirage_stalker]:sim_default_monolith_4
 ; make him silent without circular dependency
@@ -182,6 +186,7 @@ Accel_Aggressive		= 400 ;6.5
 MinAttackDist			= 3
 MaxAttackDist			= 5
 
+;---------- Big Game ----------
 [m_gigant_very_big_attack_params]
 ;---------------------------------------------------------------------------------------------------------------------------------------------
 ;	anim			| time[0..1] | hit_power | impulse | impulse_dir (x,y,z)   |	Field of hit_test  (left,right, top, bottom) |	Test Dist
@@ -241,3 +246,61 @@ psy_pp_effector_name	    = postprocess_thermal
 
 [m_poltergeist_normal_flame_tlf_endgame]:m_poltergeist_normal_flame_tlf
 custom_data = scripts\outskirts_tlf_endgame_mutant_beh.ltx
+
+;---------- Mystery of the Swamps ----------
+[nta_mots_stalker_squad_1]:online_offline_group
+faction = stalker
+common		 = false
+relationship = neutral
+npc_random = sim_default_stalker_2, sim_default_stalker_3
+npc_in_squad = 1
+story_id = nta_mots_stalker_squad_1
+
+[nta_mots_ecolog_squad_1]:online_offline_group
+faction = ecolog
+common		 = false
+relationship = neutral
+npc_random = sim_default_ecolog_1, sim_default_ecolog_2
+npc_in_squad = 1
+story_id = nta_mots_ecolog_squad_1
+
+[nta_mots_dead_ecolog]:sim_default_ecolog_1
+story_id = nta_mots_dead_ecolog
+custom_data = scripts\immediate_death_beh.ltx
+
+[nta_mots_dead_ecolog_2]:sim_default_ecolog_1
+story_id = nta_mots_dead_ecolog_2
+custom_data = scripts\immediate_death_beh.ltx
+
+[nta_mots_stalker_squad_2]:online_offline_group
+faction = stalker
+common		 = false
+relationship = neutral
+npc_random = sim_default_stalker_3
+npc_in_squad = 1
+story_id = nta_mots_stalker_squad_2
+
+[nta_mots_stalker_squad_3]:online_offline_group
+faction = stalker
+common		 = false
+relationship = neutral
+npc_random = sim_default_stalker_3
+npc_in_squad = 1
+story_id = nta_mots_stalker_squad_3
+
+[baba_yaga_controller_immunities]
+burn_immunity = 0.0
+strike_immunity = 0.0
+shock_immunity = 0.0
+wound_immunity	= 0.0
+radiation_immunity = 0.0
+telepatic_immunity = 0.0
+chemical_burn_immunity = 0.0
+explosion_immunity = 0.0
+fire_wound_immunity = 0.0
+
+[baba_yaga_controller]:m_controller_normal1111
+visual					= monsters\controller\zombi_wich_controller
+corpse_visual			= monsters\controller\zombi_wich_controller
+immunities_sect		    = baba_yaga_controller_immunities
+custom_data             = scripts\destroy_with_poltergeist_effect.ltx

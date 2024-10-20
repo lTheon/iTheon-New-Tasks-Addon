@@ -1,5 +1,6 @@
+-- TODO: rename the file to `nta_utils` - why the fuck did I use so long name for it
 -- Adapted the debugger code
-function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle, is_anomaly)
+function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle, is_anomaly, anomaly_radius)
     local se_obj = alife_create(section, position_vector, lvid, gvid)
 
     if is_squad then
@@ -27,7 +28,7 @@ function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle
             data.shapes[1] = {}
             data.shapes[1].shtype = 0
             data.shapes[1].offset = VEC_ZERO
-            data.shapes[1].radius = 10
+            data.shapes[1].radius = anomaly_radius or 10
             utils_stpk.set_object_data(data,se_obj)
         end
     end
@@ -35,9 +36,16 @@ function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle
     return se_obj.id
 end
 
+-- TODO: adjust all the spawn configs that also spawn some kind of sound/particles - that'll massively improve readability in some places
 -- TODO: remove second param - it's cancer
 -- Second param is mainly used for loop spawning to not have same sections defined in configs
 function spawn_helper(spawn_config, section_override)
+    if spawn_config.particles then
+        spawn_particles_at_position(spawn_config.particles, spawn_config.vector)
+    end
+    if spawn_config.sound then
+        spawn_sound_at_position(spawn_config.sound, spawn_config.vector)
+    end
     return spawn_at_position(
         spawn_config.section or section_override,
         spawn_config.vector,
@@ -45,8 +53,53 @@ function spawn_helper(spawn_config, section_override)
         spawn_config.gvid,
         spawn_config.is_squad,
         spawn_config.angle,
-        spawn_config.is_anomaly
+        spawn_config.is_anomaly,
+        spawn_config.anomaly_radius
     )
+end
+
+-- TODO: replace separate functions for spawning in all task files with this thing
+function mass_spawn_helper(spawn_configs, tab_with_ids)
+    for _, v in ipairs(spawn_configs) do
+        local id = spawn_helper(v)
+        if tab_with_ids then
+            table.insert(tab_with_ids, id)
+        end
+	end
+end
+
+-- Can check squads and individual npcs
+-- TODO: check if some tasks could be simplified with this function
+function entity_is_dead(id, section)
+    local se_obj = alife_object(id)
+    if not se_obj then return true end -- Thing gets released - it's dead then. Takes care of offline checks for non-story npcs
+    if se_obj:section_name() ~= section then return true end -- Thing got released but its id was shortly after taken by another spawn
+
+    local is_squad = se_obj.commander_id
+    local se_npc = is_squad and se_obj:commander_id() or se_obj
+    return not se_npc:alive()
+end
+
+-- Useful for places where one needs to await for stuff to spawn first (it takes time for even se_obj to appear)
+-- Saves creating flags that enable condition check
+function entity_is_dead_with_wait(id, section)
+    if not id then return false end
+    return entity_is_dead(id, section)
+end
+
+-- TODO: Check if some quests could use it for simple timeouts
+-- Using this instead would save 3 lines of code each time
+local timeout_helper = 1
+function set_timeout(callback, timeout)
+    CreateTimeEvent(0,"nta_delay_till_next_tick" .. timeout_helper, timeout or 0, function ()
+        callback()
+        return true
+    end)
+    timeout_helper = timeout_helper + 1
+end
+
+function get_squad_commander(id)
+    return level.object_by_id(alife_object(id):commander_id())
 end
 
 function is_dark_night ()
@@ -142,6 +195,7 @@ function teleport_visual()
 end
 
 -- Used to push dead bodies that should disappear below the textures to avoid errors caused by on_death callbacks from other mods
+-- Also seems like some creatures have problems being released
 function hide_through_teleport(id)
     CreateTimeEvent(0,"nta_hide_body_teleport_" .. id,0, function ()
         local obj = level.object_by_id(id)
@@ -152,8 +206,8 @@ function hide_through_teleport(id)
     end)
 end
 
-function spawn_companion_squad(sq_section, vector, lvid, gvid)
-    local id = spawn_at_position(sq_section, vector, lvid, gvid, true)
+function spawn_companion_squad(spawn_config)
+    local id = spawn_helper(spawn_config)
     local squad = alife_object(id)
 
     axr_companions.companion_squads[squad.id] = squad
@@ -170,20 +224,6 @@ function spawn_companion_squad(sq_section, vector, lvid, gvid)
 	sim_offline_combat.task_squads[squad.id] = true
 
     return id
-end
-
-function squad_alive(id)
-    local sim = alife()
-    local squad = sim:object(id)
-
-    local alive = false
-    for k in squad:squad_members() do
-        local se_npc = k.object or k.id and sim:object(k.id)
-        if (se_npc:alive()) then
-            alive = true
-        end
-    end
-    return alive
 end
 
 -- Excluded Bar
@@ -332,6 +372,88 @@ function obj_position_to_spawn_config_partial(obj)
     }
 end
 
+local delayed_message_index = 0
+function delayed_message(msg, delay, icon, name, keep_time)
+    local k_time = keep_time or 7
+    CreateTimeEvent(0,"nta_delayed_message_" .. delayed_message_index, delay, function ()
+        dynamic_news_helper.send_tip(msg, name, nil, k_time, icon, nil, 'npc')
+        return true
+    end)
+    delayed_message_index = delayed_message_index + 1
+end
+
+-- TODO: use this function in TLF - there's too many string literals
+function delayed_message_by_story_id(msg, delay, story_id, keep_time)
+    local sender_props = get_sender_props_by_story_id(story_id)
+    delayed_message(msg, delay, sender_props.icon, sender_props.name, keep_time)
+end
+
+function get_sender_props_by_story_id(story_id)
+    local se_obj = get_story_se_object(story_id)
+    if not se_obj then return {} end
+
+    local is_squad = se_obj.commander_id
+
+    local se_stalker = (is_squad and alife():object(se_obj:commander_id())) or se_obj
+    return { 
+        name = se_stalker:character_name(), 
+        icon = se_stalker:character_icon()
+    }
+end
+
+-- TODO: check how it works with npcs on different maps
+function entity_in_range(id, dist, vector)
+    local v = vector or db.actor:position()
+    local se_obj = alife_object(id)
+    if not se_obj then return false end
+
+    local is_squad = se_obj.commander_id
+    if is_squad then
+        
+    end
+
+    local npc = is_squad and alife_object(se_obj:commander_id()) or se_obj
+    return npc.position:distance_to(v) < dist
+end
+
+local ta2ti = utils_data.CTime_from_table
+function seconds_passed_from_date(time_table)
+    local time = ta2ti(time_table)
+    local seconds = tonumber(game.get_game_time():diffSec(time))
+
+    return seconds
+end
+
+-- TODO: Make urgent orders utilize this function
+function days_passed_from_date(time_table)
+    local seconds = seconds_passed_from_date(time_table)
+    local days = math.floor(((seconds/60)/60)/24)
+
+    return days
+end
+
+-- TODO: use it in HoH for doors (direct call) and zombie (can be done through `on_death` beh)
+function destroy_with_poltergeist_effect(obj, without_sound)
+    local particles = particles_object("monsters\\polter_death_00")
+    particles:play_at_pos(obj:position())
+    if not without_sound then
+        local snd = xr_sound.get_safe_sound_object("monsters\\poltergeist\\death_1")
+        snd:play(obj, 0, sound_object.s2d)
+    end
+
+    safe_release_manager.release(alife_object(obj:id()))
+end
+
+function spawn_particles_at_position(particle_path, vec)
+    local part = particles_object(particle_path)
+    part:play_at_pos(vec)
+end
+
+function spawn_sound_at_position(sound_path, vec)
+    local snd = xr_sound.get_safe_sound_object(sound_path)
+    snd:play_at_pos(db.actor, vec)
+end
+
 levels = {
     swamp = "k00_marsh",
 	darkscape = "k01_darkscape",
@@ -348,11 +470,77 @@ levels = {
     x16 = 'l08u_brainlab',
     x18 = 'l04u_labx18',
     red_forest = 'l10_red_forest',
-    outskirts = 'pripyat'
+    outskirts = 'pripyat',
+    jupiter = 'jupiter'
 }
 -- TODO: Remove separate functions from task files and use this one instead
 function actor_on_level(lvl)
     return level.name() == lvl
+end
+
+function enforce_logic(story_id, script_name, section, reset_target)
+    if level_changing() then return end
+
+    local se_obj = get_story_se_object(story_id)
+    if not se_obj then return end
+
+    local is_squad = se_obj.commander_id
+
+    local stalker_id
+    if is_squad then
+        stalker_id = get_squad_commander(se_obj.id):id()
+    else
+        stalker_id = se_obj.id
+    end
+
+    logic_enforcer.assign(stalker_id, script_name, 'logic', section)
+
+    if reset_target then
+        local st = db.storage[stalker_id]
+        if st.desired_target then
+            st.desired_target.__keep_until = nil
+        end
+    end
+end
+
+local pulse_particles = false
+-- It's fake pulse for now - used for some cool visuals
+function spawn_pulse(pos)
+    pulse_particles = particles_object("generator\\generator_accum_thunderbolt")
+    pulse_particles:play_at_pos(pos)
+
+    local pAno_light = script_light()
+    
+    pAno_light.range = 100
+    pAno_light.lanim = "koster_01_electra"
+    pAno_light.lanim_brightness = 0.025
+    pAno_light.volumetric = true
+    pAno_light.volumetric_quality = 1
+    pAno_light.volumetric_distance = 0.25
+    pAno_light.volumetric_intensity = 0.05
+
+	pAno_light.enabled = false
+    pAno_light:set_position(pos)
+	pAno_light:update()
+
+    set_timeout(function () 
+        spawn_sound_at_position("new_tasks_addon\\emi_blowout_shrike", pos)
+        pAno_light.enabled = true
+	    pAno_light:update()
+    end, 5.5)
+
+    set_timeout(function () 
+        pAno_light.lanim_brightness = 0.2
+        pAno_light.volumetric_distance = 1
+        pAno_light.volumetric_intensity = 0.1
+    end, 11.5)
+
+    set_timeout(function () 
+        pAno_light.lanim_brightness = 0.025
+        pAno_light.volumetric_distance = 0.25
+        pAno_light.volumetric_intensity = 0.05
+        pAno_light.enabled = false
+    end, 12)
 end
 
 local function load_defaults()
@@ -378,8 +566,8 @@ local function load_settings()
 end
 
 xr_effects.dispatch_nta_task_details = function(actor, npc, p)
-    CreateTimeEvent(0,"nta_task_details",0, function ()
-        local task_id = p[1]
+    local task_id = p[1]
+    CreateTimeEvent(0,"nta_task_details_" .. task_id,0, function ()
         -- Build News
         local news_caption = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "title")) or "error"
 
@@ -407,10 +595,6 @@ end
 function actor_on_first_update()
     prefetch_sim_stalkers()
 end
-
-add_console_command("chopper", function() 
-    se_id = spawn_helicopter(true, vector():set(-178.07975769043,5.3180623054504,-181.78283691406))
-end)
 
 function change_level(configs)
     change_level_now(configs.vector, configs.lvid, configs.gvid, configs.angle or vector():set(0, 0, 0))

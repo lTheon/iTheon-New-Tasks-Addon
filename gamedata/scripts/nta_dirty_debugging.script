@@ -1,0 +1,111 @@
+function xd(obj)
+    local x, d = pcall(beh_shit, obj)
+    printf(d)
+end
+
+-- nta_dirty_debugging.xd(tasks_mystery_of_the_swamps.get_aw_ecolog())
+-- nta_dirty_debugging.xd(level.get_target_obj())
+-- logic_enforcer.assign(level.get_target_obj():id(),'scripts\\beh_companion.ltx','logic', 'beh@base')
+-- logic_enforcer.assign(level.get_target_obj():id(),'scripts\\aw_mots_ecolog_beh.ltx','logic', 'beh@base')
+
+function beh_shit(npc)
+    if (npc) then
+		local st = db.storage[npc:id()].beh
+		if (st) then
+			local target = st.desired_target and st.desired_target.object and st.desired_target.object:name()
+			-- local keep_until = st.desired_target and st.desired_target.__keep_until
+			local target_type = st.target
+			local pos = st.desired_target and st.desired_target.position and vec_to_str(st.desired_target.position)
+			local beh = st.behavior
+			local assist_pt = st.assist_point
+			local state = st.last_state
+			local lvid = st.desired_target and st.desired_target.level_vertex_id
+
+			printf("Target  " .. target)
+			-- printf("Keep until  " .. keep_until)
+			printf("Type  " .. target_type)
+			printf("Desired lvid  " .. lvid)
+			printf("Behavior  " .. beh)
+			if (assist_pt) then
+				printf("Assist Pt  " .. assist_pt)
+			end
+			printf("State  " .. state)
+			st = db.storage[npc:id()]
+			printf("PT Index  " .. st.beh and st.beh.path_index)
+			printf("PT wait  " .. st.beh and st.beh.wait_delay and st.beh.wait_delay - time_global())
+			printf("PT reached  " .. st.beh and st.beh.am_i_reached == true)
+			printf("Gather Items  " .. st.gather_items and st.gather_items.gather_items_enabled and xr_logic.pick_section_from_condlist(db.actor, npc, st.gather_items.gather_items_enabled))
+			printf("Loot Corpses  " .. st.corpse_detection and st.corpse_detection.corpse_detection_enabled and xr_logic.pick_section_from_condlist(db.actor, near, st.corpse_detection.corpse_detection_enabled))
+		end
+	end
+end
+
+function mark_all_stashes()
+	for i=1, 65534 do
+		local se_obj = alife_object(i)
+		if se_obj and IsInvbox(nil,se_obj:clsid()) then
+			level.map_add_object_spot_ser(i, 'treasure', "")
+		end
+	end
+end
+
+-- nta_dirty_debugging.mark_all_stashes()
+
+-- _G.alife_release = function(se_obj, msg)
+-- 	--printf("alife_release")
+-- 	--msg = msg or ""
+-- 	--callstack()
+-- 	printf('release override works')
+	
+-- 	-- Convert to server object if its a game object
+-- 	if se_obj and (type(se_obj.id) == "function") then
+-- 		se_obj = alife_object(se_obj:id())
+-- 	end
+	
+-- 	printf('release override works 2')
+-- 	if (not se_obj) then
+-- 		callstack()
+-- 		printe("!ERROR: alife_release | no server object!")
+-- 		return nil
+-- 	end
+	
+-- 	-- Custom prints for debugging
+-- 	if msg then
+-- 		printf("~ alife_release [%s] (%s) | %s", se_obj:section_name(), se_obj.id, msg)
+-- 	end
+	
+-- 	-- Walkaround for unregisted server objects callbacks for objects that can't be used at the moment for class registor
+-- 	printf('release override works 3')
+-- 	local cls = se_obj:clsid()
+-- 	local class = ini_sys:r_string_ex(se_obj:section_name(),"class") or ""
+-- 	if _ALIFE_UNREGISTER[class] then
+-- 		SendScriptCallback("server_entity_on_unregister", se_obj, _ALIFE_UNREGISTER[class])
+-- 	end
+-- 	printf('release override works 4')
+	
+-- 	-- NPC
+-- 	if IsStalker(nil,cls) or IsMonster(nil,cls) then
+-- 		local squad = se_obj.group_id and se_obj.group_id ~= 65535 and alife_object(se_obj.group_id)
+-- 		printf('release override works 5')
+-- 		if squad then
+-- 			squad:remove_npc(se_obj.id, true)
+-- 			return true
+-- 		end
+		
+-- 		-- Squads
+-- 	elseif (cls == clsid.online_offline_group_s or cls == clsid.online_offline_group) then
+-- 		se_obj:remove_squad()
+-- 		printf('release override works 6')
+-- 		return true
+		
+-- 		-- Others
+-- 	else
+-- 		printf('release override works 7')
+-- 		alife_record(se_obj,false)
+-- 		alife():release(se_obj,true)
+-- 		return true
+-- 	end
+-- 	printf('release override works 8')
+	
+-- 	return false
+-- end

@@ -1,0 +1,17 @@
+[logic]
+active = beh@base
+post_combat_time = 0,0
+level_spot = companion
+
+[actor_dialogs]
+disable = dm_ordered_task_dialog, dm_traveler_dialog, dm_actor_become_guide_to_companion_dialog, dm_universal_dialog, about_quests_dialog_dolg, about_quests_dialog_freedom, about_quests_dialog_bandit, about_quests_dialog_stalkers
+
+[beh@base]
+meet = no_meet
+actor_dialogs = actor_dialogs
+target = waypoint
+path_end = loop
+
+[beh@measure]:beh@base
+pt1 = 999999999,scaner_crouch | pos:85.310150146484,-10.764319419861,173.12118530273 look:85.665401607752,-10.764319419861,172.18655145168
+on_game_timer = 420 | %+aw_mots_ecolog_scan_done%
