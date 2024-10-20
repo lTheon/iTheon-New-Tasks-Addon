@@ -1,6 +1,6 @@
 -- TODO: rename the file to `nta_utils` - why the fuck did I use so long name for it
 -- Adapted the debugger code
-function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle, is_anomaly)
+function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle, is_anomaly, anomaly_radius)
     local se_obj = alife_create(section, position_vector, lvid, gvid)
 
     if is_squad then
@@ -28,7 +28,7 @@ function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle
             data.shapes[1] = {}
             data.shapes[1].shtype = 0
             data.shapes[1].offset = VEC_ZERO
-            data.shapes[1].radius = 10
+            data.shapes[1].radius = anomaly_radius or 10
             utils_stpk.set_object_data(data,se_obj)
         end
     end
@@ -53,7 +53,8 @@ function spawn_helper(spawn_config, section_override)
         spawn_config.gvid,
         spawn_config.is_squad,
         spawn_config.angle,
-        spawn_config.is_anomaly
+        spawn_config.is_anomaly,
+        spawn_config.anomaly_radius
     )
 end
 
@@ -469,7 +470,8 @@ levels = {
     x16 = 'l08u_brainlab',
     x18 = 'l04u_labx18',
     red_forest = 'l10_red_forest',
-    outskirts = 'pripyat'
+    outskirts = 'pripyat',
+    jupiter = 'jupiter'
 }
 -- TODO: Remove separate functions from task files and use this one instead
 function actor_on_level(lvl)
@@ -499,6 +501,46 @@ function enforce_logic(story_id, script_name, section, reset_target)
             st.desired_target.__keep_until = nil
         end
     end
+end
+
+local pulse_particles = false
+-- It's fake pulse for now - used for some cool visuals
+function spawn_pulse(pos)
+    pulse_particles = particles_object("generator\\generator_accum_thunderbolt")
+    pulse_particles:play_at_pos(pos)
+
+    local pAno_light = script_light()
+    
+    pAno_light.range = 100
+    pAno_light.lanim = "koster_01_electra"
+    pAno_light.lanim_brightness = 0.025
+    pAno_light.volumetric = true
+    pAno_light.volumetric_quality = 1
+    pAno_light.volumetric_distance = 0.25
+    pAno_light.volumetric_intensity = 0.05
+
+	pAno_light.enabled = false
+    pAno_light:set_position(pos)
+	pAno_light:update()
+
+    set_timeout(function () 
+        spawn_sound_at_position("new_tasks_addon\\emi_blowout_shrike", pos)
+        pAno_light.enabled = true
+	    pAno_light:update()
+    end, 5.5)
+
+    set_timeout(function () 
+        pAno_light.lanim_brightness = 0.2
+        pAno_light.volumetric_distance = 1
+        pAno_light.volumetric_intensity = 0.1
+    end, 11.5)
+
+    set_timeout(function () 
+        pAno_light.lanim_brightness = 0.025
+        pAno_light.volumetric_distance = 0.25
+        pAno_light.volumetric_intensity = 0.05
+        pAno_light.enabled = false
+    end, 12)
 end
 
 local function load_defaults()

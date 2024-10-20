@@ -591,7 +591,7 @@
 		<text>Do I look like I'm kidding?! I'm serious, professor. Barman has asked me some time ago to investigate the case of a mutant that has earned a nickname of Baba Yaga. I thought I've killed her, but apparently it's not that easy...</text>
 	</string>
 	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_9">
-		<text>I... forgive me, young man. Please understand that as a man of science it's hard for me to believe into ghosts. Zone is a weird place after all, but... ghosts?</text>
+		<text>I... forgive me, young man. Please understand that as a man of science it's hard for me to believe in ghosts. Zone is a weird place after all, but... ghosts?</text>
 	</string>
 	<string id="yan_stalker_sakharov_mystery_of_the_swamps_4_10">
 		<text>Yes... I'm hardly getting surprised by anything now. Swamps are abundant throughout the Zone and if this witch is somehow bound to them, she needs to be taken care of before more people die.</text>
@@ -619,7 +619,7 @@
 		<text>Ghosts? No... but I've heard some old folk stories about banishing vengeful spirits if you're interested. Who did you piss up?</text>
 	</string>
 	<string id="hunter_gar_trader_mystery_of_the_swamps_1_4">
-		<text>At least you're not making fun of me...\nAnyway - do you remember Baba Yaga? I've met her again. It turns out she's not some ordinary mutant. She possesses some powerful psychic powers that draw Karliks to her. It seems like she can also somehow conjure other spirits...</text>
+		<text>At least you're not making fun of me...\nAnyway - do you remember Baba Yaga? I've met her again. It turns out she's not some ordinary mutant. She possesses some powerful psychic powers that also draw Karliks to her. It seems like she can also somehow conjure other spirits...</text>
 	</string>
 	<string id="hunter_gar_trader_mystery_of_the_swamps_1_5">
 		<text>Interesting... It sound like we've got a witch here. Given that you weren't able to dispatch of her the first time using guns, I guess it's even worse - a witch's spirit.</text>
@@ -715,10 +715,10 @@
 		<text>Given how badly she was treated by people she helped, I wouldn't be surprised if she did. Maybe you should let her have her revenge?</text>
 	</string>
 	<string id="red_forester_tech_mystery_of_the_swamps_1_12">
-		<text>I gladly would if not for the fact that she has also tried to kill me. I'm not a bad person... or at least I think so. She also killed some scientists and my companions. How likely is that that we're all deserving this?</text>
+		<text>I gladly would if not for the fact that she has also tried to kill me. I'm not a bad person... or at least I think so. She also killed some scientists and my companions. How likely is it that we're all deserving this?</text>
 	</string>
 	<string id="red_forester_tech_mystery_of_the_swamps_1_13">
-		<text>Hmm... there's something to it. One thing that Butcher forgot to mention is that he knows all this stuff from me. He also hasn't mentioned that if souls are wandering this world for too long, they become corrupted. I thought she came back only recently, but given how she attacks everybody, I'm pretty sure she's become corrupted.\n \nThere's no other way. You'll need to burn her bones.</text>
+		<text>Hmm... there's something to it. According to some old stories that I've heard as a child, if souls are wandering this world for too long, they become corrupted. I thought she came back only recently, but given how she attacks everybody, I'm pretty sure her sould is beyond saving.\n \nThere's no other way. You'll need to burn her bones.</text>
 	</string>
 	<string id="red_forester_tech_mystery_of_the_swamps_1_14">
 		<text>But how will I find them? You've said that she was drowned in the swamp very long time ago.</text>
@@ -749,15 +749,15 @@
 		<text>That's irrelevant, but let's say I know how to take care of your problem. Can you give me some more details?</text>
 	</string>
 	<string id="jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_5">
-		<text>Of course! We've been detecting this weak abnormal psy field slowly building up over the past few weeks. For most of the time it was dispersed throughout the whole village region, but just recently we've been able to track the emergence of its center. It's located inside the big building that has best maintained its structure. We've been trying to send some squads to investigate that place, but as soon as someone gets close to the village, Karliks come out of the ground and rubble. Some of our colleagues have also reported hallucinations. Now - can you please tell me what you know?</text>
+		<text>Of course! We've been detecting this weak abnormal psy field slowly building up over the past few weeks. For most of the time it was dispersed throughout the whole village region, but just recently we've been able to track the emergence of its center. It's located inside the big building that has best maintained its structure. We've been trying to send some squads to investigate that place, but as soon as someone gets close to the village, Karliks crawl out of the ground and rubble. Some of our colleagues have also reported hallucinations. Now - can you please tell me what you know?</text>
 	</string>
 	<string id="jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_6">
 		<text>I'm sorry Professor, but there's no time for explanations. We'll be in big trouble if we don't act quickly. Do you have some men able to fight?</text>
 	</string>
 	<string id="jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_7">
-		<text>We're heavily understaffed, but we have one man that can go with you. The rest needs to stay here and protect the bunker. He's waiting right outside.</text>
+		<text>I'm afraid I can't help you with that. We're heavily understaffed. If you say we're in danger, we can't leave the bunker unprotected.</text>
 	</string>
 	<string id="jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_8">
-		<text>It's not much, but it'll have to do. I'll be on my way.</text>
+		<text>Understood. I'll be on my way then.</text>
 	</string>
 </string_table>

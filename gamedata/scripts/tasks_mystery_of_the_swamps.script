@@ -5,6 +5,8 @@ local configs = mystery_of_the_swamps_configs
 local state = {
     dependency_task_finished_at = nil,
     mutant_ids = {},
+    skeleton_id = nil,
+    campfire_id = nil,
 }
 
 xr_effects.mystery_of_the_swamps_save_dependency_time = function()
@@ -31,8 +33,11 @@ function load_state(mdata)
 	if mdata.mystery_of_the_swamps_task_data then
 		state = mdata.mystery_of_the_swamps_task_data
 	end
+    state.mutant_ids = {}
+    printf(state.dependency_task_finished_at and 'dep set' or 'dep not set')
 end
 
+local campfire_spawned = false
 task_status_functor.mystery_of_the_swamps_task_status_functor = function(tsk,task_id)
 	if not (db.actor and tsk) then return end
 	local stage = tsk.stage
@@ -60,8 +65,6 @@ task_status_functor.mystery_of_the_swamps_task_status_functor = function(tsk,tas
         if #state.mutant_ids == 0 then
             nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_2', 3, 'actor', 8)
             nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_ecolog_msg_1', 7, 'nta_mots_ecolog_squad_1')
-            xr_logic.restore_scheme_and_logic(nta_utils.get_squad_commander(get_story_object_id('nta_mots_ecolog_squad_1')))
-            logic_enforcer.assign(get_story_object_id('nta_mots_ecolog_squad_1'),'scripts\\aw_mots_ecolog_beh.ltx','logic', 'beh@base')
             tsk.stage = 2
         end
     end
@@ -71,7 +74,10 @@ task_status_functor.mystery_of_the_swamps_task_status_functor = function(tsk,tas
             nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_ecolog_msg_2', 2, 'nta_mots_ecolog_squad_1')
             xr_logic.restore_scheme_and_logic(nta_utils.get_squad_commander(get_story_object_id('nta_mots_ecolog_squad_1')))
             logic_enforcer.assign(get_story_object_id('nta_mots_ecolog_squad_1'),'scripts\\beh_companion.ltx','logic', 'beh@base')
+            nta_utils.enforce_logic('nta_mots_ecolog_squad_1', [[scripts\beh_companion.ltx]], 'beh@base', true)
             tsk.stage = 3
+        else
+            aw_measurement_logic_setup()
         end
     end
 
@@ -180,8 +186,49 @@ task_status_functor.mystery_of_the_swamps_task_status_functor = function(tsk,tas
 
     if stage == 16 then
         if has_alife_info('jup_b6_scientist_nuclear_physicist_mystery_of_the_swamps_1_passed') then
+            state.skeleton_id = nta_utils.spawn_helper(configs.jupiter_skeleton_config)
             tsk.stage = 17
         end
+    end
+
+    if stage >= 16 and stage <= 19 then
+        -- Respawn campfire after save reloads
+        if not campfire_spawned then
+            campfire_spawned = true
+            state.campfire_id = nta_utils.spawn_helper(configs.jupiter_campfire_config)
+        end
+    end
+
+    if stage == 17 then
+        if
+            nta_utils.actor_on_level(nta_utils.levels.jupiter)
+            and nta_utils.actor_in_range(configs.jupiter_campfire_config.vector, configs.jupiter_karlik_activation_distance)
+        then
+            nta_utils.mass_spawn_helper(configs.jupiter_karlik_configs)
+            tsk.stage = 18
+        end
+    end
+
+    if stage == 18 then
+        if
+            nta_utils.actor_on_level(nta_utils.levels.jupiter)
+            and nta_utils.actor_in_range(configs.jupiter_campfire_config.vector, configs.jupiter_ghost_activation_distance)
+        then
+            nta_utils.mass_spawn_helper(configs.jupiter_ghost_configs, state.mutant_ids)
+            nta_utils.mass_spawn_helper({ configs.jupiter_baba_yaga_config }, state.mutant_ids)
+            tsk.stage = 19
+        end
+    end
+
+    if stage == 19 then
+        local campfire = level.object_by_id(state.campfire_id)
+        if campfire and campfire:get_campfire():is_on() then
+            skeleton_explosion(tsk)
+        end
+    end
+
+    if stage == 20 then
+        task_manager.get_task_manager():set_task_completed("task_mystery_of_the_swamps")
     end
 end
 
@@ -244,6 +291,10 @@ task_functor.mystery_of_the_swamps_task_target_functor = function(task_id,field,
     if stage == 16 then
         return get_story_object_id('jup_b6_scientist_nuclear_physicist')
     end
+
+    if stage >= 17 and stage <= 19  then
+        return state.skeleton_id
+    end
 end
 
 function get_aw_task_status()
@@ -256,6 +307,13 @@ function fail_aw_task_section()
     nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_fail_1', 3, 'yan_stalker_sakharov', 8)
     axr_companions.release_special_squad(get_story_se_object('nta_mots_ecolog_squad_1'))
     axr_companions.release_special_squad(get_story_se_object('nta_mots_stalker_squad_1'))
+end
+
+local aw_measurement_logic_set = false
+function aw_measurement_logic_setup()
+    -- Logic needs to be reapplied constantly because player might reload the game and squad logic will kick in instead
+    nta_utils.enforce_logic('nta_mots_ecolog_squad_1', [[scripts\aw_mots_ecolog_beh.ltx]], 'beh@measure', not aw_measurement_logic_set)
+    aw_measurement_logic_set = true
 end
 
 function stalker_1_close_to_actor()
@@ -301,12 +359,12 @@ end
 
 function post_garbage_ghost_messages()
     if stalker_1_close_to_actor() then
-        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_stalker_msg_3', 2, 'nta_mots_stalker_squad_1')
-        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_3', 6, 'actor')
-        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_1', 10, 'yan_stalker_sakharov', 15)
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_stalker_msg_3', 4, 'nta_mots_stalker_squad_1')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_3', 8, 'actor')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_1', 16, 'yan_stalker_sakharov', 15)
     else
-        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_4', 2, 'actor')
-        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_1', 6, 'yan_stalker_sakharov', 15)
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_actor_msg_4', 4, 'actor')
+        nta_utils.delayed_message_by_story_id('mystery_of_the_swamps_sakharov_msg_1', 10, 'yan_stalker_sakharov', 15)
     end
 end
 
@@ -427,6 +485,42 @@ function despawn_ds_baba_yaga()
         alife_release(se_obj)
     end
     state.mutant_ids = {}
+end
+
+local skeleton_explosion_started = false
+function skeleton_explosion(tsk)
+    if not skeleton_explosion_started then
+        skeleton_explosion_started = true
+        nta_utils.spawn_pulse(configs.jupiter_skeleton_config.vector)
+        nta_utils.set_timeout(function () 
+            alife_release(alife_object(state.skeleton_id))
+            safe_release_manager.release(alife_object(state.campfire_id))
+            bind_campfire.campfires_all[state.campfire_id] = nil
+
+            for _, v in ipairs(state.mutant_ids) do
+                local mutant = level.object_by_id(v)
+                if (mutant) then
+                    mutant:set_health_ex(0)
+                end
+            end
+
+            local lost_soul_id = nta_utils.spawn_helper(configs.jupiter_lost_soul_config)
+            gamma_art_condition_fix(lost_soul_id)
+            tsk.stage = 20
+        end, 11.6)
+    end
+end
+
+function gamma_art_condition_fix(id)
+    -- TODO: Remove when Grok exposes a table in his script
+    if grok_artefacts_random_condition then
+        nta_utils.set_timeout(function ()
+            local item = level.object_by_id(id)
+            if item then
+                item:set_condition(0.98)
+            end
+        end, 0.5)
+    end
 end
 
 function on_game_start()

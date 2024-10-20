@@ -549,6 +549,13 @@
 	<string id="mystery_of_the_swamps_actor_msg_11">
 		<text>Run!</text>
 	</string>
+
+	<string id="st_af_tlf_lost_soul">
+		<text>Lost Soul</text>
+	</string>
+	<string id="st_af_tlf_lost_soul_descr">
+		<text>Although this artifact resembles a common Soul artifact, it possesses extraordinary properties. It provides greater telepathic protection and has no negative effects.</text>
+	</string>
 	<!-- Mystery of the Swamps end -->
 
 	<string id="nta_intercept_item">

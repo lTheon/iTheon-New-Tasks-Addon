@@ -9,4 +9,14 @@ function remove_prometheus_from_random_art_spawn()
     end
 end
 
+function remove_lost_soul_from_random_art_spawn()
+    if drx_da_main_artefacts then
+        local i = nta_utils.find_index(drx_da_main_artefacts.allowed_artefacts, 'af_tlf_lost_soul')
+        if i ~= -1 then
+            table.remove(drx_da_main_artefacts.allowed_artefacts, i)
+        end
+    end
+end
+
 remove_prometheus_from_random_art_spawn()
+remove_lost_soul_from_random_art_spawn()

@@ -10,3 +10,30 @@ function filter(tab, callback)
 
     return result
 end
+
+function find_index(tab, val)
+    for index, value in ipairs(tab) do
+        if value == val then
+            return index
+        end
+    end
+    return -1
+end
+
+function has_value(tab, val)
+    for index, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
+end
+
+function shallow_copy(t)
+	local res = {}
+	for k,v in pairs(t) do
+		res[k] = v
+	end
+	return res
+end

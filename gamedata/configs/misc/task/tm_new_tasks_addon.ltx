@@ -390,8 +390,8 @@ target_functor = mystery_of_the_swamps_task_target_functor
 status_functor = mystery_of_the_swamps_task_status_functor
 
 on_job_descr = %=dispatch_nta_task_details(task_mystery_of_the_swamps)%
-on_init = %+task_mystery_of_the_swamps_started =mystery_of_the_swamps_cleanup()%
-on_complete = %=complete_task_inc_goodwill(200:ecolog) =reward_random_money(8000:11000) -task_mystery_of_the_swamps_started +task_mystery_of_the_swamps_completed%
+on_init = %+task_mystery_of_the_swamps_started%
+on_complete = %-task_mystery_of_the_swamps_started +task_mystery_of_the_swamps_completed%
 on_fail = %=fail_task_dec_goodwill(100:ecolog) -task_mystery_of_the_swamps_started%
 
 
