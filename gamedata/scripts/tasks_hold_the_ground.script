@@ -1,4 +1,3 @@
-local nta_utils = new_tasks_addon_tasks_utils
 local flea_market = "gar_smart_terrain_6_3"
 local spawn_points = {{
     vector = vector():set(280.9568,0.6242,173.0680),
@@ -93,7 +92,7 @@ local last_spawn_point = nil
 xr_effects.on_flea_market_defense_squad_death = function()
     state.killed_squads = state.killed_squads + 1
     if state.killed_squads <= 8 and not state.task_failed then
-        local rand_spawn_point_index = new_tasks_addon_tasks_utils.rand_with_exclusion(1, #spawn_points, last_spawn_point)
+        local rand_spawn_point_index = a_tab_utils.rand_with_exclusion(1, #spawn_points, last_spawn_point)
         spawn(rand_spawn_point_index, spawn_points[rand_spawn_point_index])
     end
 end
@@ -111,7 +110,7 @@ function spawn(index, spawn_config)
         squad_section = "bandit_defence_squad_alpha"
     end
     last_spawn_point = index
-    local se_id = new_tasks_addon_tasks_utils.spawn_at_position(squad_section, spawn_config.vector, spawn_config.lvid, spawn_config.gvid, true)
+    local se_id = nta_utils.spawn_at_position(squad_section, spawn_config.vector, spawn_config.lvid, spawn_config.gvid, true)
     alife_object(se_id).rush_to_target = true
 end
 

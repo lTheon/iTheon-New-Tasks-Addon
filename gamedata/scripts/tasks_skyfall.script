@@ -1,4 +1,3 @@
-local nta_utils = new_tasks_addon_tasks_utils
 local landing_pad_location = {
     vector = vector():set(-177.2140,5.0825,-179.6182),
     lvid = 45538,

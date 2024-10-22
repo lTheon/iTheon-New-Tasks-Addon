@@ -3,7 +3,6 @@
 -- to make it harder to cheese through looking at the map)
 -- Stage 2: Player can receive reward from the quest giver
 local state = {}
-local nta_utils = new_tasks_addon_tasks_utils
 
 function save_state(mdata)
 	mdata.dead_night_task_data = state

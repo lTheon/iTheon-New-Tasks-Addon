@@ -1,4 +1,3 @@
-local nta_utils = new_tasks_addon_tasks_utils
 local tunnel_smart_terrain = "jup_sim_2"
 
 local state = {

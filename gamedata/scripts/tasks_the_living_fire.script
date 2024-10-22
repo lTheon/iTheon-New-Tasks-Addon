@@ -1,4 +1,3 @@
-local nta_utils = new_tasks_addon_tasks_utils
 local configs = a_the_living_fire_configs
 local delayed_message = nta_utils.delayed_message
 

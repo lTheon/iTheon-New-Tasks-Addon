@@ -1,4 +1,3 @@
-local nta_utils = new_tasks_addon_tasks_utils
 local house_smart_name = "lim_smart_terrain_5"
 local bunkers_smart_name = "lim_smart_terrain_4"
 -- This will mark the house, but it's not available when offline
@@ -128,7 +127,7 @@ function spawn(index, spawn_config)
         squad_section = "monolith_defence_squad_alpha"
     end
     last_spawn_point = index
-    local se_id = new_tasks_addon_tasks_utils.spawn_at_position(squad_section, spawn_config.vector, spawn_config.lvid, spawn_config.gvid, true)
+    local se_id = nta_utils.spawn_at_position(squad_section, spawn_config.vector, spawn_config.lvid, spawn_config.gvid, true)
     alife_object(se_id).rush_to_target = true
 end
 

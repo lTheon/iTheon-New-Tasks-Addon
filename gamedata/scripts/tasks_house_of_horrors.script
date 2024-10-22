@@ -1,4 +1,3 @@
-local nta_utils = new_tasks_addon_tasks_utils
 local configs = house_of_horrors_configs
 local outpost_smart_terrain = "mar_smart_terrain_5_12"
 
@@ -63,11 +62,9 @@ function spawn_hanged_man()
 end
 
 function explode_hanged_man()
-    local particles = particles_object("anomaly2\\body_tear_00")
-    local se_obj = alife_object(state.hanged_man_id)
-    particles:play_at_pos(se_obj.position)
-    local tearing_sound = xr_sound.get_safe_sound_object("anomaly\\anomaly_body_tear_1")
-    tearing_sound:play(level.object_by_id(state.hanged_man_id), 0, sound_object.s2d)
+    local pos = alife_object(state.hanged_man_id).position
+    nta_utils.spawn_particles_at_position("anomaly2\\body_tear_00", pos)
+    nta_utils.spawn_sound_at_position("anomaly\\anomaly_body_tear_1", pos)
     safe_release_manager.release({ id = state.hanged_man_id })
 end
 

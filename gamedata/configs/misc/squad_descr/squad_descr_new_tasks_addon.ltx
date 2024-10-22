@@ -57,14 +57,6 @@ target_smart = lim_smart_terrain_4
 npc_in_squad = 2, 2
 common		 = false
 
-;---------- Mirage ----------
-[mirage_squad]:online_offline_group
-faction = monolith
-npc			 = mirage_stalker
-npc_random 	= mirage_stalker
-npc_in_squad = 1, 1
-common			= false
-
 ;---------- Creatures define (hack, but works) ----------
 [baba_yaga_immunities]
 burn_immunity           = 0.0
@@ -148,6 +140,7 @@ sound_throw_grenade					=
 [stalker_trader_controller]:m_controller_normal1111
 visual					= monsters\controller\stalker_trader_controller
 corpse_visual			= monsters\controller\stalker_trader_controller
+custom_data             = scripts\destroy_with_poltergeist_effect.ltx
 
 [big_burer_immunities]
 burn_immunity = 0.0

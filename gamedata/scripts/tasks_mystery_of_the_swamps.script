@@ -1,4 +1,3 @@
-local nta_utils = new_tasks_addon_tasks_utils
 local ti2ta = utils_data.CTime_to_table
 local configs = mystery_of_the_swamps_configs
 
@@ -127,7 +126,6 @@ task_status_functor.mystery_of_the_swamps_task_status_functor = function(tsk,tas
         end
     end
 
-    -- TODO: check if stages are defined correctly
     if stage >= 8 and stage <= 11 then
         if not get_ds_task_status() then
             fail_ds_task_section()
@@ -562,9 +560,7 @@ end
 
 function monster_on_death_callback(monster)
     local id = monster:id()
-    if a_tab_utils.has_value(state.mutant_ids, id) then
-        state.mutant_ids = a_tab_utils.filter(state.mutant_ids, function (el) return el ~= id end)
-    end
+    state.mutant_ids = a_tab_utils.filter(state.mutant_ids, function (el) return el ~= id end)
 end
 
 function npc_on_use(looted_npc, who)

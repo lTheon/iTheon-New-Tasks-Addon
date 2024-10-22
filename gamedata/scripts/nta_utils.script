@@ -1,4 +1,3 @@
--- TODO: rename the file to `nta_utils` - why the fuck did I use so long name for it
 -- Adapted the debugger code
 function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle, is_anomaly, anomaly_radius)
     local se_obj = alife_create(section, position_vector, lvid, gvid)
@@ -130,19 +129,6 @@ function immediate_explosion(actor,obj)
     if (obj) then
         obj:explode(0)
     end
-end
-
--- No invalid range check - expect to receive the right input
-function rand_with_exclusion(min, max, exclude)
-    local t = {}
-    for i = min, max do
-        if i ~= exclude then
-            table.insert(t, i)
-        end
-    end
-
-    local rand_i = math.random(#t)
-    return t[rand_i]
 end
 
 function is_strike(shit)
@@ -404,8 +390,7 @@ function days_passed_from_date(time_table)
 end
 
 function destroy_with_poltergeist_effect(obj, without_sound)
-    local particles = particles_object("monsters\\polter_death_00")
-    particles:play_at_pos(obj:position())
+    spawn_particles_at_position("monsters\\polter_death_00", obj:position())
     if not without_sound then
         local snd = xr_sound.get_safe_sound_object("monsters\\poltergeist\\death_1")
         snd:play(obj, 0, sound_object.s2d)
@@ -414,14 +399,33 @@ function destroy_with_poltergeist_effect(obj, without_sound)
     safe_release_manager.release(alife_object(obj:id()))
 end
 
-function spawn_particles_at_position(particle_path, vec)
+-- Tab holds ref to particles so that they don't despawn quickly (can be omitted if need short particle effect)
+local particle_tab = {}
+function spawn_particles_at_position(particle_path, vec, prevent_persistence)
     local part = particles_object(particle_path)
+    if not prevent_persistence then
+        table.insert(particle_tab, part)
+    end
     part:play_at_pos(vec)
+
+    return part
 end
 
+-- Tab holds ref to sounds so that they don't despawn immediately
+local sound_tab = {}
 function spawn_sound_at_position(sound_path, vec)
     local snd = xr_sound.get_safe_sound_object(sound_path)
+    table.insert(sound_tab, snd)
     snd:play_at_pos(db.actor, vec)
+
+    return snd
+end
+
+function spawn_attached_sound(sound_path)
+    local snd = xr_sound.get_safe_sound_object(sound_path)
+    snd:play(db.actor, 0, sound_object.s2d)
+
+    return snd
 end
 
 levels = {
@@ -476,11 +480,9 @@ function enforce_logic(story_id, script_name, section, reset_target)
     end
 end
 
-local pulse_particles = false
 -- It's fake pulse for now - used for some cool visuals
 function spawn_pulse(pos)
-    pulse_particles = particles_object("generator\\generator_accum_thunderbolt")
-    pulse_particles:play_at_pos(pos)
+    spawn_particles_at_position("generator\\generator_accum_thunderbolt", pos)
 
     local pAno_light = script_light()
     

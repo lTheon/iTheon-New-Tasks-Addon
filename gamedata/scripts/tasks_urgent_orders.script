@@ -1,6 +1,5 @@
 local ti2ta = utils_data.CTime_to_table
 local ta2ti = utils_data.CTime_from_table
-local nta_utils = new_tasks_addon_tasks_utils
 
 local state = {}
 function save_state(mdata)

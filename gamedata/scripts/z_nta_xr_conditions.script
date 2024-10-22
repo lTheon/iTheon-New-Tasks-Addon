@@ -1,0 +1,3 @@
+xr_conditions.nta_is_dead = function(actor, npc, p)
+    return npc and npc.alive and not npc:alive()
+end
