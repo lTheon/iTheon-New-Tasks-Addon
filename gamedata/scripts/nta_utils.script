@@ -518,6 +518,20 @@ function spawn_pulse(pos)
     end, 12)
 end
 
+-- Contains only persistent npcs story ids (i.e. not the ones used for specific task npc that gets released)
+story_ids = {
+    actor = 'actor',
+    -- Cordon
+    sidorovich = 'esc_m_trader',
+    -- Garbage
+    flea_market_trader_day = 'baraholka_trader',
+    -- Bar
+    snitch = 'bar_informator_mlr',
+    barman = 'bar_visitors_barman_stalker_trader',
+    -- Yantar
+    sakharov = 'yan_stalker_sakharov',
+}
+
 local function load_defaults()
 	local t = {}
 	local op = new_tasks_addon_mcm.op
@@ -556,7 +570,7 @@ end
 
 xr_conditions.check_nta_replayability = function(actor, npc, p)
     local task_id = p[1]
-    if not db.actor:has_info(task_id .. '_completed') then
+    if not has_alife_info(task_id .. '_completed') then
         return true
     else
         return mcm_config["repl_" .. task_id]

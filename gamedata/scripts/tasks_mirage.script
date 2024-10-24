@@ -236,6 +236,7 @@ function start_explosions_loop()
 end
 
 function on_death_callback(npc)
+    if not npc then return end
     local id = npc:id()
     state.enemy_ids = a_tab_utils.filter(state.enemy_ids, function (el) return el ~= id end)
 end

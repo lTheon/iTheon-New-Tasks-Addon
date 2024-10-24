@@ -5,5 +5,14 @@
 -- might be risky if binders don't get removed properly
 
 xr_effects.destroy_with_poltergeist_effect = function (actor, npc, p)
+    if not npc then return end
     nta_utils.destroy_with_poltergeist_effect(npc)
+end
+
+xr_effects.destroy_with_explosion = function (actor, npc, p)
+    if not npc then return end
+    local explosion_spawn_config = nta_utils.obj_position_to_spawn_config_partial(npc)
+    explosion_spawn_config.section = 'immediate_fiery_explosion'
+    safe_release_manager.release({ id = npc:id() })
+    nta_utils.spawn_helper(explosion_spawn_config)
 end
