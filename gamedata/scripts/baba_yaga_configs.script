@@ -11,14 +11,17 @@ teleport_to_location = {
 }
 
 karlik_spots = {{
+    section = 'm_karlik_e',
     vector = vector():set(265.7138,-9.1120,-154.1806),
     lvid = 351150,
     gvid = 846
 },{
+    section = 'm_karlik_e',
     vector = vector():set(249.6845,-5.2066,-146.9241),
     lvid = 345584,
     gvid = 846
 },{
+    section = 'm_karlik_e',
     vector = vector():set(240.0387,-2.4944,-124.3965),
     lvid = 342116,
     gvid = 660

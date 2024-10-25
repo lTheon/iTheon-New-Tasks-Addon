@@ -82,7 +82,6 @@ task_status_functor.mystery_of_the_swamps_task_status_functor = function(tsk,tas
 
     if stage == 3 then
         if has_alife_info('yan_stalker_sakharov_mystery_of_the_swamps_3_passed') then
-            -- TODO: make other tasks that utilize companions also use this function
             axr_companions.release_special_squad(get_story_se_object('nta_mots_ecolog_squad_1'))
             tsk.stage = 4
         end

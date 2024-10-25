@@ -23,7 +23,7 @@ task_status_functor.big_game_task_status_functor = function(tsk,task_id)
             nta_utils.actor_on_level(nta_utils.levels.jupiter)
             and db.actor:position():distance_to(SIMBOARD.smarts_by_names[tunnel_smart_terrain].position) < 35
         then
-            spawn_small_giants()
+            nta_utils.mass_spawn_helper(big_game_configs.small_giants_spots, state.small_giants_ids)
             tsk.stage = 1
         end
     end
@@ -38,7 +38,7 @@ task_status_functor.big_game_task_status_functor = function(tsk,task_id)
         end
 
         if not alive then
-            spawn_big_giant()
+            state.big_giant_id = nta_utils.spawn_helper(big_game_configs.big_giant_spot)
             tsk.stage = 2
         end
     end
@@ -49,16 +49,6 @@ task_status_functor.big_game_task_status_functor = function(tsk,task_id)
             tsk.stage = 3
         end
     end
-end
-
-function spawn_small_giants()
-    for _, spawn_config in pairs(big_game_configs.small_giants_spots) do
-        table.insert(state.small_giants_ids, nta_utils.spawn_helper(spawn_config, "gigant_weak"))
-    end
-end
-
-function spawn_big_giant()
-    state.big_giant_id = nta_utils.spawn_helper(big_game_configs.big_giant_spot)
 end
 
 task_functor.big_game_task_target_functor = function(task_id,field,p,tsk)

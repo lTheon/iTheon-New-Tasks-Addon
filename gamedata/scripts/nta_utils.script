@@ -35,10 +35,7 @@ function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle
     return se_obj.id
 end
 
--- TODO: adjust all the spawn configs that also spawn some kind of sound/particles - that'll massively improve readability in some places
--- TODO: remove second param - it's cancer
--- Second param is mainly used for loop spawning to not have same sections defined in configs
-function spawn_helper(spawn_config, section_override)
+function spawn_helper(spawn_config)
     if spawn_config.particles then
         spawn_particles_at_position(spawn_config.particles, spawn_config.vector)
     end
@@ -46,7 +43,7 @@ function spawn_helper(spawn_config, section_override)
         spawn_sound_at_position(spawn_config.sound, spawn_config.vector)
     end
     return spawn_at_position(
-        spawn_config.section or section_override,
+        spawn_config.section,
         spawn_config.vector,
         spawn_config.lvid,
         spawn_config.gvid,
@@ -57,7 +54,6 @@ function spawn_helper(spawn_config, section_override)
     )
 end
 
--- TODO: replace separate functions for spawning in all task files with this thing
 function mass_spawn_helper(spawn_configs, tab_with_ids)
     for _, v in ipairs(spawn_configs) do
         local id = spawn_helper(v)
@@ -86,8 +82,6 @@ function entity_is_dead_with_wait(id, section)
     return entity_is_dead(id, section)
 end
 
--- TODO: Check if some quests could use it for simple timeouts
--- Using this instead would save 3 lines of code each time
 local timeout_helper = 1
 function set_timeout(callback, timeout)
     CreateTimeEvent(0,"nta_delay_till_next_tick" .. timeout_helper, timeout or 0, function ()
@@ -339,7 +333,6 @@ function delayed_message(msg, delay, icon, name, keep_time)
     delayed_message_index = delayed_message_index + 1
 end
 
--- TODO: use this function in TLF - there's too many string literals
 function delayed_message_by_story_id(msg, delay, story_id, keep_time)
     local sender_props = get_sender_props_by_story_id(story_id)
     delayed_message(msg, delay, sender_props.icon, sender_props.name, keep_time)
@@ -358,7 +351,6 @@ function get_sender_props_by_story_id(story_id)
     }
 end
 
--- TODO: check how it works with npcs on different maps
 function entity_in_range(id, dist, vector)
     local v = vector or db.actor:position()
     local se_obj = alife_object(id)
@@ -381,7 +373,6 @@ function seconds_passed_from_date(time_table)
     return seconds
 end
 
--- TODO: Make urgent orders utilize this function
 function days_passed_from_date(time_table)
     local seconds = seconds_passed_from_date(time_table)
     local days = math.floor(((seconds/60)/60)/24)

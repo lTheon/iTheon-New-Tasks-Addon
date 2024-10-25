@@ -1,5 +1,3 @@
--- TODO: move common or miscellaneous effects here if they don't belong to a specific quest
-
 -- TIP: always use safe_release_manager to take care of corpses that do not belong to squads
 -- alife_release tries to remove them through squad function (which ofc fails) and alife():release()
 -- might be risky if binders don't get removed properly
