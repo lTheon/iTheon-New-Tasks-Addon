@@ -1,4 +1,4 @@
-# iTheon's New Tasks Addon v0.3.0
+# iTheon's New Tasks Addon v0.4.0
 
 This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.<br>
 Note: "During the night" refers to 10 PM - 3 AM.<br>
@@ -71,7 +71,10 @@ Contributors:<br>
 El_Rosarino - Spanish translation<br>
 [Thundard](https://github.com/Thundard) - French translation
 
-v.0.3.0
+v0.4.0
+- Address many TODOs and fix softlocks in The Living Fire
+
+v0.3.0
 - Added Mystery of the Swamps questline
 
 v0.2.1
