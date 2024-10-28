@@ -36,7 +36,7 @@ task_status_functor.hold_the_ground_task_status_functor = function(tsk,task_id)
 
 	if (stage == 0) then
         if
-            is_garbage()
+            nta_utils.actor_on_level(nta_utils.levels.garbage)
             and smart
             and db.actor:position():distance_to(smart:position()) < 15
         then
@@ -49,7 +49,7 @@ task_status_functor.hold_the_ground_task_status_functor = function(tsk,task_id)
     end
 
     if (stage == 1) then
-        if not is_garbage() or db.actor:position():distance_to(middle_of_battleground) > 200 then return 'fail' end
+        if not nta_utils.actor_on_level(nta_utils.levels.garbage) or db.actor:position():distance_to(middle_of_battleground) > 200 then return 'fail' end
 
         if state.killed_squads == 10 then
             -- Delay the message to make it more natural
@@ -92,13 +92,9 @@ local last_spawn_point = nil
 xr_effects.on_flea_market_defense_squad_death = function()
     state.killed_squads = state.killed_squads + 1
     if state.killed_squads <= 8 and not state.task_failed then
-        local rand_spawn_point_index = new_tasks_addon_tasks_utils.rand_with_exclusion(1, #spawn_points, last_spawn_point)
+        local rand_spawn_point_index = a_tab_utils.rand_with_exclusion(1, #spawn_points, last_spawn_point)
         spawn(rand_spawn_point_index, spawn_points[rand_spawn_point_index])
     end
-end
-
-function is_garbage()
-    return level.name() == "l02_garbage"
 end
 
 function spawn(index, spawn_config)
@@ -114,7 +110,7 @@ function spawn(index, spawn_config)
         squad_section = "bandit_defence_squad_alpha"
     end
     last_spawn_point = index
-    local se_id = new_tasks_addon_tasks_utils.spawn_at_position(squad_section, spawn_config.vector, spawn_config.lvid, spawn_config.gvid, true)
+    local se_id = nta_utils.spawn_at_position(squad_section, spawn_config.vector, spawn_config.lvid, spawn_config.gvid, true)
     alife_object(se_id).rush_to_target = true
 end
 

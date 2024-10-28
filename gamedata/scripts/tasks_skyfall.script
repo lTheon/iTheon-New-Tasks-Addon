@@ -1,4 +1,3 @@
-local nta_utils = new_tasks_addon_tasks_utils
 local landing_pad_location = {
     vector = vector():set(-177.2140,5.0825,-179.6182),
     lvid = 45538,
@@ -8,14 +7,17 @@ local heli_trigger_radius = 151
 local static_heli_trigger_radius = 61
 
 local barrels = {{
+    section = 'fake_explosive_barrel',
     vector = vector():set(-175.3620,5.3156,-182.4881),
     lvid = 46530,
     gvid = 1037
 }, {
+    section = 'fake_explosive_barrel',
     vector = vector():set(-175.6865,5.3178,-183.3549),
     lvid = 46528,
     gvid = 1037
 }, {
+    section = 'fake_explosive_barrel',
     vector = vector():set(-174.7610,5.3181,-183.0771),
     lvid = 47024,
     gvid = 1037
@@ -28,7 +30,7 @@ local barrels = {{
 local state = {
     dynamic_heli_id = nil,
     static_heli_id = nil,
-    barrels_ids = nil,
+    barrels_ids = {},
 }
 function save_state(mdata)
 	mdata.skyfall_task_data = state
@@ -44,18 +46,18 @@ task_status_functor.skyfall_task_status_functor = function(tsk,task_id)
 	if not (db.actor and tsk) then return end
 	local stage = tsk.stage
 
-    if not level_changing() and not is_agroprom() and (stage == 1 or stage == 2) then 
+    if not level_changing() and not nta_utils.actor_on_level(nta_utils.levels.agroprom) and (stage == 1 or stage == 2) then 
         return "fail"
     end
 
 	if (stage == 0) then
         if
-            is_agroprom()
-            and db.actor:position():distance_to(landing_pad_location.vector) < heli_trigger_radius
+            nta_utils.actor_on_level(nta_utils.levels.agroprom)
+            and nta_utils.actor_in_range(landing_pad_location.vector, heli_trigger_radius)
         then
             if not is_enemies_with_military() then
                 spawn_static_heli()
-                spawn_barrels()
+                nta_utils.mass_spawn_helper(barrels, state.barrels_ids)
                 dynamic_news_helper.send_tip(game.translate_string('skyfall_stealth_message'), game.translate_string("mil_freedom_leader_name"), nil,nil, 'ui_inGame2_lukash', nil, 'npc')
                 tsk.stage = 1
             else
@@ -77,8 +79,8 @@ task_status_functor.skyfall_task_status_functor = function(tsk,task_id)
         if
             state.static_heli_id
             and is_enemies_with_military()
-            and db.actor:position():distance_to(landing_pad_location.vector) > static_heli_trigger_radius
-            and db.actor:position():distance_to(landing_pad_location.vector) < heli_trigger_radius
+            and not nta_utils.actor_in_range(landing_pad_location.vector, static_heli_trigger_radius)
+            and nta_utils.actor_in_range(landing_pad_location.vector, heli_trigger_radius)
         then
             despawn_static_heli_and_barrels()
             spawn_dynamic_heli()
@@ -96,6 +98,7 @@ task_status_functor.skyfall_task_status_functor = function(tsk,task_id)
             if heliObj:GetfHealth() <= 0 then
                 heliObj:Die()
                 heliObj:Explode() -- explode immediately to make sure that it does not stay alive under the map
+                state.dynamic_heli_id = nil
                 tsk.stage = 3
             else
                 set_player_enemy()
@@ -125,15 +128,13 @@ end
 xr_effects.skyfall_cleanup = function()
     if state.dynamic_heli_id then safe_release_manager.release({id = state.dynamic_heli_id}) end
     if state.static_heli_id then safe_release_manager.release({id = state.static_heli_id}) end
-    if state.barrels_ids then
-        for _, id in pairs(state.barrels_ids) do
-            safe_release_manager.release({id = id})
-        end
+    for _, id in pairs(state.barrels_ids) do
+        safe_release_manager.release({id = id})
     end
     state = {
         dynamic_heli_id = nil,
         static_heli_id = nil,
-        barrels_ids = nil,
+        barrels_ids = {},
     }
 end
 
@@ -142,7 +143,9 @@ xr_effects.skyfall_fail_message = function ()
 end
 
 function spawn_static_heli()
-    state.static_heli_id = nta_utils.spawn_helper(landing_pad_location, "new_tasks_addon_heli_strong_static")
+    local static_heli_config = a_tab_utils.shallow_copy(landing_pad_location)
+    static_heli_config.section = 'new_tasks_addon_heli_strong_static'
+    state.static_heli_id = nta_utils.spawn_helper(static_heli_config)
 end
 
 function static_heli_binder(obj)
@@ -155,19 +158,14 @@ function despawn_static_heli_and_barrels()
     for _, id in pairs(state.barrels_ids) do
         safe_release_manager.release({id = id})
     end
+    state.barrels_ids = {}
 end
 
 function blow_static_heli()
     despawn_static_heli_and_barrels()
-    nta_utils.spawn_helper(landing_pad_location, "immediate_explosion_heli")
-end
-
-function spawn_barrels()
-    local t = {}
-    for _, b in pairs(barrels) do
-        table.insert(t, nta_utils.spawn_helper(b, "fake_explosive_barrel"))
-    end
-    state.barrels_ids = t
+    local explosion_config = a_tab_utils.shallow_copy(landing_pad_location)
+    explosion_config.section = 'immediate_explosion_heli'
+    nta_utils.spawn_helper(explosion_config)
 end
 
 function blow_cover()
@@ -184,10 +182,6 @@ function spawn_dynamic_heli()
         landing_pad_location.lvid,
         landing_pad_location.gvid
     )
-end
-
-function is_agroprom()
-    return level.name() == "l03_agroprom"
 end
 
 -- Take goodwill into account as well

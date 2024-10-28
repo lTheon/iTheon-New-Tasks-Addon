@@ -1,4 +1,3 @@
-local nta_utils = new_tasks_addon_tasks_utils
 
 local art_sections = {
     -- T1

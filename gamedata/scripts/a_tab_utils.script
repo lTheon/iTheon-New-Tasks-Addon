@@ -1,4 +1,3 @@
--- TODO: move all table shit here - NTA utils get too big because of random stuff
 function filter(tab, callback)
     local result = {}
 
@@ -36,4 +35,17 @@ function shallow_copy(t)
 		res[k] = v
 	end
 	return res
+end
+
+-- No invalid range check - expect to receive the right input
+function rand_with_exclusion(min, max, exclude)
+    local t = {}
+    for i = min, max do
+        if i ~= exclude then
+            table.insert(t, i)
+        end
+    end
+
+    local rand_i = math.random(#t)
+    return t[rand_i]
 end

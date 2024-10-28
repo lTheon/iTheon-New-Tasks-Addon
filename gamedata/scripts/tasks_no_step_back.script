@@ -35,7 +35,7 @@ task_status_functor.no_step_back_task_status_functor = function(tsk,task_id)
 
 	if (stage == 0) then
         if
-            is_limansk()
+            nta_utils.actor_on_level(nta_utils.levels.limansk)
             and zone
             and db.actor:position():distance_to(zone:position()) < 5
         then
@@ -48,7 +48,7 @@ task_status_functor.no_step_back_task_status_functor = function(tsk,task_id)
     end
 
     if (stage == 1) then
-        if not is_limansk() or db.actor:position():distance_to(middle_of_battleground) > 91 then return 'fail' end
+        if not nta_utils.actor_on_level(nta_utils.levels.limansk) or db.actor:position():distance_to(middle_of_battleground) > 91 then return 'fail' end
 
         if state.killed_squads == 10 then
             -- Delay the message to make it more natural
@@ -67,7 +67,7 @@ task_functor.no_step_back_task_target_functor = function(task_id,field,p,tsk)
     local zone = db.zone_by_name[limansk_house_before_bridge]
 
     if tsk.stage == 0 then
-        if is_limansk() and zone then
+        if nta_utils.actor_on_level(nta_utils.levels.limansk) and zone then
             return zone:id()
         end
     end
@@ -111,10 +111,6 @@ xr_effects.on_no_step_back_squad_death = function()
     end
 end
 
-function is_limansk()
-    return level.name() == "l10_limansk"
-end
-
 function spawn(index, spawn_config)
     local squad_section
     -- Will spawn 5 squads as novice
@@ -131,7 +127,7 @@ function spawn(index, spawn_config)
         squad_section = "monolith_defence_squad_alpha"
     end
     last_spawn_point = index
-    local se_id = new_tasks_addon_tasks_utils.spawn_at_position(squad_section, spawn_config.vector, spawn_config.lvid, spawn_config.gvid, true)
+    local se_id = nta_utils.spawn_at_position(squad_section, spawn_config.vector, spawn_config.lvid, spawn_config.gvid, true)
     alife_object(se_id).rush_to_target = true
 end
 

@@ -45,7 +45,7 @@ end
 -- Chimeras are tougher than I thought and it takes like 20 strokes with an axe to kill the weak one, so the requirement
 -- of using only an axe or being damaged only by the player was dropped
 function monster_on_death(monster, killer)
-    if is_chimera(monster) and (killer and killer:id() == AC_ID) and new_tasks_addon_tasks_utils.is_axe() then
+    if is_chimera(monster) and (killer and killer:id() == AC_ID) and nta_utils.is_axe() then
         state.succeeded = true
     end
 end

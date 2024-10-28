@@ -1,4 +1,3 @@
-local nta_utils = new_tasks_addon_tasks_utils
 local jelly_smart_terrain = "gar_smart_terrain_5_6"
 
 local state = {
@@ -22,14 +21,12 @@ task_status_functor.baba_yaga_task_status_functor = function(tsk,task_id)
 
 	if stage == 0 then
         if
-            is_garbage()
+            nta_utils.actor_on_level(nta_utils.levels.garbage)
             and db.actor:position():distance_to(baba_yaga_configs.art_location.vector) < 25
             and nta_utils.is_dark_night()
         then
-            state.art_id = nta_utils.spawn_helper(
-                baba_yaga_configs.art_location,
-                baba_yaga_configs.art_sections[math.random(#baba_yaga_configs.art_sections)]
-            )
+            baba_yaga_configs.art_location.section = baba_yaga_configs.art_sections[math.random(#baba_yaga_configs.art_sections)]
+            state.art_id = nta_utils.spawn_helper(baba_yaga_configs.art_location)
             tsk.stage = 1
         end
     end
@@ -62,12 +59,8 @@ function spawn()
     state.hag_id = nta_utils.spawn_helper(baba_yaga_configs.hag_spot)
 
     for _, spawn_config in pairs(baba_yaga_configs.karlik_spots) do
-        nta_utils.spawn_helper(spawn_config, "m_karlik_e")
+        nta_utils.spawn_helper(spawn_config)
     end
-end
-
-function is_garbage()
-    return level.name() == "l02_garbage"
 end
 
 task_functor.baba_yaga_task_target_functor = function(task_id,field,p,tsk)

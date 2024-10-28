@@ -49,7 +49,7 @@ end
 
 function monster_on_before_hit(monster,shit)
     if is_bloodsucker(monster) then
-        if shit.draftsman:id() ~= AC_ID or not new_tasks_addon_tasks_utils.is_strike(shit) or new_tasks_addon_tasks_utils.is_axe() then
+        if shit.draftsman:id() ~= AC_ID or not nta_utils.is_strike(shit) or nta_utils.is_axe() then
             state.monster_registry[monster:id()] = true
         end
     end

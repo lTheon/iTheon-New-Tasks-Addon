@@ -339,9 +339,6 @@
 	<string id="bar_informator_mlr_task_the_living_fire_about">
 		<text>You know my friend - knowledge is power... and I'm the one who likes to know a lot and turn that power into something more useful - money. There's one thing that I don't know yet and that would lead to me making some small fortune. There's a rumor going around about a stalker that showed up recently in the Zone who - reportedly - has some kind of power to manipulate the fire. At first I thought it's just a rumour like many that go around, but when some important people started asking me whether I know more, I've realizsed there's something in it. Even Colonel Petrenko has recently dropped by and asked me some questions, as they've found two of their soldiers burnt to crisp at the Truck Cemetery where there was no thermal anomalies. I don't think I have to tell you that saying "I don't know" to most of his questions brought me no money, right? So here's the deal - you find out more about that guy and I pay you some good money. Are you in?\n \nMy friend at the Flea Market reported that there's been some weird stuff happening at the Garbage recently. I'd start my search by talking with him.</text>
 	</string>
-	<string id="bar_informator_mlr_task_the_living_fire_finish">
-		<text>Pleasure doing business with you, partner! Now let me contact all my clients. I'm sure they will gladly pay to find out more about our friend. Drop by some time later. I feel like we've picked up the trail something big and there's more money to be made here.</text>
-	</string>
 	<string id="the_living_fire_prometheus_name">
 		<text>Prometheus</text>
 	</string>

@@ -1,4 +1,3 @@
--- TODO: rename the file to `nta_utils` - why the fuck did I use so long name for it
 -- Adapted the debugger code
 function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle, is_anomaly, anomaly_radius)
     local se_obj = alife_create(section, position_vector, lvid, gvid)
@@ -36,10 +35,7 @@ function spawn_at_position(section, position_vector, lvid, gvid, is_squad, angle
     return se_obj.id
 end
 
--- TODO: adjust all the spawn configs that also spawn some kind of sound/particles - that'll massively improve readability in some places
--- TODO: remove second param - it's cancer
--- Second param is mainly used for loop spawning to not have same sections defined in configs
-function spawn_helper(spawn_config, section_override)
+function spawn_helper(spawn_config)
     if spawn_config.particles then
         spawn_particles_at_position(spawn_config.particles, spawn_config.vector)
     end
@@ -47,7 +43,7 @@ function spawn_helper(spawn_config, section_override)
         spawn_sound_at_position(spawn_config.sound, spawn_config.vector)
     end
     return spawn_at_position(
-        spawn_config.section or section_override,
+        spawn_config.section,
         spawn_config.vector,
         spawn_config.lvid,
         spawn_config.gvid,
@@ -58,7 +54,6 @@ function spawn_helper(spawn_config, section_override)
     )
 end
 
--- TODO: replace separate functions for spawning in all task files with this thing
 function mass_spawn_helper(spawn_configs, tab_with_ids)
     for _, v in ipairs(spawn_configs) do
         local id = spawn_helper(v)
@@ -87,8 +82,6 @@ function entity_is_dead_with_wait(id, section)
     return entity_is_dead(id, section)
 end
 
--- TODO: Check if some quests could use it for simple timeouts
--- Using this instead would save 3 lines of code each time
 local timeout_helper = 1
 function set_timeout(callback, timeout)
     CreateTimeEvent(0,"nta_delay_till_next_tick" .. timeout_helper, timeout or 0, function ()
@@ -130,48 +123,6 @@ function immediate_explosion(actor,obj)
     if (obj) then
         obj:explode(0)
     end
-end
-
-function noop() end
-
-function find_index(tab, val)
-    for index, value in ipairs(tab) do
-        if value == val then
-            return index
-        end
-    end
-    return -1
-end
-
-function has_value(tab, val)
-    for index, value in ipairs(tab) do
-        if value == val then
-            return true
-        end
-    end
-
-    return false
-end
-
-function shallow_copy(t)
-	local res = {}
-	for k,v in pairs(t) do
-		res[k] = v
-	end
-	return res
-end
-
--- No invalid range check - expect to receive the right input
-function rand_with_exclusion(min, max, exclude)
-    local t = {}
-    for i = min, max do
-        if i ~= exclude then
-            table.insert(t, i)
-        end
-    end
-
-    local rand_i = math.random(#t)
-    return t[rand_i]
 end
 
 function is_strike(shit)
@@ -291,7 +242,7 @@ function find_random_stalker(factions, maps)
                 local level = get_object_level_id(se_obj)
 
                 if
-                    (not maps or has_value(maps, level))
+                    (not maps or a_tab_utils.has_value(maps, level))
                     and IsStalker(nil,se_obj:clsid()) and se_obj:alive() and alife_character_community(se_obj) == faction
                 then
                     return {
@@ -382,7 +333,6 @@ function delayed_message(msg, delay, icon, name, keep_time)
     delayed_message_index = delayed_message_index + 1
 end
 
--- TODO: use this function in TLF - there's too many string literals
 function delayed_message_by_story_id(msg, delay, story_id, keep_time)
     local sender_props = get_sender_props_by_story_id(story_id)
     delayed_message(msg, delay, sender_props.icon, sender_props.name, keep_time)
@@ -401,7 +351,6 @@ function get_sender_props_by_story_id(story_id)
     }
 end
 
--- TODO: check how it works with npcs on different maps
 function entity_in_range(id, dist, vector)
     local v = vector or db.actor:position()
     local se_obj = alife_object(id)
@@ -424,7 +373,6 @@ function seconds_passed_from_date(time_table)
     return seconds
 end
 
--- TODO: Make urgent orders utilize this function
 function days_passed_from_date(time_table)
     local seconds = seconds_passed_from_date(time_table)
     local days = math.floor(((seconds/60)/60)/24)
@@ -432,10 +380,8 @@ function days_passed_from_date(time_table)
     return days
 end
 
--- TODO: use it in HoH for doors (direct call) and zombie (can be done through `on_death` beh)
 function destroy_with_poltergeist_effect(obj, without_sound)
-    local particles = particles_object("monsters\\polter_death_00")
-    particles:play_at_pos(obj:position())
+    spawn_particles_at_position("monsters\\polter_death_00", obj:position())
     if not without_sound then
         local snd = xr_sound.get_safe_sound_object("monsters\\poltergeist\\death_1")
         snd:play(obj, 0, sound_object.s2d)
@@ -444,14 +390,33 @@ function destroy_with_poltergeist_effect(obj, without_sound)
     safe_release_manager.release(alife_object(obj:id()))
 end
 
-function spawn_particles_at_position(particle_path, vec)
+-- Tab holds ref to particles so that they don't despawn quickly (can be omitted if need short particle effect)
+local particle_tab = {}
+function spawn_particles_at_position(particle_path, vec, prevent_persistence)
     local part = particles_object(particle_path)
+    if not prevent_persistence then
+        table.insert(particle_tab, part)
+    end
     part:play_at_pos(vec)
+
+    return part
 end
 
+-- Tab holds ref to sounds so that they don't despawn immediately
+local sound_tab = {}
 function spawn_sound_at_position(sound_path, vec)
     local snd = xr_sound.get_safe_sound_object(sound_path)
+    table.insert(sound_tab, snd)
     snd:play_at_pos(db.actor, vec)
+
+    return snd
+end
+
+function spawn_attached_sound(sound_path)
+    local snd = xr_sound.get_safe_sound_object(sound_path)
+    snd:play(db.actor, 0, sound_object.s2d)
+
+    return snd
 end
 
 levels = {
@@ -471,9 +436,12 @@ levels = {
     x18 = 'l04u_labx18',
     red_forest = 'l10_red_forest',
     outskirts = 'pripyat',
-    jupiter = 'jupiter'
+    jupiter = 'jupiter',
+    zaton = 'zaton',
+    limansk = 'l10_limansk',
+    bar = 'l05_bar'
 }
--- TODO: Remove separate functions from task files and use this one instead
+
 function actor_on_level(lvl)
     return level.name() == lvl
 end
@@ -503,11 +471,9 @@ function enforce_logic(story_id, script_name, section, reset_target)
     end
 end
 
-local pulse_particles = false
 -- It's fake pulse for now - used for some cool visuals
 function spawn_pulse(pos)
-    pulse_particles = particles_object("generator\\generator_accum_thunderbolt")
-    pulse_particles:play_at_pos(pos)
+    spawn_particles_at_position("generator\\generator_accum_thunderbolt", pos)
 
     local pAno_light = script_light()
     
@@ -542,6 +508,20 @@ function spawn_pulse(pos)
         pAno_light.enabled = false
     end, 12)
 end
+
+-- Contains only persistent npcs story ids (i.e. not the ones used for specific task npc that gets released)
+story_ids = {
+    actor = 'actor',
+    -- Cordon
+    sidorovich = 'esc_m_trader',
+    -- Garbage
+    flea_market_trader_day = 'baraholka_trader',
+    -- Bar
+    snitch = 'bar_informator_mlr',
+    barman = 'bar_visitors_barman_stalker_trader',
+    -- Yantar
+    sakharov = 'yan_stalker_sakharov',
+}
 
 local function load_defaults()
 	local t = {}
@@ -581,7 +561,7 @@ end
 
 xr_conditions.check_nta_replayability = function(actor, npc, p)
     local task_id = p[1]
-    if not db.actor:has_info(task_id .. '_completed') then
+    if not has_alife_info(task_id .. '_completed') then
         return true
     else
         return mcm_config["repl_" .. task_id]
