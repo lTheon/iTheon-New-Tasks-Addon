@@ -51,7 +51,7 @@ task_status_functor.house_of_horrors_task_status_functor = function(tsk,task_id)
 
     if stage == 2 then
         if not alife_object(state.zombie_id) then
-            nta_utils.destroy_with_poltergeist_effect(state.board_id, true)
+            nta_utils.destroy_with_poltergeist_effect(level.object_by_id(state.board_id), true)
             tsk.stage = 3
         end
     end
