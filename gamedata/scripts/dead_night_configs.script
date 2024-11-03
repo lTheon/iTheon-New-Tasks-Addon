@@ -6,6 +6,8 @@ function rand_section()
     return zombie_sections[math.random(1, #zombie_sections)]
 end
 
+spawn_trigger = vector():set(-226.5967,4.5275,-317.1637)
+
 spawn_configs = {{
     vector = vector():set(-247.1113,2.8423,-346.4324),
     lvid = 123926,

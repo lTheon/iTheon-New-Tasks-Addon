@@ -676,7 +676,6 @@ end
 
 local hit_already = false
 function npc_on_before_hit(npc,shit,bone_id)
-    -- TODO: Add Prometheus to invulnerable npcs array in GBO once it's available
     if npc:id() == get_story_object_id(prometheus_sid) then
         shit.power = 0
         npc:set_health_ex(1)
