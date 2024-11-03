@@ -16,5 +16,12 @@ function remove_lost_soul_from_random_art_spawn()
     end
 end
 
+function make_prometheus_immortal_in_gamma()
+    if grok_bo and grok_bo.invincible_npcs_sections then
+        grok_bo.invincible_npcs_sections['the_living_fire_prometheus'] = true
+    end
+end
+
 remove_prometheus_from_random_art_spawn()
 remove_lost_soul_from_random_art_spawn()
+make_prometheus_immortal_in_gamma()

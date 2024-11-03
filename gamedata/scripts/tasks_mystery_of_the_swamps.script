@@ -525,6 +525,7 @@ function on_game_start()
 	RegisterScriptCallback("load_state", load_state)
 	RegisterScriptCallback("actor_on_first_update", actor_on_first_update)
     RegisterScriptCallback("monster_on_death_callback", monster_on_death_callback)
+    RegisterScriptCallback("monster_on_before_hit", monster_on_before_hit)
     RegisterScriptCallback("npc_on_use",npc_on_use)
 end
 
@@ -570,5 +571,12 @@ function npc_on_use(looted_npc, who)
 
     if looted_npc:id() == get_story_object_id('nta_mots_dead_ecolog_2') and who:id() == AC_ID then
         give_info('nta_mots_dead_ecolog_2_looted')
+    end
+end
+
+function monster_on_before_hit(obj, shit, bi, flags)
+    if not obj then return end
+    if obj:section() == 'baba_yaga_controller' then
+        nta_utils.play_burer_particles_on_hit_position(obj, bi)
     end
 end
