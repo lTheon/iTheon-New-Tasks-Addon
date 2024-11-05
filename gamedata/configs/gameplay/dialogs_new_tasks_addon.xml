@@ -707,6 +707,7 @@
 	<dialog id="bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1">
         <has_info>task_mystery_of_the_swamps_available</has_info>
 		<dont_has_info>bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_passed</dont_has_info>
+		<dont_has_info>yan_stalker_sakharov_mystery_of_the_swamps_1_passed</dont_has_info>
 		<phrase_list>
 			<phrase id="0">
 				<text>bar_visitors_barman_stalker_trader_mystery_of_the_swamps_1_0</text>

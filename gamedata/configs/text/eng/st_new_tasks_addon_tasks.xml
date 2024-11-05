@@ -329,6 +329,19 @@
 		<text>You've done a good thing today, stalker. Our friend has already left the Zone, but I'll make sure that this package gets to him.</text>
 	</string>
 
+	<string id="jup_a6_freedom_leader_task_freedom_intel_documents_name">
+		<text>Freedom Intel Documents</text>
+	</string>
+	<string id="jup_a6_freedom_leader_task_freedom_intel_documents_text">
+		<text>Loki has asked me to retrieve the intel documents hidden by one of their scouting parties.</text>
+	</string>
+	<string id="jup_a6_freedom_leader_task_freedom_intel_documents_about">
+		<text>As you might know, we're Freedom's northernmost outpost in the Zone. This comes with a big inconvenience of common clashes with Monolith and Sin. We've got several scouting parties out there to make our lives easier by gathering intel on enemy movements and ambushing smaller squads.\n \nOne of those parties has went missing recently, but they had a stash where they were storing their loot. This stash should also contain the data they were supposed to deliver. The job's simple - I need those documents. You can keep whatever else there is in that stash.</text>
+	</string>
+	<string id="jup_a6_freedom_leader_task_freedom_intel_documents_finish">
+		<text>Good lad. Here's your reward.</text>
+	</string>
+
 	<!-- The Living Fire -->
 	<string id="bar_informator_mlr_task_the_living_fire_name">
 		<text>The Living Fire</text>
@@ -557,5 +570,12 @@
 
 	<string id="nta_intercept_item">
 		<text>Intercept an item:</text>
+	</string>
+
+	<string id="nta_quest_documents_name">
+		<text>Encrypted Documents</text>
+	</string>
+	<string id="nta_quest_documents_desc">
+		<text>Heavily encrypted documents impossible to crack without the right cipher.</text>
 	</string>
 </string_table>
