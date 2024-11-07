@@ -330,6 +330,48 @@ on_init = %+jup_a6_freedom_leader_task_freedom_intel_documents_started =spawn_st
 on_complete = %=complete_task_inc_goodwill(100:freedom) =reward_random_money(15000:18000) -jup_a6_freedom_leader_task_freedom_intel_documents_started +jup_a6_freedom_leader_task_freedom_intel_documents_completed =nta_stash_task_completed(jup_a6_freedom_leader_task_freedom_intel_documents:nta_quest_documents) =nta_stash_task_cleanup(jup_a6_freedom_leader_task_freedom_intel_documents)%
 on_fail = %=fail_task_dec_goodwill(75:freedom) -jup_a6_freedom_leader_task_freedom_intel_documents_started =nta_stash_task_cleanup(jup_a6_freedom_leader_task_freedom_intel_documents)%
 
+[guid_zan_stalker_locman_task_pilots_pda]
+icon = ui_icon_news_trx_common
+storyline = false
+repeat_timeout = 73200
+
+title = guid_zan_stalker_locman_task_pilots_pda_name
+descr = guid_zan_stalker_locman_task_pilots_pda_text
+job_descr = guid_zan_stalker_locman_task_pilots_pda_about
+task_complete_descr = guid_zan_stalker_locman_task_pilots_pda_finish
+precondition = {-guid_zan_stalker_locman_task_pilots_pda_started =check_nta_replayability(guid_zan_stalker_locman_task_pilots_pda)} true, false
+condlist_0 = {!task_giver_alive(guid_zan_stalker_locman_task_pilots_pda)} fail
+
+stage_complete = 1
+target_functor = nta_stash_task_target_functor
+status_functor = nta_stash_task_status_functor
+
+on_job_descr = %=dispatch_nta_stash_task_details(guid_zan_stalker_locman_task_pilots_pda:nta_quest_pda:l12u_sarcofag)%
+on_init = %+guid_zan_stalker_locman_task_pilots_pda_started =spawn_stash_and_quest_item(guid_zan_stalker_locman_task_pilots_pda:nta_quest_pda)%
+on_complete = %=complete_task_inc_goodwill(125:stalker) =reward_random_money(22000:25000) -guid_zan_stalker_locman_task_pilots_pda_started +guid_zan_stalker_locman_task_pilots_pda_completed =nta_stash_task_completed(guid_zan_stalker_locman_task_pilots_pda:nta_quest_pda) =nta_stash_task_cleanup(guid_zan_stalker_locman_task_pilots_pda)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) -guid_zan_stalker_locman_task_pilots_pda_started =nta_stash_task_cleanup(guid_zan_stalker_locman_task_pilots_pda)%
+
+[merc_pri_grifon_mlr_task_monolith_plans]
+icon = ui_iconsTotal_bar_darklab_documents
+storyline = false
+repeat_timeout = 73200
+
+title = merc_pri_grifon_mlr_task_monolith_plans_name
+descr = merc_pri_grifon_mlr_task_monolith_plans_text
+job_descr = merc_pri_grifon_mlr_task_monolith_plans_about
+task_complete_descr = merc_pri_grifon_mlr_task_monolith_plans_finish
+precondition = {-merc_pri_grifon_mlr_task_monolith_plans_started =check_nta_replayability(merc_pri_grifon_mlr_task_monolith_plans)} true, false
+condlist_0 = {!task_giver_alive(merc_pri_grifon_mlr_task_monolith_plans)} fail
+
+stage_complete = 1
+target_functor = nta_stash_task_target_functor
+status_functor = nta_stash_task_status_functor
+
+on_job_descr = %=dispatch_nta_stash_task_details(merc_pri_grifon_mlr_task_monolith_plans:nta_quest_documents:l11_pripyat:l11_hospital)%
+on_init = %+merc_pri_grifon_mlr_task_monolith_plans_started =spawn_stash_and_quest_item(merc_pri_grifon_mlr_task_monolith_plans:nta_quest_documents)%
+on_complete = %=complete_task_inc_goodwill(100:killer) =reward_random_money(15000:18000) -merc_pri_grifon_mlr_task_monolith_plans_started +merc_pri_grifon_mlr_task_monolith_plans_completed =nta_stash_task_completed(merc_pri_grifon_mlr_task_monolith_plans:nta_quest_documents) =nta_stash_task_cleanup(merc_pri_grifon_mlr_task_monolith_plans)%
+on_fail = %=fail_task_dec_goodwill(75:killer) -merc_pri_grifon_mlr_task_monolith_plans_started =nta_stash_task_cleanup(merc_pri_grifon_mlr_task_monolith_plans)%
+
 ;------------------ The Living Fire ------------------
 [bar_informator_mlr_task_the_living_fire]
 icon = ui_new_tasks_addon_prometheus

@@ -78,7 +78,8 @@ xr_effects.dispatch_nta_stash_task_details = function(actor, npc, p)
     CreateTimeEvent(0,"nta_stash_task_details",0, function ()
         local news_caption = game.translate_string(task_manager.task_ini:r_string_ex(task_id, "title")) or "error"
 
-        local news_text = game.translate_string("st_location") .. " " .. game.translate_string(rolled_map[task_id])
+        local news_text = game.translate_string("nta_search_the_stash") .. "\\n "
+            .. game.translate_string("st_location") .. " " .. game.translate_string(rolled_map[task_id])
         local news_ico = task_manager.task_ini:r_string_ex(task_id, "icon")
 
         db.actor:give_talk_message2(news_caption, news_text, news_ico, "iconed_answer_item")

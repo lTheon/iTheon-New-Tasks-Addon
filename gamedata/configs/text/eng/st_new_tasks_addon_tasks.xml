@@ -342,6 +342,32 @@
 		<text>Good lad. Here's your reward.</text>
 	</string>
 
+	<string id="guid_zan_stalker_locman_task_pilots_pda_name">
+		<text>Pilot's PDA</text>
+	</string>
+	<string id="guid_zan_stalker_locman_task_pilots_pda_text">
+		<text>Pilot has lost his PDA when he was ambushed when guiding another stalker up north. He asked me to retrieve it.</text>
+	</string>
+	<string id="guid_zan_stalker_locman_task_pilots_pda_about">
+		<text>Are you up for some deadly adventure, stalker? I've got a mission that's trivial yet very dangerous at the same time.\n \nI won't get too deep into details, but my client and I have been ambushed by Monolith some time ago when I was trying to guide him up north. We've made it out alive, but I've lost my PDA in the heat of battle. It holds quite a lot of secrets - I want it back. I always have my GPS turned on and Beard has helped me locate its last position before the battery went dead.\n \nGood news - PDA was not moving for some long time, so I'm pretty sure it got stashed somewhere. Bad news - it's somewhere in the Sarcophagus. So... what do you say?</text>
+	</string>
+	<string id="guid_zan_stalker_locman_task_pilots_pda_finish">
+		<text>Now that's some impressive feat. Didn't you consider becoming a guide yourself? Seems like you know how to get out of the harm's way.</text>
+	</string>
+
+	<string id="merc_pri_grifon_mlr_task_monolith_plans_name">
+		<text>Monolith Plans</text>
+	</string>
+	<string id="merc_pri_grifon_mlr_task_monolith_plans_text">
+		<text>Griffin's men have extracted info about stash belonging to high-in-command Monolith member that reportedly contains some assault plans. I need to bring them back to him.</text>
+	</string>
+	<string id="merc_pri_grifon_mlr_task_monolith_plans_about">
+		<text>Yeah - I've got something for you. We've recently clashed with Monolith scouting party and we've managed to capture one of them alive. It turned out that they've been surveying the area to finish their preparation of assault plans. The survivor knew the location of his leader's stash that contains those plans. I need you to bring me back those plans. You can keep whatever else you find.</text>
+	</string>
+	<string id="merc_pri_grifon_mlr_task_monolith_plans_finish">
+		<text>Good job. Those fanatics won't get rid of us so easily.</text>
+	</string>
+
 	<!-- The Living Fire -->
 	<string id="bar_informator_mlr_task_the_living_fire_name">
 		<text>The Living Fire</text>
@@ -570,6 +596,9 @@
 
 	<string id="nta_intercept_item">
 		<text>Intercept an item:</text>
+	</string>
+	<string id="nta_search_the_stash">
+		<text>Search the Stash</text>
 	</string>
 
 	<string id="nta_quest_documents_name">

@@ -15,6 +15,8 @@ config = {
         trader_pri_a15_mlr_task_blood_stained_coin = false,
         jup_a6_stalker_barmen_task_the_keepsake = false,
         jup_a6_freedom_leader_task_freedom_intel_documents = true,
+        guid_zan_stalker_locman_task_pilots_pda = false,
+        merc_pri_grifon_mlr_task_monolith_plans = true,
 
         simulation_task_gambling_with_life = true,
         simulation_task_vengence_amplified = true,
@@ -47,6 +49,8 @@ op = {
         replayability_options_factory("trader_pri_a15_mlr_task_blood_stained_coin"),
         replayability_options_factory("jup_a6_stalker_barmen_task_the_keepsake"),
         replayability_options_factory("jup_a6_freedom_leader_task_freedom_intel_documents"),
+        replayability_options_factory("guid_zan_stalker_locman_task_pilots_pda"),
+        replayability_options_factory("merc_pri_grifon_mlr_task_monolith_plans"),
 
         replayability_options_factory("simulation_task_gambling_with_life"),
         replayability_options_factory("simulation_task_vengence_amplified"),
