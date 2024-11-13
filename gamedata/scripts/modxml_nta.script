@@ -1,6 +1,7 @@
 local npcs_requiring_task_dialog = {
 	character_desc_pripyat = {"trader_pri_a15_mlr"},
-	character_desc_jupiter = {"jup_a6_stalker_barmen"},
+	character_desc_jupiter = {"jup_a6_stalker_barmen", "jup_a6_freedom_leader"},
+	character_desc_zaton = {"guid_zan_stalker_locman"},
 	character_desc_bar = {"bar_informator_mlr"},
 }
 

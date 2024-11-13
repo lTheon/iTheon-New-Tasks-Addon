@@ -390,6 +390,19 @@ function destroy_with_poltergeist_effect(obj, without_sound)
     safe_release_manager.release(alife_object(obj:id()))
 end
 
+function play_burer_particles_on_hit_position(npc, bone_index)
+    if not (npc and bone_index) then
+        return
+    end
+    
+    local b_name = npc:bone_name(bone_index)
+    local pos = npc:bone_position(b_name)
+
+    nta_utils.spawn_particles_at_position([[monsters\effects\bloodsucker_trail]], pos)
+    nta_utils.spawn_particles_at_position([[monsters\effects\polter_trails_02]], pos)
+    nta_utils.spawn_particles_at_position([[anomaly2\effects\bloodsucker_shleyf]], pos)
+end
+
 -- Tab holds ref to particles so that they don't despawn quickly (can be omitted if need short particle effect)
 local particle_tab = {}
 function spawn_particles_at_position(particle_path, vec, prevent_persistence)
@@ -432,14 +445,27 @@ levels = {
 	yantar = "l08_yantar",
 	dead_city = "l09_deadcity",
     meadow = "y04_pole",
+    x8 = 'labx8',
     x16 = 'l08u_brainlab',
     x18 = 'l04u_labx18',
+    x19 = 'l10u_bunker',
     red_forest = 'l10_red_forest',
     outskirts = 'pripyat',
     jupiter = 'jupiter',
+    jupiter_underground = 'jupiter_underground',
     zaton = 'zaton',
     limansk = 'l10_limansk',
-    bar = 'l05_bar'
+    bar = 'l05_bar',
+    agroprom_underground = 'l03u_agr_underground',
+    radar = 'l10_radar',
+    hospital = 'l11_hospital',
+    pripyat = 'l11_pripyat',
+    cnpp_south = 'l12_stancia',
+    cnpp_north = 'l12_stancia_2',
+    monolith_control_bunker = 'l12u_control_monolith',
+    sarcophagus = 'l12u_sarcofag',
+    generators = 'l13_generators',
+    warlab = 'l13u_warlab',
 }
 
 function actor_on_level(lvl)

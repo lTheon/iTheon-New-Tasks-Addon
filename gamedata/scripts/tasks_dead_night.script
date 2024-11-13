@@ -14,7 +14,6 @@ function load_state(mdata)
 	end
 end
 
--- TODO: did some cleanup, but should probably rewrite this task from the scratch
 task_status_functor.dead_night_task_status_functor = function(tsk,task_id)
 	if not (db.actor and tsk) then return end
 	local stage = tsk.stage
@@ -22,19 +21,23 @@ task_status_functor.dead_night_task_status_functor = function(tsk,task_id)
 	if (stage == 0) then
         if
             nta_utils.actor_on_level(nta_utils.levels.darkscape)
-            and nta_utils.actor_in_range(vector():set(-226.5967,4.5275,-317.1637), 15)
             and nta_utils.is_dark_night()
         then
-            spawn()
-            level.add_pp_effector ("fade_in.ppe", 200, false)
-            tsk.stage = 1
+            
+            if nta_utils.actor_in_range(dead_night_configs.spawn_trigger, 12) then 
+                spawn()
+                level.add_pp_effector ("fade_in.ppe", 200, false)
+                tsk.stage = 1
+            else
+                spawn_sound()
+            end
         end
     end
 
     if (stage == 1) then
         if not nta_utils.actor_on_level(nta_utils.levels.darkscape) then return 'fail' end
 
-        if all_dead() then
+        if #state == 0 then
             tsk.stage = 2
         end
     end
@@ -47,20 +50,14 @@ function spawn()
     end
 end
 
-function all_dead()
-    local some_lives = false
-
-    for _, id in pairs(state) do
-        local obj = alife():object(id)
-
-        if obj then
-            if obj:alive() then
-                some_lives = true
-            end
-        end
+local iterations = 0
+function spawn_sound()
+    iterations = iterations + 1
+    printf(iterations)
+    if math.fmod(iterations, 10) == 0 then
+        nta_utils.spawn_sound_at_position([[new_tasks_addon\scream_1_shrike]], dead_night_configs.spawn_trigger)
+        iterations = 0
     end
-
-    return not some_lives
 end
 
 task_functor.dead_night_task_target_functor = function(task_id,field,p,tsk)
@@ -84,4 +81,11 @@ end
 function on_game_start()
 	RegisterScriptCallback("save_state",save_state)
 	RegisterScriptCallback("load_state",load_state)
+    RegisterScriptCallback("monster_on_death_callback", monster_on_death_callback)
+end
+
+function monster_on_death_callback(monster)
+    if not monster then return end
+    local id = monster:id()
+    state = a_tab_utils.filter(state, function (el) return el ~= id end)
 end

@@ -61,6 +61,15 @@
 	<string id="ui_mcm_new_tasks_addon_repl_jup_a6_stalker_barmen_task_the_keepsake">
 		<text>The Keepsake</text>
 	</string>
+	<string id="ui_mcm_new_tasks_addon_repl_jup_a6_freedom_leader_task_freedom_intel_documents">
+		<text>Freedom Intel Documents</text>
+	</string>
+	<string id="ui_mcm_new_tasks_addon_repl_guid_zan_stalker_locman_task_pilots_pda">
+		<text>Pilot's PDA</text>
+	</string>
+	<string id="ui_mcm_new_tasks_addon_repl_merc_pri_grifon_mlr_task_monolith_plans">
+		<text>Monolith Plans</text>
+	</string>
 
 	<string id="ui_mcm_new_tasks_addon_auto_assignment_title">
 		<text>Tasks auto-assignment</text>
