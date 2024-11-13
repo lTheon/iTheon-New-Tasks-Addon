@@ -1,4 +1,4 @@
-# iTheon's New Tasks Addon v0.4.0
+# iTheon's New Tasks Addon v0.4.1
 
 This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.<br>
 Note: "During the night" refers to 10 PM - 3 AM.<br>
@@ -57,6 +57,15 @@ Cashier:
 
 Hawaiian:
 - The Keepsake - a stalker has lost his actual brother during their last northern contract before leaving the Zone for good. He wants the contract target back as a memento
+
+Pilot:
+- Pilot's PDA - search a stash containing Pilot's PDA in Sarcophagus
+
+Griffin:
+- Monolith Plans - search a stash containing Monolith battle plans (limited to norther maps)
+
+Loki:
+- Freedom Intel Documents - retrieve the intel documents hidden by one of the Freedom's scouting parties (limited to northern maps) 
  
 **From random NPCs:**
 
@@ -70,6 +79,12 @@ Contributors:<br>
 [JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
 El_Rosarino - Spanish translation<br>
 [Thundard](https://github.com/Thundard) - French translation
+
+v0.4.1
+- Add invincibility particles to MoTS Baba Yaga
+- Add sound hint to Dead Night. Slightly reduce script firing radius to prevent insta-swarm by enemies
+- Fix MoTS Barman dialog logic. Create stash task framework.
+- Added new stash tasks for Loki, Pilot and Griffin
 
 v0.4.0
 - Address many TODOs and fix softlocks in The Living Fire
