@@ -193,7 +193,7 @@ southern_maps = {
     "y04_pole",
 }
 
-nothern_maps = {
+northern_maps = {
     "l10_red_forest",
 	"jupiter",
 	"pripyat",
