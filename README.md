@@ -1,4 +1,4 @@
-# iTheon's New Tasks Addon v0.4.1a
+# iTheon's New Tasks Addon v0.4.1b
 
 This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.<br>
 Note: "During the night" refers to 10 PM - 3 AM.<br>
@@ -79,6 +79,9 @@ Contributors:<br>
 [JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
 El_Rosarino - Spanish translation<br>
 [Thundard](https://github.com/Thundard) - French translation
+
+v0.4.1b
+- Fixed new stash tasks crashing the game for new game
 
 v0.4.1a
 - Fixed a typo in utils that caused northern map restrictors for intercept task to be omitted 
