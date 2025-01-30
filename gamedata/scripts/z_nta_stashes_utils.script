@@ -1,25 +1,7 @@
 
 stashes_by_level = {}
-stashes_loaded_from_data = false
 
-function get_random_stash()
-
-end
-
-
-function save_state(data)
-    data.nta_stashes_by_levels = stashes_by_level
-end
-
-function load_state(data)
-    if data.nta_stashes_by_levels then
-        stashes_by_level = data.nta_stashes_by_levels
-        stashes_loaded_from_data = true
-    end
-end
-
-function actor_on_first_update()
-    if stashes_loaded_from_data then return end
+function on_game_load()
     populate_stashes_by_levels_table()
 end
 
@@ -40,7 +22,5 @@ function populate_stashes_by_levels_table()
 end
 
 function on_game_start()
-	RegisterScriptCallback("save_state",save_state)
-	RegisterScriptCallback("load_state",load_state)
-    RegisterScriptCallback("actor_on_first_update",actor_on_first_update)
+    RegisterScriptCallback("on_game_load", on_game_load)
 end
