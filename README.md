@@ -1,4 +1,4 @@
-# iTheon's New Tasks Addon v0.4.1c
+# iTheon's New Tasks Addon v0.4.1d
 
 This mod adds several new repeatable quests to Stalker Anomaly that bring some fresh air to the vanilla set of quests that are very similar to each other.<br>
 Note: "During the night" refers to 10 PM - 3 AM.<br>
@@ -78,7 +78,11 @@ Bandits:
 Contributors:<br>
 [JohnMcClane161](https://github.com/JohnMcClane161) - Russian translation and typos fix<br>
 El_Rosarino - Spanish translation<br>
-[Thundard](https://github.com/Thundard) - French translation
+[Thundard](https://github.com/Thundard) - French translation<br>
+[stefandd](https://github.com/stefandd) - Debugged and fixed Loki's quest
+
+v0.4.1d
+- Fixed Loki's stash quest crash when CNPP was selected as target location
 
 v0.4.1c
 - Fixed the incorrect texture file width
