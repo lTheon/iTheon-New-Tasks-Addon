@@ -101,10 +101,15 @@ end
 
 xr_effects.intercept_artifact_cleanup = function(actor, npc, p)
     local task_id = p[1]
+    local sq = state[task_id] and state[task_id].squad_id
+    if sq and sim_offline_combat and sim_offline_combat.task_squads then
+        sim_offline_combat.task_squads[sq] = nil
+    end
     state[task_id] = {
         artifact_id = nil,
         artifact_section = nil,
         stalker_id = nil,
+        squad_id = nil,
     }
 end
 
@@ -165,9 +170,19 @@ xr_effects.spawn_intercept_artifact_artifact = function(actor, npc, p)
     if not state[task_id] then
         state[task_id] = {}
     end
-    state[task_id].artifact_id = alife_create_item(section, alife_object(target[task_id].id)).id
+    local se_target = alife_object(target[task_id].id)
+    if not se_target then return end
+    local item = alife_create_item(section, se_target)
+    if not item then return end
+    state[task_id].artifact_id = item.id
     state[task_id].artifact_section = section
     state[task_id].stalker_id = target[task_id].id
+    -- Exclude target squad from offline combat sim and despawn-capable mods.
+    -- src: sim_offline_combat.script:53,133,199; 0xffff = no group (xrServer_Objects_ALife_Monsters.h:261)
+    if se_target.group_id and se_target.group_id ~= 65535 and sim_offline_combat then
+        state[task_id].squad_id = se_target.group_id
+        sim_offline_combat.task_squads[se_target.group_id] = true
+    end
 end
 
 function on_game_start()
